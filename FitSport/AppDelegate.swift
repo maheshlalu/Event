@@ -10,16 +10,57 @@ import UIKit
 import CoreData
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,SWRevealViewControllerDelegate {
 
     var window: UIWindow?
-
-
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let navigationBarAppearace = UINavigationBar.appearance()
+        navigationBarAppearace.tintColor = UIColor.white
+        navigationBarAppearace.barTintColor = CXAppConfig.sharedInstance.getAppTheamColor()
+        
+        let myAttributeTxtColor = [NSForegroundColorAttributeName: UIColor.white]
+        let myAttribute = [ NSFontAttributeName: UIFont(name: "Roboto-Regular", size: 18.0)!]
+        navigationBarAppearace.titleTextAttributes = myAttribute
+        navigationBarAppearace.titleTextAttributes = myAttributeTxtColor
+
+        //self.setUpSidePanl()
         return true
     }
+    
+    func setUpSidePanl(){
+        
+        let wFrame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
+        self.window = UIWindow.init(frame: wFrame)
+        
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let homeView = TestViewController(nibName: "TestViewController", bundle: nil)
+        let menuVC = storyBoard.instantiateViewController(withIdentifier: "LeftViewController") as! LeftViewController
+        
+        let menuVCNav = UINavigationController(rootViewController: menuVC)
+        menuVCNav.isNavigationBarHidden = true
+        
+        let navHome = UINavigationController(rootViewController: homeView)
+        //navHome.isNavigationBarHidden = true
+        
+        let revealVC = SWRevealViewController(rearViewController: menuVCNav, frontViewController: navHome)
+        revealVC?.delegate = self
+        self.window?.rootViewController = revealVC
+        self.window?.makeKeyAndVisible()
+        
 
+        
+       
+        
+        //        let drawer : ICSDrawerController = ICSDrawerController(leftViewController: menuVC, centerViewController: homeView)
+        //        self.window?.rootViewController = drawer
+        //        self.window?.makeKeyAndVisible()
+        
+    }
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

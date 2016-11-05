@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Z47-EJ-388">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Bold.ttf">
+            <string>Roboto-Bold</string>
+        </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Sign In View Controller-->
+        <scene sceneID="0HJ-M1-5Z0">
+            <objects>
+                <viewController id="gjb-cV-ex8" customClass="SignInViewController" customModule="FitSport" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FN8-2S-wlo"/>
+                        <viewControllerLayoutGuide type="bottom" id="211-Dy-ZQs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="w7O-um-obi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U86-eW-DBU">
+                                <connections>
+                                    <segue destination="A7T-Ec-iyt" kind="embed" id="NV1-3y-c0E"/>
+                                </connections>
+                            </containerView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Xvt-1d-6RY">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="77" id="KZP-Mu-GdI"/>
+                                    <constraint firstAttribute="height" constant="40" id="ZWd-ln-Shp"/>
+                                </constraints>
+                                <color key="pageIndicatorTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="currentPageIndicatorTintColor" red="0.77647058820000003" green="0.47058823529999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </pageControl>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="czk-YK-WLB">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CDD-Eb-NGG">
+                                        <color key="backgroundColor" red="0.80000000000000004" green="0.25098039215686274" blue="0.19215686274509802" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
+                                        <state key="normal" title="   SIGN IN" image="g+Logo">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="googlePlusSignInAction:" destination="gjb-cV-ex8" eventType="touchUpInside" id="vxz-b3-Dya"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V3K-5o-bvv">
+                                        <color key="backgroundColor" red="0.20000000000000001" green="0.30980392156862746" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
+                                        <state key="normal" title="   SIGN IN" image="fbLogo">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="SUa-Y7-LRk" kind="push" id="gHK-bc-NKo"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="xoR-zV-yG4"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="U86-eW-DBU" firstAttribute="top" secondItem="FN8-2S-wlo" secondAttribute="bottom" constant="-20" id="9hR-ba-ImR"/>
+                            <constraint firstItem="Xvt-1d-6RY" firstAttribute="centerX" secondItem="w7O-um-obi" secondAttribute="centerX" id="DQZ-n2-oRE"/>
+                            <constraint firstItem="211-Dy-ZQs" firstAttribute="top" secondItem="czk-YK-WLB" secondAttribute="bottom" id="Idi-PY-CZ1"/>
+                            <constraint firstAttribute="trailing" secondItem="U86-eW-DBU" secondAttribute="trailing" id="Xhg-vc-F6h"/>
+                            <constraint firstItem="czk-YK-WLB" firstAttribute="top" secondItem="Xvt-1d-6RY" secondAttribute="bottom" constant="28" id="i39-Me-Q9b"/>
+                            <constraint firstItem="czk-YK-WLB" firstAttribute="leading" secondItem="w7O-um-obi" secondAttribute="leading" id="jHm-xa-pXh"/>
+                            <constraint firstItem="czk-YK-WLB" firstAttribute="top" secondItem="U86-eW-DBU" secondAttribute="bottom" id="mpV-YC-2hJ"/>
+                            <constraint firstItem="U86-eW-DBU" firstAttribute="leading" secondItem="w7O-um-obi" secondAttribute="leading" id="pdy-6m-mzI"/>
+                            <constraint firstAttribute="trailing" secondItem="czk-YK-WLB" secondAttribute="trailing" id="sdO-yk-Usu"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="9eu-za-8X2"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="containerView" destination="U86-eW-DBU" id="4QV-HF-nea"/>
+                        <outlet property="googlePlusSignIn" destination="CDD-Eb-NGG" id="cc3-LA-gMg"/>
+                        <outlet property="pageControl" destination="Xvt-1d-6RY" id="FVe-8F-FO2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="erM-on-UPn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3766" y="-2868"/>
+        </scene>
+        <!--Sign In Page View Controller-->
+        <scene sceneID="0aP-7b-wK4">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="A7T-Ec-iyt" customClass="SignInPageViewController" customModule="FitSport" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tfP-Ta-ha7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4494" y="-2045"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="zBZ-Ga-tM6">
+            <objects>
+                <viewController storyboardIdentifier="GreenViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vLd-VQ-PH0" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Oq9-E0-VNs"/>
+                        <viewControllerLayoutGuide type="bottom" id="kEr-g4-6fA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dnb-1J-9zv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slideScreen1" translatesAutoresizingMaskIntoConstraints="NO" id="tSM-ld-AIb"/>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="tSM-ld-AIb" secondAttribute="trailing" id="6Ej-xq-Nln"/>
+                            <constraint firstItem="tSM-ld-AIb" firstAttribute="top" secondItem="dnb-1J-9zv" secondAttribute="top" id="GZu-3s-fyO"/>
+                            <constraint firstItem="tSM-ld-AIb" firstAttribute="leading" secondItem="dnb-1J-9zv" secondAttribute="leading" id="Hlb-Fs-Axg"/>
+                            <constraint firstItem="kEr-g4-6fA" firstAttribute="top" secondItem="tSM-ld-AIb" secondAttribute="bottom" id="RcR-Zd-Cyu"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w99-OQ-hPG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4702" y="-956"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="FZv-zF-sJb">
+            <objects>
+                <viewController storyboardIdentifier="RedViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xoz-Im-lQw" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rEe-LU-WEu"/>
+                        <viewControllerLayoutGuide type="bottom" id="LhW-hI-PaP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VwB-MW-SDj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slideScreen2" translatesAutoresizingMaskIntoConstraints="NO" id="sZb-0y-6LX"/>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LhW-hI-PaP" firstAttribute="top" secondItem="sZb-0y-6LX" secondAttribute="bottom" id="40W-kI-iwa"/>
+                            <constraint firstAttribute="trailing" secondItem="sZb-0y-6LX" secondAttribute="trailing" id="7ho-hv-CdX"/>
+                            <constraint firstItem="sZb-0y-6LX" firstAttribute="leading" secondItem="VwB-MW-SDj" secondAttribute="leading" id="qVi-uJ-yfB"/>
+                            <constraint firstItem="sZb-0y-6LX" firstAttribute="top" secondItem="VwB-MW-SDj" secondAttribute="top" id="tcY-jd-GVs"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jXX-g8-aiW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3852" y="-957"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="AX7-YJ-tFe">
+            <objects>
+                <viewController storyboardIdentifier="BlueViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GY4-Pq-8RY" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4Sn-jB-clO"/>
+                        <viewControllerLayoutGuide type="bottom" id="oKf-mC-0Wp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="D7d-oM-V9K">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slideScreen3" translatesAutoresizingMaskIntoConstraints="NO" id="zb8-3a-CH2"/>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zb8-3a-CH2" firstAttribute="leading" secondItem="D7d-oM-V9K" secondAttribute="leading" id="Nqu-zA-dM9"/>
+                            <constraint firstItem="zb8-3a-CH2" firstAttribute="top" secondItem="D7d-oM-V9K" secondAttribute="top" id="Y7K-Nr-7wR"/>
+                            <constraint firstItem="oKf-mC-0Wp" firstAttribute="top" secondItem="zb8-3a-CH2" secondAttribute="bottom" id="bJi-hm-ZW5"/>
+                            <constraint firstAttribute="trailing" secondItem="zb8-3a-CH2" secondAttribute="trailing" id="iML-gL-LiM"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7CK-En-VCd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2910" y="-958"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ts5-Kr-gHO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Z47-EJ-388" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Vrm-oP-VNI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="gjb-cV-ex8" kind="relationship" relationship="rootViewController" id="xnW-g8-Ucs"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IxP-mh-lMo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4764" y="-2868"/>
+        </scene>
+        <!--Select Table View Controller-->
+        <scene sceneID="QcO-Mu-eWf">
+            <objects>
+                <viewController id="SUa-Y7-LRk" customClass="SelectTableViewController" customModule="FitSport" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="s61-5x-5B2"/>
+                        <viewControllerLayoutGuide type="bottom" id="ktF-Rq-ihI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dMS-qQ-sze">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="yFt-xg-k2s">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q9H-Ch-UqL">
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
+                                        <state key="normal" title="IAM NOT A TRAINER">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gDn-VR-8X4">
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
+                                        <state key="normal" title="NEXT">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="d9N-8y-DHp"/>
+                                </constraints>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="NYJ-Od-S49">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="SUa-Y7-LRk" id="vKj-jK-coP"/>
+                                    <outlet property="delegate" destination="SUa-Y7-LRk" id="sor-OH-83l"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yFt-xg-k2s" firstAttribute="leading" secondItem="dMS-qQ-sze" secondAttribute="leading" constant="10" id="5iR-87-vWw"/>
+                            <constraint firstItem="yFt-xg-k2s" firstAttribute="top" secondItem="NYJ-Od-S49" secondAttribute="bottom" constant="8" id="8wr-wQ-g8h"/>
+                            <constraint firstItem="ktF-Rq-ihI" firstAttribute="top" secondItem="yFt-xg-k2s" secondAttribute="bottom" constant="4" id="FR5-uy-wyJ"/>
+                            <constraint firstItem="NYJ-Od-S49" firstAttribute="top" secondItem="s61-5x-5B2" secondAttribute="bottom" id="JTi-QE-J7U"/>
+                            <constraint firstAttribute="trailing" secondItem="yFt-xg-k2s" secondAttribute="trailing" constant="11" id="VuI-Ys-RyK"/>
+                            <constraint firstItem="NYJ-Od-S49" firstAttribute="leading" secondItem="dMS-qQ-sze" secondAttribute="leading" id="nre-4d-4FW"/>
+                            <constraint firstAttribute="trailing" secondItem="NYJ-Od-S49" secondAttribute="trailing" id="xzl-gw-jEC"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <navigationItem key="navigationItem" id="p9k-e2-RuQ"/>
+                    <connections>
+                        <outlet property="tableview" destination="NYJ-Od-S49" id="I8b-C6-LbF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZBH-SO-az9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2993" y="-2801"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="fbLogo" width="20" height="20"/>
+        <image name="g+Logo" width="20" height="20"/>
+        <image name="slideScreen1" width="1242" height="2208"/>
+        <image name="slideScreen2" width="1242" height="2208"/>
+        <image name="slideScreen3" width="1242" height="2208"/>
+    </resources>
+</document>

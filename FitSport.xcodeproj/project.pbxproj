@@ -7,14 +7,50 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1116EA6B1DCD9C1900ACF469 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1116EA6A1DCD9C1900ACF469 /* Main.storyboard */; };
+		114F2B331DCC689A00D62948 /* CXDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114F2B321DCC689A00D62948 /* CXDataService.swift */; };
+		114F2B391DCC6A8300D62948 /* CXDataServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 114F2B381DCC6A8300D62948 /* CXDataServiceManager.m */; };
+		114F2B3B1DCC917200D62948 /* CX_SocialIntegration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114F2B3A1DCC917200D62948 /* CX_SocialIntegration.swift */; };
+		114F2B3D1DCC961D00D62948 /* MyCalenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114F2B3C1DCC961D00D62948 /* MyCalenderViewController.swift */; };
+		114F2B3F1DCC97E100D62948 /* MyProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 114F2B3E1DCC97E100D62948 /* MyProfile.storyboard */; };
+		114F2B431DCCB7BE00D62948 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114F2B421DCCB7BE00D62948 /* EventsViewController.swift */; };
+		114F2B4A1DCCB9A200D62948 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114F2B481DCCB9A200D62948 /* EventCell.swift */; };
+		114F2B4B1DCCB9A200D62948 /* EventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 114F2B491DCCB9A200D62948 /* EventCell.xib */; };
 		11AB799B1DCB600C005E846B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AB799A1DCB600C005E846B /* AppDelegate.swift */; };
-		11AB799D1DCB600C005E846B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AB799C1DCB600C005E846B /* ViewController.swift */; };
-		11AB79A01DCB600C005E846B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11AB799E1DCB600C005E846B /* Main.storyboard */; };
 		11AB79A31DCB600C005E846B /* FitSport.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 11AB79A11DCB600C005E846B /* FitSport.xcdatamodeld */; };
 		11AB79A51DCB600C005E846B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11AB79A41DCB600C005E846B /* Assets.xcassets */; };
 		11AB79A81DCB600C005E846B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11AB79A61DCB600C005E846B /* LaunchScreen.storyboard */; };
 		11AB79B31DCB600C005E846B /* FitSportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AB79B21DCB600C005E846B /* FitSportTests.swift */; };
 		11AB79BE1DCB600C005E846B /* FitSportUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AB79BD1DCB600C005E846B /* FitSportUITests.swift */; };
+		11AB79D21DCB6190005E846B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AB79D11DCB6190005E846B /* HomeViewController.swift */; };
+		11AB79D91DCB61B2005E846B /* CAPSPageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AB79D61DCB61B2005E846B /* CAPSPageMenu.swift */; };
+		11AB79DA1DCB61B2005E846B /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AB79D71DCB61B2005E846B /* TestViewController.swift */; };
+		11AB79DB1DCB61B2005E846B /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11AB79D81DCB61B2005E846B /* TestViewController.xib */; };
+		11AB79DE1DCB61CA005E846B /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AB79DC1DCB61CA005E846B /* SignInViewController.swift */; };
+		11AB79DF1DCB61CA005E846B /* SignInPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AB79DD1DCB61CA005E846B /* SignInPageViewController.swift */; };
+		11AB79E51DCB61F4005E846B /* AHTagsLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AB79E01DCB61F4005E846B /* AHTagsLabel.swift */; };
+		11AB79E61DCB61F4005E846B /* AHTagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AB79E11DCB61F4005E846B /* AHTagTableViewCell.swift */; };
+		11AB79E71DCB61F4005E846B /* AHTagTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11AB79E21DCB61F4005E846B /* AHTagTableViewCell.xib */; };
+		11AB79E81DCB61F4005E846B /* AHTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AB79E31DCB61F4005E846B /* AHTagView.swift */; };
+		11AB79E91DCB61F4005E846B /* TagGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AB79E41DCB61F4005E846B /* TagGroups.swift */; };
+		11AB79EB1DCB6225005E846B /* SelectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AB79EA1DCB6225005E846B /* SelectTableViewController.swift */; };
+		11AB79F01DCB62A2005E846B /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AB79ED1DCB62A2005E846B /* LeftViewController.swift */; };
+		11AB79F11DCB62A2005E846B /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11AB79EF1DCB62A2005E846B /* SWRevealViewController.m */; };
+		11AB79F51DCB638B005E846B /* PagerMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11AB79F31DCB638B005E846B /* PagerMain.storyboard */; };
+		11AB7A021DCB647F005E846B /* sadhu.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 11AB7A011DCB647F005E846B /* sadhu.jpg */; };
+		11AB7A041DCB682A005E846B /* CXAppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AB7A031DCB682A005E846B /* CXAppConfig.swift */; };
+		11AB7A061DCB6850005E846B /* CXProjectConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11AB7A051DCB6850005E846B /* CXProjectConfiguration.plist */; };
+		11AB7A101DCB704A005E846B /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11AB7A081DCB704A005E846B /* Roboto-Black.ttf */; };
+		11AB7A111DCB704A005E846B /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11AB7A091DCB704A005E846B /* Roboto-Bold.ttf */; };
+		11AB7A121DCB704A005E846B /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11AB7A0A1DCB704A005E846B /* Roboto-Italic.ttf */; };
+		11AB7A131DCB704A005E846B /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11AB7A0B1DCB704A005E846B /* Roboto-Light.ttf */; };
+		11AB7A141DCB704A005E846B /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11AB7A0C1DCB704A005E846B /* Roboto-Medium.ttf */; };
+		11AB7A151DCB704A005E846B /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11AB7A0D1DCB704A005E846B /* Roboto-Regular.ttf */; };
+		11AB7A161DCB704A005E846B /* RobotoCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11AB7A0E1DCB704A005E846B /* RobotoCondensed-Bold.ttf */; };
+		11AB7A171DCB704A005E846B /* RobotoCondensed-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11AB7A0F1DCB704A005E846B /* RobotoCondensed-Light.ttf */; };
+		4B1160151B09DCE541B33F57 /* Pods_FitSport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7F4B6973E511461D2C3E05 /* Pods_FitSport.framework */; };
+		690A857B45BC362A1512932A /* Pods_FitSportTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9237A56C77E380740017126B /* Pods_FitSportTests.framework */; };
+		C66E41212B762DCE7E4148EA /* Pods_FitSportUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8966F61E6FA29F827ADEEEBA /* Pods_FitSportUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,10 +71,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1116EA6A1DCD9C1900ACF469 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		114F2B321DCC689A00D62948 /* CXDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CXDataService.swift; sourceTree = "<group>"; };
+		114F2B371DCC6A8300D62948 /* CXDataServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXDataServiceManager.h; sourceTree = "<group>"; };
+		114F2B381DCC6A8300D62948 /* CXDataServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXDataServiceManager.m; sourceTree = "<group>"; };
+		114F2B3A1DCC917200D62948 /* CX_SocialIntegration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CX_SocialIntegration.swift; sourceTree = "<group>"; };
+		114F2B3C1DCC961D00D62948 /* MyCalenderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCalenderViewController.swift; sourceTree = "<group>"; };
+		114F2B3E1DCC97E100D62948 /* MyProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyProfile.storyboard; sourceTree = "<group>"; };
+		114F2B421DCCB7BE00D62948 /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
+		114F2B481DCCB9A200D62948 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
+		114F2B491DCCB9A200D62948 /* EventCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventCell.xib; sourceTree = "<group>"; };
 		11AB79971DCB600C005E846B /* FitSport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitSport.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11AB799A1DCB600C005E846B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		11AB799C1DCB600C005E846B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		11AB799F1DCB600C005E846B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		11AB79A21DCB600C005E846B /* FitSport.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FitSport.xcdatamodel; sourceTree = "<group>"; };
 		11AB79A41DCB600C005E846B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		11AB79A71DCB600C005E846B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +93,43 @@
 		11AB79B91DCB600C005E846B /* FitSportUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FitSportUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		11AB79BD1DCB600C005E846B /* FitSportUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitSportUITests.swift; sourceTree = "<group>"; };
 		11AB79BF1DCB600C005E846B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11AB79D11DCB6190005E846B /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		11AB79D61DCB61B2005E846B /* CAPSPageMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAPSPageMenu.swift; sourceTree = "<group>"; };
+		11AB79D71DCB61B2005E846B /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		11AB79D81DCB61B2005E846B /* TestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
+		11AB79DC1DCB61CA005E846B /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		11AB79DD1DCB61CA005E846B /* SignInPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInPageViewController.swift; sourceTree = "<group>"; };
+		11AB79E01DCB61F4005E846B /* AHTagsLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHTagsLabel.swift; sourceTree = "<group>"; };
+		11AB79E11DCB61F4005E846B /* AHTagTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHTagTableViewCell.swift; sourceTree = "<group>"; };
+		11AB79E21DCB61F4005E846B /* AHTagTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AHTagTableViewCell.xib; sourceTree = "<group>"; };
+		11AB79E31DCB61F4005E846B /* AHTagView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHTagView.swift; sourceTree = "<group>"; };
+		11AB79E41DCB61F4005E846B /* TagGroups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagGroups.swift; sourceTree = "<group>"; };
+		11AB79EA1DCB6225005E846B /* SelectTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectTableViewController.swift; sourceTree = "<group>"; };
+		11AB79EC1DCB62A1005E846B /* FitSport-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FitSport-Bridging-Header.h"; sourceTree = "<group>"; };
+		11AB79ED1DCB62A2005E846B /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
+		11AB79EE1DCB62A2005E846B /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		11AB79EF1DCB62A2005E846B /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		11AB79F31DCB638B005E846B /* PagerMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PagerMain.storyboard; sourceTree = "<group>"; };
+		11AB7A011DCB647F005E846B /* sadhu.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sadhu.jpg; sourceTree = "<group>"; };
+		11AB7A031DCB682A005E846B /* CXAppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CXAppConfig.swift; sourceTree = "<group>"; };
+		11AB7A051DCB6850005E846B /* CXProjectConfiguration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CXProjectConfiguration.plist; sourceTree = "<group>"; };
+		11AB7A081DCB704A005E846B /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Black.ttf"; path = "../Roboto-Black.ttf"; sourceTree = "<group>"; };
+		11AB7A091DCB704A005E846B /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Bold.ttf"; path = "../Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		11AB7A0A1DCB704A005E846B /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Italic.ttf"; path = "../Roboto-Italic.ttf"; sourceTree = "<group>"; };
+		11AB7A0B1DCB704A005E846B /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Light.ttf"; path = "../Roboto-Light.ttf"; sourceTree = "<group>"; };
+		11AB7A0C1DCB704A005E846B /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Medium.ttf"; path = "../Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		11AB7A0D1DCB704A005E846B /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Regular.ttf"; path = "../Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		11AB7A0E1DCB704A005E846B /* RobotoCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "RobotoCondensed-Bold.ttf"; path = "../RobotoCondensed-Bold.ttf"; sourceTree = "<group>"; };
+		11AB7A0F1DCB704A005E846B /* RobotoCondensed-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "RobotoCondensed-Light.ttf"; path = "../RobotoCondensed-Light.ttf"; sourceTree = "<group>"; };
+		5A7F4B6973E511461D2C3E05 /* Pods_FitSport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FitSport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E78E2D400FD848ED6232DBB /* Pods-FitSportUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitSportUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FitSportUITests/Pods-FitSportUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		65C732199E77CBBCFE079C6A /* Pods-FitSportUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitSportUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FitSportUITests/Pods-FitSportUITests.release.xcconfig"; sourceTree = "<group>"; };
+		6D1D6B2E8A5EAE0612B6F876 /* Pods-FitSportTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitSportTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FitSportTests/Pods-FitSportTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6E7AD064E75B6454251A772F /* Pods-FitSport.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitSport.release.xcconfig"; path = "Pods/Target Support Files/Pods-FitSport/Pods-FitSport.release.xcconfig"; sourceTree = "<group>"; };
+		77EC079B62F0219C7959239A /* Pods-FitSportTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitSportTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FitSportTests/Pods-FitSportTests.release.xcconfig"; sourceTree = "<group>"; };
+		8966F61E6FA29F827ADEEEBA /* Pods_FitSportUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FitSportUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9237A56C77E380740017126B /* Pods_FitSportTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FitSportTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF60EA135829EA2FA9445583 /* Pods-FitSport.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitSport.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FitSport/Pods-FitSport.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +137,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B1160151B09DCE541B33F57 /* Pods_FitSport.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +145,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				690A857B45BC362A1512932A /* Pods_FitSportTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +153,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C66E41212B762DCE7E4148EA /* Pods_FitSportUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +167,8 @@
 				11AB79B11DCB600C005E846B /* FitSportTests */,
 				11AB79BC1DCB600C005E846B /* FitSportUITests */,
 				11AB79981DCB600C005E846B /* Products */,
+				98E1FA78181BA0BC421AFBF9 /* Pods */,
+				B677AD9374C192DBBACF2AEB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,13 +185,19 @@
 		11AB79991DCB600C005E846B /* FitSport */ = {
 			isa = PBXGroup;
 			children = (
+				11AB7A071DCB686B005E846B /* AppDataManager */,
+				11AB79F71DCB6407005E846B /* OtherResources */,
+				11AB79F21DCB6329005E846B /* StoryBoard */,
+				11AB79CE1DCB616E005E846B /* SidePanel */,
+				11AB79CD1DCB616C005E846B /* View */,
+				11AB79CC1DCB6169005E846B /* Controllers */,
+				11AB79CB1DCB6103005E846B /* Xibs */,
 				11AB799A1DCB600C005E846B /* AppDelegate.swift */,
-				11AB799C1DCB600C005E846B /* ViewController.swift */,
-				11AB799E1DCB600C005E846B /* Main.storyboard */,
 				11AB79A41DCB600C005E846B /* Assets.xcassets */,
 				11AB79A61DCB600C005E846B /* LaunchScreen.storyboard */,
 				11AB79A91DCB600C005E846B /* Info.plist */,
 				11AB79A11DCB600C005E846B /* FitSport.xcdatamodeld */,
+				11AB79EC1DCB62A1005E846B /* FitSport-Bridging-Header.h */,
 			);
 			path = FitSport;
 			sourceTree = "<group>";
@@ -128,6 +220,147 @@
 			path = FitSportUITests;
 			sourceTree = "<group>";
 		};
+		11AB79CB1DCB6103005E846B /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				114F2B491DCCB9A200D62948 /* EventCell.xib */,
+			);
+			name = Xibs;
+			sourceTree = "<group>";
+		};
+		11AB79CC1DCB6169005E846B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				11AB79D51DCB6197005E846B /* TagView */,
+				11AB79D41DCB6195005E846B /* PagerView */,
+				11AB79D31DCB6193005E846B /* TabBar */,
+				11AB79D11DCB6190005E846B /* HomeViewController.swift */,
+				114F2B421DCCB7BE00D62948 /* EventsViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		11AB79CD1DCB616C005E846B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				114F2B481DCCB9A200D62948 /* EventCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		11AB79CE1DCB616E005E846B /* SidePanel */ = {
+			isa = PBXGroup;
+			children = (
+				11AB79ED1DCB62A2005E846B /* LeftViewController.swift */,
+				11AB79EE1DCB62A2005E846B /* SWRevealViewController.h */,
+				11AB79EF1DCB62A2005E846B /* SWRevealViewController.m */,
+			);
+			name = SidePanel;
+			sourceTree = "<group>";
+		};
+		11AB79D31DCB6193005E846B /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				11AB79D61DCB61B2005E846B /* CAPSPageMenu.swift */,
+				11AB79D71DCB61B2005E846B /* TestViewController.swift */,
+				11AB79D81DCB61B2005E846B /* TestViewController.xib */,
+				114F2B3C1DCC961D00D62948 /* MyCalenderViewController.swift */,
+			);
+			name = TabBar;
+			sourceTree = "<group>";
+		};
+		11AB79D41DCB6195005E846B /* PagerView */ = {
+			isa = PBXGroup;
+			children = (
+				11AB79DC1DCB61CA005E846B /* SignInViewController.swift */,
+				11AB79DD1DCB61CA005E846B /* SignInPageViewController.swift */,
+			);
+			name = PagerView;
+			sourceTree = "<group>";
+		};
+		11AB79D51DCB6197005E846B /* TagView */ = {
+			isa = PBXGroup;
+			children = (
+				11AB79EA1DCB6225005E846B /* SelectTableViewController.swift */,
+				11AB79E01DCB61F4005E846B /* AHTagsLabel.swift */,
+				11AB79E11DCB61F4005E846B /* AHTagTableViewCell.swift */,
+				11AB79E21DCB61F4005E846B /* AHTagTableViewCell.xib */,
+				11AB79E31DCB61F4005E846B /* AHTagView.swift */,
+				11AB79E41DCB61F4005E846B /* TagGroups.swift */,
+			);
+			name = TagView;
+			sourceTree = "<group>";
+		};
+		11AB79F21DCB6329005E846B /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				114F2B3E1DCC97E100D62948 /* MyProfile.storyboard */,
+				11AB79F31DCB638B005E846B /* PagerMain.storyboard */,
+				1116EA6A1DCD9C1900ACF469 /* Main.storyboard */,
+			);
+			name = StoryBoard;
+			sourceTree = "<group>";
+		};
+		11AB79F71DCB6407005E846B /* OtherResources */ = {
+			isa = PBXGroup;
+			children = (
+				11AB7A011DCB647F005E846B /* sadhu.jpg */,
+				11AB79F81DCB6443005E846B /* Fonts */,
+			);
+			name = OtherResources;
+			sourceTree = "<group>";
+		};
+		11AB79F81DCB6443005E846B /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				11AB7A081DCB704A005E846B /* Roboto-Black.ttf */,
+				11AB7A091DCB704A005E846B /* Roboto-Bold.ttf */,
+				11AB7A0A1DCB704A005E846B /* Roboto-Italic.ttf */,
+				11AB7A0B1DCB704A005E846B /* Roboto-Light.ttf */,
+				11AB7A0C1DCB704A005E846B /* Roboto-Medium.ttf */,
+				11AB7A0D1DCB704A005E846B /* Roboto-Regular.ttf */,
+				11AB7A0E1DCB704A005E846B /* RobotoCondensed-Bold.ttf */,
+				11AB7A0F1DCB704A005E846B /* RobotoCondensed-Light.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		11AB7A071DCB686B005E846B /* AppDataManager */ = {
+			isa = PBXGroup;
+			children = (
+				114F2B321DCC689A00D62948 /* CXDataService.swift */,
+				11AB7A031DCB682A005E846B /* CXAppConfig.swift */,
+				114F2B3A1DCC917200D62948 /* CX_SocialIntegration.swift */,
+				11AB7A051DCB6850005E846B /* CXProjectConfiguration.plist */,
+				114F2B371DCC6A8300D62948 /* CXDataServiceManager.h */,
+				114F2B381DCC6A8300D62948 /* CXDataServiceManager.m */,
+			);
+			name = AppDataManager;
+			sourceTree = "<group>";
+		};
+		98E1FA78181BA0BC421AFBF9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CF60EA135829EA2FA9445583 /* Pods-FitSport.debug.xcconfig */,
+				6E7AD064E75B6454251A772F /* Pods-FitSport.release.xcconfig */,
+				6D1D6B2E8A5EAE0612B6F876 /* Pods-FitSportTests.debug.xcconfig */,
+				77EC079B62F0219C7959239A /* Pods-FitSportTests.release.xcconfig */,
+				5E78E2D400FD848ED6232DBB /* Pods-FitSportUITests.debug.xcconfig */,
+				65C732199E77CBBCFE079C6A /* Pods-FitSportUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B677AD9374C192DBBACF2AEB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5A7F4B6973E511461D2C3E05 /* Pods_FitSport.framework */,
+				9237A56C77E380740017126B /* Pods_FitSportTests.framework */,
+				8966F61E6FA29F827ADEEEBA /* Pods_FitSportUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +368,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 11AB79C21DCB600C005E846B /* Build configuration list for PBXNativeTarget "FitSport" */;
 			buildPhases = (
+				FD260DE7D2CA4462DFFECD53 /* [CP] Check Pods Manifest.lock */,
 				11AB79931DCB600C005E846B /* Sources */,
 				11AB79941DCB600C005E846B /* Frameworks */,
 				11AB79951DCB600C005E846B /* Resources */,
+				D17A536BB45505912E070626 /* [CP] Embed Pods Frameworks */,
+				C53807C2EFF6EC665EE04F5F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -152,9 +388,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 11AB79C51DCB600C005E846B /* Build configuration list for PBXNativeTarget "FitSportTests" */;
 			buildPhases = (
+				F925525ED856BCA6881E17AD /* [CP] Check Pods Manifest.lock */,
 				11AB79AA1DCB600C005E846B /* Sources */,
 				11AB79AB1DCB600C005E846B /* Frameworks */,
 				11AB79AC1DCB600C005E846B /* Resources */,
+				DE20BE8463892A6AF979F6BC /* [CP] Embed Pods Frameworks */,
+				27E9159A08668DC6196F5576 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -170,9 +409,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 11AB79C81DCB600C005E846B /* Build configuration list for PBXNativeTarget "FitSportUITests" */;
 			buildPhases = (
+				75266C3B9ED45B6B212BB9CC /* [CP] Check Pods Manifest.lock */,
 				11AB79B51DCB600C005E846B /* Sources */,
 				11AB79B61DCB600C005E846B /* Frameworks */,
 				11AB79B71DCB600C005E846B /* Resources */,
+				CD14C9DECC0F1C0959A655D0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -197,17 +438,20 @@
 					11AB79961DCB600C005E846B = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 95Y7Y2H9V8;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 					11AB79AD1DCB600C005E846B = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 95Y7Y2H9V8;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 11AB79961DCB600C005E846B;
 					};
 					11AB79B81DCB600C005E846B = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 95Y7Y2H9V8;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 11AB79961DCB600C005E846B;
 					};
@@ -238,9 +482,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11AB7A101DCB704A005E846B /* Roboto-Black.ttf in Resources */,
+				11AB7A111DCB704A005E846B /* Roboto-Bold.ttf in Resources */,
+				114F2B3F1DCC97E100D62948 /* MyProfile.storyboard in Resources */,
+				11AB7A121DCB704A005E846B /* Roboto-Italic.ttf in Resources */,
+				11AB7A131DCB704A005E846B /* Roboto-Light.ttf in Resources */,
+				11AB7A141DCB704A005E846B /* Roboto-Medium.ttf in Resources */,
+				11AB7A151DCB704A005E846B /* Roboto-Regular.ttf in Resources */,
+				11AB7A161DCB704A005E846B /* RobotoCondensed-Bold.ttf in Resources */,
+				11AB7A171DCB704A005E846B /* RobotoCondensed-Light.ttf in Resources */,
 				11AB79A81DCB600C005E846B /* LaunchScreen.storyboard in Resources */,
+				11AB79E71DCB61F4005E846B /* AHTagTableViewCell.xib in Resources */,
+				11AB79DB1DCB61B2005E846B /* TestViewController.xib in Resources */,
+				11AB7A061DCB6850005E846B /* CXProjectConfiguration.plist in Resources */,
 				11AB79A51DCB600C005E846B /* Assets.xcassets in Resources */,
-				11AB79A01DCB600C005E846B /* Main.storyboard in Resources */,
+				11AB79F51DCB638B005E846B /* PagerMain.storyboard in Resources */,
+				1116EA6B1DCD9C1900ACF469 /* Main.storyboard in Resources */,
+				114F2B4B1DCCB9A200D62948 /* EventCell.xib in Resources */,
+				11AB7A021DCB647F005E846B /* sadhu.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,14 +519,155 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		27E9159A08668DC6196F5576 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FitSportTests/Pods-FitSportTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		75266C3B9ED45B6B212BB9CC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C53807C2EFF6EC665EE04F5F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FitSport/Pods-FitSport-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD14C9DECC0F1C0959A655D0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FitSportUITests/Pods-FitSportUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D17A536BB45505912E070626 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FitSport/Pods-FitSport-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DE20BE8463892A6AF979F6BC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FitSportTests/Pods-FitSportTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F925525ED856BCA6881E17AD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FD260DE7D2CA4462DFFECD53 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		11AB79931DCB600C005E846B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11AB799D1DCB600C005E846B /* ViewController.swift in Sources */,
+				114F2B3B1DCC917200D62948 /* CX_SocialIntegration.swift in Sources */,
+				11AB79DE1DCB61CA005E846B /* SignInViewController.swift in Sources */,
+				11AB79E61DCB61F4005E846B /* AHTagTableViewCell.swift in Sources */,
+				11AB79F11DCB62A2005E846B /* SWRevealViewController.m in Sources */,
+				11AB79E91DCB61F4005E846B /* TagGroups.swift in Sources */,
+				114F2B391DCC6A8300D62948 /* CXDataServiceManager.m in Sources */,
+				114F2B331DCC689A00D62948 /* CXDataService.swift in Sources */,
+				114F2B3D1DCC961D00D62948 /* MyCalenderViewController.swift in Sources */,
 				11AB799B1DCB600C005E846B /* AppDelegate.swift in Sources */,
+				114F2B431DCCB7BE00D62948 /* EventsViewController.swift in Sources */,
+				11AB79F01DCB62A2005E846B /* LeftViewController.swift in Sources */,
+				11AB7A041DCB682A005E846B /* CXAppConfig.swift in Sources */,
+				11AB79D91DCB61B2005E846B /* CAPSPageMenu.swift in Sources */,
+				114F2B4A1DCCB9A200D62948 /* EventCell.swift in Sources */,
 				11AB79A31DCB600C005E846B /* FitSport.xcdatamodeld in Sources */,
+				11AB79E51DCB61F4005E846B /* AHTagsLabel.swift in Sources */,
+				11AB79EB1DCB6225005E846B /* SelectTableViewController.swift in Sources */,
+				11AB79DF1DCB61CA005E846B /* SignInPageViewController.swift in Sources */,
+				11AB79DA1DCB61B2005E846B /* TestViewController.swift in Sources */,
+				11AB79D21DCB6190005E846B /* HomeViewController.swift in Sources */,
+				11AB79E81DCB61F4005E846B /* AHTagView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,14 +703,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		11AB799E1DCB600C005E846B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				11AB799F1DCB600C005E846B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		11AB79A61DCB600C005E846B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -415,32 +807,40 @@
 		};
 		11AB79C31DCB600C005E846B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF60EA135829EA2FA9445583 /* Pods-FitSport.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 95Y7Y2H9V8;
 				INFOPLIST_FILE = FitSport/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ongo.FitSport;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FitSport/FitSport-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		11AB79C41DCB600C005E846B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E7AD064E75B6454251A772F /* Pods-FitSport.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 95Y7Y2H9V8;
 				INFOPLIST_FILE = FitSport/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ongo.FitSport;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FitSport/FitSport-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		11AB79C61DCB600C005E846B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D1D6B2E8A5EAE0612B6F876 /* Pods-FitSportTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -456,6 +856,7 @@
 		};
 		11AB79C71DCB600C005E846B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77EC079B62F0219C7959239A /* Pods-FitSportTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -471,6 +872,7 @@
 		};
 		11AB79C91DCB600C005E846B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E78E2D400FD848ED6232DBB /* Pods-FitSportUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 95Y7Y2H9V8;
@@ -485,6 +887,7 @@
 		};
 		11AB79CA1DCB600C005E846B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65C732199E77CBBCFE079C6A /* Pods-FitSportUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 95Y7Y2H9V8;
@@ -516,6 +919,7 @@
 				11AB79C41DCB600C005E846B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		11AB79C51DCB600C005E846B /* Build configuration list for PBXNativeTarget "FitSportTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +928,7 @@
 				11AB79C71DCB600C005E846B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		11AB79C81DCB600C005E846B /* Build configuration list for PBXNativeTarget "FitSportUITests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +937,7 @@
 				11AB79CA1DCB600C005E846B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
