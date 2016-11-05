@@ -26,17 +26,15 @@ class TestViewController: UIViewController {
         var controllerArray : [UIViewController] = []
         
         let controller1:UIViewController = UIStoryboard(name: "MyProfile", bundle: nil).instantiateViewController(withIdentifier: "Calender") as UIViewController
-        //controller1.view.backgroundColor = UIColor.purple
         controller1.title = "MY Calender"
         controllerArray.append(controller1)
         
-        let controller2 : UIViewController = UIViewController()
-        controller2.view.backgroundColor = UIColor.orange
+        //UserDataViewController
+        let controller2 : UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserDataViewController") as UIViewController
         controller2.title = "Favourites"
         controllerArray.append(controller2)
         
         let controller3 : UIViewController = UIViewController()
-        controller3.view.backgroundColor = UIColor.gray
         controller3.title = "Created"
         controllerArray.append(controller3)
         

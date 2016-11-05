@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Alamofire
 class SelectTableViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
     @IBOutlet weak var tableview: UITableView!
@@ -29,10 +29,43 @@ class SelectTableViewController: UIViewController,UITableViewDataSource,UITableV
         let nibForAHTag = UINib(nibName: "AHTagTableViewCell", bundle: nil)
         self.tableview.register(nibForAHTag, forCellReuseIdentifier: "cell")
         
+        self.getTheCategoriesFromServer()
         
         //dataArr = self.papulateTheData() as NSArray
-        print(self.constructTheAhTagsArray())
+        //print(self.constructTheAhTagsArray())
     }
+    
+    //MARK: Get The data From Server
+    
+    func getTheCategoriesFromServer(){
+        
+        
+        let parameters: Parameters = ["type": "P3rdLevelCategories","mallId":CXAppConfig.sharedInstance.getAppMallID()]
+        
+        CXDataService.sharedInstance.getTheAppDataFromServer(parameters as [String : AnyObject]?) { (dataDic) in
+            let categories:NSArray   =  NSMutableArray(array: (dataDic.value(forKey: "jobs") as? NSArray!)!)
+            let groupNames:NSMutableArray = NSMutableArray()
+            let filteredGroups:NSMutableArray = NSMutableArray()
+            for jobDict in categories {
+                groupNames.add((jobDict as! NSDictionary).value(forKey: "SubCategory"))
+            }
+            let orderSet : NSOrderedSet = NSOrderedSet(array: groupNames as [AnyObject])
+            filteredGroups.addObjects(from: orderSet.array)
+            groupNames.removeAllObjects()
+            print(groupNames)
+        }
+        
+        
+        
+    }
+    
+    
+    func filterTheCategory(){
+        
+        
+    }
+    
+    
     
     private var dataSource = { () -> [Array<AHTag>] in
         return [
@@ -55,6 +88,8 @@ class SelectTableViewController: UIViewController,UITableViewDataSource,UITableV
             groupArray.append(newArray)
         }
         self.dataSource = groupArray
+        
+        
     }
     
     
@@ -91,16 +126,16 @@ class SelectTableViewController: UIViewController,UITableViewDataSource,UITableV
         return   self.dataSource[section][0].category
         
     }
-
-     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
     }
     
-     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
     
-     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let v = view as! UITableViewHeaderFooterView
         v.textLabel?.textColor = UIColor.darkGray
     }

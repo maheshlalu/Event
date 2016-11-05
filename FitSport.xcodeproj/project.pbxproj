@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1116EA6B1DCD9C1900ACF469 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1116EA6A1DCD9C1900ACF469 /* Main.storyboard */; };
+		113980401DCDB89700BCF36C /* UserDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1139803F1DCDB89700BCF36C /* UserDataViewController.swift */; };
+		113980421DCDCB3400BCF36C /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113980411DCDCB3400BCF36C /* CreateEventViewController.swift */; };
 		114F2B331DCC689A00D62948 /* CXDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114F2B321DCC689A00D62948 /* CXDataService.swift */; };
 		114F2B391DCC6A8300D62948 /* CXDataServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 114F2B381DCC6A8300D62948 /* CXDataServiceManager.m */; };
 		114F2B3B1DCC917200D62948 /* CX_SocialIntegration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114F2B3A1DCC917200D62948 /* CX_SocialIntegration.swift */; };
@@ -72,6 +74,8 @@
 
 /* Begin PBXFileReference section */
 		1116EA6A1DCD9C1900ACF469 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		1139803F1DCDB89700BCF36C /* UserDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDataViewController.swift; sourceTree = "<group>"; };
+		113980411DCDCB3400BCF36C /* CreateEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
 		114F2B321DCC689A00D62948 /* CXDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CXDataService.swift; sourceTree = "<group>"; };
 		114F2B371DCC6A8300D62948 /* CXDataServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXDataServiceManager.h; sourceTree = "<group>"; };
 		114F2B381DCC6A8300D62948 /* CXDataServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXDataServiceManager.m; sourceTree = "<group>"; };
@@ -236,6 +240,8 @@
 				11AB79D31DCB6193005E846B /* TabBar */,
 				11AB79D11DCB6190005E846B /* HomeViewController.swift */,
 				114F2B421DCCB7BE00D62948 /* EventsViewController.swift */,
+				1139803F1DCDB89700BCF36C /* UserDataViewController.swift */,
+				113980411DCDCB3400BCF36C /* CreateEventViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -656,6 +662,7 @@
 				114F2B331DCC689A00D62948 /* CXDataService.swift in Sources */,
 				114F2B3D1DCC961D00D62948 /* MyCalenderViewController.swift in Sources */,
 				11AB799B1DCB600C005E846B /* AppDelegate.swift in Sources */,
+				113980401DCDB89700BCF36C /* UserDataViewController.swift in Sources */,
 				114F2B431DCCB7BE00D62948 /* EventsViewController.swift in Sources */,
 				11AB79F01DCB62A2005E846B /* LeftViewController.swift in Sources */,
 				11AB7A041DCB682A005E846B /* CXAppConfig.swift in Sources */,
@@ -667,6 +674,7 @@
 				11AB79DF1DCB61CA005E846B /* SignInPageViewController.swift in Sources */,
 				11AB79DA1DCB61B2005E846B /* TestViewController.swift in Sources */,
 				11AB79D21DCB6190005E846B /* HomeViewController.swift in Sources */,
+				113980421DCDCB3400BCF36C /* CreateEventViewController.swift in Sources */,
 				11AB79E81DCB61F4005E846B /* AHTagView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

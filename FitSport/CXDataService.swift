@@ -26,35 +26,31 @@ open class CXDataService: NSObject {
         _SingletonSharedInstance = nil
     }
     
-    open func getTheAppDataFromServer(_ parameters:[String: AnyObject]? = nil ,completion: @escaping (_ responseDict:NSDictionary) -> Void){
+    open func getTheAppDataFromServer(_ parameters:[String: AnyObject]? = nil ,completion:@escaping (_ responseDict:NSDictionary) -> Void){
         if Bool(1) {
             print(CXAppConfig.sharedInstance.getBaseUrl() + CXAppConfig.sharedInstance.getMasterUrl())
             print(parameters)
-  
-        Alamofire.request(CXAppConfig.sharedInstance.getBaseUrl() + CXAppConfig.sharedInstance.getMasterUrl(), method: .post, parameters: parameters, encoding: JSONEncoding.default)
-            .responseJSON { response in
-                print(response)
-                //to get status code
-                if let status = response.response?.statusCode {
-                    switch(status){
-                    case 201:
-                        print("example success")
-                    default:
-                        print("error with response status: \(status)")
+            // Alamofire.request("https://httpbin.org/post", parameters: parameters, encoding: URLEncoding.httpBody)
+            Alamofire.request(CXAppConfig.sharedInstance.getBaseUrl() + CXAppConfig.sharedInstance.getMasterUrl(), method: .post, parameters: parameters, encoding: URLEncoding.`default`)
+                .responseJSON { response in
+                    //to get status code
+                    if let status = response.response?.statusCode {
+                        switch(status){
+                        case 201:
+                            print("example success")
+                        default:
+                            print("error with response status: \(status)")
+                        }
                     }
-                }
-                //to get JSON return value
-                if let result = response.result.value {
-                    let JSON = result as! NSDictionary
-                    completion((response.result.value as? NSDictionary)!)
-                    print(JSON)
-                }
-                
+                    //to get JSON return value
+                    if let result = response.result.value {
+                        let JSON = result as! NSDictionary
+                        //completion((response.result.value as? NSDictionary)!)
+                        completion(JSON)
+                    }
+            }
+            // Alamofire.request("",method: .get, parameters: parameters, encoding: JSONEncoding.default, headers: [:])
         }
-       // Alamofire.request("",method: .get, parameters: parameters, encoding: JSONEncoding.default, headers: [:])
-
-        
-    }
     }
     
     open func synchDataToServerAndServerToMoblile(_ urlstring:String, parameters:[String: AnyObject]? = nil ,completion:@escaping (_ responseDict:NSDictionary) -> Void){
@@ -63,7 +59,7 @@ open class CXDataService: NSObject {
         print(parameters)
         
         
-        Alamofire.request(urlstring, method: .post, parameters: parameters, encoding: JSONEncoding.default)
+        Alamofire.request(urlstring, method: .post, parameters: parameters, encoding: URLEncoding.`default`)
             .responseJSON { response in
                 print(response)
                 //to get status code
@@ -112,7 +108,7 @@ open class CXDataService: NSObject {
         //print(parameters)
         
         
-        Alamofire.request("https://api.withfloats.com/Discover/v2/floatingPoint/bizFloats?", method: .post, parameters: parameters, encoding: JSONEncoding.default)
+        Alamofire.request("https://api.withfloats.com/Discover/v2/floatingPoint/bizFloats?", method: .post, parameters: parameters, encoding: URLEncoding.`default`)
             .responseJSON { response in
                 print(response)
                 //to get status code
