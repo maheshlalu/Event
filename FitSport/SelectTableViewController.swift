@@ -7,147 +7,134 @@
 //
 
 import UIKit
-import Alamofire
+
 class SelectTableViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+    var cateGoryData = NSDictionary()
+    var keysArr = [AnyObject]()
+    var indexArray = NSMutableArray()
+    var dataArray = NSMutableArray()
     
+    @IBOutlet weak var selectSportsLabel: UILabel!
+    
+    @IBOutlet weak var nextBtn: UIButton!
+    @IBOutlet weak var notTrainerBtn: UIButton!
+    @IBOutlet weak var enterSportLabel: UILabel!
     @IBOutlet weak var tableview: UITableView!
-    var dataArr:NSArray! = nil
-    var sectinArry : NSArray = NSArray()
-    var nameArray : NSMutableArray =  NSMutableArray()
+    var nameArray = ["Cricket","Volley Ball","Tennis","Hockey","Badminton","Basket Ball"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let nib = UINib(nibName: "SelectSportTableViewCell", bundle: nil)
+        self.tableview.register(nib, forCellReuseIdentifier: "SelectSportTableViewCell")
+        self.automaticallyAdjustsScrollViewInsets = false
         
-        self.navigationController?.isNavigationBarHidden = false
-        self.navigationItem.setHidesBackButton(true, animated:true);
-        let navigation:UINavigationItem = navigationItem
-        navigation.title  = "Select Sport"
+        cateGoryData  = NSDictionary(objects:
+            [["Hockey","Cricket","Badminton","Tennis","Shuttle","Swimming","Basketball","Volleyball","Kabaddi","Archery"],["Kriya","Aruna","Sudharshana"],["Salsa","Zumba"],["Hockey","Cricket","Badminton","Tennis","Shuttle","Swimming","Basketball","Volleyball","Kabaddi","Archery"],["Hockey","Cricket","Badminton","Tennis","Shuttle","Swimming","Basketball","Volleyball","Kabaddi","Archery"]],
+                                     
+                                     forKeys: ["SPORTS" as NSCopying,"YOGA" as NSCopying,"DANCE" as NSCopying,"DATA" as NSCopying,"TEXT" as NSCopying,])
         
-        //http://storeongo.com:8081/Services/getMasters?type=P3rdLevelCategories&mallId=20221
-        
-        //AHTagTableViewCell
-        let nibForAHTag = UINib(nibName: "AHTagTableViewCell", bundle: nil)
-        self.tableview.register(nibForAHTag, forCellReuseIdentifier: "cell")
-        
-        self.getTheCategoriesFromServer()
-        
-        //dataArr = self.papulateTheData() as NSArray
-        //print(self.constructTheAhTagsArray())
-    }
-    
-    //MARK: Get The data From Server
-    
-    func getTheCategoriesFromServer(){
-        
-        
-        let parameters: Parameters = ["type": "P3rdLevelCategories","mallId":CXAppConfig.sharedInstance.getAppMallID()]
-        
-        CXDataService.sharedInstance.getTheAppDataFromServer(parameters as [String : AnyObject]?) { (dataDic) in
-            let categories:NSArray   =  NSMutableArray(array: (dataDic.value(forKey: "jobs") as? NSArray!)!)
-            let groupNames:NSMutableArray = NSMutableArray()
-            let filteredGroups:NSMutableArray = NSMutableArray()
-            for jobDict in categories {
-                groupNames.add((jobDict as! NSDictionary).value(forKey: "SubCategory"))
-            }
-            let orderSet : NSOrderedSet = NSOrderedSet(array: groupNames as [AnyObject])
-            filteredGroups.addObjects(from: orderSet.array)
-            groupNames.removeAllObjects()
-            print(groupNames)
-        }
-        
+        keysArr = NSArray(array: cateGoryData.allKeys) as [AnyObject]
+        print(keysArr)
         
         
     }
-    
-    
-    func filterTheCategory(){
-        
-        
-    }
-    
-    
-    @IBAction func nextBtnAction(_ sender: AnyObject) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.setUpSidePanl()
-    }
-    
-    private var dataSource = { () -> [Array<AHTag>] in
-        return [
-            pinterest,
-            genre,
-            device,
-            app]
-    }()
-    
-    
-    func constructTheAhTagsArray () {
-        
-        let cateGoryData : NSDictionary = NSDictionary(objects: [["Hockey","Cricket","Badminton","Tennis","Shuttle","Swimming","Basketball","Volleyball","Kabaddi","Archery"],["Kriya","Aruna","Sudharshana"],["Salsa","Zumba"],["Hockey","Cricket","Badminton","Tennis","Shuttle","Swimming","Basketball","Volleyball","Kabaddi","Archery"],["Hockey","Cricket","Badminton","Tennis","Shuttle","Swimming","Basketball","Volleyball","Kabaddi","Archery"]], forKeys: ["SPORTS" as NSCopying,"YOGA" as NSCopying,"DANCE" as NSCopying,"DATA" as NSCopying,"TEXT" as NSCopying,])
-        var groupArray = [Array<AHTag>]()
-        for catDictKey in cateGoryData.allKeys {
-            var newArray = [AHTag]()
-            for innerData in cateGoryData.value(forKey: catDictKey as! String) as! NSArray{
-                newArray.append(AHTag(category: catDictKey as! String, title: innerData as! String, color:CXAppConfig.sharedInstance.getAppTheamColor(), URL: nil, enabled: false))
-            }
-            groupArray.append(newArray)
-        }
-        self.dataSource = groupArray
-        
-        
-    }
-    
-    
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return self.dataSource.count
+        return keysArr.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
+        let keyValue = keysArr[section]
+        let dicArry : NSArray = cateGoryData.value(forKey: keyValue as! String) as! NSArray
+        return dicArry.count
         
-        return 1
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+    {
+        return keysArr[section] as! String
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        self.configureCell(cell, atIndexPath: indexPath)
-        
-        return cell
     }
-    
-    private func configureCell(_ object: AnyObject, atIndexPath indexPath: IndexPath) {
-        if object.isKind(of: AHTagTableViewCell.classForCoder()) == false {
-            abort()
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SelectSportTableViewCell", for: indexPath) as?SelectSportTableViewCell
+        
+        tableView.separatorStyle = .none
+        tableView.allowsSelection = false
+        
+        let keyValue = keysArr[indexPath.section]
+        let dicArry : NSArray = cateGoryData.value(forKey: keyValue as! String) as! NSArray
+        print(dicArry)
+        
+        
+        cell?.nameLabel.text = dicArry[indexPath.row] as? String
+        cell?.checkBtn.addTarget(self, action:#selector(checkButtonClicked(sender:)), for: .touchUpInside)
+        if indexArray .contains(indexPath) {
+            cell?.checkBtn.isSelected = true
         }
-        let cell = object as! AHTagTableViewCell
-        let tags = self.dataSource[indexPath.section]
-        cell.label.setTags(tags)
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
-        return   self.dataSource[section][0].category
+        else {
+            cell?.checkBtn.isSelected = false
+        }
+        return cell!
         
     }
     
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+    func checkButtonClicked(sender:UIButton!) {
+        //        print("Button Clicked")
+        let btn : UIButton = sender
+        print(btn.isSelected)
+        //        btn.isSelected = !btn.isSelected
+        
+        
+        let view = sender.superview!
+        let cell = view.superview as! SelectSportTableViewCell
+        let indexPath = self.tableview.indexPath(for: cell)
+        if btn.isSelected {
+            indexArray.remove(indexPath as Any)
+            //   indexArray
+        }
+        else {
+            indexArray.add(indexPath as Any)
+            dataArray.add(cell.nameLabel?.text as Any)
+        }
+        
+        self.tableview.reloadData()
+        
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        
         return 50
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+        
+        
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let v = view as! UITableViewHeaderFooterView
-        v.textLabel?.textColor = UIColor.darkGray
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        v.textLabel?.textColor = UIColor.black
+        v.textLabel?.font = UIFont(name: "Roboto", size: 14)
         
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
+    {
+        return 18
+    }
+    //    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
+    //    {
+    //        let headerview = UIView()
+    //        headerview.backgroundColor = UIColor.clear
+    //        headerview
+    //        //return headerview
+    //    }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    
+    
 }
-
-

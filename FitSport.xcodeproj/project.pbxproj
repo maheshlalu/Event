@@ -21,6 +21,8 @@
 		114F2B431DCCB7BE00D62948 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114F2B421DCCB7BE00D62948 /* EventsViewController.swift */; };
 		114F2B4A1DCCB9A200D62948 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114F2B481DCCB9A200D62948 /* EventCell.swift */; };
 		114F2B4B1DCCB9A200D62948 /* EventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 114F2B491DCCB9A200D62948 /* EventCell.xib */; };
+		115B19AE1DD19AAC00B58E84 /* SelectSportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115B19AD1DD19AAC00B58E84 /* SelectSportTableViewCell.swift */; };
+		115B19B01DD19CD300B58E84 /* SelectSportTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 115B19AF1DD19CD300B58E84 /* SelectSportTableViewCell.xib */; };
 		1167B8161DD077B20025842B /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1167B8151DD077B20025842B /* OTPViewController.swift */; };
 		1167B8281DD0864F0025842B /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1167B8261DD0864F0025842B /* ActionButton.swift */; };
 		1167B8291DD0864F0025842B /* ActionButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1167B8271DD0864F0025842B /* ActionButtonItem.swift */; };
@@ -94,6 +96,8 @@
 		114F2B421DCCB7BE00D62948 /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		114F2B481DCCB9A200D62948 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		114F2B491DCCB9A200D62948 /* EventCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventCell.xib; sourceTree = "<group>"; };
+		115B19AD1DD19AAC00B58E84 /* SelectSportTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectSportTableViewCell.swift; sourceTree = "<group>"; };
+		115B19AF1DD19CD300B58E84 /* SelectSportTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectSportTableViewCell.xib; sourceTree = "<group>"; };
 		1167B8151DD077B20025842B /* OTPViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
 		1167B8261DD0864F0025842B /* ActionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		1167B8271DD0864F0025842B /* ActionButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionButtonItem.swift; sourceTree = "<group>"; };
@@ -212,11 +216,11 @@
 			children = (
 				11AB7A071DCB686B005E846B /* AppDataManager */,
 				11AB79F71DCB6407005E846B /* OtherResources */,
-				11AB79F21DCB6329005E846B /* StoryBoard */,
 				11AB79CE1DCB616E005E846B /* SidePanel */,
+				11AB79F21DCB6329005E846B /* StoryBoard */,
+				11AB79CB1DCB6103005E846B /* Xibs */,
 				11AB79CD1DCB616C005E846B /* View */,
 				11AB79CC1DCB6169005E846B /* Controllers */,
-				11AB79CB1DCB6103005E846B /* Xibs */,
 				11AB799A1DCB600C005E846B /* AppDelegate.swift */,
 				11AB79A41DCB600C005E846B /* Assets.xcassets */,
 				11AB79A61DCB600C005E846B /* LaunchScreen.storyboard */,
@@ -248,6 +252,7 @@
 		11AB79CB1DCB6103005E846B /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
+				115B19AF1DD19CD300B58E84 /* SelectSportTableViewCell.xib */,
 				1136C97C1DD09F1D00AA5B41 /* TrainerCollectionViewCell.xib */,
 				114F2B491DCCB9A200D62948 /* EventCell.xib */,
 			);
@@ -273,6 +278,7 @@
 		11AB79CD1DCB616C005E846B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				115B19AD1DD19AAC00B58E84 /* SelectSportTableViewCell.swift */,
 				1136C97A1DD09F0800AA5B41 /* TrainerCollectionViewCell.swift */,
 				114F2B481DCCB9A200D62948 /* EventCell.swift */,
 			);
@@ -514,6 +520,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				115B19B01DD19CD300B58E84 /* SelectSportTableViewCell.xib in Resources */,
 				11AB7A101DCB704A005E846B /* Roboto-Black.ttf in Resources */,
 				11AB7A111DCB704A005E846B /* Roboto-Bold.ttf in Resources */,
 				114F2B3F1DCC97E100D62948 /* MyProfile.storyboard in Resources */,
@@ -704,6 +711,7 @@
 				11AB79DF1DCB61CA005E846B /* SignInPageViewController.swift in Sources */,
 				1167B8291DD0864F0025842B /* ActionButtonItem.swift in Sources */,
 				11AB79DA1DCB61B2005E846B /* TestViewController.swift in Sources */,
+				115B19AE1DD19AAC00B58E84 /* SelectSportTableViewCell.swift in Sources */,
 				1136C97B1DD09F0800AA5B41 /* TrainerCollectionViewCell.swift in Sources */,
 				11AB79D21DCB6190005E846B /* HomeViewController.swift in Sources */,
 				113980421DCDCB3400BCF36C /* CreateEventViewController.swift in Sources */,

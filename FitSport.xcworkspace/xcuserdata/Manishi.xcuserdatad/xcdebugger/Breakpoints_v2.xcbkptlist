@@ -138,7 +138,7 @@
                   moduleName = "FitSport"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/cx_one/Event/FitSport/MyCalenderViewController.swift"
-                  timestampString = "500216896.498701"
+                  timestampString = "500277390.104181"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "31"
@@ -153,7 +153,7 @@
                   moduleName = "FitSport"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/cx_one/Event/FitSport/MyCalenderViewController.swift"
-                  timestampString = "500216896.499943"
+                  timestampString = "500277390.10982"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "32"
@@ -224,6 +224,22 @@
             startingLineNumber = "29"
             endingLineNumber = "29"
             landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FitSport/SelectTableViewController.swift"
+            timestampString = "500277383.441125"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "checkButtonClicked(sender:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
