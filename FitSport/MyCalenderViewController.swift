@@ -10,12 +10,13 @@ import UIKit
 import FSCalendar
 
 class MyCalenderViewController: UIViewController {
-
+    
+     var actionButton: ActionButton!
     @IBOutlet weak var myCalenderView: FSCalendar!
     override func viewDidLoad() {
         super.viewDidLoad()
         myCalenderView.firstWeekday = 2;
-
+        setupFab()
         // Do any additional setup after loading the view.
     }
 
@@ -24,20 +25,19 @@ class MyCalenderViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    fileprivate func setupFab() {
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+        actionButton = ActionButton(attachedToView: self.view, items:nil)
+        actionButton.action = {button in
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "CreateEventViewController") as! CreateEventViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+        }
     
+    }
 }
-
+    
 extension MyCalenderViewController : FSCalendarDataSource,FSCalendarDelegate {
     
     func calendar(_ calendar: FSCalendar, hasEventFor date: Date) -> Bool {

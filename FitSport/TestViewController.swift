@@ -29,22 +29,9 @@ class TestViewController: UIViewController {
         controller1.title = "MY Calender"
         controllerArray.append(controller1)
         
-        //UserDataViewController
-        let controller2 : UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserDataViewController") as UIViewController
-        controller2.title = "Favourites"
+        let controller2 : UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EventsViewController")
+        controller2.title = "Joined Events"
         controllerArray.append(controller2)
-        
-        let controller3 : UIViewController = UIViewController()
-        controller3.title = "Created"
-        controllerArray.append(controller3)
-        
-        let controller4 : UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EventsViewController") 
-        controller4.title = "Joined Events"
-        controllerArray.append(controller4)
-        
-        let controller5 : UIViewController = UIViewController()
-        controller5.title = "Other"
-        controllerArray.append(controller5)
         
         // Initialize scroll menu
         pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRect(x: 0.0, y: UIApplication.shared.statusBarFrame.height+(self.navigationController?.navigationBar.frame.size.height)!, width: self.view.frame.width, height: self.view.frame.height), pageMenuOptions: nil)

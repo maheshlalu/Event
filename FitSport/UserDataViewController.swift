@@ -11,10 +11,9 @@ import UIKit
 class UserDataViewController: UIViewController,UITextFieldDelegate,UITextViewDelegate {
     
     var limitLength = 10
-    var placeholderLabel : UILabel!
-    @IBOutlet weak var descriptionTxtView: UITextView!
+    
     @IBOutlet weak var mobileNumberTextField: UITextField!
-    @IBOutlet weak var arrowBtn: UIButton!
+    @IBOutlet weak var descriptionTxtView: UITextView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userImageView: UIImageView!
     
@@ -22,23 +21,16 @@ class UserDataViewController: UIViewController,UITextFieldDelegate,UITextViewDel
     override func viewDidLoad() {
 
         super.viewDidLoad()
-    
+        
+        self.navigationController?.isNavigationBarHidden = false
+        self.navigationItem.setHidesBackButton(true, animated:true);
+        let navigation:UINavigationItem = navigationItem
+        let image = UIImage(named: "logo_white")
+        navigation.titleView = UIImageView(image: image)
+        
         self.mobileNumberTextField.delegate = self
-        self.mobileNumberTextField.useUnderline()
-        
-        descriptionTxtView.delegate = self
-        placeholderLabel = UILabel()
-        placeholderLabel.text = "Type or say something"
-        placeholderLabel.font = UIFont.italicSystemFont(ofSize: (descriptionTxtView.font?.pointSize)!)
-        placeholderLabel.sizeToFit()
-        descriptionTxtView.addSubview(placeholderLabel)
-        placeholderLabel.frame.origin = CGPoint(x: 5, y: (descriptionTxtView.font?.pointSize)! / 2)
-        placeholderLabel.textColor = UIColor(white: 0, alpha: 0.3)
-        placeholderLabel.isHidden = !descriptionTxtView.text.isEmpty
-        
-        self.descriptionTxtView.useUnderline()
-        self.userImageView.layer.cornerRadius = self.userImageView.bounds.size.width/2.0
-        self.userImageView.clipsToBounds = true
+
+        self.userImageView.layer.cornerRadius = 60
         self.userImageView.layer.borderWidth = 1
 
     }
@@ -47,10 +39,10 @@ class UserDataViewController: UIViewController,UITextFieldDelegate,UITextViewDel
         self.view.endEditing(true)
         return false
     }
-    
-    func textViewDidChange(_ textView: UITextView) {
-        placeholderLabel.isHidden = !textView.text.isEmpty
-    }
+//    
+//    func textViewDidChange(_ textView: UITextView) {
+//        placeholderLabel.isHidden = !textView.text.isEmpty
+//    }
 
     // TextField Delegate Methods
     
@@ -67,31 +59,62 @@ class UserDataViewController: UIViewController,UITextFieldDelegate,UITextViewDel
 
 }
 
+//
+//extension UITextField {
+//    
+//    func useUnderline() {
+//        
+//        let border = CALayer()
+//        let borderWidth = CGFloat(1.0)
+//        border.borderColor = UIColor.darkGray.cgColor
+//        border.frame = CGRect(x: 0, y: self.frame.size.height - borderWidth, width: self.frame.size.width, height: self.frame.size.height)
+//        border.borderWidth = borderWidth
+//        self.layer.addSublayer(border)
+//        self.layer.masksToBounds = true
+//    }
+//}
+//
+//extension UITextView {
+//    
+//    func useUnderline() {
+//        
+//        let border = CALayer()
+//        let borderWidth = CGFloat(1.0)
+//        border.borderColor = UIColor.darkGray.cgColor
+//        border.frame = CGRect(x: 0, y: self.frame.size.height - borderWidth, width: self.frame.size.width, height: self.frame.size.height)
+//        border.borderWidth = borderWidth
+//        self.layer.addSublayer(border)
+//        self.layer.masksToBounds = true
+//    }
+//    
+//}
 
-extension UITextField {
-    
-    func useUnderline() {
-        
-        let border = CALayer()
-        let borderWidth = CGFloat(1.0)
-        border.borderColor = UIColor.darkGray.cgColor
-        border.frame = CGRect(x: 0, y: self.frame.size.height - borderWidth, width: self.frame.size.width, height: self.frame.size.height)
-        border.borderWidth = borderWidth
-        self.layer.addSublayer(border)
-        self.layer.masksToBounds = true
-    }
-}
+//extension UITextField {
+//    
+//    func useUnderline() {
+//        
+//        let border = CALayer()
+//        let borderWidth = CGFloat(1.0)
+//        border.borderColor = UIColor.darkGray.cgColor
+//        border.frame = CGRect(x: 0, y: self.frame.size.height - borderWidth, width: self.frame.size.width, height: self.frame.size.height)
+//        border.borderWidth = borderWidth
+//        self.layer.addSublayer(border)
+//        self.layer.masksToBounds = true
+//    }
+//}
+//
+//extension UITextView {
+//    
+//    func useUnderline() {
+//        
+//        let border = CALayer()
+//        let borderWidth = CGFloat(1.0)
+//        border.borderColor = UIColor.darkGray.cgColor
+//        border.frame = CGRect(x: 0, y: self.frame.size.height - borderWidth, width: self.frame.size.width, height: self.frame.size.height)
+//        border.borderWidth = borderWidth
+//        self.layer.addSublayer(border)
+//        self.layer.masksToBounds = true
+//    }
+//}
 
-extension UITextView {
-    
-    func useUnderline() {
-        
-        let border = CALayer()
-        let borderWidth = CGFloat(1.0)
-        border.borderColor = UIColor.darkGray.cgColor
-        border.frame = CGRect(x: 0, y: self.frame.size.height - borderWidth, width: self.frame.size.width, height: self.frame.size.height)
-        border.borderWidth = borderWidth
-        self.layer.addSublayer(border)
-        self.layer.masksToBounds = true
-    }
-}
+

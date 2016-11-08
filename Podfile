@@ -12,6 +12,8 @@ pod 'SDWebImage', '~> 3.8'
 pod 'AFNetworking', '~> 3.1'
 pod 'FSCalendar'
 pod 'Alamofire', '~> 4.0'
+
+
   target 'FitSportTests' do
     inherit! :search_paths
     # Pods for testing

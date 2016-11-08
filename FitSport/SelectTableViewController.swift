@@ -66,6 +66,10 @@ class SelectTableViewController: UIViewController,UITableViewDataSource,UITableV
     }
     
     
+    @IBAction func nextBtnAction(_ sender: AnyObject) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.setUpSidePanl()
+    }
     
     private var dataSource = { () -> [Array<AHTag>] in
         return [

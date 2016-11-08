@@ -1,22 +1,23 @@
 //
-//  CreateEventViewController.swift
+//  OTPViewController.swift
 //  FitSport
 //
-//  Created by Manishi on 11/5/16.
+//  Created by Manishi on 11/7/16.
 //  Copyright © 2016 ongo. All rights reserved.
 //
 
 import UIKit
 
-class CreateEventViewController: UIViewController {
+class OTPViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.isNavigationBarHidden = false
         
-//        CGRect frameRect = textField.frame;
-//        frameRect.size.height = 53;
-//        textField.frame = frameRect;
+        self.navigationController?.isNavigationBarHidden = false
+        //self.navigationItem.setHidesBackButton(true, animated:true);
+        let navigation:UINavigationItem = navigationItem
+        let image = UIImage(named: "logo_white")
+        navigation.titleView = UIImageView(image: image)
     }
 
     override func didReceiveMemoryWarning() {

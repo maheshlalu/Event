@@ -44,20 +44,12 @@ class SignInViewController: UIViewController {
     }
 
     @IBOutlet weak var googlePlusSignIn: UIButton!
-    
+  
     @IBAction func googlePlusSignInAction(_ sender: UIButton) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.setUpSidePanl()
-        
-//        var mainView: UIStoryboard!
-//        mainView = UIStoryboard(name: "Main", bundle: nil)
-//        let viewcontroller : UIViewController = mainView.instantiateViewController(withIdentifier: "eventCell") as! EventsViewController
-//        self.window!.rootViewController = viewcontroller
-//        
-//        var storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        var myVC = (storyboard.instantiateViewController(withIdentifier: "myViewCont") as! MyNewViewController)
+
         
     }
+ 
 }
 
 extension SignInViewController: TutorialPageViewControllerDelegate {

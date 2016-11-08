@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1116EA6B1DCD9C1900ACF469 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1116EA6A1DCD9C1900ACF469 /* Main.storyboard */; };
+		1136C97B1DD09F0800AA5B41 /* TrainerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1136C97A1DD09F0800AA5B41 /* TrainerCollectionViewCell.swift */; };
+		1136C97D1DD09F1D00AA5B41 /* TrainerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1136C97C1DD09F1D00AA5B41 /* TrainerCollectionViewCell.xib */; };
+		1136C97F1DD09F3A00AA5B41 /* TrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1136C97E1DD09F3A00AA5B41 /* TrainerViewController.swift */; };
 		113980401DCDB89700BCF36C /* UserDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1139803F1DCDB89700BCF36C /* UserDataViewController.swift */; };
 		113980421DCDCB3400BCF36C /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113980411DCDCB3400BCF36C /* CreateEventViewController.swift */; };
 		114F2B331DCC689A00D62948 /* CXDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114F2B321DCC689A00D62948 /* CXDataService.swift */; };
@@ -18,6 +21,9 @@
 		114F2B431DCCB7BE00D62948 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114F2B421DCCB7BE00D62948 /* EventsViewController.swift */; };
 		114F2B4A1DCCB9A200D62948 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114F2B481DCCB9A200D62948 /* EventCell.swift */; };
 		114F2B4B1DCCB9A200D62948 /* EventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 114F2B491DCCB9A200D62948 /* EventCell.xib */; };
+		1167B8161DD077B20025842B /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1167B8151DD077B20025842B /* OTPViewController.swift */; };
+		1167B8281DD0864F0025842B /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1167B8261DD0864F0025842B /* ActionButton.swift */; };
+		1167B8291DD0864F0025842B /* ActionButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1167B8271DD0864F0025842B /* ActionButtonItem.swift */; };
 		11AB799B1DCB600C005E846B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AB799A1DCB600C005E846B /* AppDelegate.swift */; };
 		11AB79A31DCB600C005E846B /* FitSport.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 11AB79A11DCB600C005E846B /* FitSport.xcdatamodeld */; };
 		11AB79A51DCB600C005E846B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11AB79A41DCB600C005E846B /* Assets.xcassets */; };
@@ -74,6 +80,9 @@
 
 /* Begin PBXFileReference section */
 		1116EA6A1DCD9C1900ACF469 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		1136C97A1DD09F0800AA5B41 /* TrainerCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainerCollectionViewCell.swift; sourceTree = "<group>"; };
+		1136C97C1DD09F1D00AA5B41 /* TrainerCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrainerCollectionViewCell.xib; sourceTree = "<group>"; };
+		1136C97E1DD09F3A00AA5B41 /* TrainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainerViewController.swift; sourceTree = "<group>"; };
 		1139803F1DCDB89700BCF36C /* UserDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDataViewController.swift; sourceTree = "<group>"; };
 		113980411DCDCB3400BCF36C /* CreateEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
 		114F2B321DCC689A00D62948 /* CXDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CXDataService.swift; sourceTree = "<group>"; };
@@ -85,6 +94,9 @@
 		114F2B421DCCB7BE00D62948 /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		114F2B481DCCB9A200D62948 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		114F2B491DCCB9A200D62948 /* EventCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventCell.xib; sourceTree = "<group>"; };
+		1167B8151DD077B20025842B /* OTPViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
+		1167B8261DD0864F0025842B /* ActionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
+		1167B8271DD0864F0025842B /* ActionButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionButtonItem.swift; sourceTree = "<group>"; };
 		11AB79971DCB600C005E846B /* FitSport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitSport.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11AB799A1DCB600C005E846B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11AB79A21DCB600C005E846B /* FitSport.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FitSport.xcdatamodel; sourceTree = "<group>"; };
@@ -164,6 +176,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1167B8171DD07B680025842B /* Fab */ = {
+			isa = PBXGroup;
+			children = (
+				1167B8261DD0864F0025842B /* ActionButton.swift */,
+				1167B8271DD0864F0025842B /* ActionButtonItem.swift */,
+			);
+			name = Fab;
+			sourceTree = "<group>";
+		};
 		11AB798E1DCB600C005E846B = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +248,7 @@
 		11AB79CB1DCB6103005E846B /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
+				1136C97C1DD09F1D00AA5B41 /* TrainerCollectionViewCell.xib */,
 				114F2B491DCCB9A200D62948 /* EventCell.xib */,
 			);
 			name = Xibs;
@@ -242,6 +264,8 @@
 				114F2B421DCCB7BE00D62948 /* EventsViewController.swift */,
 				1139803F1DCDB89700BCF36C /* UserDataViewController.swift */,
 				113980411DCDCB3400BCF36C /* CreateEventViewController.swift */,
+				1167B8151DD077B20025842B /* OTPViewController.swift */,
+				1136C97E1DD09F3A00AA5B41 /* TrainerViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -249,6 +273,7 @@
 		11AB79CD1DCB616C005E846B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1136C97A1DD09F0800AA5B41 /* TrainerCollectionViewCell.swift */,
 				114F2B481DCCB9A200D62948 /* EventCell.swift */,
 			);
 			name = View;
@@ -310,6 +335,7 @@
 		11AB79F71DCB6407005E846B /* OtherResources */ = {
 			isa = PBXGroup;
 			children = (
+				1167B8171DD07B680025842B /* Fab */,
 				11AB7A011DCB647F005E846B /* sadhu.jpg */,
 				11AB79F81DCB6443005E846B /* Fonts */,
 			);
@@ -496,6 +522,7 @@
 				11AB7A141DCB704A005E846B /* Roboto-Medium.ttf in Resources */,
 				11AB7A151DCB704A005E846B /* Roboto-Regular.ttf in Resources */,
 				11AB7A161DCB704A005E846B /* RobotoCondensed-Bold.ttf in Resources */,
+				1136C97D1DD09F1D00AA5B41 /* TrainerCollectionViewCell.xib in Resources */,
 				11AB7A171DCB704A005E846B /* RobotoCondensed-Light.ttf in Resources */,
 				11AB79A81DCB600C005E846B /* LaunchScreen.storyboard in Resources */,
 				11AB79E71DCB61F4005E846B /* AHTagTableViewCell.xib in Resources */,
@@ -655,6 +682,7 @@
 			files = (
 				114F2B3B1DCC917200D62948 /* CX_SocialIntegration.swift in Sources */,
 				11AB79DE1DCB61CA005E846B /* SignInViewController.swift in Sources */,
+				1136C97F1DD09F3A00AA5B41 /* TrainerViewController.swift in Sources */,
 				11AB79E61DCB61F4005E846B /* AHTagTableViewCell.swift in Sources */,
 				11AB79F11DCB62A2005E846B /* SWRevealViewController.m in Sources */,
 				11AB79E91DCB61F4005E846B /* TagGroups.swift in Sources */,
@@ -665,14 +693,18 @@
 				113980401DCDB89700BCF36C /* UserDataViewController.swift in Sources */,
 				114F2B431DCCB7BE00D62948 /* EventsViewController.swift in Sources */,
 				11AB79F01DCB62A2005E846B /* LeftViewController.swift in Sources */,
+				1167B8161DD077B20025842B /* OTPViewController.swift in Sources */,
 				11AB7A041DCB682A005E846B /* CXAppConfig.swift in Sources */,
+				1167B8281DD0864F0025842B /* ActionButton.swift in Sources */,
 				11AB79D91DCB61B2005E846B /* CAPSPageMenu.swift in Sources */,
 				114F2B4A1DCCB9A200D62948 /* EventCell.swift in Sources */,
 				11AB79A31DCB600C005E846B /* FitSport.xcdatamodeld in Sources */,
 				11AB79E51DCB61F4005E846B /* AHTagsLabel.swift in Sources */,
 				11AB79EB1DCB6225005E846B /* SelectTableViewController.swift in Sources */,
 				11AB79DF1DCB61CA005E846B /* SignInPageViewController.swift in Sources */,
+				1167B8291DD0864F0025842B /* ActionButtonItem.swift in Sources */,
 				11AB79DA1DCB61B2005E846B /* TestViewController.swift in Sources */,
+				1136C97B1DD09F0800AA5B41 /* TrainerCollectionViewCell.swift in Sources */,
 				11AB79D21DCB6190005E846B /* HomeViewController.swift in Sources */,
 				113980421DCDCB3400BCF36C /* CreateEventViewController.swift in Sources */,
 				11AB79E81DCB61F4005E846B /* AHTagView.swift in Sources */,
