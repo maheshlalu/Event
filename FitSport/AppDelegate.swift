@@ -12,7 +12,7 @@ import FBSDKCoreKit
 import Google
 import GoogleSignIn
 import GGLCore
-
+import MagicalRecord
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,SWRevealViewControllerDelegate,GIDSignInDelegate {
     var window: UIWindow?
@@ -36,11 +36,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate,SWRevealViewControllerDele
         GGLContext.sharedInstance().configureWithError(&configureError)
         assert(configureError == nil, "Error configuring Google services: \(configureError)")
         GIDSignIn.sharedInstance().delegate = self
-        
-        //setUpSidePanl()
+        self.setUpMagicalDB()
+        applicationNavigationFlow()
         return true
     }
     
+    func applicationNavigationFlow(){
+        let userId = CXAppConfig.sharedInstance.getUserID()
+        print(userId)
+        if userId == "" {
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            let mainStoryboard: UIStoryboard = UIStoryboard(name: "PagerMain", bundle: nil)
+            let exampleViewController: SignInViewController = mainStoryboard.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
+            let navCntl : UINavigationController = UINavigationController(rootViewController: exampleViewController)
+            self.window?.rootViewController = navCntl
+            self.window?.makeKeyAndVisible()
+            
+        }else{
+            self.setUpSidePanl()
+            
+        }
+        
+    }
     func setUpSidePanl(){
         
         let wFrame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
@@ -72,6 +89,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate,SWRevealViewControllerDele
         
     }
     
+    // MARK: - Core Data stack
+    
+    func setUpMagicalDB() {
+        //MagicalRecord.setupCoreDataStackWithStoreNamed("Silly_Monks")
+        MagicalRecord.setupCoreDataStack(withStoreNamed: "FitSportData")
+        
+    }
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

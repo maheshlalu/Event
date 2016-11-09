@@ -62,6 +62,8 @@
 		11AB7A161DCB704A005E846B /* RobotoCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11AB7A0E1DCB704A005E846B /* RobotoCondensed-Bold.ttf */; };
 		11AB7A171DCB704A005E846B /* RobotoCondensed-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11AB7A0F1DCB704A005E846B /* RobotoCondensed-Light.ttf */; };
 		1800375A1DD328740069E2AB /* CX_SocialIntegration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180037591DD328740069E2AB /* CX_SocialIntegration.swift */; };
+		18EE80981DD35C6B000B20D8 /* JoinedEventsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EE80971DD35C6B000B20D8 /* JoinedEventsCollectionViewCell.swift */; };
+		18EE809A1DD35C70000B20D8 /* JoinedEventsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EE80991DD35C70000B20D8 /* JoinedEventsCollectionViewCell.xib */; };
 		4B1160151B09DCE541B33F57 /* Pods_FitSport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7F4B6973E511461D2C3E05 /* Pods_FitSport.framework */; };
 		690A857B45BC362A1512932A /* Pods_FitSportTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9237A56C77E380740017126B /* Pods_FitSportTests.framework */; };
 		C66E41212B762DCE7E4148EA /* Pods_FitSportUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8966F61E6FA29F827ADEEEBA /* Pods_FitSportUITests.framework */; };
@@ -150,6 +152,8 @@
 		11AB7A0E1DCB704A005E846B /* RobotoCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "RobotoCondensed-Bold.ttf"; path = "../RobotoCondensed-Bold.ttf"; sourceTree = "<group>"; };
 		11AB7A0F1DCB704A005E846B /* RobotoCondensed-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "RobotoCondensed-Light.ttf"; path = "../RobotoCondensed-Light.ttf"; sourceTree = "<group>"; };
 		180037591DD328740069E2AB /* CX_SocialIntegration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CX_SocialIntegration.swift; sourceTree = "<group>"; };
+		18EE80971DD35C6B000B20D8 /* JoinedEventsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinedEventsCollectionViewCell.swift; sourceTree = "<group>"; };
+		18EE80991DD35C70000B20D8 /* JoinedEventsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JoinedEventsCollectionViewCell.xib; sourceTree = "<group>"; };
 		5A7F4B6973E511461D2C3E05 /* Pods_FitSport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FitSport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E78E2D400FD848ED6232DBB /* Pods-FitSportUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitSportUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FitSportUITests/Pods-FitSportUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		65C732199E77CBBCFE079C6A /* Pods-FitSportUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitSportUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FitSportUITests/Pods-FitSportUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -276,6 +280,7 @@
 		11AB79CB1DCB6103005E846B /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
+				18EE80991DD35C70000B20D8 /* JoinedEventsCollectionViewCell.xib */,
 				115B19AF1DD19CD300B58E84 /* SelectSportTableViewCell.xib */,
 				1136C97C1DD09F1D00AA5B41 /* TrainerCollectionViewCell.xib */,
 				114F2B491DCCB9A200D62948 /* EventCell.xib */,
@@ -302,6 +307,7 @@
 		11AB79CD1DCB616C005E846B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				18EE80971DD35C6B000B20D8 /* JoinedEventsCollectionViewCell.swift */,
 				115B19AD1DD19AAC00B58E84 /* SelectSportTableViewCell.swift */,
 				1136C97A1DD09F0800AA5B41 /* TrainerCollectionViewCell.swift */,
 				114F2B481DCCB9A200D62948 /* EventCell.swift */,
@@ -560,6 +566,7 @@
 				11AB7A151DCB704A005E846B /* Roboto-Regular.ttf in Resources */,
 				11AB7A161DCB704A005E846B /* RobotoCondensed-Bold.ttf in Resources */,
 				1136C97D1DD09F1D00AA5B41 /* TrainerCollectionViewCell.xib in Resources */,
+				18EE809A1DD35C70000B20D8 /* JoinedEventsCollectionViewCell.xib in Resources */,
 				11AB7A171DCB704A005E846B /* RobotoCondensed-Light.ttf in Resources */,
 				11AB79A81DCB600C005E846B /* LaunchScreen.storyboard in Resources */,
 				11AB79E71DCB61F4005E846B /* AHTagTableViewCell.xib in Resources */,
@@ -738,6 +745,7 @@
 				114F2B4A1DCCB9A200D62948 /* EventCell.swift in Sources */,
 				11AB79A31DCB600C005E846B /* FitSport.xcdatamodeld in Sources */,
 				11AB79E51DCB61F4005E846B /* AHTagsLabel.swift in Sources */,
+				18EE80981DD35C6B000B20D8 /* JoinedEventsCollectionViewCell.swift in Sources */,
 				11AB79EB1DCB6225005E846B /* SelectTableViewController.swift in Sources */,
 				11AB79DF1DCB61CA005E846B /* SignInPageViewController.swift in Sources */,
 				1167B8291DD0864F0025842B /* ActionButtonItem.swift in Sources */,

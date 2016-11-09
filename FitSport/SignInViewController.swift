@@ -89,6 +89,8 @@ class SignInViewController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInU
 
         }else{
             //Navigate To Home Screen
+            let appDel = UIApplication.shared.delegate as! AppDelegate
+            appDel.setUpSidePanl()
         }
     }
     

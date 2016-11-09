@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="FFn-1S-hKG">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="FFn-1S-hKG">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -21,7 +21,7 @@
                         <viewControllerLayoutGuide type="bottom" id="nQE-Vi-z2t"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Kal-iW-rQt">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1O4-60-qAz">
@@ -34,7 +34,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="eventCell" id="JaX-r4-3c3">
-                                        <rect key="frame" x="54.666666666666664" y="10" width="305" height="246"/>
+                                        <rect key="frame" x="7.5" y="10" width="305" height="246"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="305" height="246"/>
@@ -57,7 +57,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="eventCollectionView" destination="1O4-60-qAz" id="feX-US-G9H"/>
+                        <outlet property="eventCollectionView" destination="1O4-60-qAz" id="hLN-CZ-udz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xRc-Im-Px4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -73,7 +73,7 @@
                         <viewControllerLayoutGuide type="bottom" id="57y-Me-mWd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Sk6-ur-U6M">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mGX-uS-rHo">
@@ -176,7 +176,7 @@
                         <viewControllerLayoutGuide type="bottom" id="7Pi-bz-ecS"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="SXZ-1z-gn4">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Md2-Qh-EXS">
@@ -366,7 +366,7 @@
                         <viewControllerLayoutGuide type="bottom" id="GiG-EN-SZa"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="fED-um-wSJ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VcD-AR-LNJ">
@@ -399,7 +399,7 @@
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="43395ED5-4600-4651-9016-B38DBC4C7C74" translatesAutoresizingMaskIntoConstraints="NO" id="EX9-aN-17J">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="96549CC4-E3AD-4DC3-AB06-032B87F97555" translatesAutoresizingMaskIntoConstraints="NO" id="EX9-aN-17J">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="24" id="0bo-oL-Nzj"/>
                                             <constraint firstAttribute="width" constant="24" id="fXk-NW-V66"/>
@@ -439,7 +439,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="43395ED5-4600-4651-9016-B38DBC4C7C74" width="20" height="20">
+        <image name="96549CC4-E3AD-4DC3-AB06-032B87F97555" width="20" height="20">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -520,11 +520,11 @@ AEEAAAAAAAAAAAAAAAAAABCMA
         <image name="images.jpg" width="267" height="189"/>
         <image name="photo-camera" width="192" height="192"/>
         <image name="sadhu.jpg" width="1280" height="720"/>
-        <image name="storeongoLogo" width="100" height="45"/>
+        <image name="storeongoLogo" width="150" height="67"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina5_5.fullscreen"/>
+        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
     </simulatedMetricsContainer>
 </document>

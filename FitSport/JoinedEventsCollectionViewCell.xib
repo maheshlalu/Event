@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ipb-xo-YzU" userLabel="JoinedEventsCollectionViewCell" customClass="JoinedEventsCollectionViewCell" customModule="FitSport">
+            <rect key="frame" x="0.0" y="0.0" width="306" height="180"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="306" height="180"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="images.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="KhH-Dc-soV"/>
+                    <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="90J-Is-utT">
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="NCv-G4-kW3">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" ambiguous="YES" text="Playon High School Sports Network" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKH-wE-bPy">
+                                        <frame key="frameInset" width="273" height="23"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="WORKING STREET WORKING STREET WORKING STREET WORKING STREET WORKING STREEET" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vDH-7Y-onu">
+                                        <frame key="frameInset" minY="23" width="261" height="28"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="wZo-vM-FB8"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SQt-bd-dLh">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="54" id="Bsj-SF-tFh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                <color key="tintColor" red="0.96470588239999999" green="0.59999999999999998" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Join">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" title="Joined"/>
+                                <connections>
+                                    <action selector="joinedBtn:" destination="ipb-xo-YzU" eventType="touchUpInside" id="pNP-4h-jti"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="feQ-YZ-01A">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="18" id="oZB-qV-rR1"/>
+                                </constraints>
+                                <state key="normal" title="Join" image="HeartUnclickedImage"/>
+                                <state key="selected" image="HeartClickedImage"/>
+                                <connections>
+                                    <action selector="heartBtnAction:" destination="ipb-xo-YzU" eventType="touchUpInside" id="JEC-63-wy2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="SQt-bd-dLh" firstAttribute="top" secondItem="NCv-G4-kW3" secondAttribute="bottom" constant="3" id="54G-lA-sTW"/>
+                            <constraint firstItem="NCv-G4-kW3" firstAttribute="top" secondItem="90J-Is-utT" secondAttribute="top" constant="1" id="H1K-7i-P9f"/>
+                            <constraint firstAttribute="bottom" secondItem="feQ-YZ-01A" secondAttribute="bottom" constant="1" id="Ha5-8B-WhZ"/>
+                            <constraint firstItem="feQ-YZ-01A" firstAttribute="top" secondItem="NCv-G4-kW3" secondAttribute="bottom" constant="1" id="LkK-pU-Ajk"/>
+                            <constraint firstAttribute="trailing" secondItem="feQ-YZ-01A" secondAttribute="trailing" constant="5" id="Yg5-rL-Ofs"/>
+                            <constraint firstAttribute="trailing" secondItem="NCv-G4-kW3" secondAttribute="trailing" constant="8" id="cbF-rH-gPg"/>
+                            <constraint firstAttribute="bottom" secondItem="SQt-bd-dLh" secondAttribute="bottom" constant="2" id="hlh-ni-Cq0"/>
+                            <constraint firstAttribute="height" constant="70.5" id="uTu-ti-yjN"/>
+                            <constraint firstItem="NCv-G4-kW3" firstAttribute="leading" secondItem="90J-Is-utT" secondAttribute="leading" constant="8" id="uWY-5D-IQh"/>
+                            <constraint firstItem="feQ-YZ-01A" firstAttribute="leading" secondItem="SQt-bd-dLh" secondAttribute="trailing" constant="4" id="uix-Ii-26u"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="KhH-Dc-soV" firstAttribute="leading" secondItem="ipb-xo-YzU" secondAttribute="leading" id="3IN-w6-sar"/>
+                <constraint firstAttribute="trailing" secondItem="KhH-Dc-soV" secondAttribute="trailing" id="9Mq-69-Uyb"/>
+                <constraint firstAttribute="trailing" secondItem="90J-Is-utT" secondAttribute="trailing" constant="3" id="OKt-vG-Wou"/>
+                <constraint firstItem="KhH-Dc-soV" firstAttribute="top" secondItem="ipb-xo-YzU" secondAttribute="top" id="Q7U-y4-p3d"/>
+                <constraint firstAttribute="bottom" secondItem="90J-Is-utT" secondAttribute="bottom" constant="2" id="eaH-JN-aET"/>
+                <constraint firstItem="90J-Is-utT" firstAttribute="leading" secondItem="ipb-xo-YzU" secondAttribute="leading" constant="3" id="iki-gp-OCk"/>
+                <constraint firstAttribute="bottom" secondItem="KhH-Dc-soV" secondAttribute="bottom" id="zQd-Qw-ysR"/>
+            </constraints>
+            <size key="customSize" width="280" height="194"/>
+            <connections>
+                <outlet property="eventTaskLbl" destination="gKH-wE-bPy" id="zKR-nh-rxd"/>
+                <outlet property="heartBtn" destination="feQ-YZ-01A" id="vu6-S0-j90"/>
+                <outlet property="joinedBtn" destination="SQt-bd-dLh" id="uBd-6e-GXs"/>
+                <outlet property="joinedEventDescriptionLabel" destination="vDH-7Y-onu" id="3T0-wW-EdG"/>
+                <outlet property="joinedEventImageView" destination="KhH-Dc-soV" id="wG9-vG-ih1"/>
+            </connections>
+            <point key="canvasLocation" x="66" y="-50"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="HeartClickedImage" width="20" height="20"/>
+        <image name="HeartUnclickedImage" width="20" height="20"/>
+        <image name="images.jpg" width="267" height="189"/>
+    </resources>
+</document>
