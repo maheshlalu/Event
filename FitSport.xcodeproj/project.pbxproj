@@ -26,6 +26,10 @@
 		1167B8161DD077B20025842B /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1167B8151DD077B20025842B /* OTPViewController.swift */; };
 		1167B8281DD0864F0025842B /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1167B8261DD0864F0025842B /* ActionButton.swift */; };
 		1167B8291DD0864F0025842B /* ActionButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1167B8271DD0864F0025842B /* ActionButtonItem.swift */; };
+		118906B71DD3047500041EE2 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 118906B41DD3047500041EE2 /* FBSDKCoreKit.framework */; };
+		118906B81DD3047500041EE2 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 118906B51DD3047500041EE2 /* FBSDKLoginKit.framework */; };
+		118906B91DD3047500041EE2 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 118906B61DD3047500041EE2 /* FBSDKShareKit.framework */; };
+		118906BD1DD32C7300041EE2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 118906BC1DD32C7300041EE2 /* GoogleService-Info.plist */; };
 		11AB799B1DCB600C005E846B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AB799A1DCB600C005E846B /* AppDelegate.swift */; };
 		11AB79A31DCB600C005E846B /* FitSport.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 11AB79A11DCB600C005E846B /* FitSport.xcdatamodeld */; };
 		11AB79A51DCB600C005E846B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11AB79A41DCB600C005E846B /* Assets.xcassets */; };
@@ -101,6 +105,11 @@
 		1167B8151DD077B20025842B /* OTPViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
 		1167B8261DD0864F0025842B /* ActionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		1167B8271DD0864F0025842B /* ActionButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionButtonItem.swift; sourceTree = "<group>"; };
+		118906B41DD3047500041EE2 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		118906B51DD3047500041EE2 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		118906B61DD3047500041EE2 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		118906BB1DD3244600041EE2 /* FitSport.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FitSport.entitlements; sourceTree = "<group>"; };
+		118906BC1DD32C7300041EE2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		11AB79971DCB600C005E846B /* FitSport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitSport.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11AB799A1DCB600C005E846B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11AB79A21DCB600C005E846B /* FitSport.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FitSport.xcdatamodel; sourceTree = "<group>"; };
@@ -157,7 +166,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				118906B91DD3047500041EE2 /* FBSDKShareKit.framework in Frameworks */,
 				4B1160151B09DCE541B33F57 /* Pods_FitSport.framework in Frameworks */,
+				118906B71DD3047500041EE2 /* FBSDKCoreKit.framework in Frameworks */,
+				118906B81DD3047500041EE2 /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,6 +201,16 @@
 			name = Fab;
 			sourceTree = "<group>";
 		};
+		118906B31DD3045700041EE2 /* FB */ = {
+			isa = PBXGroup;
+			children = (
+				118906B41DD3047500041EE2 /* FBSDKCoreKit.framework */,
+				118906B51DD3047500041EE2 /* FBSDKLoginKit.framework */,
+				118906B61DD3047500041EE2 /* FBSDKShareKit.framework */,
+			);
+			name = FB;
+			sourceTree = "<group>";
+		};
 		11AB798E1DCB600C005E846B = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +236,7 @@
 		11AB79991DCB600C005E846B /* FitSport */ = {
 			isa = PBXGroup;
 			children = (
+				118906BB1DD3244600041EE2 /* FitSport.entitlements */,
 				11AB7A071DCB686B005E846B /* AppDataManager */,
 				11AB79F71DCB6407005E846B /* OtherResources */,
 				11AB79CE1DCB616E005E846B /* SidePanel */,
@@ -226,6 +249,7 @@
 				11AB79A61DCB600C005E846B /* LaunchScreen.storyboard */,
 				11AB79A91DCB600C005E846B /* Info.plist */,
 				11AB79A11DCB600C005E846B /* FitSport.xcdatamodeld */,
+				118906BC1DD32C7300041EE2 /* GoogleService-Info.plist */,
 				11AB79EC1DCB62A1005E846B /* FitSport-Bridging-Header.h */,
 			);
 			path = FitSport;
@@ -341,6 +365,7 @@
 		11AB79F71DCB6407005E846B /* OtherResources */ = {
 			isa = PBXGroup;
 			children = (
+				118906B31DD3045700041EE2 /* FB */,
 				1167B8171DD07B680025842B /* Fab */,
 				11AB7A011DCB647F005E846B /* sadhu.jpg */,
 				11AB79F81DCB6443005E846B /* Fonts */,
@@ -478,6 +503,11 @@
 						DevelopmentTeam = 95Y7Y2H9V8;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					11AB79AD1DCB600C005E846B = {
 						CreatedOnToolsVersion = 8.0;
@@ -540,6 +570,7 @@
 				1116EA6B1DCD9C1900ACF469 /* Main.storyboard in Resources */,
 				114F2B4B1DCCB9A200D62948 /* EventCell.xib in Resources */,
 				11AB7A021DCB647F005E846B /* sadhu.jpg in Resources */,
+				118906BD1DD32C7300041EE2 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -859,7 +890,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = FitSport/FitSport.entitlements;
 				DEVELOPMENT_TEAM = 95Y7Y2H9V8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FitSport",
+				);
 				INFOPLIST_FILE = FitSport/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ongo.FitSport;
@@ -876,7 +912,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = FitSport/FitSport.entitlements;
 				DEVELOPMENT_TEAM = 95Y7Y2H9V8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FitSport",
+				);
 				INFOPLIST_FILE = FitSport/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ongo.FitSport;

@@ -5,3 +5,6 @@
 #import "SWRevealViewController.h"
 #import <AFNetworking/AFNetworking.h>
 #import <FSCalendar/FSCalendar.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+

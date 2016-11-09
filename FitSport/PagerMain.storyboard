@@ -48,16 +48,16 @@
                                         <state key="normal" title="   SIGN IN" image="g+Logo">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="googleBtnAction:" destination="gjb-cV-ex8" eventType="touchUpInside" id="foP-Hf-Psd"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V3K-5o-bvv">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V3K-5o-bvv" customClass="FBSDKLoginButton">
                                         <color key="backgroundColor" red="0.20000000000000001" green="0.30980392156862746" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
                                         <state key="normal" title="   SIGN IN" image="fbLogo">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <connections>
-                                            <segue destination="R1h-Na-Asc" kind="push" id="06U-YL-Hse"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -82,7 +82,8 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="containerView" destination="U86-eW-DBU" id="4QV-HF-nea"/>
-                        <outlet property="googlePlusSignIn" destination="CDD-Eb-NGG" id="cc3-LA-gMg"/>
+                        <outlet property="fbBtn" destination="V3K-5o-bvv" id="0GT-bm-joQ"/>
+                        <outlet property="googleBtn" destination="CDD-Eb-NGG" id="fQP-mI-UR5"/>
                         <outlet property="pageControl" destination="Xvt-1d-6RY" id="FVe-8F-FO2"/>
                     </connections>
                 </viewController>
@@ -185,7 +186,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Z47-EJ-388" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vrm-oP-VNI">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Vrm-oP-VNI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
