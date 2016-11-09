@@ -141,5 +141,120 @@ class CXAppConfig {
         return UIFont(name: config!.value(forKey: "APPFONT_NAME_REGULAR") as! String, size: CGFloat((config!.value(forKey: "APPFONT_LARGE") as?NSNumber)!))!
 
     }
+    
+    
+    static func resultString(input: AnyObject) -> String{
+        if let value: AnyObject = input {
+            var reqType : String!
+            switch value {
+            case let i as NSNumber:
+                reqType = "\(i)"
+            case let s as NSString:
+                reqType = "\(s)"
+            case let a as NSArray:
+                reqType = "\(a.object(at: 0))"
+            default:
+                reqType = "Invalid Format"
+            }
+            return reqType
+        }
+        return ""
+    }
+    
+    //MARK: User ID Saving
+    func saveUserID(userID:String){
+        UserDefaults.standard.set(userID, forKey: "USERID")
+    }
+    
+    func getUserID() ->String{
+        
+        if(UserDefaults.standard.object(forKey: "USERID") == nil)
+        {
+            print("NULL")
+            return ""
+            
+        }else{
+            
+            return UserDefaults.standard.value(forKey: "USERID") as! String
+        }
+        
+    }
+    
+    
+    //MARK: User MacJob Id Saving
+    func saveMacJobID(macJobId:String){
+        UserDefaults.standard.set(macJobId, forKey: "MAC_JOB_ID")
+    }
+    
+    func getMacJobID() ->String{
+        
+        if(UserDefaults.standard.object(forKey: "MAC_JOB_ID") == nil)
+        {
+            print("NULL")
+            return ""
+            
+        }else{
+            
+            return UserDefaults.standard.value(forKey: "MAC_JOB_ID") as! String
+        }
+        
+    }
+    
+    func setRedeemDictionary(dictionary:NSMutableDictionary){
+        
+        UserDefaults.standard.set(dictionary, forKey: "Redeem_Dict")
+        
+    }
+    
+    
+    func getRedeemDictionary() -> NSMutableDictionary {
+        
+        let redeemDict :NSMutableDictionary = UserDefaults.standard.value(forKey: "Redeem_Dict") as! NSMutableDictionary
+        return redeemDict
+        
+    }
+    
+    func getTheUserData() ->(userID:String,macId:String,macIdJobId:String,userEmail:String){
+        
+        let appdata:NSArray = UserProfile.mr_findAll() as NSArray
+        let userProfileData:UserProfile = appdata.lastObject as! UserProfile
+        print(userProfileData.emailId)
+        return(userID:userProfileData.userId!,macId:userProfileData.macId!,macIdJobId:userProfileData.macIdJobId!,userProfileData.emailId!)
+    }
+    
+    func getTheUserDetails() -> UserProfile{
+        
+        let appdata:NSArray = UserProfile.mr_findAll() as NSArray
+        let userProfileData:UserProfile = appdata.lastObject as! UserProfile
+        return userProfileData
+    }
+    
+    
+    func convertDictionayToString(dictionary:NSDictionary) -> NSString {
+        var dataString: String!
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: dictionary, options: JSONSerialization.WritingOptions.prettyPrinted)
+            //print("JSON data is \(jsonData)")
+            dataString = String(data: jsonData, encoding: String.Encoding.utf8)
+            //print("Converted JSON string is \(dataString)")
+            // here "jsonData" is the dictionary encoded in JSON data
+        } catch let error as NSError {
+            dataString = ""
+            print(error)
+        }
+        return dataString as NSString
+    }
+    
+    func convertStringToDictionary(string:String) -> NSDictionary {
+        var jsonDict : NSDictionary = NSDictionary()
+        let data = string.data(using: String.Encoding.utf8)
+        do {
+            jsonDict = try JSONSerialization.jsonObject(with: data!, options:JSONSerialization.ReadingOptions.mutableContainers ) as! NSDictionary            // CXDBSettings.sharedInstance.saveAllMallsInDB((jsonData.valueForKey("orgs") as? NSArray)!)
+        } catch {
+            //print("Error in parsing")
+        }
+        return jsonDict
+    }
+
 
 }

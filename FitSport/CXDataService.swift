@@ -30,6 +30,9 @@ open class CXDataService: NSObject {
         if Bool(1) {
             print(CXAppConfig.sharedInstance.getBaseUrl() + CXAppConfig.sharedInstance.getMasterUrl())
             print(parameters)
+            
+           // Alamofire.request("https://httpbin.org/post", method: .post, parameters: parameters, encoding: JSONEncoding.default)
+
             // Alamofire.request("https://httpbin.org/post", parameters: parameters, encoding: URLEncoding.httpBody)
             Alamofire.request(CXAppConfig.sharedInstance.getBaseUrl() + CXAppConfig.sharedInstance.getMasterUrl(), method: .post, parameters: parameters, encoding: URLEncoding.`default`)
                 .responseJSON { response in
@@ -49,6 +52,8 @@ open class CXDataService: NSObject {
                         completion(JSON)
                     }
             }
+            
+            
             // Alamofire.request("",method: .get, parameters: parameters, encoding: JSONEncoding.default, headers: [:])
         }
     }
