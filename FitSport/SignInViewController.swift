@@ -72,10 +72,25 @@ class SignInViewController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInU
             FBSDKGraphRequest.init(graphPath: "me", parameters: ["fields":"first_name,email,last_name,gender,picture.type(large),id"]).start { (connection, result, error) -> Void in
                 let fbResultDict:NSDictionary = result as! NSDictionary
                 print(fbResultDict)
+                CX_SocialIntegration.sharedInstance.applicationRegisterWithFaceBook(userDataDic: fbResultDict, completion: { (isRegistred) in
+                    //IsRegistred is true no need send the otp otherwise send the otp
+                   self.screenNavigationAfterSignIng(boolValue: isRegistred)
+                })
             }
         }
     }
     
+    
+    func screenNavigationAfterSignIng(boolValue : Bool){
+        if boolValue {
+            let storyBoard = UIStoryboard(name: "PagerMain", bundle: Bundle.main)
+            let trainer = storyBoard.instantiateViewController(withIdentifier: "UserDataViewController") as! UserDataViewController
+            self.navigationController?.pushViewController(trainer, animated: true)
+
+        }else{
+            //Navigate To Home Screen
+        }
+    }
     
     // Google+ Integration
     
@@ -107,6 +122,10 @@ class SignInViewController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInU
         let dic = notification.object as! [String:AnyObject]
          self.googleResponseDict = dic as NSDictionary!
         print(self.googleResponseDict)
+        CX_SocialIntegration.sharedInstance.applicationRegisterWithGooglePlus(userDataDic: self.googleResponseDict, completion: { (isRegistred) in
+            //IsRegistred is true no need send the otp otherwise send the otp
+            self.screenNavigationAfterSignIng(boolValue: isRegistred)
+        })
         
 //        let orgID:String! = CXAppConfig.sharedInstance.getAppMallID()
 //        let firstName = dic["given_name"] as! String
