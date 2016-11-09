@@ -15,7 +15,6 @@
 		113980421DCDCB3400BCF36C /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113980411DCDCB3400BCF36C /* CreateEventViewController.swift */; };
 		114F2B331DCC689A00D62948 /* CXDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114F2B321DCC689A00D62948 /* CXDataService.swift */; };
 		114F2B391DCC6A8300D62948 /* CXDataServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 114F2B381DCC6A8300D62948 /* CXDataServiceManager.m */; };
-		114F2B3B1DCC917200D62948 /* CX_SocialIntegration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114F2B3A1DCC917200D62948 /* CX_SocialIntegration.swift */; };
 		114F2B3D1DCC961D00D62948 /* MyCalenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114F2B3C1DCC961D00D62948 /* MyCalenderViewController.swift */; };
 		114F2B3F1DCC97E100D62948 /* MyProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 114F2B3E1DCC97E100D62948 /* MyProfile.storyboard */; };
 		114F2B431DCCB7BE00D62948 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114F2B421DCCB7BE00D62948 /* EventsViewController.swift */; };
@@ -62,6 +61,7 @@
 		11AB7A151DCB704A005E846B /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11AB7A0D1DCB704A005E846B /* Roboto-Regular.ttf */; };
 		11AB7A161DCB704A005E846B /* RobotoCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11AB7A0E1DCB704A005E846B /* RobotoCondensed-Bold.ttf */; };
 		11AB7A171DCB704A005E846B /* RobotoCondensed-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11AB7A0F1DCB704A005E846B /* RobotoCondensed-Light.ttf */; };
+		1800375A1DD328740069E2AB /* CX_SocialIntegration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180037591DD328740069E2AB /* CX_SocialIntegration.swift */; };
 		4B1160151B09DCE541B33F57 /* Pods_FitSport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7F4B6973E511461D2C3E05 /* Pods_FitSport.framework */; };
 		690A857B45BC362A1512932A /* Pods_FitSportTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9237A56C77E380740017126B /* Pods_FitSportTests.framework */; };
 		C66E41212B762DCE7E4148EA /* Pods_FitSportUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8966F61E6FA29F827ADEEEBA /* Pods_FitSportUITests.framework */; };
@@ -94,7 +94,6 @@
 		114F2B321DCC689A00D62948 /* CXDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CXDataService.swift; sourceTree = "<group>"; };
 		114F2B371DCC6A8300D62948 /* CXDataServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXDataServiceManager.h; sourceTree = "<group>"; };
 		114F2B381DCC6A8300D62948 /* CXDataServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXDataServiceManager.m; sourceTree = "<group>"; };
-		114F2B3A1DCC917200D62948 /* CX_SocialIntegration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CX_SocialIntegration.swift; sourceTree = "<group>"; };
 		114F2B3C1DCC961D00D62948 /* MyCalenderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCalenderViewController.swift; sourceTree = "<group>"; };
 		114F2B3E1DCC97E100D62948 /* MyProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyProfile.storyboard; sourceTree = "<group>"; };
 		114F2B421DCCB7BE00D62948 /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
@@ -150,6 +149,7 @@
 		11AB7A0D1DCB704A005E846B /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Regular.ttf"; path = "../Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		11AB7A0E1DCB704A005E846B /* RobotoCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "RobotoCondensed-Bold.ttf"; path = "../RobotoCondensed-Bold.ttf"; sourceTree = "<group>"; };
 		11AB7A0F1DCB704A005E846B /* RobotoCondensed-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "RobotoCondensed-Light.ttf"; path = "../RobotoCondensed-Light.ttf"; sourceTree = "<group>"; };
+		180037591DD328740069E2AB /* CX_SocialIntegration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CX_SocialIntegration.swift; sourceTree = "<group>"; };
 		5A7F4B6973E511461D2C3E05 /* Pods_FitSport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FitSport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E78E2D400FD848ED6232DBB /* Pods-FitSportUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitSportUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FitSportUITests/Pods-FitSportUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		65C732199E77CBBCFE079C6A /* Pods-FitSportUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitSportUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FitSportUITests/Pods-FitSportUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -393,10 +393,10 @@
 			children = (
 				114F2B321DCC689A00D62948 /* CXDataService.swift */,
 				11AB7A031DCB682A005E846B /* CXAppConfig.swift */,
-				114F2B3A1DCC917200D62948 /* CX_SocialIntegration.swift */,
 				11AB7A051DCB6850005E846B /* CXProjectConfiguration.plist */,
 				114F2B371DCC6A8300D62948 /* CXDataServiceManager.h */,
 				114F2B381DCC6A8300D62948 /* CXDataServiceManager.m */,
+				180037591DD328740069E2AB /* CX_SocialIntegration.swift */,
 			);
 			name = AppDataManager;
 			sourceTree = "<group>";
@@ -718,7 +718,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				114F2B3B1DCC917200D62948 /* CX_SocialIntegration.swift in Sources */,
 				11AB79DE1DCB61CA005E846B /* SignInViewController.swift in Sources */,
 				1136C97F1DD09F3A00AA5B41 /* TrainerViewController.swift in Sources */,
 				11AB79E61DCB61F4005E846B /* AHTagTableViewCell.swift in Sources */,
@@ -732,6 +731,7 @@
 				114F2B431DCCB7BE00D62948 /* EventsViewController.swift in Sources */,
 				11AB79F01DCB62A2005E846B /* LeftViewController.swift in Sources */,
 				1167B8161DD077B20025842B /* OTPViewController.swift in Sources */,
+				1800375A1DD328740069E2AB /* CX_SocialIntegration.swift in Sources */,
 				11AB7A041DCB682A005E846B /* CXAppConfig.swift in Sources */,
 				1167B8281DD0864F0025842B /* ActionButton.swift in Sources */,
 				11AB79D91DCB61B2005E846B /* CAPSPageMenu.swift in Sources */,

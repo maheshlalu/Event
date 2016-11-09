@@ -9,34 +9,57 @@
 import UIKit
 
 class SelectTableViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
-    var cateGoryData = NSDictionary()
+    var cateGoryData = NSMutableDictionary()
     var keysArr = [AnyObject]()
     var indexArray = NSMutableArray()
     var dataArray = NSMutableArray()
-    
+    let mainDict = NSMutableDictionary()
+
     @IBOutlet weak var selectSportsLabel: UILabel!
     
     @IBOutlet weak var nextBtn: UIButton!
     @IBOutlet weak var notTrainerBtn: UIButton!
     @IBOutlet weak var enterSportLabel: UILabel!
     @IBOutlet weak var tableview: UITableView!
-    var nameArray = ["Cricket","Volley Ball","Tennis","Hockey","Badminton","Basket Ball"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let nib = UINib(nibName: "SelectSportTableViewCell", bundle: nil)
         self.tableview.register(nib, forCellReuseIdentifier: "SelectSportTableViewCell")
         self.automaticallyAdjustsScrollViewInsets = false
-        
-        cateGoryData  = NSDictionary(objects:
-            [["Hockey","Cricket","Badminton","Tennis","Shuttle","Swimming","Basketball","Volleyball","Kabaddi","Archery"],["Kriya","Aruna","Sudharshana"],["Salsa","Zumba"],["Hockey","Cricket","Badminton","Tennis","Shuttle","Swimming","Basketball","Volleyball","Kabaddi","Archery"],["Hockey","Cricket","Badminton","Tennis","Shuttle","Swimming","Basketball","Volleyball","Kabaddi","Archery"]],
-                                     
-                                     forKeys: ["SPORTS" as NSCopying,"YOGA" as NSCopying,"DANCE" as NSCopying,"DATA" as NSCopying,"TEXT" as NSCopying,])
-        
-        keysArr = NSArray(array: cateGoryData.allKeys) as [AnyObject]
-        print(keysArr)
-        
-        
+        self.getTheProductCategory()
+    }
+    
+    
+    func getTheProductCategory(){
+        //let URLString = "http://storeongo.com:8081/Services/getMasters?type=P3rdLevelCategories&mallId=20221"
+        CXDataService.sharedInstance.getTheAppDataFromServer(["type":"P3rdLevelCategories" as AnyObject,"mallId":CXAppConfig.sharedInstance.getAppMallID() as AnyObject]) { (dict) in
+            let jobsArr : NSArray = (dict.object(forKey: "jobs") as? NSArray)!
+            let subCatArray = NSMutableArray()
+            for  tempDict in jobsArr{
+                let dataDict : NSDictionary = tempDict as! NSDictionary
+                let name = dataDict.object(forKey: "SubCategory") as! String
+                subCatArray.add(name)
+            }
+            let setValue : NSSet = NSSet(array: subCatArray as [AnyObject])
+            let arr = setValue.allObjects as! [String]
+            
+            for  str in arr{
+                let  catNamesArray = NSMutableArray()
+                for  tempDict in jobsArr{
+                    let dataDict : NSDictionary = tempDict as! NSDictionary
+                    
+                    let name = dataDict.object(forKey: "SubCategory") as! String
+                    if str == name {
+                        catNamesArray.add(dataDict.object(forKey: "Name") as! String)
+                    }
+                }
+                let name =  str.components(separatedBy: "(").first
+                self.cateGoryData.setObject(catNamesArray, forKey: name as! NSCopying)
+            }
+            self.keysArr = NSArray(array: self.cateGoryData.allKeys) as [AnyObject]
+            self.tableview.reloadData()
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -58,19 +81,15 @@ class SelectTableViewController: UIViewController,UITableViewDataSource,UITableV
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "SelectSportTableViewCell", for: indexPath) as?SelectSportTableViewCell
-        
         tableView.separatorStyle = .none
         tableView.allowsSelection = false
-        
         let keyValue = keysArr[indexPath.section]
         let dicArry : NSArray = cateGoryData.value(forKey: keyValue as! String) as! NSArray
         print(dicArry)
         
-        
         cell?.nameLabel.text = dicArry[indexPath.row] as? String
+        cell?.nameLabel.font = CXAppConfig.sharedInstance.appMediumFont()
         cell?.checkBtn.addTarget(self, action:#selector(checkButtonClicked(sender:)), for: .touchUpInside)
         if indexArray .contains(indexPath) {
             cell?.checkBtn.isSelected = true
@@ -83,12 +102,8 @@ class SelectTableViewController: UIViewController,UITableViewDataSource,UITableV
     }
     
     func checkButtonClicked(sender:UIButton!) {
-        //        print("Button Clicked")
+        //  print("Button Clicked")
         let btn : UIButton = sender
-        print(btn.isSelected)
-        //        btn.isSelected = !btn.isSelected
-        
-        
         let view = sender.superview!
         let cell = view.superview as! SelectSportTableViewCell
         let indexPath = self.tableview.indexPath(for: cell)
@@ -100,9 +115,9 @@ class SelectTableViewController: UIViewController,UITableViewDataSource,UITableV
             indexArray.add(indexPath as Any)
             dataArray.add(cell.nameLabel?.text as Any)
         }
-        
-        self.tableview.reloadData()
-        
+       // btn.isSelected = !btn.isSelected
+
+        self.tableview.reloadRows(at: [indexPath!], with: .middle)
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
@@ -115,7 +130,7 @@ class SelectTableViewController: UIViewController,UITableViewDataSource,UITableV
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let v = view as! UITableViewHeaderFooterView
         v.textLabel?.textColor = UIColor.black
-        v.textLabel?.font = UIFont(name: "Roboto", size: 14)
+        v.textLabel?.font = CXAppConfig.sharedInstance.appLargeFont()
         
     }
     
@@ -138,3 +153,14 @@ class SelectTableViewController: UIViewController,UITableViewDataSource,UITableV
     
     
 }
+
+/*
+ 
+ //        cateGoryData  = NSDictionary(objects:
+ //            [["Hockey","Cricket","Badminton","Tennis","Shuttle","Swimming","Basketball","Volleyball","Kabaddi","Archery"],["Kriya","Aruna","Sudharshana"],["Salsa","Zumba"],["Hockey","Cricket","Badminton","Tennis","Shuttle","Swimming","Basketball","Volleyball","Kabaddi","Archery"],["Hockey","Cricket","Badminton","Tennis","Shuttle","Swimming","Basketball","Volleyball","Kabaddi","Archery"]],
+ //
+ //                                     forKeys: ["SPORTS" as NSCopying,"YOGA" as NSCopying,"DANCE" as NSCopying,"DATA" as NSCopying,"TEXT" as NSCopying,])
+ //
+ //        keysArr = NSArray(array: cateGoryData.allKeys) as [AnyObject]
+
+ */
