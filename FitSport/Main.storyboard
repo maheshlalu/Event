@@ -399,7 +399,7 @@
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="117DB85B-6F14-40B0-846B-E84095274C9A" translatesAutoresizingMaskIntoConstraints="NO" id="EX9-aN-17J">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="43395ED5-4600-4651-9016-B38DBC4C7C74" translatesAutoresizingMaskIntoConstraints="NO" id="EX9-aN-17J">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="24" id="0bo-oL-Nzj"/>
                                             <constraint firstAttribute="width" constant="24" id="fXk-NW-V66"/>
@@ -435,11 +435,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xBa-Yp-CuM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-15821" y="-1182"/>
+            <point key="canvasLocation" x="-15813" y="-1107"/>
         </scene>
     </scenes>
     <resources>
-        <image name="117DB85B-6F14-40B0-846B-E84095274C9A" width="20" height="20">
+        <image name="43395ED5-4600-4651-9016-B38DBC4C7C74" width="20" height="20">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

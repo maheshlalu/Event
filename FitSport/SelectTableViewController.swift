@@ -31,6 +31,11 @@ class SelectTableViewController: UIViewController,UITableViewDataSource,UITableV
     }
     
     
+    @IBAction func nxtBtnAction(_ sender: AnyObject) {
+        let appDel = UIApplication.shared.delegate as! AppDelegate
+        appDel.setUpSidePanl()
+        
+    }
     func getTheProductCategory(){
         //let URLString = "http://storeongo.com:8081/Services/getMasters?type=P3rdLevelCategories&mallId=20221"
         CXDataService.sharedInstance.getTheAppDataFromServer(["type":"P3rdLevelCategories" as AnyObject,"mallId":CXAppConfig.sharedInstance.getAppMallID() as AnyObject]) { (dict) in
@@ -102,22 +107,22 @@ class SelectTableViewController: UIViewController,UITableViewDataSource,UITableV
     }
     
     func checkButtonClicked(sender:UIButton!) {
-        //  print("Button Clicked")
+        
         let btn : UIButton = sender
         let view = sender.superview!
         let cell = view.superview as! SelectSportTableViewCell
         let indexPath = self.tableview.indexPath(for: cell)
         if btn.isSelected {
             indexArray.remove(indexPath as Any)
-            //   indexArray
+            dataArray.remove(cell.nameLabel.text as Any)
+            btn.isSelected = false
         }
         else {
             indexArray.add(indexPath as Any)
             dataArray.add(cell.nameLabel?.text as Any)
+            btn.isSelected = true
         }
-       // btn.isSelected = !btn.isSelected
-
-        self.tableview.reloadRows(at: [indexPath!], with: .middle)
+        self.tableview.reloadRows(at: [indexPath!], with: .none)
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {

@@ -225,7 +225,7 @@
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="nextBtnAction:" destination="SUa-Y7-LRk" eventType="touchUpInside" id="NvW-Ti-7BN"/>
+                                            <action selector="nxtBtnAction:" destination="SUa-Y7-LRk" eventType="touchUpInside" id="nOp-HI-nQP"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -262,7 +262,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZBH-SO-az9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2202.4000000000001" y="-2027.136431784108"/>
+            <point key="canvasLocation" x="-2070" y="-2102"/>
         </scene>
         <!--User Data View Controller-->
         <scene sceneID="lJd-8K-Ak0">

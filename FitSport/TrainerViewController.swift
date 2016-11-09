@@ -19,7 +19,7 @@ class TrainerViewController: UIViewController ,UICollectionViewDataSource,UIColl
         let nib = UINib(nibName: "TrainerCollectionViewCell", bundle: nil)
         self.EventCollectionView.register(nib, forCellWithReuseIdentifier: "TrainerCollectionViewCell")
         
-        setUpSideMenu()
+       // setUpSideMenu()
     }
     
     

@@ -25,12 +25,12 @@ class TestViewController: UIViewController {
         // Initialize view controllers to display and place in array
         var controllerArray : [UIViewController] = []
         
-        let controller1:UIViewController = UIStoryboard(name: "MyProfile", bundle: nil).instantiateViewController(withIdentifier: "Calender") as UIViewController
-        controller1.title = "MY Calender"
+        let controller1:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TrainerViewController")
+        controller1.title = "TRAINERS"
         controllerArray.append(controller1)
         
         let controller2 : UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EventsViewController")
-        controller2.title = "Joined Events"
+        controller2.title = "EVENTS"
         controllerArray.append(controller2)
         
         // Initialize scroll menu
