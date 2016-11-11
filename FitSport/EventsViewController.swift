@@ -10,16 +10,17 @@ import UIKit
 
 class EventsViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate {
     
+    var actionButton: ActionButton!
     var EventsArray = [[String:AnyObject]]()
     @IBOutlet weak var eventCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.automaticallyAdjustsScrollViewInsets = false
         let nib = UINib(nibName: "JoinedEventsCollectionViewCell", bundle: nil)
         self.eventCollectionView.register(nib, forCellWithReuseIdentifier: "JoinedEventsCollectionViewCell")
         self.geTheEventsFromServer()
         self.eventCollectionView.contentSize = CGSize(width: 780, height: 900)
-        
+        setupFab()
     }
     
     
@@ -27,6 +28,19 @@ class EventsViewController: UIViewController,UICollectionViewDataSource,UICollec
         CXDataService.sharedInstance.getTheAppDataFromServer(["type":"Events" as AnyObject,"mallId":CXAppConfig.sharedInstance.getAppMallID() as AnyObject]) { (dict) in
             self.EventsArray = dict["jobs"] as! [[String:AnyObject]]
             self.eventCollectionView.reloadData()
+        }
+        
+    }
+    
+    
+    fileprivate func setupFab() {
+        
+        actionButton = ActionButton(attachedToView: self.view, items:nil)
+        actionButton.action = {button in
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "CreateEventViewController") as! CreateEventViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+            
         }
         
     }
@@ -69,16 +83,5 @@ class EventsViewController: UIViewController,UICollectionViewDataSource,UICollec
         // Dispose of any resources that can be recreated.
     }
     
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }

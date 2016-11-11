@@ -19,11 +19,17 @@ class JoinedEventsCollectionViewCell: UICollectionViewCell {
         btn.isSelected = !btn.isSelected
     }
     @IBOutlet weak var joinedBtn: UIButton!
+    
     @IBAction func joinedBtn(_ sender: UIButton) {
-        
         let btn:UIButton = sender
         btn.isSelected = !btn.isSelected
+        if btn.isSelected{
+            sender.backgroundColor = CXAppConfig.sharedInstance.getAppTheamColor()
+        }else{
+                sender.backgroundColor = UIColor.white
+            }
     }
+    
     @IBOutlet weak var joinedEventImageView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,7 +42,7 @@ class JoinedEventsCollectionViewCell: UICollectionViewCell {
         self.joinedBtn.layer.cornerRadius = 5
         self.joinedBtn.clipsToBounds = true
         
-        self.joinedBtn.layer.borderColor = UIColor.orange.cgColor
+        self.joinedBtn.layer.borderColor = CXAppConfig.sharedInstance.getAppTheamColor().cgColor
         self.joinedBtn.layer.borderWidth = 1
         
         // Initialization code

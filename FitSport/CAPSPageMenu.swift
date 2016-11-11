@@ -94,11 +94,11 @@ open class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureRecogn
     var menuItems : [MenuItemView] = []
     var menuItemWidths : [CGFloat] = []
     
-    open var menuHeight : CGFloat = 30.0
+    open var menuHeight : CGFloat = 50.0
     open var menuMargin : CGFloat = 10.0
     open var menuItemWidth : CGFloat = 111.0
     open var selectionIndicatorHeight : CGFloat = 3.0
-    var totalMenuItemWidthIfDifferentWidths : CGFloat = 0.0
+    var totalMenuItemWidthIfDifferentWidths : CGFloat = 100
     open var scrollAnimationDurationOnMenuItemTap : Int = 500 // Millisecons
     var startingMenuMargin : CGFloat = 0.0
     var menuItemMargin : CGFloat = 0.0
@@ -108,7 +108,7 @@ open class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureRecogn
     var currentPageIndex : Int = 0
     var lastPageIndex : Int = 0
     
-    open var selectionIndicatorColor : UIColor = UIColor(red: 36.0/255, green: 146.0/255, blue: 210.0/255, alpha: 1.0)
+    open var selectionIndicatorColor : UIColor = CXAppConfig.sharedInstance.getAppTheamColor()
     open var selectedMenuItemLabelColor : UIColor = UIColor.white
     open var unselectedMenuItemLabelColor : UIColor = UIColor.lightGray
     open var scrollMenuBackgroundColor : UIColor = UIColor.black

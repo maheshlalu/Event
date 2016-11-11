@@ -21,7 +21,7 @@ class TrainerCollectionViewCell: UICollectionViewCell {
         
         
      //self.mainImageView.bounds.size.width / 2.0
-        self.trainerImage.layer.cornerRadius = 35.0
+        self.trainerImage.layer.cornerRadius = 40
         self.trainerImage.layer.borderWidth = 1
         self.trainerImage.clipsToBounds = true
         

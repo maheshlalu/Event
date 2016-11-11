@@ -43,7 +43,9 @@ class TestViewController: UIViewController {
         
         let menuItem = UIBarButtonItem(image: UIImage(named: "sidePanelMenu-1"), style: .plain, target: self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)))
         self.navigationItem.leftBarButtonItem = menuItem
-        
+        let navigation:UINavigationItem = navigationItem
+        let image = UIImage(named: "logo_white")
+        navigation.titleView = UIImageView(image: image)
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
         

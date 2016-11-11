@@ -9,7 +9,9 @@
 import UIKit
 
 class TrainerViewController: UIViewController ,UICollectionViewDataSource,UICollectionViewDelegate{
+
     var screenWidth:CGFloat! = nil
+    var actionButton: ActionButton!
     @IBOutlet weak var EventCollectionView: UICollectionView!
     var trainerArray = [[String:AnyObject]]()
     override func viewDidLoad() {
@@ -20,8 +22,10 @@ class TrainerViewController: UIViewController ,UICollectionViewDataSource,UIColl
         self.EventCollectionView.register(nib, forCellWithReuseIdentifier: "TrainerCollectionViewCell")
         self.geTheTrainersFromServer()
        // setUpSideMenu()
+        setupFab()
     }
-    
+
+
     func geTheTrainersFromServer(){
         CXDataService.sharedInstance.getTheAppDataFromServer(["type":"macIdinfo" as AnyObject,"mallId":CXAppConfig.sharedInstance.getAppMallID() as AnyObject]) { (dict) in
             self.trainerArray = dict["jobs"] as! [[String:AnyObject]]
@@ -35,13 +39,24 @@ class TrainerViewController: UIViewController ,UICollectionViewDataSource,UIColl
         
         let menuItem = UIBarButtonItem(image: UIImage(named: "sidePanelMenu-1"), style: .plain, target: self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)))
         self.navigationItem.leftBarButtonItem = menuItem
-        
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
         
         //self.sideMenuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), forControlEvents: .TouchUpOutside)
     }
     
+    
+    fileprivate func setupFab() {
+        
+        actionButton = ActionButton(attachedToView: self.view, items:nil)
+        actionButton.action = {button in
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "CreateEventViewController") as! CreateEventViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+        }
+        
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection   : Int) -> Int
     {
@@ -53,6 +68,7 @@ class TrainerViewController: UIViewController ,UICollectionViewDataSource,UIColl
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TrainerCollectionViewCell", for: indexPath)as? TrainerCollectionViewCell
         
+        cell?.layer.cornerRadius = 5
         let dict = trainerArray[indexPath.item]
         cell?.trainerNameLabel.text = dict["Name"] as? String
         cell?.trainerDescriptionLabel.text = dict["Description"] as? String
