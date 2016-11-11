@@ -18,6 +18,7 @@ class EventsViewController: UIViewController,UICollectionViewDataSource,UICollec
         let nib = UINib(nibName: "JoinedEventsCollectionViewCell", bundle: nil)
         self.eventCollectionView.register(nib, forCellWithReuseIdentifier: "JoinedEventsCollectionViewCell")
         self.geTheEventsFromServer()
+        self.eventCollectionView.contentSize = CGSize(width: 780, height: 900)
         
     }
     
@@ -48,7 +49,8 @@ class EventsViewController: UIViewController,UICollectionViewDataSource,UICollec
         cell?.joinedEventDescriptionLabel.text = dict["Description"]as? String
         if dict["Image_URL"] != nil {
             let url = NSURL(string: dict["Image_URL"] as! String)
-            cell?.joinedEventImageView.setImageWith(url as! URL)
+            cell?.joinedEventImageView.setImageWith(url as URL!, usingActivityIndicatorStyle: .gray)
+
         }
         return cell!
         

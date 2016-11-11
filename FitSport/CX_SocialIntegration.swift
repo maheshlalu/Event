@@ -222,6 +222,17 @@ class CX_SocialIntegration: NSObject {
         
     }
     
+    //MARK:OTP Functionality 
+    /*
+     OTP functionality
+     1. http://storeongo.com:8081/MobileAPIs/accountVerification?ownerId=530&consumerEmail=cxsample@gmail.com
+          Generate OTP API :
+     http://storeongo.com:8081/MobileAPIs/generateOTP?ownerId=530&consumerEmail=cxsample@gmail.com&mobile=919581552229
+     OTP Verification API :
+     http://storeongo.com:8081/MobileAPIs/verifyOTP?ownerId=530&consumerEmail=cxsample@gmail.com&otp=538849
+     */
+    
+    
     
     
 }
