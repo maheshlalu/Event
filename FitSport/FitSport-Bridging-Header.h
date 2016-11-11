@@ -7,4 +7,5 @@
 #import <FSCalendar/FSCalendar.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import "UIImageView+UIActivityIndicatorForSDWebImage.h"
 

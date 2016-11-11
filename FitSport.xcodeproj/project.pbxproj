@@ -62,6 +62,7 @@
 		11AB7A161DCB704A005E846B /* RobotoCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11AB7A0E1DCB704A005E846B /* RobotoCondensed-Bold.ttf */; };
 		11AB7A171DCB704A005E846B /* RobotoCondensed-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11AB7A0F1DCB704A005E846B /* RobotoCondensed-Light.ttf */; };
 		1800375A1DD328740069E2AB /* CX_SocialIntegration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180037591DD328740069E2AB /* CX_SocialIntegration.swift */; };
+		18AABD791DD44B4F00A173F6 /* UIImageView+UIActivityIndicatorForSDWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AABD781DD44B4F00A173F6 /* UIImageView+UIActivityIndicatorForSDWebImage.m */; };
 		18EE80981DD35C6B000B20D8 /* JoinedEventsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EE80971DD35C6B000B20D8 /* JoinedEventsCollectionViewCell.swift */; };
 		18EE809A1DD35C70000B20D8 /* JoinedEventsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EE80991DD35C70000B20D8 /* JoinedEventsCollectionViewCell.xib */; };
 		4B1160151B09DCE541B33F57 /* Pods_FitSport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7F4B6973E511461D2C3E05 /* Pods_FitSport.framework */; };
@@ -152,6 +153,8 @@
 		11AB7A0E1DCB704A005E846B /* RobotoCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "RobotoCondensed-Bold.ttf"; path = "../RobotoCondensed-Bold.ttf"; sourceTree = "<group>"; };
 		11AB7A0F1DCB704A005E846B /* RobotoCondensed-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "RobotoCondensed-Light.ttf"; path = "../RobotoCondensed-Light.ttf"; sourceTree = "<group>"; };
 		180037591DD328740069E2AB /* CX_SocialIntegration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CX_SocialIntegration.swift; sourceTree = "<group>"; };
+		18AABD771DD44B4F00A173F6 /* UIImageView+UIActivityIndicatorForSDWebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+UIActivityIndicatorForSDWebImage.h"; sourceTree = "<group>"; };
+		18AABD781DD44B4F00A173F6 /* UIImageView+UIActivityIndicatorForSDWebImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+UIActivityIndicatorForSDWebImage.m"; sourceTree = "<group>"; };
 		18EE80971DD35C6B000B20D8 /* JoinedEventsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinedEventsCollectionViewCell.swift; sourceTree = "<group>"; };
 		18EE80991DD35C70000B20D8 /* JoinedEventsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JoinedEventsCollectionViewCell.xib; sourceTree = "<group>"; };
 		5A7F4B6973E511461D2C3E05 /* Pods_FitSport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FitSport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -371,6 +374,8 @@
 		11AB79F71DCB6407005E846B /* OtherResources */ = {
 			isa = PBXGroup;
 			children = (
+				18AABD771DD44B4F00A173F6 /* UIImageView+UIActivityIndicatorForSDWebImage.h */,
+				18AABD781DD44B4F00A173F6 /* UIImageView+UIActivityIndicatorForSDWebImage.m */,
 				118906B31DD3045700041EE2 /* FB */,
 				1167B8171DD07B680025842B /* Fab */,
 				11AB7A011DCB647F005E846B /* sadhu.jpg */,
@@ -739,6 +744,7 @@
 				11AB79F01DCB62A2005E846B /* LeftViewController.swift in Sources */,
 				1167B8161DD077B20025842B /* OTPViewController.swift in Sources */,
 				1800375A1DD328740069E2AB /* CX_SocialIntegration.swift in Sources */,
+				18AABD791DD44B4F00A173F6 /* UIImageView+UIActivityIndicatorForSDWebImage.m in Sources */,
 				11AB7A041DCB682A005E846B /* CXAppConfig.swift in Sources */,
 				1167B8281DD0864F0025842B /* ActionButton.swift in Sources */,
 				11AB79D91DCB61B2005E846B /* CAPSPageMenu.swift in Sources */,

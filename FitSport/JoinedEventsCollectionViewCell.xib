@@ -25,15 +25,13 @@
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="NCv-G4-kW3">
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" ambiguous="YES" text="Playon High School Sports Network" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKH-wE-bPy">
-                                        <frame key="frameInset" width="273" height="23"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Playon High School Sports Network" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKH-wE-bPy">
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="WORKING STREET WORKING STREET WORKING STREET WORKING STREET WORKING STREEET" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vDH-7Y-onu">
-                                        <frame key="frameInset" minY="23" width="261" height="28"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WORKING STREET WORKING STREET WORKING STREET WORKING STREET WORKING STREEET" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vDH-7Y-onu">
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -47,9 +45,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SQt-bd-dLh">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="54" id="Bsj-SF-tFh"/>
+                                    <constraint firstAttribute="width" constant="60" id="Bsj-SF-tFh"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
                                 <color key="tintColor" red="0.96470588239999999" green="0.59999999999999998" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Join">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -64,8 +62,8 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="18" id="oZB-qV-rR1"/>
                                 </constraints>
-                                <state key="normal" title="Join" image="HeartUnclickedImage"/>
-                                <state key="selected" image="HeartClickedImage"/>
+                                <state key="normal" title="Join" image="heart-color"/>
+                                <state key="selected" image="heart-full"/>
                                 <connections>
                                     <action selector="heartBtnAction:" destination="ipb-xo-YzU" eventType="touchUpInside" id="JEC-63-wy2"/>
                                 </connections>
@@ -73,13 +71,13 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="SQt-bd-dLh" firstAttribute="top" secondItem="NCv-G4-kW3" secondAttribute="bottom" constant="3" id="54G-lA-sTW"/>
+                            <constraint firstItem="SQt-bd-dLh" firstAttribute="top" secondItem="NCv-G4-kW3" secondAttribute="bottom" constant="1" id="54G-lA-sTW"/>
                             <constraint firstItem="NCv-G4-kW3" firstAttribute="top" secondItem="90J-Is-utT" secondAttribute="top" constant="1" id="H1K-7i-P9f"/>
                             <constraint firstAttribute="bottom" secondItem="feQ-YZ-01A" secondAttribute="bottom" constant="1" id="Ha5-8B-WhZ"/>
                             <constraint firstItem="feQ-YZ-01A" firstAttribute="top" secondItem="NCv-G4-kW3" secondAttribute="bottom" constant="1" id="LkK-pU-Ajk"/>
                             <constraint firstAttribute="trailing" secondItem="feQ-YZ-01A" secondAttribute="trailing" constant="5" id="Yg5-rL-Ofs"/>
                             <constraint firstAttribute="trailing" secondItem="NCv-G4-kW3" secondAttribute="trailing" constant="8" id="cbF-rH-gPg"/>
-                            <constraint firstAttribute="bottom" secondItem="SQt-bd-dLh" secondAttribute="bottom" constant="2" id="hlh-ni-Cq0"/>
+                            <constraint firstAttribute="bottom" secondItem="SQt-bd-dLh" secondAttribute="bottom" constant="3" id="hlh-ni-Cq0"/>
                             <constraint firstAttribute="height" constant="70.5" id="uTu-ti-yjN"/>
                             <constraint firstItem="NCv-G4-kW3" firstAttribute="leading" secondItem="90J-Is-utT" secondAttribute="leading" constant="8" id="uWY-5D-IQh"/>
                             <constraint firstItem="feQ-YZ-01A" firstAttribute="leading" secondItem="SQt-bd-dLh" secondAttribute="trailing" constant="4" id="uix-Ii-26u"/>
@@ -108,8 +106,8 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="HeartClickedImage" width="20" height="20"/>
-        <image name="HeartUnclickedImage" width="20" height="20"/>
-        <image name="images.jpg" width="267" height="189"/>
+        <image name="heart-color" width="192" height="192"/>
+        <image name="heart-full" width="192" height="192"/>
+        <image name="images.jpg" width="1280" height="720"/>
     </resources>
 </document>

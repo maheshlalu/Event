@@ -11,15 +11,23 @@ import UIKit
 class TrainerViewController: UIViewController ,UICollectionViewDataSource,UICollectionViewDelegate{
     var screenWidth:CGFloat! = nil
     @IBOutlet weak var EventCollectionView: UICollectionView!
-    
+    var trainerArray = [[String:AnyObject]]()
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = false
         self.automaticallyAdjustsScrollViewInsets = false
         let nib = UINib(nibName: "TrainerCollectionViewCell", bundle: nil)
         self.EventCollectionView.register(nib, forCellWithReuseIdentifier: "TrainerCollectionViewCell")
-        
+        self.geTheTrainersFromServer()
        // setUpSideMenu()
+    }
+    
+    func geTheTrainersFromServer(){
+        CXDataService.sharedInstance.getTheAppDataFromServer(["type":"macIdinfo" as AnyObject,"mallId":CXAppConfig.sharedInstance.getAppMallID() as AnyObject]) { (dict) in
+            self.trainerArray = dict["jobs"] as! [[String:AnyObject]]
+            self.EventCollectionView.reloadData()
+        }
+        
     }
     
     
@@ -37,17 +45,30 @@ class TrainerViewController: UIViewController ,UICollectionViewDataSource,UIColl
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection   : Int) -> Int
     {
-        return 3
+        return self.trainerArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
     {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TrainerCollectionViewCell", for: indexPath)as? TrainerCollectionViewCell
-        cell?.layer.cornerRadius = 4
+        
+        let dict = trainerArray[indexPath.item]
+        cell?.trainerNameLabel.text = dict["Name"] as? String
+        cell?.trainerDescriptionLabel.text = dict["Description"] as? String
+        //Interests
+        if dict["Interests"] != nil
+        {
+            let intrests : String = (dict["Interests"] as? String)!
+            let intrestStr = intrests.components(separatedBy: ("(")).first
+            
+            cell?.sportsCategoryLabel.text = intrestStr
+        }
+        if dict["Image"] != nil {
+            let url = NSURL(string: dict["Image"] as! String)
+            cell?.trainerImage.setImageWith(url as URL!, usingActivityIndicatorStyle: .gray)
+        }
         return cell!
-        
-        
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int
