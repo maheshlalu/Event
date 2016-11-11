@@ -19,15 +19,21 @@ class SelectTableViewController: UIViewController,UITableViewDataSource,UITableV
     
     @IBOutlet weak var nextBtn: UIButton!
     @IBOutlet weak var notTrainerBtn: UIButton!
-    @IBOutlet weak var enterSportLabel: UILabel!
     @IBOutlet weak var tableview: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let nib = UINib(nibName: "SelectSportTableViewCell", bundle: nil)
         self.tableview.register(nib, forCellReuseIdentifier: "SelectSportTableViewCell")
         self.automaticallyAdjustsScrollViewInsets = false
         self.getTheProductCategory()
+        
+        
+        self.navigationController?.isNavigationBarHidden = false
+        self.navigationItem.setHidesBackButton(true, animated:true);
+        let navigation:UINavigationItem = navigationItem
+        navigation.title  = "Select Sport"
     }
     
     
@@ -81,7 +87,7 @@ class SelectTableViewController: UIViewController,UITableViewDataSource,UITableV
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     {
-        return keysArr[section] as! String
+        return keysArr[section] as? String
         
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -126,10 +132,7 @@ class SelectTableViewController: UIViewController,UITableViewDataSource,UITableV
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        
         return 50
-        
-        
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {

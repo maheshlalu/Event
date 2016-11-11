@@ -6,6 +6,8 @@
 //  Copyright © 2016 Seven Even. All rights reserved.
 //
 
+//https://github.com/ninjaprox/NVActivityIndicatorView for ActivityIndicator
+
 import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
@@ -32,9 +34,10 @@ class SignInViewController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInU
         super.viewDidLoad()
         
         pageControl.addTarget(self, action: #selector(SignInViewController.didChangePageControlValue), for: .valueChanged)
+        self.navigationController?.isNavigationBarHidden = true
         
-        self.fbBtn.delegate = self
-        self.fbBtn.readPermissions = ["public_profile", "email", "user_friends","user_about_me"];
+        fbBtn.delegate = self
+        fbBtn.readPermissions = ["public_profile", "email", "user_friends","user_about_me"];
         
         GIDSignIn.sharedInstance().uiDelegate = self
         
@@ -68,6 +71,17 @@ class SignInViewController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInU
     
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         //print("Response \(result)")
+        
+        if (error == nil){
+            let fbloginresult : FBSDKLoginManagerLoginResult = result
+            if result.isCancelled {
+                return
+            }
+            if(fbloginresult.grantedPermissions.contains("email"))
+            {
+            }
+        }
+        
         if result != nil{
             FBSDKGraphRequest.init(graphPath: "me", parameters: ["fields":"first_name,email,last_name,gender,picture.type(large),id"]).start { (connection, result, error) -> Void in
                 let fbResultDict:NSDictionary = result as! NSDictionary
@@ -75,11 +89,11 @@ class SignInViewController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInU
                 CX_SocialIntegration.sharedInstance.applicationRegisterWithFaceBook(userDataDic: fbResultDict, completion: { (isRegistred) in
                     //IsRegistred is true no need send the otp otherwise send the otp
                    self.screenNavigationAfterSignIng(boolValue: isRegistred)
+                    
                 })
             }
         }
     }
-    
     
     func screenNavigationAfterSignIng(boolValue : Bool){
         if boolValue {
@@ -127,6 +141,7 @@ class SignInViewController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInU
         CX_SocialIntegration.sharedInstance.applicationRegisterWithGooglePlus(userDataDic: self.googleResponseDict, completion: { (isRegistred) in
             //IsRegistred is true no need send the otp otherwise send the otp
             self.screenNavigationAfterSignIng(boolValue: isRegistred)
+            
         })
         
 //        let orgID:String! = CXAppConfig.sharedInstance.getAppMallID()

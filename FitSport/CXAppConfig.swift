@@ -200,17 +200,17 @@ class CXAppConfig {
         
     }
     
-    func setRedeemDictionary(dictionary:NSMutableDictionary){
+    func setUserUpdateDict(dictionary:NSMutableDictionary){
         
-        UserDefaults.standard.set(dictionary, forKey: "Redeem_Dict")
+        UserDefaults.standard.set(dictionary, forKey: "USER_DICT")
         
     }
     
     
-    func getRedeemDictionary() -> NSMutableDictionary {
+    func getUserUpdateDict() -> NSMutableDictionary {
         
-        let redeemDict :NSMutableDictionary = UserDefaults.standard.value(forKey: "Redeem_Dict") as! NSMutableDictionary
-        return redeemDict
+        let userDict :NSMutableDictionary = UserDefaults.standard.value(forKey: "USER_DICT") as! NSMutableDictionary
+        return userDict
         
     }
     
@@ -229,6 +229,22 @@ class CXAppConfig {
         return userProfileData
     }
     
+    
+    /*How to use the above get and set methods
+     
+     :UPDATE:******
+     
+     let jsonDic : NSMutableDictionary = NSMutableDictionary(dictionary: CXAppConfig.sharedInstance.getRedeemDictionary())
+     
+     jsonDic.setObject(offerDic.valueForKey("Name")!, forKey: "OfferName")
+     jsonDic.setObject(offerDic.valueForKey("ItemCode")!, forKey: "OfferId")
+     jsonDic.setObject(offerDic.valueForKey("Code")!, forKey: "OfferCode")
+     
+     print(jsonDic)
+     
+     CXAppConfig.sharedInstance.setRedeemDictionary(jsonDic)
+     
+     */
     
     func convertDictionayToString(dictionary:NSDictionary) -> NSString {
         var dataString: String!

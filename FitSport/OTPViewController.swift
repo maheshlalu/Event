@@ -8,8 +8,10 @@
 
 import UIKit
 
-class OTPViewController: UIViewController {
+class OTPViewController: UIViewController,UITextFieldDelegate {
 
+    @IBOutlet weak var otpEnterBtn: UIButton!
+    @IBOutlet weak var otpTxtField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -18,22 +20,48 @@ class OTPViewController: UIViewController {
         let navigation:UINavigationItem = navigationItem
         let image = UIImage(named: "logo_white")
         navigation.titleView = UIImageView(image: image)
+        
+        
+        NotificationCenter.default.addObserver(self, selector:#selector(OTPViewController.keyboardWillShow(sender:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector:#selector(OTPViewController.keyboardWillHide(sender:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(OTPViewController.handleTap(sender:)))
+        self.view.addGestureRecognizer(tap)
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func otpEnterBtnAction(_ sender: AnyObject) {
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func handleTap(sender: UITapGestureRecognizer? = nil) {
+        // handling code
+        self.view.endEditing(true)
     }
-    */
+    
+    func keyboardWillShow(sender: NSNotification) {
+        if let keyboardSize = (sender.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if view.frame.origin.y == 0{
+                self.view.frame.origin.y = -(keyboardSize.height-60)
+            }
+            else {
+                
+            }
+        }
+    }
+    
+    func keyboardWillHide(sender: NSNotification) {
+        if ((sender.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
+            if view.frame.origin.y != 0 {
+                self.view.frame.origin.y = 0
+            }
+            else {
+                
+            }
+        }
+    }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        self.view.resignFirstResponder()
+    }
 
 }

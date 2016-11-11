@@ -38,6 +38,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,SWRevealViewControllerDele
         GIDSignIn.sharedInstance().delegate = self
         self.setUpMagicalDB()
         applicationNavigationFlow()
+        
+       print(getDocumentsDirectory())
+        
+        //LoadingView
         return true
     }
     
@@ -121,6 +125,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,SWRevealViewControllerDele
         self.saveContext()
     }
     
+    
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         let callBack:Bool
         // print("***************************url Schemaaa:", url.scheme);
@@ -137,12 +142,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,SWRevealViewControllerDele
     //MARK: - Google Sign in
     public func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         // Perform any operations on signed in user here.
-        print(user)
         if (error == nil) {
             var firstName = ""
             var lastName = ""
             // let userId = user.userID
-            var gender = ""
             var profilePic = ""
             var email = ""
             
@@ -176,17 +179,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate,SWRevealViewControllerDele
         else {
             //Login Failed
             NSLog("login failed")
+            return
             
         }
     }
     
     
-    func signIn(signIn: GIDSignIn!, didDisconnectWithUser user:GIDGoogleUser!,
-                withError error: NSError!) {
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user:GIDGoogleUser!,
+                withError error: Error!) {
         // Perform any operations when the user disconnects from app here.
         // ...
     }
     
+    
+    func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentsDirectory = paths[0]
+        return documentsDirectory
+    }
 
     // MARK: - Core Data stack
 
@@ -232,6 +242,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,SWRevealViewControllerDele
             }
         }
     }
-
+    
 }
 
