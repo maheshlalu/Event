@@ -102,12 +102,22 @@ class SelectTableViewController: UIViewController,UITableViewDataSource,UITableV
         cell?.nameLabel.text = dicArry[indexPath.row] as? String
         cell?.nameLabel.font = CXAppConfig.sharedInstance.appMediumFont()
         cell?.checkBtn.addTarget(self, action:#selector(checkButtonClicked(sender:)), for: .touchUpInside)
-        if indexArray .contains(indexPath) {
+        let  element = dicArry[indexPath.row] as! String
+        
+        if dataArray.contains(element) {
             cell?.checkBtn.isSelected = true
+
         }
         else {
             cell?.checkBtn.isSelected = false
         }
+        
+//        if indexArray .contains(indexPath) {
+//            cell?.checkBtn.isSelected = true
+//        }
+//        else {
+//            cell?.checkBtn.isSelected = false
+//        }
         return cell!
         
     }
@@ -120,16 +130,23 @@ class SelectTableViewController: UIViewController,UITableViewDataSource,UITableV
         let indexPath = self.tableview.indexPath(for: cell)
         if btn.isSelected {
             indexArray.remove(indexPath as Any)
-            dataArray.remove(cell.nameLabel.text as Any)
+            dataArray.remove(cell.nameLabel.text! as String)
             btn.isSelected = false
+        
         }
         else {
             indexArray.add(indexPath as Any)
-            dataArray.add(cell.nameLabel?.text as Any)
+            dataArray.add((cell.nameLabel?.text)! as String)
             btn.isSelected = true
         }
         self.tableview.reloadRows(at: [indexPath!], with: .none)
+        
+        let  stringRepresentation = dataArray.componentsJoined(by: ",")
+        print(stringRepresentation)
+        updatingUserDict(dataString: stringRepresentation)
     }
+    
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
         return 50
@@ -158,17 +175,14 @@ class SelectTableViewController: UIViewController,UITableViewDataSource,UITableV
         // Dispose of any resources that can be recreated.
     }
     
+    func updatingUserDict(dataString:String) {
+        let userDict = CXAppConfig.sharedInstance.getUserUpdateDict() as NSMutableDictionary
+        userDict.setObject(dataString, forKey: "User_Sport" as NSCopying)
+        CXAppConfig.sharedInstance.setUserUpdateDict(dictionary: userDict)
+    }
+    
+    
     
     
 }
 
-/*
- 
- //        cateGoryData  = NSDictionary(objects:
- //            [["Hockey","Cricket","Badminton","Tennis","Shuttle","Swimming","Basketball","Volleyball","Kabaddi","Archery"],["Kriya","Aruna","Sudharshana"],["Salsa","Zumba"],["Hockey","Cricket","Badminton","Tennis","Shuttle","Swimming","Basketball","Volleyball","Kabaddi","Archery"],["Hockey","Cricket","Badminton","Tennis","Shuttle","Swimming","Basketball","Volleyball","Kabaddi","Archery"]],
- //
- //                                     forKeys: ["SPORTS" as NSCopying,"YOGA" as NSCopying,"DANCE" as NSCopying,"DATA" as NSCopying,"TEXT" as NSCopying,])
- //
- //        keysArr = NSArray(array: cateGoryData.allKeys) as [AnyObject]
-
- */

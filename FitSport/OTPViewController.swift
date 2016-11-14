@@ -12,6 +12,7 @@ class OTPViewController: UIViewController,UITextFieldDelegate {
 
     @IBOutlet weak var otpEnterBtn: UIButton!
     @IBOutlet weak var otpTxtField: UITextField!
+    var consumerEmailID: String!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,8 +32,35 @@ class OTPViewController: UIViewController,UITextFieldDelegate {
     }
 
     @IBAction func otpEnterBtnAction(_ sender: AnyObject) {
-        
+        if otpTxtField.text?.characters.count == nil{
+            showAlertView(message: "OTP Field Can't be Empty!!!", status: 0)
+        }else{
+            self.comparingFieldWithOTP()
+        }
     }
+    
+    
+    func comparingFieldWithOTP(){
+        
+        CX_SocialIntegration.sharedInstance.validatingRecievedOTP(consumerEmailId: self.consumerEmailID, enteredOTP: self.otpTxtField.text!) { (responseDict) in
+            print(responseDict)
+            let status: Int = Int(responseDict.value(forKey: "status") as! String)!
+            let message = responseDict.value(forKey: "message") as! String
+            
+            if status == 1{
+               // updating the userdict with otp key
+                self.updatingUserDict(otp:self.otpTxtField.text!)
+                 // Leading to SelectSport View
+                self.showAlertView(message: message, status: 100)
+                
+                
+            }else{
+                // Error
+                self.showAlertView(message: message, status: 0)
+            }
+        }
+    }
+    
     
     func handleTap(sender: UITapGestureRecognizer? = nil) {
         // handling code
@@ -62,6 +90,34 @@ class OTPViewController: UIViewController,UITextFieldDelegate {
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         self.view.resignFirstResponder()
+    }
+    
+    // adding OTP object UserDictionary
+    func updatingUserDict(otp:String){
+        
+        let jsonDic : NSMutableDictionary = NSMutableDictionary(dictionary: CXAppConfig.sharedInstance.getUserUpdateDict())
+        print(jsonDic)
+        jsonDic.setObject(otp, forKey: "User_OTP" as NSCopying)
+        CXAppConfig.sharedInstance.setUserUpdateDict(dictionary: jsonDic)
+        print(CXAppConfig.sharedInstance.getUserUpdateDict())
+    }
+    
+    
+    func showAlertView(message:String, status:Int) {
+        let alert = UIAlertController(title:message, message: nil, preferredStyle: UIAlertControllerStyle.alert)
+        let okAction = UIAlertAction(title: "Okay", style: UIAlertActionStyle.default) {
+            UIAlertAction in
+            
+            if status == 100 {
+                let storyBoard = UIStoryboard(name: "PagerMain", bundle: Bundle.main)
+                let selectSport = storyBoard.instantiateViewController(withIdentifier: "SelectTableViewController") as! SelectTableViewController
+                self.navigationController?.pushViewController(selectSport, animated: true)
+            }else{
+                
+            }
+        }
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
     }
 
 }

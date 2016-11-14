@@ -17,6 +17,9 @@ class UserDataViewController: UIViewController,UITextFieldDelegate,UITextViewDel
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var aboutYourSelf: UITextField!
+    var userEmail:String!
+    var userPic:String!
+    var editImage:Bool = false
     
     
     
@@ -25,13 +28,19 @@ class UserDataViewController: UIViewController,UITextFieldDelegate,UITextViewDel
         super.viewDidLoad()
         
         let appdata:NSArray = UserProfile.mr_findAll() as NSArray
+    
         if appdata.count != 0{
-            
             let userProfileData:UserProfile = appdata.lastObject as! UserProfile
-            userImageView.setImageWith(NSURL(string: userProfileData.userPic!) as! URL)
-            userNameLabel.text = "Hi,\(userProfileData.firstName!)"
+            userPic = userProfileData.userPic!
+            let url = NSURL(string: userProfileData.userPic!)
+            userImageView.setImageWith(url as URL!, usingActivityIndicatorStyle: .gray)
+            userNameLabel.text = "Hi, \(userProfileData.firstName!)"
+            userEmail = userProfileData.emailId!
             
         }
+        
+   
+        
         shadowView()
         
         //Navigation Bar Customization
@@ -73,7 +82,74 @@ class UserDataViewController: UIViewController,UITextFieldDelegate,UITextViewDel
     
     @IBAction func doneBtnAction(_ sender: AnyObject) {
         
+        let storyBoard = UIStoryboard(name: "PagerMain", bundle: Bundle.main)
+        let selectSport = storyBoard.instantiateViewController(withIdentifier: "SelectTableViewController") as! SelectTableViewController
+        self.navigationController?.pushViewController(selectSport, animated: true)
         
+        return
+        
+        if mobileNumberTextField.text?.characters.count == 10 && (mobileNumberTextField != nil){
+            let jsonDic:NSMutableDictionary = NSMutableDictionary()
+            
+            if editImage == true{
+                self.imageUpload()
+                jsonDic.setObject(UserDefaults.standard.value(forKey: "EDIT_IMG_URL"), forKey: "User_Img" as NSCopying)
+            }else{
+                jsonDic.setObject(self.userPic, forKey: "User_Img" as NSCopying)
+            }
+            jsonDic.setObject(mobileNumberTextField.text!,forKey: "User_Mobile" as NSCopying)
+            
+            if (descriptionTxtView.text.characters.count == 0){
+                jsonDic.setObject(descriptionTxtView.text!, forKey: "User_Desc" as NSCopying)
+            }else{
+                jsonDic.setObject("No Description Available", forKey: "User_Desc" as NSCopying)
+            }
+            
+            print(jsonDic)
+            CXAppConfig.sharedInstance.setUserUpdateDict(dictionary:jsonDic)
+            emailCheckingForOTP()
+            
+        } else {
+            self.showAlertView(message: "Please Enter Valid Mobile Number", status: 0)
+        }
+        
+    }
+    
+    // OTP Methods
+    func emailCheckingForOTP(){
+        
+        CX_SocialIntegration.sharedInstance.varifyingEmailForOTP(comsumerEmailId: self.userEmail) { (responseDict) in
+            print(responseDict)
+            let status: Int = Int(responseDict.value(forKey: "status") as! String)!
+            let message = responseDict.value(forKey: "message") as! String
+            if status == 1{
+                // If Status is 1 then the user email id is already regesterd with email.Can't able to send OTP. Which means give another email.
+                self.showAlertView(message: message, status: 0)
+                return
+            }else{
+                //Sending the OTP to given mobile number (status is -1 or 0). Eligible to send OTP.
+                self.sendingOTPForGivenNumber()
+            }
+        }
+    }
+    
+    
+    
+    func sendingOTPForGivenNumber(){
+        
+        CX_SocialIntegration.sharedInstance.sendingOTPToGivenNumber(consumerEmailId: self.userEmail, mobile: self.mobileNumberTextField.text!) { (responseDict) in
+            print(responseDict)
+            let status: Int = Int(responseDict.value(forKey: "status") as! String)!
+            if status == 1{
+                // OTP SENT
+                //After sending the OTP to given number, pushing to OTPViewController
+                self.showAlertView(message: "OTP sent Successfully!!!", status: 100)
+                
+            }else{
+                // OTP NOT SENT
+                self.showAlertView(message: "Something Went Wrong!! Pleace check Email!!!", status: 0)
+            }
+        }
     }
     
     @IBAction func editimageAction(_ sender: AnyObject) {
@@ -150,7 +226,8 @@ class UserDataViewController: UIViewController,UITextFieldDelegate,UITextViewDel
     
     // MARK: - UIImagePickerControllerDelegate Methods
     
-    private func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             userImageView.contentMode = .scaleToFill
             userImageView.image = pickedImage
@@ -158,15 +235,51 @@ class UserDataViewController: UIViewController,UITextFieldDelegate,UITextViewDel
             let imageData = NSData(data: UIImagePNGRepresentation(image)!)
             UserDefaults.standard.set(imageData, forKey: "IMG_DATA")
         }
-        
         dismiss(animated: true, completion: nil)
     }
     
+
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
         
     }
-
+    
+    
+    func imageUpload(){
+        CXDataService.sharedInstance.imageUpload(imageData: UserDefaults.standard.object(forKey: "IMG_DATA") as! NSData, completion: { (response) in
+            DispatchQueue.main.async {
+                print(response)
+                let status: Int = Int(response.value(forKey: "status") as! String)!
+                if status == 1{
+                    let imgStr = response.value(forKey: "filePath") as! String
+                    let url = NSURL(string: imgStr)
+                    self.userImageView.setImageWith(url as URL!, usingActivityIndicatorStyle: .gray)
+                    self.editImage = true
+                    UserDefaults.standard.set(imgStr, forKey: "EDIT_IMG_URL")
+                }
+            }
+            
+        })
+    }
+    
+    func showAlertView(message:String, status:Int) {
+        let alert = UIAlertController(title:message, message: nil, preferredStyle: UIAlertControllerStyle.alert)
+        let okAction = UIAlertAction(title: "Okay", style: UIAlertActionStyle.default) {
+            UIAlertAction in
+            
+            if status == 100 {
+                let storyBoard = UIStoryboard(name: "PagerMain", bundle: Bundle.main)
+                let selectSport = storyBoard.instantiateViewController(withIdentifier: "OTPViewController") as! OTPViewController
+                selectSport.consumerEmailID = self.userEmail
+                self.navigationController?.pushViewController(selectSport, animated: true)
+            }else{
+                
+            }
+        }
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
 }
 
 

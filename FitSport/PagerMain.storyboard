@@ -24,7 +24,7 @@
                         <viewControllerLayoutGuide type="bottom" id="211-Dy-ZQs"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="w7O-um-obi">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U86-eW-DBU">
@@ -108,7 +108,7 @@
                         <viewControllerLayoutGuide type="bottom" id="kEr-g4-6fA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="dnb-1J-9zv">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slideScreen1" translatesAutoresizingMaskIntoConstraints="NO" id="tSM-ld-AIb"/>
@@ -135,7 +135,7 @@
                         <viewControllerLayoutGuide type="bottom" id="LhW-hI-PaP"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="VwB-MW-SDj">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slideScreen2" translatesAutoresizingMaskIntoConstraints="NO" id="sZb-0y-6LX"/>
@@ -162,7 +162,7 @@
                         <viewControllerLayoutGuide type="bottom" id="oKf-mC-0Wp"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="D7d-oM-V9K">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slideScreen3" translatesAutoresizingMaskIntoConstraints="NO" id="zb8-3a-CH2"/>
@@ -186,7 +186,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Z47-EJ-388" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vrm-oP-VNI">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Vrm-oP-VNI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -202,13 +202,13 @@
         <!--Select Table View Controller-->
         <scene sceneID="QcO-Mu-eWf">
             <objects>
-                <viewController id="SUa-Y7-LRk" customClass="SelectTableViewController" customModule="FitSport" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SelectTableViewController" id="SUa-Y7-LRk" customClass="SelectTableViewController" customModule="FitSport" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="s61-5x-5B2"/>
                         <viewControllerLayoutGuide type="bottom" id="ktF-Rq-ihI"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="dMS-qQ-sze">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="yFt-xg-k2s">
@@ -275,7 +275,7 @@
                         <viewControllerLayoutGuide type="bottom" id="HEz-vc-8mA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="c8n-mY-2Hl">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Voq-2E-SQj">
@@ -317,11 +317,16 @@
                                     <constraint firstItem="dbd-tb-2vD" firstAttribute="leading" secondItem="Voq-2E-SQj" secondAttribute="leading" constant="8" id="yyG-vI-eyk"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Mobile Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6pF-aX-YHY">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Mobile Number To Get OTP" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6pF-aX-YHY">
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Please provide valid mobile number so that you will get an OTP to this number)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uL5-rH-biX">
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
+                                <color key="textColor" red="0.97647058819999999" green="0.46666666670000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" placeholder="About Yourself" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xhx-Cv-AOD">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="ejS-cH-4RM"/>
@@ -342,17 +347,21 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Voq-2E-SQj" secondAttribute="trailing" id="2Og-Pd-TqL"/>
-                            <constraint firstItem="l7R-IS-kEo" firstAttribute="top" secondItem="6pF-aX-YHY" secondAttribute="bottom" constant="8" id="6Ax-iV-MeA"/>
+                            <constraint firstItem="uL5-rH-biX" firstAttribute="leading" secondItem="6pF-aX-YHY" secondAttribute="leading" id="3GU-0i-Rih"/>
+                            <constraint firstItem="l7R-IS-kEo" firstAttribute="top" secondItem="uL5-rH-biX" secondAttribute="bottom" constant="8" symbolic="YES" id="5go-B8-M3t"/>
+                            <constraint firstItem="l7R-IS-kEo" firstAttribute="top" secondItem="6pF-aX-YHY" secondAttribute="bottom" constant="46" id="6Ax-iV-MeA"/>
                             <constraint firstAttribute="leadingMargin" secondItem="l7R-IS-kEo" secondAttribute="leading" id="9Xa-TF-S9W"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Xhx-Cv-AOD" secondAttribute="leading" id="9rD-24-NLs"/>
+                            <constraint firstItem="uL5-rH-biX" firstAttribute="top" secondItem="6pF-aX-YHY" secondAttribute="bottom" constant="8" symbolic="YES" id="JWP-g9-h9H"/>
                             <constraint firstAttribute="trailingMargin" secondItem="l7R-IS-kEo" secondAttribute="trailing" id="ahx-Un-nVV"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6pF-aX-YHY" secondAttribute="trailing" id="asF-8x-FAD"/>
-                            <constraint firstItem="6pF-aX-YHY" firstAttribute="top" secondItem="Voq-2E-SQj" secondAttribute="bottom" constant="14" id="drY-zg-fvp"/>
+                            <constraint firstItem="6pF-aX-YHY" firstAttribute="top" secondItem="Voq-2E-SQj" secondAttribute="bottom" constant="-2" id="drY-zg-fvp"/>
                             <constraint firstItem="Voq-2E-SQj" firstAttribute="top" secondItem="c8n-mY-2Hl" secondAttribute="top" id="hbd-m8-HlP"/>
-                            <constraint firstItem="Xhx-Cv-AOD" firstAttribute="top" secondItem="6pF-aX-YHY" secondAttribute="bottom" constant="9" id="q4d-67-8lY"/>
+                            <constraint firstItem="Xhx-Cv-AOD" firstAttribute="top" secondItem="6pF-aX-YHY" secondAttribute="bottom" constant="47" id="q4d-67-8lY"/>
                             <constraint firstAttribute="leadingMargin" secondItem="6pF-aX-YHY" secondAttribute="leading" id="rmT-QU-6Ln"/>
                             <constraint firstItem="Voq-2E-SQj" firstAttribute="leading" secondItem="c8n-mY-2Hl" secondAttribute="leading" id="sJ8-I1-FpT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Xhx-Cv-AOD" secondAttribute="trailing" id="uRh-VT-UIB"/>
+                            <constraint firstItem="uL5-rH-biX" firstAttribute="trailing" secondItem="6pF-aX-YHY" secondAttribute="trailing" id="x08-87-iak"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Ark-sf-HzW">
@@ -360,7 +369,6 @@
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="doneBtnAction:" destination="R1h-Na-Asc" id="68X-SX-E3g"/>
-                                <segue destination="cps-O9-1sV" kind="push" id="SJj-JE-jFf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -375,7 +383,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KmL-ii-hVO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4422" y="-2038"/>
+            <point key="canvasLocation" x="-4423.125" y="-2038.7323943661972"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="FY5-we-iWY">
@@ -386,7 +394,7 @@
                         <viewControllerLayoutGuide type="bottom" id="zjJ-eW-u6W"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5PV-hL-fVI">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FJW-KJ-jX3">
@@ -406,7 +414,6 @@
                                                 <state key="normal" image="rightArrowGreenBtn"/>
                                                 <connections>
                                                     <action selector="otpEnterBtnAction:" destination="cps-O9-1sV" eventType="touchUpInside" id="2Qv-ff-itS"/>
-                                                    <segue destination="SUa-Y7-LRk" kind="push" id="KXt-o2-5WP"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -465,9 +472,9 @@
     </scenes>
     <resources>
         <image name="editProfileFrom40" width="40" height="40"/>
-        <image name="fbLogo" width="26" height="26"/>
-        <image name="g+Logo" width="26" height="26"/>
-        <image name="rightArrowGreenBtn" width="26" height="26"/>
+        <image name="fbLogo" width="20" height="20"/>
+        <image name="g+Logo" width="20" height="20"/>
+        <image name="rightArrowGreenBtn" width="20" height="20"/>
         <image name="slideScreen1" width="1242" height="2208"/>
         <image name="slideScreen2" width="1242" height="2208"/>
         <image name="slideScreen3" width="1242" height="2208"/>

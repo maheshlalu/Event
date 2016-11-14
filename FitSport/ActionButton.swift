@@ -98,7 +98,6 @@ open class ActionButton: NSObject {
         self.floatButton.translatesAutoresizingMaskIntoConstraints = false
         
         self.floatButton.addTarget(self, action: #selector(ActionButton.buttonTapped(_:)), for: .touchUpInside)
-        self.floatButton.addTarget(self, action: #selector(ActionButton.buttonTouchDown(_:)), for: .touchDown)
         self.parentView.addSubview(self.floatButton)
 
         self.contentView = UIView(frame: bounds)
@@ -148,14 +147,8 @@ open class ActionButton: NSObject {
     }
     
     //MARK: - Button Actions Methods
-    func buttonTapped(_ sender: UIControl) {
-        
-        
-    }
-    
-    func buttonTouchDown(_ sender: UIButton) {
-        
-  
+    func buttonTapped(_ sender: AnyObject) {
+       
     }
     
     //MARK: - Gesture Recognizer Methods

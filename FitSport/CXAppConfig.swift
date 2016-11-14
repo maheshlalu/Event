@@ -86,6 +86,19 @@ class CXAppConfig {
         
         return config!.value(forKey: "SidePanelList") as! NSArray
     }
+    
+    // getOTPAPIs
+    
+    func getVarifyingEmailOTP() -> String{
+        return config!.value(forKey: "varifyingEmailForOTP") as! String
+    }
+    
+    func getSendingOTP() -> String{
+        return config!.value(forKey: "sendingOTP") as! String
+    }
+    func getComparingOTP() -> String{
+        return config!.value(forKey: "comparingOTP") as! String
+    }
 
 
     func getAppTheamColor() -> UIColor {
@@ -271,6 +284,4 @@ class CXAppConfig {
         }
         return jsonDict
     }
-
-
 }

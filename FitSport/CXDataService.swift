@@ -102,6 +102,32 @@ open class CXDataService: NSObject {
     }
     
 
+    public func imageUpload(imageData:NSData,completion:@escaping (_ Response:NSDictionary) -> Void){
+            
+            let mutableRequest : AFHTTPRequestSerializer = AFHTTPRequestSerializer()
+            let request1 : NSMutableURLRequest =    mutableRequest.multipartFormRequest(withMethod: "POST", urlString: CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getphotoUploadUrl(), parameters: ["refFileName": self.generateBoundaryString()], constructingBodyWith: { (formatData:AFMultipartFormData) in
+                formatData.appendPart(withFileData: imageData as Data, name: "srcFile", fileName: "uploadedFile.jpg", mimeType: "image/jpeg")
+                }, error: nil)
+        
+            let session = URLSession.shared
+            
+            let task = session.dataTask(with: request1 as URLRequest) {
+                (
+                data, response, error) in
+                
+                guard let _:NSData = data as NSData?, let _:URLResponse = response  , error == nil else {
+                    print("error")
+                    return
+                }
+                let dataString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+                let myDic = self.convertStringToDictionary(dataString! as String)
+                completion(myDic)
+                
+            }
+        
+            
+            task.resume()
+    }
  
     
     open func getTheUpdatesFromServer(_ parameters:[String: AnyObject]? = nil ,completion:@escaping (_ responseDict:NSDictionary) -> Void){

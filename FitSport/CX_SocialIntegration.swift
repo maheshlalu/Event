@@ -52,8 +52,10 @@ class CX_SocialIntegration: NSObject {
                 // get the details from server using below url
                 CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getSignInUrl(), parameters: ["orgId":CXAppConfig.sharedInstance.getAppMallID() as AnyObject,"email":email as AnyObject,"dt":"DEVICES" as AnyObject,"isLoginWithFB":"true" as AnyObject]) { (responseDict) in
                     //"password":""
-                    self.saveUserDeatils(userData: responseDict)
-                    completion(false)
+                    self.saveUserDeatils(userData: responseDict, completion: { (dic) in
+                        completion(false)
+                    })
+                    
                 }
                 //http://localhost:8081/MobileAPIs/loginConsumerForOrg?email=cxsample@gmail.com&orgId=530&dt=DEVICES&isLoginWithFB=true
             }
@@ -80,8 +82,9 @@ class CX_SocialIntegration: NSObject {
         
         
         CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getSignUpInUrl(), parameters: registerDic as? [String : AnyObject]) { (responseDict) in
-            self.saveUserDeatils(userData: responseDict)
-            completion(responseDict)
+            self.saveUserDeatils(userData: responseDict, completion: { (dic) in
+                completion(responseDict)
+            })
             
         }
         
@@ -92,9 +95,10 @@ class CX_SocialIntegration: NSObject {
         CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getSignInUrl(), parameters: ["dt":"DEVICES" as AnyObject,"orgId":CXAppConfig.sharedInstance.getAppMallID() as AnyObject,"email":loginDic.value(forKey: "email")! as AnyObject,"password":loginDic.value(forKey: "password")! as AnyObject]) { (responseDict) in
             //"password":""
             
-            self.saveUserDeatils(userData: responseDict)
-            completion(responseDict)
-           // LoadingView.hide()
+            self.saveUserDeatils(userData: responseDict, completion: { (dic) in
+                completion(responseDict)
+            })
+            // LoadingView.hide()
         }
         //
         //        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getSignInUrl(), parameters: loginDic as? [String : AnyObject]) { (responseDict) in
@@ -130,7 +134,7 @@ class CX_SocialIntegration: NSObject {
         }
     }
     
-    func saveUserDeatils(userData:NSDictionary){
+    func saveUserDeatils(userData:NSDictionary,completion:@escaping () -> Void){
         
         MagicalRecord.save({ (localContext) in
             let enProduct =  NSEntityDescription.insertNewObject(forEntityName: "UserProfile", into: localContext!) as? UserProfile
@@ -143,9 +147,7 @@ class CX_SocialIntegration: NSObject {
                 enProduct?.emailId = userData.value(forKey:"emailId") as? String
                 enProduct?.firstName = userData.value(forKey:"firstName") as? String
                 enProduct?.lastName = userData.value(forKey:"lastName") as? String
-                if enProduct?.userPic == nil{
-                    enProduct?.userPic =  userData.object(forKey: "userImagePath") as? String
-                }
+                enProduct?.userPic =  userData.object(forKey: "userImagePath") as? String
                 enProduct?.macId = userData.value(forKey:"macId") as? String
                 enProduct?.json = CXAppConfig.sharedInstance.convertDictionayToString(dictionary: userData) as String
                 enProduct?.macIdJobId = CXAppConfig.resultString(input: userData.value(forKey:"macIdJobId")! as AnyObject)
@@ -154,9 +156,7 @@ class CX_SocialIntegration: NSObject {
             }
         }) { (success, error) in
             if success == true {
-                //                if let delegate = self.delegate {
-                //                    delegate.didFinishProducts(productCatName)
-                //                }
+                completion()
             } else {
             }
         }
@@ -183,56 +183,75 @@ class CX_SocialIntegration: NSObject {
         
         CXDataService.sharedInstance.getTheAppDataFromServer(["type" : "macidinfo" as AnyObject
             ,"mallId" : CXAppConfig.sharedInstance.getAppMallID() as AnyObject]) { (responseDict) in
-            let email: String = (userDataDic.object(forKey: "email") as? String)!
-            
-            if !self.checkTheUserRegisterWithApp(userEmail: email, macidInfoResultDic: responseDict).isRegistred {
-                //Register with app
-                let strFirstName: String =  userDataDic["given_name"] as! String
-                
-                let strLastName: String = userDataDic["family_name"] as! String
-                //let gender: String =  userDataDic["gender"] as! String
                 let email: String = (userDataDic.object(forKey: "email") as? String)!
-                let GoogleID : String = (userDataDic.object(forKey: "sub") as? String)!
-                let userPic : String = (userDataDic.object(forKey: "picture") as? String)!
                 
-                //picture,data,url
-                
-                let userRegisterDic: NSDictionary = NSDictionary(objects: [CXAppConfig.sharedInstance.getAppMallID(),email,"DEVICES",GoogleID,strFirstName,strLastName,"",userPic,"true",userPic],
-                                                                 forKeys: ["orgId" as NSCopying,"userEmailId" as NSCopying,"dt" as NSCopying,"password" as NSCopying,"firstName" as NSCopying,"lastName" as NSCopying,"gender" as NSCopying,"filePath" as NSCopying,"isLoginWithFB" as NSCopying,"userImagePath" as NSCopying])
-                print(userRegisterDic)
-                self.registerWithSocialNewtWokrk(registerDic: userRegisterDic, completion: { (responseDict) in
-                    completion(true)
+                if !self.checkTheUserRegisterWithApp(userEmail: email, macidInfoResultDic: responseDict).isRegistred {
+                    //Register with app
+                    let strFirstName: String =  userDataDic["given_name"] as! String
                     
-                })                //self.profileImageStr = (responseDict.objectForKey("picture")?.objectForKey("data")?.objectForKey("url") as? String)!
-                print("Welcome,\(email) \(strFirstName) \(strLastName)  ")
-            }else{
-                // get the details from server using below url
-                
-                CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getSignInUrl(), parameters: ["orgId":CXAppConfig.sharedInstance.getAppMallID() as AnyObject,"email":email as AnyObject,"dt":"DEVICES" as AnyObject,"isLoginWithFB":"true" as AnyObject]) { (responseDict) in
-                    //"password":""
-                    self.saveUserDeatils(userData: responseDict)
-                    completion(false)
+                    let strLastName: String = userDataDic["family_name"] as! String
+                    //let gender: String =  userDataDic["gender"] as! String
+                    let email: String = (userDataDic.object(forKey: "email") as? String)!
+                    let GoogleID : String = (userDataDic.object(forKey: "sub") as? String)!
+                    let userPic : String = (userDataDic.object(forKey: "picture") as? String)!
                     
+                    //picture,data,url
+                    
+                    let userRegisterDic: NSDictionary = NSDictionary(objects: [CXAppConfig.sharedInstance.getAppMallID(),email,"DEVICES",GoogleID,strFirstName,strLastName,"",userPic,"true",userPic],
+                                                                     forKeys: ["orgId" as NSCopying,"userEmailId" as NSCopying,"dt" as NSCopying,"password" as NSCopying,"firstName" as NSCopying,"lastName" as NSCopying,"gender" as NSCopying,"filePath" as NSCopying,"isLoginWithFB" as NSCopying,"userImagePath" as NSCopying])
+                    print(userRegisterDic)
+                    self.registerWithSocialNewtWokrk(registerDic: userRegisterDic, completion: { (responseDict) in
+                        completion(true)
+                        
+                    })                //self.profileImageStr = (responseDict.objectForKey("picture")?.objectForKey("data")?.objectForKey("url") as? String)!
+                    print("Welcome,\(email) \(strFirstName) \(strLastName)  ")
+                }else{
+                    // get the details from server using below url
+                    
+                    CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getSignInUrl(), parameters: ["orgId":CXAppConfig.sharedInstance.getAppMallID() as AnyObject,"email":email as AnyObject,"dt":"DEVICES" as AnyObject,"isLoginWithFB":"true" as AnyObject]) { (responseDict) in
+                        //"password":""
+                        self.saveUserDeatils(userData: responseDict, completion: { (dic) in
+                            completion(false)
+                        })
+                        
+                    }
+                    //http://localhost:8081/MobileAPIs/loginConsumerForOrg?email=cxsample@gmail.com&orgId=530&dt=DEVICES&isLoginWithFB=true
                 }
-                //http://localhost:8081/MobileAPIs/loginConsumerForOrg?email=cxsample@gmail.com&orgId=530&dt=DEVICES&isLoginWithFB=true
-            }
-            
+                
         }
         
         
     }
     
-    //MARK:OTP Functionality 
-    /*
-     OTP functionality
-     1. http://storeongo.com:8081/MobileAPIs/accountVerification?ownerId=530&consumerEmail=cxsample@gmail.com
-          Generate OTP API :
-     http://storeongo.com:8081/MobileAPIs/generateOTP?ownerId=530&consumerEmail=cxsample@gmail.com&mobile=919581552229
-     OTP Verification API :
-     http://storeongo.com:8081/MobileAPIs/verifyOTP?ownerId=530&consumerEmail=cxsample@gmail.com&otp=538849
-     */
+    //MARK:OTP Functionality
     
+    // Varifying Email
+    func varifyingEmailForOTP(comsumerEmailId:String, completion:@escaping (_ responseDict:NSDictionary) -> Void) {
+        
+        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getVarifyingEmailOTP(), parameters: ["ownerId":CXAppConfig.sharedInstance.getAppMallID() as AnyObject,"consumerEmail":comsumerEmailId as AnyObject]) { (responseDict) in
+            print(responseDict)
+            completion(responseDict)
+            
+        }
+    }
     
+    // Sending OTP
+    func sendingOTPToGivenNumber(consumerEmailId:String, mobile:String, completion:@escaping (_ responseDict:NSDictionary) -> Void){
+        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getSendingOTP(), parameters: ["ownerId":CXAppConfig.sharedInstance.getAppMallID() as AnyObject,"consumerEmail":consumerEmailId as AnyObject,"mobile":"91\(mobile)" as AnyObject]) { (responseDict) in
+            print(responseDict)
+            completion(responseDict)
+        }
+        
+    }
     
+    // Validating OTP
+    func validatingRecievedOTP(consumerEmailId:String, enteredOTP:String, completion:@escaping (_ responseDict:NSDictionary) -> Void){
+        
+        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getComparingOTP(), parameters: ["ownerId":CXAppConfig.sharedInstance.getAppMallID() as AnyObject,"consumerEmail":consumerEmailId as AnyObject,"otp":enteredOTP as AnyObject]) { (responseDict) in
+            print(responseDict)
+            completion(responseDict)
+            
+        }
+    }
     
 }

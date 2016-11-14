@@ -37,15 +37,13 @@ class EventsViewController: UIViewController,UICollectionViewDataSource,UICollec
         
         actionButton = ActionButton(attachedToView: self.view, items:nil)
         actionButton.action = {button in
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "CreateEventViewController") as! CreateEventViewController
-            self.navigationController?.pushViewController(vc, animated: true)
+
             
         }
         
     }
     
-    
+
     //MARK:
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int

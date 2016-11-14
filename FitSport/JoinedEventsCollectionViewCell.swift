@@ -23,11 +23,14 @@ class JoinedEventsCollectionViewCell: UICollectionViewCell {
     @IBAction func joinedBtn(_ sender: UIButton) {
         let btn:UIButton = sender
         btn.isSelected = !btn.isSelected
+        
         if btn.isSelected{
             sender.backgroundColor = CXAppConfig.sharedInstance.getAppTheamColor()
+            sender.titleLabel?.textColor = UIColor.white
         }else{
-                sender.backgroundColor = UIColor.white
-            }
+            sender.backgroundColor = UIColor.white
+            sender.titleLabel?.textColor = CXAppConfig.sharedInstance.getAppTheamColor()
+        }
     }
     
     @IBOutlet weak var joinedEventImageView: UIImageView!
@@ -40,8 +43,8 @@ class JoinedEventsCollectionViewCell: UICollectionViewCell {
         self.joinedEventImageView.clipsToBounds = true
         
         self.joinedBtn.layer.cornerRadius = 5
+        self.joinedBtn.titleLabel?.textColor = CXAppConfig.sharedInstance.getAppTheamColor()
         self.joinedBtn.clipsToBounds = true
-        
         self.joinedBtn.layer.borderColor = CXAppConfig.sharedInstance.getAppTheamColor().cgColor
         self.joinedBtn.layer.borderWidth = 1
         
