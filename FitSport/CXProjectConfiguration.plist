@@ -51,6 +51,8 @@
 	<string>MobileAPIs/sendFitsportSMS?</string>
 	<key>comparingOTP</key>
 	<string>MobileAPIs/verifyOTP?</string>
+	<key>updateUserDetails</key>
+	<string>MobileAPIs/updateMultipleProperties?</string>
 	<key>AppBgColr</key>
 	<array>
 		<string></string>

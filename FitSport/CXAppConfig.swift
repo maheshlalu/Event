@@ -100,6 +100,11 @@ class CXAppConfig {
         return config!.value(forKey: "comparingOTP") as! String
     }
 
+    // Updating UserDict
+    
+    func getUpdatedUserDetails() -> String{
+        return config!.value(forKey: "updateUserDetails") as! String
+    }
 
     func getAppTheamColor() -> UIColor {
         

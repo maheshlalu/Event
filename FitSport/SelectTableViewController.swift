@@ -1,3 +1,4 @@
+
 //
 //  TableViewController.swift
 //  FitSportProject
@@ -38,6 +39,11 @@ class SelectTableViewController: UIViewController,UITableViewDataSource,UITableV
     
     
     @IBAction func nxtBtnAction(_ sender: AnyObject) {
+        let  stringRepresentation = dataArray.componentsJoined(by: ",") as String
+        print(stringRepresentation)
+        
+        self.updatingUserDict(dataString: stringRepresentation)
+        
         let appDel = UIApplication.shared.delegate as! AppDelegate
         appDel.setUpSidePanl()
         
@@ -141,9 +147,8 @@ class SelectTableViewController: UIViewController,UITableViewDataSource,UITableV
         }
         self.tableview.reloadRows(at: [indexPath!], with: .none)
         
-        let  stringRepresentation = dataArray.componentsJoined(by: ",")
-        print(stringRepresentation)
-        updatingUserDict(dataString: stringRepresentation)
+      
+        
     }
     
     
@@ -170,19 +175,45 @@ class SelectTableViewController: UIViewController,UITableViewDataSource,UITableV
     //        headerview
     //        //return headerview
     //    }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func updatingUserDict(dataString:String) {
-        let userDict = CXAppConfig.sharedInstance.getUserUpdateDict() as NSMutableDictionary
-        userDict.setObject(dataString, forKey: "User_Sport" as NSCopying)
-        CXAppConfig.sharedInstance.setUserUpdateDict(dictionary: userDict)
+        
+        let jsonDic : NSMutableDictionary = NSMutableDictionary(dictionary: CXAppConfig.sharedInstance.getUserUpdateDict())
+        jsonDic.setObject(dataString, forKey: "Interests" as NSCopying)
+        CXAppConfig.sharedInstance.setUserUpdateDict(dictionary: jsonDic)
+        print(CXAppConfig.sharedInstance.getUserUpdateDict())
+        
+        self.activeTheUser(parameterDic: CXAppConfig.sharedInstance.getUserUpdateDict(), jobId: CXAppConfig.sharedInstance.getMacJobID())
+        
+        
+        
     }
     
     
-    
-    
+    func activeTheUser(parameterDic:NSDictionary,jobId:String){
+        var jsonData : NSData = NSData()
+        do {
+            jsonData = try JSONSerialization.data(withJSONObject: parameterDic, options: JSONSerialization.WritingOptions.prettyPrinted) as NSData
+            // here "jsonData" is the dictionary encoded in JSON data
+        } catch let error as NSError {
+            print(error)
+        }
+        let jsonStringFormat = String(data: jsonData as Data, encoding: String.Encoding.utf8)
+        print(jsonStringFormat)
+        
+        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getUpdatedUserDetails(), parameters: ["jobId":jobId as AnyObject,"jsonString":jsonStringFormat! as AnyObject,"ownerId":CXAppConfig.sharedInstance.getAppMallID() as AnyObject]) { (responseDict) in
+            print(responseDict)
+            
+        }
+        
+        
+        
+    }
+//        CX_SocialIntegration.sharedInstance.updateTheSaveConsumerProperty(["ownerId":CXAppConfig.sharedInstance.getAppMallID(),"jobId":jobId,"jsonString":jsonStringFormat!]) { (resPonce) in     0
+//            
+//            self.navigationController?.popToRootViewControllerAnimated(true)
+        
 }
+        
+        //    http://storeongo.com:8081/ MobileAPIs/updateMultipleProperties/ jobId=200400& jsonString={"PaymentType":"249","ValidTill":"11-11-2017","userStatus":"active"}&ownerId=20217
 

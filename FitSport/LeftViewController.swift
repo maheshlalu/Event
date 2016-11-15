@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+import Google
+import GoogleSignIn
 class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
     @IBOutlet weak var editProfileLabel: UILabel!
@@ -21,6 +22,23 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let appdata:NSArray = UserProfile.mr_findAll() as NSArray
+        
+        if appdata.count != 0{
+            let userProfileData:UserProfile = appdata.lastObject as! UserProfile
+            if userProfileData.userId == nil{
+                nameArray[nameArray.endIndex] = "SIGN IN"
+                imageView.image = UIImage(named: "placeholder")
+                nameLabel.text = "Guest"
+                editProfileLabel.isHidden = true
+                
+            }else{
+                let url = NSURL(string: userProfileData.userPic!)
+                imageView.setImageWith(url as URL!, usingActivityIndicatorStyle: .gray)
+                nameLabel.text = userProfileData.firstName!
+            }
+        }
+        
         self.imageView.layer.cornerRadius = 35
         self.imageView.layer.borderWidth = 1
         self.imageView.clipsToBounds = true
@@ -70,13 +88,16 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
         //self.navController.drawerToggle()
         let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let itemName : String =  nameArray[indexPath.row]
+        
         if itemName == "INTEREST SPORTS"{
+           // let notificationName = Notification.Name("TapOnTab")
+           // NotificationCenter.default.post(name: notificationName, object: nil)
 //            let homeView = storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
 //            let navCntl = UINavigationController(rootViewController: homeView)
 //            revealController.pushFrontViewController(navCntl, animated: true)
             
         }else if itemName == "EVENTS"{
-//            let aboutUs = storyBoard.instantiateViewControllerWithIdentifier("PROFILE_MEMBERSHIP") as! ProfileMembershipViewController
+//            let aboutUs = storyBoard.instantiateViewController(withIdentifier: "EventsViewController") as! EventsViewController
 //            let navCntl = UINavigationController(rootViewController: aboutUs)
 //            revealController.pushFrontViewController(navCntl, animated: true)
             
@@ -98,9 +119,13 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
             
             showAlertView(message: "Are You Sure??", status: 1)
             
+        }else if itemName == "SIGN IN"{
+            let appDel = UIApplication.shared.delegate as! AppDelegate
+            appDel.applicationNavigationFlow()
         }
         
     }
+    
     
     func showAlertView(message:String, status:Int) {
         let alert = UIAlertController(title: "FitSport", message: message, preferredStyle: UIAlertControllerStyle.alert)
@@ -108,20 +133,20 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
         let okAction = UIAlertAction(title: "Okay", style: UIAlertActionStyle.default) {
             UIAlertAction in
             if status == 1 {
-//                Db Clear
-                //self.clearDbFiles()
-
+                //Db Clear
+                self.clearDbFiles()
+                
                 //Delete userID from nsuserdeafults
-               // UserDefaults.standardUserDefaults().removeObjectForKey("USERID")
+                UserDefaults.standard.removeObject(forKey: "USERID")
                 
                 // for FB signout
                 let appDelVar:AppDelegate = (UIApplication.shared.delegate as? AppDelegate)!
                 // for Google signout
-               // GIDSignIn.sharedInstance().signOut()
-               // GIDSignIn.sharedInstance().disconnect()
-                
-//                appDelVar.application(UIApplication.shared, didFinishLaunchingWithOptions: nil)
-//                self.navigationController?.popViewController(animated: true)
+                GIDSignIn.sharedInstance().signOut()
+                GIDSignIn.sharedInstance().disconnect()
+            
+                appDelVar.setUpSidePanl()
+                //self.navigationController?.popViewControllerAnimated(true)
             }
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default) {
@@ -134,6 +159,21 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
         alert.addAction(cancelAction)
         self.present(alert, animated: true, completion: nil)
     }
-  
+    
+    func clearDbFiles(){
+        
+        let fileManager = FileManager.default
+        let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first! as NSURL
+        
+        do {
+            let filePaths = try fileManager.contentsOfDirectory(atPath: "\(documentsUrl)")
+            for filePath in filePaths {
+                try fileManager.removeItem(atPath: NSTemporaryDirectory() + filePath)
+            }
+        } catch {
+            print("Could not clear temp folder: \(error)")
+        }
+    }
 
 }
+

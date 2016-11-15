@@ -17,6 +17,7 @@ import GGLCore
 
 class SignInViewController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDelegate{
     
+    @IBOutlet weak var skipBtn: UIButton!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var containerView: UIView!
     var googleResponseDict: NSDictionary! = nil
@@ -32,6 +33,7 @@ class SignInViewController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInU
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         pageControl.addTarget(self, action: #selector(SignInViewController.didChangePageControlValue), for: .valueChanged)
         self.navigationController?.isNavigationBarHidden = true
@@ -57,6 +59,10 @@ class SignInViewController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInU
         tutorialPageViewController?.scrollToNextViewController()
     }
     
+    @IBAction func skipAction(_ sender: AnyObject) {
+        let appDel = UIApplication.shared.delegate as! AppDelegate
+        appDel.setUpSidePanl()
+    }
     /**
      Fired when the user taps on the pageControl to change its current page.
      */
@@ -160,7 +166,7 @@ class SignInViewController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInU
 
     func showAlertView(message:String, status:Int) {
         
-            let alert = UIAlertController(title: "CoupoCon", message: message, preferredStyle: UIAlertControllerStyle.alert)
+            let alert = UIAlertController(title: "FitSport", message: message, preferredStyle: UIAlertControllerStyle.alert)
             let okAction = UIAlertAction(title: "Okay", style: UIAlertActionStyle.default) {
                 UIAlertAction in
                 if status == 1 {

@@ -24,11 +24,10 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="design" translatesAutoresizingMaskIntoConstraints="NO" id="aKu-Vy-kKT"/>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tTZ-MX-fEk">
-                        <frame key="frameInset" minX="36" minY="4" width="80" height="84"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tTZ-MX-fEk">
                         <constraints>
                             <constraint firstAttribute="width" constant="80" id="nc1-8B-g6f"/>
-                            <constraint firstAttribute="height" constant="86" id="qcU-f5-UDd"/>
+                            <constraint firstAttribute="height" constant="80" id="qcU-f5-UDd"/>
                         </constraints>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="d7O-aG-fGa">
@@ -99,7 +98,7 @@
             <color key="backgroundColor" red="0.83921568629999999" green="0.51372549020000002" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="tTZ-MX-fEk" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="8M7-nl-Yfw"/>
-                <constraint firstItem="d7O-aG-fGa" firstAttribute="top" secondItem="tTZ-MX-fEk" secondAttribute="bottom" constant="2" id="9lJ-Qk-fQW"/>
+                <constraint firstItem="d7O-aG-fGa" firstAttribute="top" secondItem="tTZ-MX-fEk" secondAttribute="bottom" constant="8" id="9lJ-Qk-fQW"/>
                 <constraint firstItem="yEe-QV-zI1" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="B2a-tO-wJd"/>
                 <constraint firstItem="d7O-aG-fGa" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="12" id="G6r-yi-MUs"/>
                 <constraint firstItem="Dxd-Pv-hbN" firstAttribute="top" secondItem="yEe-QV-zI1" secondAttribute="bottom" constant="2" id="IU6-j5-5mm"/>

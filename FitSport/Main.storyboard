@@ -34,7 +34,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="eventCell" id="JaX-r4-3c3">
-                                        <rect key="frame" x="35" y="10" width="305" height="246"/>
+                                        <rect key="frame" x="55" y="10" width="305" height="246"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="305" height="246"/>
@@ -78,7 +78,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mGX-uS-rHo">
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sadhu.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Wef-Yr-BiW">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wef-Yr-BiW">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="70" id="BXe-9H-OEl"/>
                                             <constraint firstAttribute="height" constant="70" id="k6x-jQ-r37"/>
@@ -86,7 +86,7 @@
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-4" translatesAutoresizingMaskIntoConstraints="NO" id="3gi-XN-8Yf">
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SURESH KUMAR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d48-ud-czk">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d48-ud-czk">
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -419,7 +419,6 @@
     <resources>
         <image name="images.jpg" width="267" height="189"/>
         <image name="photo-camera" width="192" height="192"/>
-        <image name="sadhu.jpg" width="1280" height="720"/>
         <image name="storeongoLogo" width="100" height="45"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

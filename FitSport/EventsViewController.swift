@@ -37,7 +37,7 @@ class EventsViewController: UIViewController,UICollectionViewDataSource,UICollec
         
         actionButton = ActionButton(attachedToView: self.view, items:nil)
         actionButton.action = {button in
-
+        
             
         }
         
@@ -74,11 +74,9 @@ class EventsViewController: UIViewController,UICollectionViewDataSource,UICollec
         return CGSize(width: self.view.frame.size.width/1-9,height: 246)
         
     }
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func searchshou(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
     
     

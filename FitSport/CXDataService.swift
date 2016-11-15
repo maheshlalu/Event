@@ -64,8 +64,11 @@ open class CXDataService: NSObject {
         print(parameters)
         
         
-        Alamofire.request(urlstring, method: .post, parameters: parameters, encoding: URLEncoding.`default`)
+        Alamofire.request(urlstring, method: .post, parameters: parameters, encoding: URLEncoding.httpBody)
+            .validate()
+            .validate(contentType: ["application/json"])
             .responseJSON { response in
+                
                 print(response)
                 //to get status code
                 if let status = response.response?.statusCode {
@@ -101,7 +104,6 @@ open class CXDataService: NSObject {
         
     }
     
-
     public func imageUpload(imageData:NSData,completion:@escaping (_ Response:NSDictionary) -> Void){
             
             let mutableRequest : AFHTTPRequestSerializer = AFHTTPRequestSerializer()

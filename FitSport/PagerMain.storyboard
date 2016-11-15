@@ -24,7 +24,7 @@
                         <viewControllerLayoutGuide type="bottom" id="211-Dy-ZQs"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="w7O-um-obi">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U86-eW-DBU">
@@ -64,15 +64,31 @@
                                     <constraint firstAttribute="height" constant="60" id="xoR-zV-yG4"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ud4-LI-xdG">
+                                <color key="backgroundColor" red="0.97647058819999999" green="0.46666666670000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="47" id="tPL-gp-pzz"/>
+                                    <constraint firstAttribute="width" constant="87" id="x7a-gL-GgW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
+                                <state key="normal" title="SKIP">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="skipAction:" destination="gjb-cV-ex8" eventType="touchUpInside" id="PXn-eV-vNo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="U86-eW-DBU" firstAttribute="top" secondItem="FN8-2S-wlo" secondAttribute="bottom" constant="-20" id="9hR-ba-ImR"/>
                             <constraint firstItem="Xvt-1d-6RY" firstAttribute="centerX" secondItem="w7O-um-obi" secondAttribute="centerX" id="DQZ-n2-oRE"/>
                             <constraint firstItem="211-Dy-ZQs" firstAttribute="top" secondItem="czk-YK-WLB" secondAttribute="bottom" id="Idi-PY-CZ1"/>
+                            <constraint firstAttribute="trailing" secondItem="Ud4-LI-xdG" secondAttribute="trailing" constant="16" id="Ti1-vz-TiM"/>
                             <constraint firstAttribute="trailing" secondItem="U86-eW-DBU" secondAttribute="trailing" id="Xhg-vc-F6h"/>
                             <constraint firstItem="czk-YK-WLB" firstAttribute="top" secondItem="Xvt-1d-6RY" secondAttribute="bottom" constant="28" id="i39-Me-Q9b"/>
                             <constraint firstItem="czk-YK-WLB" firstAttribute="leading" secondItem="w7O-um-obi" secondAttribute="leading" id="jHm-xa-pXh"/>
+                            <constraint firstItem="U86-eW-DBU" firstAttribute="top" secondItem="Ud4-LI-xdG" secondAttribute="bottom" constant="-67" id="kZz-S3-MV0"/>
                             <constraint firstItem="czk-YK-WLB" firstAttribute="top" secondItem="U86-eW-DBU" secondAttribute="bottom" id="mpV-YC-2hJ"/>
                             <constraint firstItem="U86-eW-DBU" firstAttribute="leading" secondItem="w7O-um-obi" secondAttribute="leading" id="pdy-6m-mzI"/>
                             <constraint firstAttribute="trailing" secondItem="czk-YK-WLB" secondAttribute="trailing" id="sdO-yk-Usu"/>
@@ -85,11 +101,12 @@
                         <outlet property="fbBtn" destination="V3K-5o-bvv" id="0GT-bm-joQ"/>
                         <outlet property="googleBtn" destination="CDD-Eb-NGG" id="fQP-mI-UR5"/>
                         <outlet property="pageControl" destination="Xvt-1d-6RY" id="FVe-8F-FO2"/>
+                        <outlet property="skipBtn" destination="Ud4-LI-xdG" id="p5r-Ur-o0w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="erM-on-UPn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4057" y="-2868"/>
+            <point key="canvasLocation" x="-4057.5" y="-2869.0140845070423"/>
         </scene>
         <!--Sign In Page View Controller-->
         <scene sceneID="0aP-7b-wK4">
@@ -108,7 +125,7 @@
                         <viewControllerLayoutGuide type="bottom" id="kEr-g4-6fA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="dnb-1J-9zv">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slideScreen1" translatesAutoresizingMaskIntoConstraints="NO" id="tSM-ld-AIb"/>
@@ -135,7 +152,7 @@
                         <viewControllerLayoutGuide type="bottom" id="LhW-hI-PaP"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="VwB-MW-SDj">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slideScreen2" translatesAutoresizingMaskIntoConstraints="NO" id="sZb-0y-6LX"/>
@@ -162,7 +179,7 @@
                         <viewControllerLayoutGuide type="bottom" id="oKf-mC-0Wp"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="D7d-oM-V9K">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slideScreen3" translatesAutoresizingMaskIntoConstraints="NO" id="zb8-3a-CH2"/>
@@ -208,7 +225,7 @@
                         <viewControllerLayoutGuide type="bottom" id="ktF-Rq-ihI"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="dMS-qQ-sze">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="yFt-xg-k2s">
@@ -275,7 +292,7 @@
                         <viewControllerLayoutGuide type="bottom" id="HEz-vc-8mA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="c8n-mY-2Hl">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Voq-2E-SQj">
@@ -394,7 +411,7 @@
                         <viewControllerLayoutGuide type="bottom" id="zjJ-eW-u6W"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5PV-hL-fVI">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FJW-KJ-jX3">

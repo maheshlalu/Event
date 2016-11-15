@@ -29,8 +29,7 @@ class CX_SocialIntegration: NSObject {
         CXDataService.sharedInstance.getTheAppDataFromServer(["type" : "macidinfo" as AnyObject,"mallId" : CXAppConfig.sharedInstance.getAppMallID() as AnyObject]) { (responseDict) in
             let email: String = (userDataDic.object(forKey: "email") as? String)!
             
-            if !self.checkTheUserRegisterWithApp(userEmail: email, macidInfoResultDic:
-                responseDict).isRegistred {
+            if !self.checkTheUserRegisterWithApp(userEmail: email, macidInfoResultDic:responseDict).isRegistred {
                 //Register with app
                 let strFirstName: String = (userDataDic.object(forKey: "first_name") as? String)!
                 let strLastName: String = (userDataDic.object(forKey: "last_name") as? String)!

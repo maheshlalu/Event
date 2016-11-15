@@ -82,31 +82,8 @@ class UserDataViewController: UIViewController,UITextFieldDelegate,UITextViewDel
     
     @IBAction func doneBtnAction(_ sender: AnyObject) {
         
-        let storyBoard = UIStoryboard(name: "PagerMain", bundle: Bundle.main)
-        let selectSport = storyBoard.instantiateViewController(withIdentifier: "SelectTableViewController") as! SelectTableViewController
-        self.navigationController?.pushViewController(selectSport, animated: true)
-        
-        return
-        
         if mobileNumberTextField.text?.characters.count == 10 && (mobileNumberTextField != nil){
-            let jsonDic:NSMutableDictionary = NSMutableDictionary()
-            
-            if editImage == true{
-                self.imageUpload()
-                jsonDic.setObject(UserDefaults.standard.value(forKey: "EDIT_IMG_URL"), forKey: "User_Img" as NSCopying)
-            }else{
-                jsonDic.setObject(self.userPic, forKey: "User_Img" as NSCopying)
-            }
-            jsonDic.setObject(mobileNumberTextField.text!,forKey: "User_Mobile" as NSCopying)
-            
-            if (descriptionTxtView.text.characters.count == 0){
-                jsonDic.setObject(descriptionTxtView.text!, forKey: "User_Desc" as NSCopying)
-            }else{
-                jsonDic.setObject("No Description Available", forKey: "User_Desc" as NSCopying)
-            }
-            
-            print(jsonDic)
-            CXAppConfig.sharedInstance.setUserUpdateDict(dictionary:jsonDic)
+            self.savingDetailsToUserDict()
             emailCheckingForOTP()
             
         } else {
@@ -133,7 +110,28 @@ class UserDataViewController: UIViewController,UITextFieldDelegate,UITextViewDel
         }
     }
     
-    
+    func savingDetailsToUserDict(){
+        
+        let jsonDic:NSMutableDictionary = NSMutableDictionary()
+        
+        if editImage == true{
+            self.imageUpload()
+            jsonDic.setObject(UserDefaults.standard.value(forKey: "EDIT_IMG_URL"), forKey: "Image" as NSCopying)
+        }else{
+            jsonDic.setObject(self.userPic, forKey: "Image" as NSCopying)
+        }
+        jsonDic.setObject(mobileNumberTextField.text!,forKey: "mobileNo" as NSCopying)
+        
+        if (descriptionTxtView.text.characters.count != 0){
+            jsonDic.setObject(descriptionTxtView.text!, forKey: "Description" as NSCopying)
+        }else{
+            jsonDic.setObject("No Description Available", forKey: "Description" as NSCopying)
+        }
+        
+        print(jsonDic)
+        CXAppConfig.sharedInstance.setUserUpdateDict(dictionary:jsonDic)
+        
+    }
     
     func sendingOTPForGivenNumber(){
         
@@ -181,6 +179,7 @@ class UserDataViewController: UIViewController,UITextFieldDelegate,UITextViewDel
     }
     
     // TextField Delegate Methods
+    
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let text = mobileNumberTextField.text else { return true }
@@ -250,6 +249,7 @@ class UserDataViewController: UIViewController,UITextFieldDelegate,UITextViewDel
             DispatchQueue.main.async {
                 print(response)
                 let status: Int = Int(response.value(forKey: "status") as! String)!
+                
                 if status == 1{
                     let imgStr = response.value(forKey: "filePath") as! String
                     let url = NSURL(string: imgStr)

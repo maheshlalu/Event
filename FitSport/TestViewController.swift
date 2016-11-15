@@ -16,6 +16,8 @@ class TestViewController: UIViewController {
         super.viewDidLoad()
         setUpSideMenu()
         tabViews()
+        let notificationName = Notification.Name("TapOnTab")
+        NotificationCenter.default.addObserver(self, selector: #selector(TestViewController.methodOfReceivedNotification), name: notificationName, object: nil)
    
 
     }
@@ -50,5 +52,10 @@ class TestViewController: UIViewController {
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
         
         //self.sideMenuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), forControlEvents: .TouchUpOutside)
+    }
+    
+    
+    func methodOfReceivedNotification(notification:NSNotification){
+        
     }
 }

@@ -49,7 +49,7 @@ class OTPViewController: UIViewController,UITextFieldDelegate {
             
             if status == 1{
                // updating the userdict with otp key
-                self.updatingUserDict(otp:self.otpTxtField.text!)
+                //self.updatingUserDict(otp:self.otpTxtField.text!)
                  // Leading to SelectSport View
                 self.showAlertView(message: message, status: 100)
                 
