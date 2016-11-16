@@ -21,28 +21,25 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         let appdata:NSArray = UserProfile.mr_findAll() as NSArray
         
         if appdata.count != 0{
             let userProfileData:UserProfile = appdata.lastObject as! UserProfile
-            if userProfileData.userId == nil{
-                nameArray[nameArray.endIndex] = "SIGN IN"
-                imageView.image = UIImage(named: "placeholder")
-                nameLabel.text = "Guest"
-                editProfileLabel.isHidden = true
-                
-            }else{
-                let url = NSURL(string: userProfileData.userPic!)
-                imageView.setImageWith(url as URL!, usingActivityIndicatorStyle: .gray)
-                nameLabel.text = userProfileData.firstName!
-            }
+            let url = NSURL(string: userProfileData.userPic!)
+            imageView.setImageWith(url as URL!, usingActivityIndicatorStyle: .gray)
+            nameLabel.text = userProfileData.firstName!
+        }else{
+            nameArray[nameArray.endIndex-1] = "SIGN IN"
+            imageView.image = UIImage(named: "placeholder")
+            nameLabel.text = "Guest"
+            editProfileLabel.isHidden = true
         }
         
         self.imageView.layer.cornerRadius = 35
         self.imageView.layer.borderWidth = 1
         self.imageView.clipsToBounds = true
- 
+        
         // Do any additional setup after loading the view.
     }
     
