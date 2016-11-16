@@ -142,7 +142,7 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
                 GIDSignIn.sharedInstance().signOut()
                 GIDSignIn.sharedInstance().disconnect()
             
-                appDelVar.setUpSidePanl()
+                appDelVar.applicationNavigationFlow()
                 //self.navigationController?.popViewControllerAnimated(true)
             }
         }
@@ -170,6 +170,9 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
         } catch {
             print("Could not clear temp folder: \(error)")
         }
+
+        UserProfile.mr_truncateAll()
+        
     }
 
 }

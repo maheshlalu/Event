@@ -10,6 +10,7 @@ import UIKit
 
 class UserDataViewController: UIViewController,UITextFieldDelegate,UITextViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
+    @IBOutlet weak var container: UIView!
     var limitLength = 10
     
     @IBOutlet weak var mobileNumberTextField: UITextField!
@@ -30,13 +31,13 @@ class UserDataViewController: UIViewController,UITextFieldDelegate,UITextViewDel
         let appdata:NSArray = UserProfile.mr_findAll() as NSArray
     
         if appdata.count != 0{
+            
             let userProfileData:UserProfile = appdata.lastObject as! UserProfile
             userPic = userProfileData.userPic!
             let url = NSURL(string: userProfileData.userPic!)
             userImageView.setImageWith(url as URL!, usingActivityIndicatorStyle: .gray)
             userNameLabel.text = "Hi, \(userProfileData.firstName!)"
             userEmail = userProfileData.emailId!
-            
         }
         
    
@@ -74,10 +75,14 @@ class UserDataViewController: UIViewController,UITextFieldDelegate,UITextViewDel
     }
     
     func shadowView(){
+        
         userImageView.layer.cornerRadius = 60
         userImageView.layer.borderWidth = 3
         userImageView.layer.borderColor = UIColor.white.cgColor
-        
+        userImageView!.layer.masksToBounds = true
+        userImageView!.clipsToBounds = true
+
+
     }
     
     @IBAction func doneBtnAction(_ sender: AnyObject) {

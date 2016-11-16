@@ -203,7 +203,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Z47-EJ-388" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Vrm-oP-VNI">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vrm-oP-VNI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -392,6 +392,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="aboutYourSelf" destination="Xhx-Cv-AOD" id="Dux-T0-0Md"/>
+                        <outlet property="container" destination="Voq-2E-SQj" id="L7s-To-hzI"/>
                         <outlet property="descriptionTxtView" destination="l7R-IS-kEo" id="dOO-AS-6OZ"/>
                         <outlet property="mobileNumberTextField" destination="6pF-aX-YHY" id="777-RI-bhf"/>
                         <outlet property="userImageView" destination="HnZ-GV-OVu" id="NAT-eT-5rJ"/>
