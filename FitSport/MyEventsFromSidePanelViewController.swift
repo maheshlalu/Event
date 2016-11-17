@@ -1,14 +1,14 @@
 //
-//  TestViewController.swift
-//  PageMenuDemoNoStoryboard
+//  MyEventsFromSidePanelViewController.swift
+//  FitSport
 //
-//  Created by Niklas Fahl on 12/19/14.
-//  Copyright (c) 2014 CAPS. All rights reserved.
+//  Created by Manishi on 11/17/16.
+//  Copyright © 2016 ongo. All rights reserved.
 //
 
 import UIKit
 
-class TestViewController: UIViewController {
+class MyEventsFromSidePanelViewController: UIViewController {
     
     var pageMenu : CAPSPageMenu?
     
@@ -18,20 +18,15 @@ class TestViewController: UIViewController {
         setUpSideMenu()
         tabViews()
         
-       
-        let notificationName = Notification.Name("TapOnTab")
-        NotificationCenter.default.addObserver(self, selector: #selector(TestViewController.methodOfReceivedNotification), name: notificationName, object: nil)
-   
-        
-        let refreshButton = UIBarButtonItem(barButtonSystemItem:.add, target: self, action: #selector(TestViewController.buttonMethod))
+        let refreshButton = UIBarButtonItem(barButtonSystemItem:.add, target: self, action: #selector(MyEventsFromSidePanelViewController.buttonMethod))
         refreshButton.tintColor = UIColor.white
         navigationItem.rightBarButtonItem = refreshButton
-
-
+        
+        
     }
     
     func buttonMethod() {
-
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "CreateEventViewController") as! CreateEventViewController
         self.navigationController?.pushViewController(vc, animated: true)
@@ -41,24 +36,41 @@ class TestViewController: UIViewController {
     func tabViews(){
         
         var controllerArray : [UIViewController] = []
-
-        let controller1:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TrainerViewController")
-        controller1.title = "TRAINERS"
+        
+        let controller1:UIViewController = UIStoryboard(name: "PagerMain", bundle: nil).instantiateViewController(withIdentifier: "MyCalenderViewController")
+        controller1.title = "MY CALENDER"
         controllerArray.append(controller1)
         
         let controller2 : UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EventsViewController")
-        controller2.title = "EVENTS"
+        controller2.title = "FAVORITES"
         controllerArray.append(controller2)
+        
+        let controller3 = UIViewController()
+        controller3.title = "CREATED"
+        controllerArray.append(controller3)
+        
+        let controller4 = UIViewController()
+        controller4.title = "JOINED EVENTS"
+        controllerArray.append(controller4)
+        
+        let controller5 = UIViewController()
+        controller5.title = "PAST EVENTS"
+        controllerArray.append(controller5)
 
         let parameters: [CAPSPageMenuOption] = [
-            .selectionIndicatorColor(CXAppConfig.sharedInstance.getAppTheamColor()),
+            
+            .selectionIndicatorColor(UIColor.white),
             .selectedMenuItemLabelColor(UIColor.white),
+            .scrollMenuBackgroundColor(CXAppConfig.sharedInstance.getAppTheamColor()),
             .menuItemFont(UIFont(name: "Roboto-Bold", size: 15.0)!),
-        ]
+            
+            ]
         
         pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRect(x: 0, y: UIApplication.shared.statusBarFrame.height+(self.navigationController?.navigationBar.frame.size.height)!, width: self.view.frame.width, height: self.view.frame.height), pageMenuOptions: parameters)
         
         self.view.addSubview(pageMenu!.view)
+        
+        
     }
     
     func setUpSideMenu(){
@@ -71,11 +83,6 @@ class TestViewController: UIViewController {
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
         
-        //self.sideMenuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), forControlEvents: .TouchUpOutside)
     }
     
-    
-    func methodOfReceivedNotification(notification:NSNotification){
-        
-    }
 }

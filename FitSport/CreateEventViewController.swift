@@ -10,6 +10,7 @@ import UIKit
 
 class CreateEventViewController: UIViewController,UIScrollViewDelegate {
 
+    @IBOutlet weak var doneButton: UIBarButtonItem!
     @IBOutlet weak var scrollView: UIScrollView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +26,7 @@ class CreateEventViewController: UIViewController,UIScrollViewDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
+    } 
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.x<0 || scrollView.contentOffset.x>0 {
@@ -33,5 +34,8 @@ class CreateEventViewController: UIViewController,UIScrollViewDelegate {
         }
     }
     
+    @IBAction func submitAction(_ sender: UIBarButtonItem) {
+        
+    }
 
 }

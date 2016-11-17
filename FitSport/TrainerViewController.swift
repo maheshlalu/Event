@@ -92,5 +92,21 @@ class TrainerViewController: UIViewController ,UICollectionViewDataSource,UIColl
         return 5
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        /*let products:CX_Products = (self.products[indexPath.item] as? CX_Products)!
+         
+         let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+         let productDetails = storyBoard.instantiateViewControllerWithIdentifier("PRODUCT_DETAILS") as! ProductDetailsViewController
+         productDetails.productString = products.json
+         self.navigationController?.pushViewController(productDetails, animated: true)*/
+        
+//        let dict = trainerArray[indexPath.item]
+//        print(dict)
+//        let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
+//        let selectSport = storyBoard.instantiateViewController(withIdentifier: "PackageViewController") as! PackageViewController
+//        self.navigationController?.pushViewController(selectSport, animated: true)
+        
+    }
+    
 }
 

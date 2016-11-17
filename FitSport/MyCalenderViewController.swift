@@ -16,6 +16,7 @@ class MyCalenderViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         myCalenderView.firstWeekday = 2;
+        myCalenderView.tintColor = CXAppConfig.sharedInstance.getAppTheamColor()
         setupFab()
         // Do any additional setup after loading the view.
     }

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="90" id="KGk-i7-Jjw" customClass="PackageTableViewCell" customModule="FitSportProject" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="89"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="grassimage.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="PMC-J6-yiy">
+                        <rect key="frame" x="10" y="21" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="Iva-1G-3VU"/>
+                            <constraint firstAttribute="height" constant="50" id="yZu-br-20q"/>
+                        </constraints>
+                    </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Hma-ty-27K">
+                        <rect key="frame" x="68" y="24" width="172" height="47"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1-1 Session" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BTH-Fa-Rkm">
+                                <rect key="frame" x="0.0" y="0.0" width="172" height="14.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5:00am to 10:00pm(5days/week)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UMJ-II-ZBF">
+                                <rect key="frame" x="0.0" y="16.5" width="172" height="14"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UppalStadium,Uppal,Hyderabad" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ox3-mG-P5a">
+                                <rect key="frame" x="0.0" y="32.5" width="172" height="14.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="172" id="jwc-wV-eLb"/>
+                        </constraints>
+                    </stackView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="w6J-N4-cZo">
+                        <rect key="frame" x="261" y="27" width="42" height="41"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$65" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ld-YX-mwd">
+                                <rect key="frame" x="0.0" y="0.0" width="42" height="13"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*****" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3bz-hH-K1f">
+                                <rect key="frame" x="0.0" y="14" width="42" height="13"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.6mi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kyR-Nu-o4i">
+                                <rect key="frame" x="0.0" y="28" width="42" height="13"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="w6J-N4-cZo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="27" id="8Zu-Kw-XnR"/>
+                    <constraint firstItem="Hma-ty-27K" firstAttribute="leading" secondItem="PMC-J6-yiy" secondAttribute="trailing" constant="8" id="C0p-Da-Xaf"/>
+                    <constraint firstAttribute="trailing" secondItem="w6J-N4-cZo" secondAttribute="trailing" constant="17" id="Jq1-b5-UfI"/>
+                    <constraint firstItem="PMC-J6-yiy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="21" id="Ql0-zM-8J4"/>
+                    <constraint firstItem="PMC-J6-yiy" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" constant="-125.5" id="S9W-BT-yhv"/>
+                    <constraint firstAttribute="bottom" secondItem="Hma-ty-27K" secondAttribute="bottom" constant="18" id="fPD-dv-3yg"/>
+                    <constraint firstAttribute="bottom" secondItem="w6J-N4-cZo" secondAttribute="bottom" constant="22" id="mk6-Qq-sJB"/>
+                    <constraint firstItem="Hma-ty-27K" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="24" id="r5D-mg-0mC"/>
+                    <constraint firstItem="w6J-N4-cZo" firstAttribute="leading" secondItem="Hma-ty-27K" secondAttribute="trailing" constant="21" id="uOJ-X7-HVI"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="packageSportsImage" destination="PMC-J6-yiy" id="g6L-AE-JzP"/>
+            </connections>
+            <point key="canvasLocation" x="20" y="77"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="grassimage.jpg" width="1280" height="1024"/>
+    </resources>
+</document>

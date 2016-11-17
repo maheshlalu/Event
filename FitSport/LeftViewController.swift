@@ -16,8 +16,8 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
     @IBOutlet weak var imageView: UIImageView!
      var previousSelectedIndex  : NSIndexPath = NSIndexPath()
     @IBOutlet weak var leftTableView: UITableView!
-    var nameArray = ["INTEREST SPORTS","EVENTS","TRAINERS","INVITE/SHARE","HELP","SIGN OUT"]
-    var imageArray = ["heart","events","trainer","invite","help","logout"]
+    var nameArray = ["HOME","INTEREST SPORTS","EVENTS","TRAINERS","INVITE/SHARE","HELP","SIGN OUT"]
+    var imageArray = ["home","heart","events","trainer","invite","help","logout"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,7 +86,13 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
         let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let itemName : String =  nameArray[indexPath.row]
         
-        if itemName == "INTEREST SPORTS"{
+        if itemName == "HOME"{
+            
+            let homeView = TestViewController(nibName: "TestViewController", bundle: nil)
+            let navCntl = UINavigationController(rootViewController: homeView)
+            revealController.pushFrontViewController(navCntl, animated: true)
+            
+        }else if itemName == "INTEREST SPORTS"{
            // let notificationName = Notification.Name("TapOnTab")
            // NotificationCenter.default.post(name: notificationName, object: nil)
 //            let homeView = storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
@@ -94,9 +100,10 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
 //            revealController.pushFrontViewController(navCntl, animated: true)
             
         }else if itemName == "EVENTS"{
-//            let aboutUs = storyBoard.instantiateViewController(withIdentifier: "EventsViewController") as! EventsViewController
-//            let navCntl = UINavigationController(rootViewController: aboutUs)
-//            revealController.pushFrontViewController(navCntl, animated: true)
+            
+            let homeView = MyEventsViewController(nibName: "MyEventsViewController", bundle: nil)
+            let navCntl = UINavigationController(rootViewController: homeView)
+            revealController.pushFrontViewController(navCntl, animated: true)
             
         }else if itemName == "TRAINERS"{
 //            let trainer = storyBoard.instantiateViewController(withIdentifier: "TrainerViewController") as! TrainerViewController
