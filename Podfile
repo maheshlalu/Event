@@ -12,6 +12,7 @@ pod 'SDWebImage', '~> 3.8'
 pod 'AFNetworking', '~> 3.1'
 pod 'FSCalendar'
 pod 'Alamofire', '~> 4.0'
+pod "KRProgressHUD"
 
 
   target 'FitSportTests' do
