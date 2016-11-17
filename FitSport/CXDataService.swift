@@ -9,7 +9,7 @@
 import UIKit
 import AFNetworking
 import Alamofire
-
+import KRProgressHUD
 private var _SingletonSharedInstance:CXDataService! = CXDataService()
 
 open class CXDataService: NSObject {
@@ -24,6 +24,19 @@ open class CXDataService: NSObject {
     
     func destory () {
         _SingletonSharedInstance = nil
+    }
+    
+    func showLoader(){
+        //KRProgressHUD.show(message: "Loading...")
+        //KRProgressHUD.show(progressHUDStyle: .black, message: "Loading..." )
+        
+//        KRProgressHUD.show(progressHUDStyle: .black, maskType: .black, activityIndicatorStyle: .white, font: CXAppConfig.sharedInstance.appMediumFont(), message: "", image: nil) { 
+//            
+//        }
+        
+        
+
+
     }
     
     open func getTheAppDataFromServer(_ parameters:[String: AnyObject]? = nil ,completion:@escaping (_ responseDict:NSDictionary) -> Void){
