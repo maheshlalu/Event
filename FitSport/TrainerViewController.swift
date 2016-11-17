@@ -11,7 +11,6 @@ import UIKit
 class TrainerViewController: UIViewController ,UICollectionViewDataSource,UICollectionViewDelegate{
 
     var screenWidth:CGFloat! = nil
-    var actionButton: ActionButton!
     @IBOutlet weak var EventCollectionView: UICollectionView!
     var trainerArray = [[String:AnyObject]]()
     override func viewDidLoad() {
@@ -22,7 +21,7 @@ class TrainerViewController: UIViewController ,UICollectionViewDataSource,UIColl
         self.EventCollectionView.register(nib, forCellWithReuseIdentifier: "TrainerCollectionViewCell")
         self.geTheTrainersFromServer()
        // setUpSideMenu()
-        setupFab()
+
     }
 
 
@@ -45,18 +44,6 @@ class TrainerViewController: UIViewController ,UICollectionViewDataSource,UIColl
         //self.sideMenuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), forControlEvents: .TouchUpOutside)
     }
     
-    
-    fileprivate func setupFab() {
-        
-        actionButton = ActionButton(attachedToView: self.view, items:nil)
-        actionButton.action = {button in
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "CreateEventViewController") as! CreateEventViewController
-            self.navigationController?.pushViewController(vc, animated: true)
-            
-        }
-        
-    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection   : Int) -> Int
     {

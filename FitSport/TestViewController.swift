@@ -13,13 +13,27 @@ class TestViewController: UIViewController {
     var pageMenu : CAPSPageMenu?
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         setUpSideMenu()
         tabViews()
         let notificationName = Notification.Name("TapOnTab")
         NotificationCenter.default.addObserver(self, selector: #selector(TestViewController.methodOfReceivedNotification), name: notificationName, object: nil)
    
+        
+        let refreshButton = UIBarButtonItem(barButtonSystemItem:.add, target: self, action: #selector(TestViewController.buttonMethod))
+        refreshButton.tintColor = UIColor.white
+        navigationItem.rightBarButtonItem = refreshButton
 
+
+    }
+    
+    func buttonMethod() {
+
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "CreateEventViewController") as! CreateEventViewController
+        self.navigationController?.pushViewController(vc, animated: true)
+        
     }
     
     func tabViews(){

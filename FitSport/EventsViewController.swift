@@ -10,7 +10,6 @@ import UIKit
 
 class EventsViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate {
     
-    var actionButton: ActionButton!
     var EventsArray = [[String:AnyObject]]()
     @IBOutlet weak var eventCollectionView: UICollectionView!
     override func viewDidLoad() {
@@ -20,7 +19,6 @@ class EventsViewController: UIViewController,UICollectionViewDataSource,UICollec
         self.eventCollectionView.register(nib, forCellWithReuseIdentifier: "JoinedEventsCollectionViewCell")
         self.geTheEventsFromServer()
         self.eventCollectionView.contentSize = CGSize(width: 780, height: 900)
-        setupFab()
     }
     
     
@@ -28,17 +26,6 @@ class EventsViewController: UIViewController,UICollectionViewDataSource,UICollec
         CXDataService.sharedInstance.getTheAppDataFromServer(["type":"Events" as AnyObject,"mallId":CXAppConfig.sharedInstance.getAppMallID() as AnyObject]) { (dict) in
             self.EventsArray = dict["jobs"] as! [[String:AnyObject]]
             self.eventCollectionView.reloadData()
-        }
-        
-    }
-    
-    
-    fileprivate func setupFab() {
-        
-        actionButton = ActionButton(attachedToView: self.view, items:nil)
-        actionButton.action = {button in
-        
-            
         }
         
     }
