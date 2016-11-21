@@ -93,12 +93,10 @@ class TrainerViewController: UIViewController ,UICollectionViewDataSource,UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        /*let products:CX_Products = (self.products[indexPath.item] as? CX_Products)!
-         
-         let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-         let productDetails = storyBoard.instantiateViewControllerWithIdentifier("PRODUCT_DETAILS") as! ProductDetailsViewController
-         productDetails.productString = products.json
-         self.navigationController?.pushViewController(productDetails, animated: true)*/
+
+         let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
+         let productDetails = storyBoard.instantiateViewController(withIdentifier: "PackageViewController") as! PackageViewController
+         self.navigationController?.pushViewController(productDetails, animated: true)
         
 //        let dict = trainerArray[indexPath.item]
 //        print(dict)

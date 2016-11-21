@@ -86,7 +86,7 @@
                             <constraint firstItem="211-Dy-ZQs" firstAttribute="top" secondItem="czk-YK-WLB" secondAttribute="bottom" id="Idi-PY-CZ1"/>
                             <constraint firstAttribute="trailing" secondItem="Ud4-LI-xdG" secondAttribute="trailing" constant="16" id="Ti1-vz-TiM"/>
                             <constraint firstAttribute="trailing" secondItem="U86-eW-DBU" secondAttribute="trailing" id="Xhg-vc-F6h"/>
-                            <constraint firstItem="czk-YK-WLB" firstAttribute="top" secondItem="Xvt-1d-6RY" secondAttribute="bottom" constant="28" id="i39-Me-Q9b"/>
+                            <constraint firstItem="czk-YK-WLB" firstAttribute="top" secondItem="Xvt-1d-6RY" secondAttribute="bottom" constant="6" id="i39-Me-Q9b"/>
                             <constraint firstItem="czk-YK-WLB" firstAttribute="leading" secondItem="w7O-um-obi" secondAttribute="leading" id="jHm-xa-pXh"/>
                             <constraint firstItem="U86-eW-DBU" firstAttribute="top" secondItem="Ud4-LI-xdG" secondAttribute="bottom" constant="-48" id="kZz-S3-MV0"/>
                             <constraint firstItem="czk-YK-WLB" firstAttribute="top" secondItem="U86-eW-DBU" secondAttribute="bottom" id="mpV-YC-2hJ"/>
@@ -203,7 +203,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Z47-EJ-388" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Vrm-oP-VNI">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vrm-oP-VNI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

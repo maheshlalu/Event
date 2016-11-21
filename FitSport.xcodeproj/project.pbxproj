@@ -11,6 +11,7 @@
 		1136C97B1DD09F0800AA5B41 /* TrainerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1136C97A1DD09F0800AA5B41 /* TrainerCollectionViewCell.swift */; };
 		1136C97D1DD09F1D00AA5B41 /* TrainerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1136C97C1DD09F1D00AA5B41 /* TrainerCollectionViewCell.xib */; };
 		1136C97F1DD09F3A00AA5B41 /* TrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1136C97E1DD09F3A00AA5B41 /* TrainerViewController.swift */; };
+		113705A91DDF15840025BF9E /* FloatRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113705A81DDF15840025BF9E /* FloatRatingView.swift */; };
 		113980401DCDB89700BCF36C /* UserDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1139803F1DCDB89700BCF36C /* UserDataViewController.swift */; };
 		113980421DCDCB3400BCF36C /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113980411DCDCB3400BCF36C /* CreateEventViewController.swift */; };
 		114F2B331DCC689A00D62948 /* CXDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114F2B321DCC689A00D62948 /* CXDataService.swift */; };
@@ -32,6 +33,9 @@
 		116FBAAC1DDDD74D003C942A /* PackageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116FBAAB1DDDD74D003C942A /* PackageViewController.swift */; };
 		116FBAAE1DDDD762003C942A /* PackageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 116FBAAD1DDDD762003C942A /* PackageTableViewCell.xib */; };
 		116FBAB01DDDD76D003C942A /* PackageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116FBAAF1DDDD76D003C942A /* PackageTableViewCell.swift */; };
+		11791D4D1DDECCDF0015C1E0 /* TrainerProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11791D4C1DDECCDF0015C1E0 /* TrainerProfileViewController.swift */; };
+		11791D4F1DDECD700015C1E0 /* TrainerCertificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11791D4E1DDECD700015C1E0 /* TrainerCertificationViewController.swift */; };
+		11791D511DDECD850015C1E0 /* TrainerPackagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11791D501DDECD850015C1E0 /* TrainerPackagesViewController.swift */; };
 		118906B71DD3047500041EE2 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 118906B41DD3047500041EE2 /* FBSDKCoreKit.framework */; };
 		118906B81DD3047500041EE2 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 118906B51DD3047500041EE2 /* FBSDKLoginKit.framework */; };
 		118906B91DD3047500041EE2 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 118906B61DD3047500041EE2 /* FBSDKShareKit.framework */; };
@@ -99,6 +103,7 @@
 		1136C97A1DD09F0800AA5B41 /* TrainerCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainerCollectionViewCell.swift; sourceTree = "<group>"; };
 		1136C97C1DD09F1D00AA5B41 /* TrainerCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrainerCollectionViewCell.xib; sourceTree = "<group>"; };
 		1136C97E1DD09F3A00AA5B41 /* TrainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainerViewController.swift; sourceTree = "<group>"; };
+		113705A81DDF15840025BF9E /* FloatRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatRatingView.swift; sourceTree = "<group>"; };
 		1139803F1DCDB89700BCF36C /* UserDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDataViewController.swift; sourceTree = "<group>"; };
 		113980411DCDCB3400BCF36C /* CreateEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
 		114F2B321DCC689A00D62948 /* CXDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CXDataService.swift; sourceTree = "<group>"; };
@@ -121,6 +126,9 @@
 		116FBAAB1DDDD74D003C942A /* PackageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PackageViewController.swift; sourceTree = "<group>"; };
 		116FBAAD1DDDD762003C942A /* PackageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PackageTableViewCell.xib; sourceTree = "<group>"; };
 		116FBAAF1DDDD76D003C942A /* PackageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PackageTableViewCell.swift; sourceTree = "<group>"; };
+		11791D4C1DDECCDF0015C1E0 /* TrainerProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainerProfileViewController.swift; sourceTree = "<group>"; };
+		11791D4E1DDECD700015C1E0 /* TrainerCertificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainerCertificationViewController.swift; sourceTree = "<group>"; };
+		11791D501DDECD850015C1E0 /* TrainerPackagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainerPackagesViewController.swift; sourceTree = "<group>"; };
 		118906B41DD3047500041EE2 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		118906B51DD3047500041EE2 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		118906B61DD3047500041EE2 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
@@ -213,6 +221,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		113705A71DDF15650025BF9E /* FloatRatingView */ = {
+			isa = PBXGroup;
+			children = (
+				113705A81DDF15840025BF9E /* FloatRatingView.swift */,
+			);
+			name = FloatRatingView;
+			sourceTree = "<group>";
+		};
 		1167B8171DD07B680025842B /* Fab */ = {
 			isa = PBXGroup;
 			children = (
@@ -220,6 +236,17 @@
 				1167B8271DD0864F0025842B /* ActionButtonItem.swift */,
 			);
 			name = Fab;
+			sourceTree = "<group>";
+		};
+		11791D4B1DDECCB10015C1E0 /* TrainerProfile */ = {
+			isa = PBXGroup;
+			children = (
+				116FBAAB1DDDD74D003C942A /* PackageViewController.swift */,
+				11791D4C1DDECCDF0015C1E0 /* TrainerProfileViewController.swift */,
+				11791D4E1DDECD700015C1E0 /* TrainerCertificationViewController.swift */,
+				11791D501DDECD850015C1E0 /* TrainerPackagesViewController.swift */,
+			);
+			name = TrainerProfile;
 			sourceTree = "<group>";
 		};
 		118906B31DD3045700041EE2 /* FB */ = {
@@ -310,6 +337,7 @@
 		11AB79CC1DCB6169005E846B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				11791D4B1DDECCB10015C1E0 /* TrainerProfile */,
 				11AB79D51DCB6197005E846B /* TagView */,
 				11AB79D41DCB6195005E846B /* PagerView */,
 				11AB79D31DCB6193005E846B /* TabBar */,
@@ -319,7 +347,6 @@
 				113980411DCDCB3400BCF36C /* CreateEventViewController.swift */,
 				1167B8151DD077B20025842B /* OTPViewController.swift */,
 				1136C97E1DD09F3A00AA5B41 /* TrainerViewController.swift */,
-				116FBAAB1DDDD74D003C942A /* PackageViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -394,6 +421,7 @@
 		11AB79F71DCB6407005E846B /* OtherResources */ = {
 			isa = PBXGroup;
 			children = (
+				113705A71DDF15650025BF9E /* FloatRatingView */,
 				18AABD771DD44B4F00A173F6 /* UIImageView+UIActivityIndicatorForSDWebImage.h */,
 				18AABD781DD44B4F00A173F6 /* UIImageView+UIActivityIndicatorForSDWebImage.m */,
 				118906B31DD3045700041EE2 /* FB */,
@@ -670,7 +698,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		C53807C2EFF6EC665EE04F5F /* [CP] Copy Pods Resources */ = {
@@ -745,7 +773,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FD260DE7D2CA4462DFFECD53 /* [CP] Check Pods Manifest.lock */ = {
@@ -760,7 +788,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -776,6 +804,7 @@
 				11AB79F11DCB62A2005E846B /* SWRevealViewController.m in Sources */,
 				11AB79E91DCB61F4005E846B /* TagGroups.swift in Sources */,
 				114F2B391DCC6A8300D62948 /* CXDataServiceManager.m in Sources */,
+				11791D4D1DDECCDF0015C1E0 /* TrainerProfileViewController.swift in Sources */,
 				116FBAAC1DDDD74D003C942A /* PackageViewController.swift in Sources */,
 				116FBAA21DDDBCB9003C942A /* CAPSPageMenu.swift in Sources */,
 				114F2B331DCC689A00D62948 /* CXDataService.swift in Sources */,
@@ -786,11 +815,14 @@
 				113980401DCDB89700BCF36C /* UserDataViewController.swift in Sources */,
 				114F2B431DCCB7BE00D62948 /* EventsViewController.swift in Sources */,
 				11AB79F01DCB62A2005E846B /* LeftViewController.swift in Sources */,
+				11791D511DDECD850015C1E0 /* TrainerPackagesViewController.swift in Sources */,
+				11791D4F1DDECD700015C1E0 /* TrainerCertificationViewController.swift in Sources */,
 				1167B8161DD077B20025842B /* OTPViewController.swift in Sources */,
 				1800375A1DD328740069E2AB /* CX_SocialIntegration.swift in Sources */,
 				18AABD791DD44B4F00A173F6 /* UIImageView+UIActivityIndicatorForSDWebImage.m in Sources */,
 				11AB7A041DCB682A005E846B /* CXAppConfig.swift in Sources */,
 				1167B8281DD0864F0025842B /* ActionButton.swift in Sources */,
+				113705A91DDF15840025BF9E /* FloatRatingView.swift in Sources */,
 				114F2B4A1DCCB9A200D62948 /* EventCell.swift in Sources */,
 				11AB79A31DCB600C005E846B /* FitSport.xcdatamodeld in Sources */,
 				11AB79E51DCB61F4005E846B /* AHTagsLabel.swift in Sources */,
