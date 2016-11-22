@@ -8,72 +8,147 @@
 
 import UIKit
 
-class PackageViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+class PackageViewController: UIViewController,FloatRatingViewDelegate,UIGestureRecognizerDelegate{
 
+    @IBOutlet weak var askMeQstView: UIView!
+    @IBOutlet weak var viewBottomView: UIView!
+    @IBOutlet weak var topView: UIView!
     @IBOutlet weak var packageShareBtn: UIButton!
     @IBOutlet weak var packageFollowingBtn: UIButton!
     @IBOutlet weak var userImageView: UIImageView!
-    @IBOutlet weak var packageTableView: UITableView!
+    @IBOutlet weak var rateView: FloatRatingView!
+    @IBOutlet weak var shareBtn: UIButton!
+    var pageMenu : CAPSPageMenu?
+    
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
-        packageTableView.contentInset = UIEdgeInsetsMake(0, 0, 120, 0)
+        rateView.rating = 3
+        barViewAlignments()
+        setUpSideMenu()
+        tabViews()
+        setUpRatingView()
+        askMeViewGestures()
+    }
+    
+    func barViewAlignments(){
         
-        self.userImageView.layer.cornerRadius = self.userImageView.bounds.size.width/2
-        
-        self.userImageView.layer.borderWidth = 1
+        // User Image Customization
+        self.userImageView.layer.cornerRadius = 50.0
+        self.userImageView.layer.borderWidth = 2
+        self.userImageView.layer.borderColor = CXAppConfig.sharedInstance.getAppTheamColor().cgColor
         self.userImageView.clipsToBounds = true
         
+        //following Btn Customization
         self.packageFollowingBtn.layer.cornerRadius = 5
         self.packageFollowingBtn.layer.borderWidth = 1
         self.packageFollowingBtn.clipsToBounds = true
         self.packageFollowingBtn.layer.borderColor = UIColor.white.cgColor
         
-        let nib = UINib(nibName: "PackageTableViewCell", bundle: nil)
-        self.packageTableView.register(nib, forCellReuseIdentifier: "PackageTableViewCell")
+    }
+    
+    func askMeViewGestures(){
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(PackageViewController.handleTap))
+        tap.delegate = self
+        askMeQstView.addGestureRecognizer(tap)
+    }
+    
+    func setUpSideMenu(){
+        
+        let menuItem = UIBarButtonItem(image: UIImage(named: "back"), style: .plain, target: self, action: #selector(PackageViewController.backBtnAction))
+        self.navigationItem.leftBarButtonItem = menuItem
+        let navigation:UINavigationItem = navigationItem
+        let image = UIImage(named: "logo_white")
+        navigation.titleView = UIImageView(image: image)
 
-        // Do any additional setup after loading the view.
+    }
+    
+    func backBtnAction(){
+    
+        dismiss(animated: true, completion: nil)
+    
     }
     
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
-        return 3
+    func handleTap(){
+        print("Happy")
         
-    }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PackageTableViewCell", for: indexPath)as? PackageTableViewCell
-        return cell!
-        
-        
-    }
-     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
-     {
-        
-        return 100
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
-        
-        return CGSize(width: self.view.frame.size.width/1-9,height: 90)
-        
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func shareAction(_ sender: AnyObject) {
+        
+        let shareText = "Fitsport"
+        let vc = UIActivityViewController(activityItems: [shareText], applicationActivities: [])
+        present(vc, animated: true)
     }
-    */
+    
+    @IBAction func askMeQstBtn(_ sender: AnyObject) {
+        self.handleTap()
+    }
+    
+    
+    func setUpRatingView(){
+        //star
+        
+        // ratingView.emptyImage = UIImage(named: "star.png")
+        //ratingView.fullImage = UIImage(named: "star_sel_108.png")
+        // Optional params
+        //ratingView.delegate = self
+        rateView.contentMode = UIViewContentMode.scaleAspectFit
+        //ratingView.maxRating = 5
+        //ratingView.minRating = 0
+        //ratingView.rating = 0
+        rateView.editable = false
+        rateView.halfRatings = true
+        rateView.floatRatings = false
+        
+    }
+    
+    
+    //FloatRatingViewDelegates
+    func floatRatingView(_ ratingView: FloatRatingView, didUpdate rating: Float){
+    
+    }
+    
+    /**
+     Returns the rating value as the user pans
+     */
+    func floatRatingView(_ ratingView: FloatRatingView, isUpdating rating: Float){
+        
+    }
+    
+    
+    
+    func tabViews(){
+        
+        var controllerArray : [UIViewController] = []
+        
+        let controller1:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TrainerProfileViewController")
+        controller1.title = "Profile"
+        controllerArray.append(controller1)
+        
+        let controller2 : UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TrainerCertificationViewController")
+        controller2.title = "Certification"
+        controllerArray.append(controller2)
+        
+        let controller3 : UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TrainerPackagesViewController")
+        controller3.title = "Packages"
+        controllerArray.append(controller3)
+        
+        let parameters: [CAPSPageMenuOption] = [
+            .selectionIndicatorColor(CXAppConfig.sharedInstance.getAppTheamColor()),
+            .selectedMenuItemLabelColor(UIColor.white),
+            .menuItemFont(UIFont(name: "Roboto-Bold", size: 15.0)!),
+            .menuHeight(40)
+            ]
+        
+        
+        pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRect(x: 0, y: 253 , width: self.view.frame.width, height: self.view.frame.height - 309), pageMenuOptions: parameters)
+        
+        self.view.addSubview(pageMenu!.view)
+    }
 
 }
