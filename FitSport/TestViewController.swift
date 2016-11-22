@@ -12,23 +12,31 @@ class TestViewController: UIViewController {
     
     var pageMenu : CAPSPageMenu?
     
-    override func viewDidLoad() {
+     override func viewDidLoad() {
         
         super.viewDidLoad()
         setUpSideMenu()
         tabViews()
-        
        
+        navigationController?.isNavigationBarHidden = false
+        
         let notificationName = Notification.Name("TapOnTab")
         NotificationCenter.default.addObserver(self, selector: #selector(TestViewController.methodOfReceivedNotification), name: notificationName, object: nil)
    
-        
         let refreshButton = UIBarButtonItem(barButtonSystemItem:.add, target: self, action: #selector(TestViewController.buttonMethod))
         refreshButton.tintColor = UIColor.white
         navigationItem.rightBarButtonItem = refreshButton
 
 
     }
+    
+     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+         //self.view.frame = CGRect(x: 0, y: UIApplication.shared.statusBarFrame.height+(self.navigationController?.navigationBar.frame.size.height)!, width: self.view.frame.width, height: self.view.frame.height)
+    }
+    
+    
+    
     
     func buttonMethod() {
 
@@ -39,27 +47,35 @@ class TestViewController: UIViewController {
     }
     
     func tabViews(){
+     
+     var controllerArray : [UIViewController] = []
+     
+     let controller1:TrainerViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TrainerViewController") as! TrainerViewController
+        controller1.parentView = self
+     let nav : UINavigationController = UINavigationController(rootViewController: controller1)
+     nav.navigationBar.isHidden = true
+     
+     controller1.title = "TRAINERS"
+     controllerArray.append(nav)
+     
+     let controller2 : UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EventsViewController")
+     let nav1 : UINavigationController = UINavigationController(rootViewController: controller2)
+     nav1.navigationBar.isHidden = true
+     controller2.title = "EVENTS"
+     controllerArray.append(nav1)
+     
+     let parameters: [CAPSPageMenuOption] = [
+     .selectionIndicatorColor(CXAppConfig.sharedInstance.getAppTheamColor()),
+     .selectedMenuItemLabelColor(UIColor.white),
+     .menuItemFont(UIFont(name: "Roboto-Bold", size: 15.0)!),
+     ]
+     
+     pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRect(x: 0, y: UIApplication.shared.statusBarFrame.height+(self.navigationController?.navigationBar.frame.size.height)!, width: self.view.frame.width, height: self.view.frame.height), pageMenuOptions: parameters)
+     
+        //  pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height), pageMenuOptions: parameters)
+     self.view.addSubview(pageMenu!.view)
         
-        var controllerArray : [UIViewController] = []
-
-        let controller1:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TrainerViewController")
-        controller1.title = "TRAINERS"
-        controllerArray.append(controller1)
-        
-        let controller2 : UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EventsViewController")
-        controller2.title = "EVENTS"
-        controllerArray.append(controller2)
-
-        let parameters: [CAPSPageMenuOption] = [
-            .selectionIndicatorColor(CXAppConfig.sharedInstance.getAppTheamColor()),
-            .selectedMenuItemLabelColor(UIColor.white),
-            .menuItemFont(UIFont(name: "Roboto-Bold", size: 15.0)!),
-        ]
-        
-        pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRect(x: 0, y: UIApplication.shared.statusBarFrame.height+(self.navigationController?.navigationBar.frame.size.height)!, width: self.view.frame.width, height: self.view.frame.height), pageMenuOptions: parameters)
-        
-        self.view.addSubview(pageMenu!.view)
-    }
+     }
     
     func setUpSideMenu(){
         

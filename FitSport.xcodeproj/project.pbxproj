@@ -75,6 +75,7 @@
 		18AABD791DD44B4F00A173F6 /* UIImageView+UIActivityIndicatorForSDWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AABD781DD44B4F00A173F6 /* UIImageView+UIActivityIndicatorForSDWebImage.m */; };
 		18EE80981DD35C6B000B20D8 /* JoinedEventsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EE80971DD35C6B000B20D8 /* JoinedEventsCollectionViewCell.swift */; };
 		18EE809A1DD35C70000B20D8 /* JoinedEventsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EE80991DD35C70000B20D8 /* JoinedEventsCollectionViewCell.xib */; };
+		18F909531DE4681900210544 /* CXPayMentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F909521DE4681900210544 /* CXPayMentController.swift */; };
 		2B1A5A311DE41EC900622250 /* EventDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1A5A2F1DE41EC900622250 /* EventDetailsTableViewCell.swift */; };
 		2B1A5A321DE41EC900622250 /* EventsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1A5A301DE41EC900622250 /* EventsDetailViewController.swift */; };
 		2B1A5A341DE41ED300622250 /* EventDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B1A5A331DE41ED300622250 /* EventDetailsTableViewCell.xib */; };
@@ -183,6 +184,7 @@
 		18AABD781DD44B4F00A173F6 /* UIImageView+UIActivityIndicatorForSDWebImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+UIActivityIndicatorForSDWebImage.m"; sourceTree = "<group>"; };
 		18EE80971DD35C6B000B20D8 /* JoinedEventsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinedEventsCollectionViewCell.swift; sourceTree = "<group>"; };
 		18EE80991DD35C70000B20D8 /* JoinedEventsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JoinedEventsCollectionViewCell.xib; sourceTree = "<group>"; };
+		18F909521DE4681900210544 /* CXPayMentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CXPayMentController.swift; sourceTree = "<group>"; };
 		2B1A5A2F1DE41EC900622250 /* EventDetailsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		2B1A5A301DE41EC900622250 /* EventsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsDetailViewController.swift; sourceTree = "<group>"; };
 		2B1A5A331DE41ED300622250 /* EventDetailsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventDetailsTableViewCell.xib; sourceTree = "<group>"; };
@@ -335,6 +337,7 @@
 		11AB79CB1DCB6103005E846B /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
+				18F909521DE4681900210544 /* CXPayMentController.swift */,
 				116FBAAD1DDDD762003C942A /* PackageTableViewCell.xib */,
 				18EE80991DD35C70000B20D8 /* JoinedEventsCollectionViewCell.xib */,
 				115B19AF1DD19CD300B58E84 /* SelectSportTableViewCell.xib */,
@@ -818,6 +821,7 @@
 				11AB79DE1DCB61CA005E846B /* SignInViewController.swift in Sources */,
 				1136C97F1DD09F3A00AA5B41 /* TrainerViewController.swift in Sources */,
 				11AB79E61DCB61F4005E846B /* AHTagTableViewCell.swift in Sources */,
+				18F909531DE4681900210544 /* CXPayMentController.swift in Sources */,
 				11AB79F11DCB62A2005E846B /* SWRevealViewController.m in Sources */,
 				11AB79E91DCB61F4005E846B /* TagGroups.swift in Sources */,
 				114F2B391DCC6A8300D62948 /* CXDataServiceManager.m in Sources */,

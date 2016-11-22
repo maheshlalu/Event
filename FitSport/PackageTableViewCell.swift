@@ -10,12 +10,14 @@ import UIKit
 
 class PackageTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var rateView: FloatRatingView!
     @IBOutlet weak var packageSportsImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.packageSportsImage.layer.cornerRadius = self.packageSportsImage.bounds.size.width/2
+        self.packageSportsImage.layer.cornerRadius = 32.5
         self.packageSportsImage.layer.borderWidth = 1
+        self.packageSportsImage.layer.borderColor = CXAppConfig.sharedInstance.getAppTheamColor().cgColor
         self.packageSportsImage.clipsToBounds = true
         
         // Initialization code

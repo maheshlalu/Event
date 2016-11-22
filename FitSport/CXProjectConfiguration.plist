@@ -47,6 +47,8 @@
 	<string>Services/uploadFileFromAndroidToServer</string>
 	<key>varifyingEmailForOTP</key>
 	<string>MobileAPIs/accountVerification?</string>
+	<key>payMentGateWay</key>
+	<string>http://54.179.48.83:9000/OngoStoresPG/fitSportPG?</string>
 	<key>sendingOTP</key>
 	<string>MobileAPIs/sendFitsportSMS?</string>
 	<key>comparingOTP</key>

@@ -26,17 +26,12 @@ open class CXDataService: NSObject {
         _SingletonSharedInstance = nil
     }
     
-    func showLoader(){
-        //KRProgressHUD.show(message: "Loading...")
-        //KRProgressHUD.show(progressHUDStyle: .black, message: "Loading..." )
-        
-//        KRProgressHUD.show(progressHUDStyle: .black, maskType: .black, activityIndicatorStyle: .white, font: CXAppConfig.sharedInstance.appMediumFont(), message: "", image: nil) { 
-//            
-//        }
-        
-        
-
-
+    func showLoader(message:String){
+        KRProgressHUD.show(progressHUDStyle: .black, message: message )
+    }
+    
+    func hideLoader(){
+        KRProgressHUD.dismiss()
     }
     
     open func getTheAppDataFromServer(_ parameters:[String: AnyObject]? = nil ,completion:@escaping (_ responseDict:NSDictionary) -> Void){
@@ -44,6 +39,9 @@ open class CXDataService: NSObject {
             print(CXAppConfig.sharedInstance.getBaseUrl() + CXAppConfig.sharedInstance.getMasterUrl())
             print(parameters)
             
+            KRProgressHUD.show(progressHUDStyle: .black, maskType: .black, activityIndicatorStyle: .white, font: CXAppConfig.sharedInstance.appMediumFont(), message: "", image: nil) {
+                
+                }
            // Alamofire.request("https://httpbin.org/post", method: .post, parameters: parameters, encoding: JSONEncoding.default)
 
             // Alamofire.request("https://httpbin.org/post", parameters: parameters, encoding: URLEncoding.httpBody)
@@ -63,6 +61,7 @@ open class CXDataService: NSObject {
                         let JSON = result as! NSDictionary
                         //completion((response.result.value as? NSDictionary)!)
                         completion(JSON)
+                        KRProgressHUD.dismiss()
                     }
             }
             
@@ -76,7 +75,9 @@ open class CXDataService: NSObject {
         print(urlstring)
         print(parameters)
         
-        
+        KRProgressHUD.show(progressHUDStyle: .black, maskType: .black, activityIndicatorStyle: .white, font: CXAppConfig.sharedInstance.appMediumFont(), message: "", image: nil) {
+            
+        }
         Alamofire.request(urlstring, method: .post, parameters: parameters, encoding: URLEncoding.httpBody)
             .validate()
             .validate(contentType: ["application/json"])
@@ -97,6 +98,8 @@ open class CXDataService: NSObject {
                     let JSON = result as! NSDictionary
                     completion((response.result.value as? NSDictionary)!)
                     print(JSON)
+                    KRProgressHUD.dismiss()
+
                 }
                 
         }

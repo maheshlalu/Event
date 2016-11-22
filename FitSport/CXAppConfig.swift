@@ -106,6 +106,15 @@ class CXAppConfig {
         return config!.value(forKey: "updateUserDetails") as! String
     }
 
+    
+    //Get Payment URL
+    
+    func getPaymentGateWayUrl() -> String{
+        return config!.value(forKey: "payMentGateWay") as! String
+    }
+    
+    
+    
     func getAppTheamColor() -> UIColor {
         
         let appTheamColorArr : NSArray = config!.value(forKey: "AppTheamColor") as! NSArray
@@ -135,7 +144,9 @@ class CXAppConfig {
     }
     
     
-    
+    func mainScreenFrame() -> CGSize {
+        return UIScreen.main.bounds.size
+    }
     
     func mainScreenSize() -> CGSize {
         return UIScreen.main.bounds.size

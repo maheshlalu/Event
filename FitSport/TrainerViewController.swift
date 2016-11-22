@@ -13,17 +13,23 @@ class TrainerViewController: UIViewController ,UICollectionViewDataSource,UIColl
     var screenWidth:CGFloat! = nil
     @IBOutlet weak var EventCollectionView: UICollectionView!
     var trainerArray = [[String:AnyObject]]()
+    var parentView:TestViewController! = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = false
-        self.automaticallyAdjustsScrollViewInsets = false
         let nib = UINib(nibName: "TrainerCollectionViewCell", bundle: nil)
         self.EventCollectionView.register(nib, forCellWithReuseIdentifier: "TrainerCollectionViewCell")
         self.geTheTrainersFromServer()
+        self.EventCollectionView.contentInset = UIEdgeInsetsMake(0, 0, 80, 0)
        // setUpSideMenu()
 
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
 
     func geTheTrainersFromServer(){
         CXDataService.sharedInstance.getTheAppDataFromServer(["type":"macIdinfo" as AnyObject,"mallId":CXAppConfig.sharedInstance.getAppMallID() as AnyObject]) { (dict) in
@@ -93,16 +99,17 @@ class TrainerViewController: UIViewController ,UICollectionViewDataSource,UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
-         let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
-         let productDetails = storyBoard.instantiateViewController(withIdentifier: "PackageViewController") as! PackageViewController
-         self.navigationController?.pushViewController(productDetails, animated: true)
         
-//        let dict = trainerArray[indexPath.item]
-//        print(dict)
-//        let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
-//        let selectSport = storyBoard.instantiateViewController(withIdentifier: "PackageViewController") as! PackageViewController
-//        self.navigationController?.pushViewController(selectSport, animated: true)
+        let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let productDetails = storyBoard.instantiateViewController(withIdentifier: "PackageViewController") as! PackageViewController
+        let navController = UINavigationController(rootViewController: productDetails) // Creating a navigation controller with VC1 at the root of the navigation stack.
+        self.parentView.present(navController, animated:true, completion: nil)
+        
+        //        let dict = trainerArray[indexPath.item]
+        //        print(dict)
+        //        let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        //        let selectSport = storyBoard.instantiateViewController(withIdentifier: "PackageViewController") as! PackageViewController
+        //        self.navigationController?.pushViewController(selectSport, animated: true)
         
     }
     
