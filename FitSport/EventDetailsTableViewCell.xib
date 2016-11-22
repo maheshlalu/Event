@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="63" id="KGk-i7-Jjw" userLabel="EventDetailsTableViewCell" customClass="EventDetailsTableViewCell" customModule="FitSport" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <frame key="frameInset" width="320" height="62"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9h7-qc-CdJ">
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="MML-Yk-B2g"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z1Y-ea-UeW">
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart-color" translatesAutoresizingMaskIntoConstraints="NO" id="lEy-Wh-6iY">
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="H0o-TD-TsA"/>
+                            <constraint firstAttribute="height" constant="20" id="jMb-Zm-LuY"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="z1Y-ea-UeW" secondAttribute="trailing" constant="36" id="0Mc-YX-aPg"/>
+                    <constraint firstItem="9h7-qc-CdJ" firstAttribute="leading" secondItem="lEy-Wh-6iY" secondAttribute="trailing" constant="5" id="7sa-8N-0CH"/>
+                    <constraint firstItem="z1Y-ea-UeW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="33" id="X8p-Zn-c6o"/>
+                    <constraint firstItem="lEy-Wh-6iY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="dJY-1g-MwS"/>
+                    <constraint firstItem="z1Y-ea-UeW" firstAttribute="top" secondItem="9h7-qc-CdJ" secondAttribute="bottom" constant="9" id="gEF-wd-2Qw"/>
+                    <constraint firstAttribute="trailing" secondItem="9h7-qc-CdJ" secondAttribute="trailing" constant="40" id="s5L-hp-3Le"/>
+                    <constraint firstItem="9h7-qc-CdJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="whA-CN-0cs"/>
+                    <constraint firstAttribute="bottom" secondItem="z1Y-ea-UeW" secondAttribute="bottom" constant="4" id="yhb-K1-Shn"/>
+                    <constraint firstItem="lEy-Wh-6iY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="zt3-xR-vZA"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="eventDescriptionLabel" destination="z1Y-ea-UeW" id="9O9-yF-1Pb"/>
+                <outlet property="eventTitleLabel" destination="9h7-qc-CdJ" id="krG-yM-zPL"/>
+            </connections>
+            <point key="canvasLocation" x="-322" y="33.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="heart-color" width="192" height="192"/>
+    </resources>
+</document>

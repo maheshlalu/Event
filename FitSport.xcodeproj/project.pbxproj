@@ -35,7 +35,6 @@
 		116FBAB01DDDD76D003C942A /* PackageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116FBAAF1DDDD76D003C942A /* PackageTableViewCell.swift */; };
 		11791D4D1DDECCDF0015C1E0 /* TrainerProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11791D4C1DDECCDF0015C1E0 /* TrainerProfileViewController.swift */; };
 		11791D4F1DDECD700015C1E0 /* TrainerCertificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11791D4E1DDECD700015C1E0 /* TrainerCertificationViewController.swift */; };
-		11791D511DDECD850015C1E0 /* TrainerPackagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11791D501DDECD850015C1E0 /* TrainerPackagesViewController.swift */; };
 		118906B71DD3047500041EE2 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 118906B41DD3047500041EE2 /* FBSDKCoreKit.framework */; };
 		118906B81DD3047500041EE2 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 118906B51DD3047500041EE2 /* FBSDKLoginKit.framework */; };
 		118906B91DD3047500041EE2 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 118906B61DD3047500041EE2 /* FBSDKShareKit.framework */; };
@@ -76,6 +75,12 @@
 		18AABD791DD44B4F00A173F6 /* UIImageView+UIActivityIndicatorForSDWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AABD781DD44B4F00A173F6 /* UIImageView+UIActivityIndicatorForSDWebImage.m */; };
 		18EE80981DD35C6B000B20D8 /* JoinedEventsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EE80971DD35C6B000B20D8 /* JoinedEventsCollectionViewCell.swift */; };
 		18EE809A1DD35C70000B20D8 /* JoinedEventsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EE80991DD35C70000B20D8 /* JoinedEventsCollectionViewCell.xib */; };
+		2B1A5A311DE41EC900622250 /* EventDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1A5A2F1DE41EC900622250 /* EventDetailsTableViewCell.swift */; };
+		2B1A5A321DE41EC900622250 /* EventsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1A5A301DE41EC900622250 /* EventsDetailViewController.swift */; };
+		2B1A5A341DE41ED300622250 /* EventDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B1A5A331DE41ED300622250 /* EventDetailsTableViewCell.xib */; };
+		2B1A5A371DE44FA400622250 /* EventTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1A5A351DE44FA400622250 /* EventTypeTableViewCell.swift */; };
+		2B1A5A381DE44FA400622250 /* EventTypeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B1A5A361DE44FA400622250 /* EventTypeTableViewCell.xib */; };
+		2BC29A4D1DE309B400404D2D /* TrainerPackagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC29A4C1DE309B400404D2D /* TrainerPackagesViewController.swift */; };
 		4B1160151B09DCE541B33F57 /* Pods_FitSport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7F4B6973E511461D2C3E05 /* Pods_FitSport.framework */; };
 		690A857B45BC362A1512932A /* Pods_FitSportTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9237A56C77E380740017126B /* Pods_FitSportTests.framework */; };
 		C66E41212B762DCE7E4148EA /* Pods_FitSportUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8966F61E6FA29F827ADEEEBA /* Pods_FitSportUITests.framework */; };
@@ -128,7 +133,6 @@
 		116FBAAF1DDDD76D003C942A /* PackageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PackageTableViewCell.swift; sourceTree = "<group>"; };
 		11791D4C1DDECCDF0015C1E0 /* TrainerProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainerProfileViewController.swift; sourceTree = "<group>"; };
 		11791D4E1DDECD700015C1E0 /* TrainerCertificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainerCertificationViewController.swift; sourceTree = "<group>"; };
-		11791D501DDECD850015C1E0 /* TrainerPackagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainerPackagesViewController.swift; sourceTree = "<group>"; };
 		118906B41DD3047500041EE2 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		118906B51DD3047500041EE2 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		118906B61DD3047500041EE2 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
@@ -179,6 +183,12 @@
 		18AABD781DD44B4F00A173F6 /* UIImageView+UIActivityIndicatorForSDWebImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+UIActivityIndicatorForSDWebImage.m"; sourceTree = "<group>"; };
 		18EE80971DD35C6B000B20D8 /* JoinedEventsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinedEventsCollectionViewCell.swift; sourceTree = "<group>"; };
 		18EE80991DD35C70000B20D8 /* JoinedEventsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JoinedEventsCollectionViewCell.xib; sourceTree = "<group>"; };
+		2B1A5A2F1DE41EC900622250 /* EventDetailsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		2B1A5A301DE41EC900622250 /* EventsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsDetailViewController.swift; sourceTree = "<group>"; };
+		2B1A5A331DE41ED300622250 /* EventDetailsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventDetailsTableViewCell.xib; sourceTree = "<group>"; };
+		2B1A5A351DE44FA400622250 /* EventTypeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTypeTableViewCell.swift; sourceTree = "<group>"; };
+		2B1A5A361DE44FA400622250 /* EventTypeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventTypeTableViewCell.xib; sourceTree = "<group>"; };
+		2BC29A4C1DE309B400404D2D /* TrainerPackagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainerPackagesViewController.swift; sourceTree = "<group>"; };
 		5A7F4B6973E511461D2C3E05 /* Pods_FitSport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FitSport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E78E2D400FD848ED6232DBB /* Pods-FitSportUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitSportUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FitSportUITests/Pods-FitSportUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		65C732199E77CBBCFE079C6A /* Pods-FitSportUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitSportUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FitSportUITests/Pods-FitSportUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -244,7 +254,7 @@
 				116FBAAB1DDDD74D003C942A /* PackageViewController.swift */,
 				11791D4C1DDECCDF0015C1E0 /* TrainerProfileViewController.swift */,
 				11791D4E1DDECD700015C1E0 /* TrainerCertificationViewController.swift */,
-				11791D501DDECD850015C1E0 /* TrainerPackagesViewController.swift */,
+				2BC29A4C1DE309B400404D2D /* TrainerPackagesViewController.swift */,
 			);
 			name = TrainerProfile;
 			sourceTree = "<group>";
@@ -330,6 +340,7 @@
 				115B19AF1DD19CD300B58E84 /* SelectSportTableViewCell.xib */,
 				1136C97C1DD09F1D00AA5B41 /* TrainerCollectionViewCell.xib */,
 				114F2B491DCCB9A200D62948 /* EventCell.xib */,
+				2B1A5A331DE41ED300622250 /* EventDetailsTableViewCell.xib */,
 			);
 			name = Xibs;
 			sourceTree = "<group>";
@@ -343,6 +354,8 @@
 				11AB79D31DCB6193005E846B /* TabBar */,
 				11AB79D11DCB6190005E846B /* HomeViewController.swift */,
 				114F2B421DCCB7BE00D62948 /* EventsViewController.swift */,
+				2B1A5A2F1DE41EC900622250 /* EventDetailsTableViewCell.swift */,
+				2B1A5A301DE41EC900622250 /* EventsDetailViewController.swift */,
 				1139803F1DCDB89700BCF36C /* UserDataViewController.swift */,
 				113980411DCDCB3400BCF36C /* CreateEventViewController.swift */,
 				1167B8151DD077B20025842B /* OTPViewController.swift */,
@@ -382,6 +395,8 @@
 				116FBAA41DDDC9AF003C942A /* MyEventsViewController.xib */,
 				11AB79D81DCB61B2005E846B /* TestViewController.xib */,
 				114F2B3C1DCC961D00D62948 /* MyCalenderViewController.swift */,
+				2B1A5A351DE44FA400622250 /* EventTypeTableViewCell.swift */,
+				2B1A5A361DE44FA400622250 /* EventTypeTableViewCell.xib */,
 			);
 			name = TabBar;
 			sourceTree = "<group>";
@@ -629,11 +644,13 @@
 				11AB79DB1DCB61B2005E846B /* TestViewController.xib in Resources */,
 				11AB7A061DCB6850005E846B /* CXProjectConfiguration.plist in Resources */,
 				116E01401DD983E100BCF121 /* FitSport_OTP_Calls.rtf in Resources */,
+				2B1A5A381DE44FA400622250 /* EventTypeTableViewCell.xib in Resources */,
 				11AB79A51DCB600C005E846B /* Assets.xcassets in Resources */,
 				11AB79F51DCB638B005E846B /* PagerMain.storyboard in Resources */,
 				1116EA6B1DCD9C1900ACF469 /* Main.storyboard in Resources */,
 				114F2B4B1DCCB9A200D62948 /* EventCell.xib in Resources */,
 				116FBAA61DDDC9AF003C942A /* MyEventsViewController.xib in Resources */,
+				2B1A5A341DE41ED300622250 /* EventDetailsTableViewCell.xib in Resources */,
 				11AB7A021DCB647F005E846B /* sadhu.jpg in Resources */,
 				118906BD1DD32C7300041EE2 /* GoogleService-Info.plist in Resources */,
 			);
@@ -698,7 +715,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		C53807C2EFF6EC665EE04F5F /* [CP] Copy Pods Resources */ = {
@@ -773,7 +790,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FD260DE7D2CA4462DFFECD53 /* [CP] Check Pods Manifest.lock */ = {
@@ -788,7 +805,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -811,18 +828,21 @@
 				114F2B3D1DCC961D00D62948 /* MyCalenderViewController.swift in Sources */,
 				116FBAB01DDDD76D003C942A /* PackageTableViewCell.swift in Sources */,
 				116FBAA51DDDC9AF003C942A /* MyEventsViewController.swift in Sources */,
+				2B1A5A311DE41EC900622250 /* EventDetailsTableViewCell.swift in Sources */,
 				11AB799B1DCB600C005E846B /* AppDelegate.swift in Sources */,
 				113980401DCDB89700BCF36C /* UserDataViewController.swift in Sources */,
 				114F2B431DCCB7BE00D62948 /* EventsViewController.swift in Sources */,
 				11AB79F01DCB62A2005E846B /* LeftViewController.swift in Sources */,
-				11791D511DDECD850015C1E0 /* TrainerPackagesViewController.swift in Sources */,
 				11791D4F1DDECD700015C1E0 /* TrainerCertificationViewController.swift in Sources */,
 				1167B8161DD077B20025842B /* OTPViewController.swift in Sources */,
 				1800375A1DD328740069E2AB /* CX_SocialIntegration.swift in Sources */,
 				18AABD791DD44B4F00A173F6 /* UIImageView+UIActivityIndicatorForSDWebImage.m in Sources */,
 				11AB7A041DCB682A005E846B /* CXAppConfig.swift in Sources */,
+				2B1A5A321DE41EC900622250 /* EventsDetailViewController.swift in Sources */,
+				2B1A5A371DE44FA400622250 /* EventTypeTableViewCell.swift in Sources */,
 				1167B8281DD0864F0025842B /* ActionButton.swift in Sources */,
 				113705A91DDF15840025BF9E /* FloatRatingView.swift in Sources */,
+				2BC29A4D1DE309B400404D2D /* TrainerPackagesViewController.swift in Sources */,
 				114F2B4A1DCCB9A200D62948 /* EventCell.swift in Sources */,
 				11AB79A31DCB600C005E846B /* FitSport.xcdatamodeld in Sources */,
 				11AB79E51DCB61F4005E846B /* AHTagsLabel.swift in Sources */,

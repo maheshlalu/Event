@@ -17,6 +17,7 @@ class MyCalenderViewController: UIViewController {
         super.viewDidLoad()
         myCalenderView.firstWeekday = 2;
         myCalenderView.tintColor = CXAppConfig.sharedInstance.getAppTheamColor()
+        myCalenderView.delegate = self
         setupFab()
         // Do any additional setup after loading the view.
     }
@@ -52,7 +53,9 @@ extension MyCalenderViewController : FSCalendarDataSource,FSCalendarDelegate {
     }
     func calendar(_ calendar: FSCalendar, didSelect date: Date) {
         
-        print(date)
+//        print(date)
+        let today = Calendar.current.date(byAdding: .day, value: 1, to: date)
+        print(today)
     }
     
     func calendar(_ calendar: FSCalendar, didDeselect date: Date){

@@ -19,6 +19,7 @@ class EventsViewController: UIViewController,UICollectionViewDataSource,UICollec
         self.eventCollectionView.register(nib, forCellWithReuseIdentifier: "JoinedEventsCollectionViewCell")
         self.geTheEventsFromServer()
         self.eventCollectionView.contentSize = CGSize(width: 780, height: 900)
+        self.eventCollectionView.contentInset = UIEdgeInsetsMake(0, 0, 80, 0)
     }
     
     
@@ -60,6 +61,17 @@ class EventsViewController: UIViewController,UICollectionViewDataSource,UICollec
         
         return CGSize(width: self.view.frame.size.width/1-9,height: 246)
         
+    }
+    
+   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    
+    let dict = EventsArray[indexPath.item]
+    let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
+    let eventDetails = storyBoard.instantiateViewController(withIdentifier: "EventsDetailViewController") as! EventsDetailViewController
+    eventDetails.eventDetailsDict = dict as NSDictionary!
+//    self.navigationController?.pushViewController(eventDetails, animated: true)
+    let nav : UINavigationController = UINavigationController(rootViewController: eventDetails)
+    self.present(nav, animated: true, completion: nil)
     }
     func searchshou(textField: UITextField) -> Bool {
         self.view.endEditing(true)
