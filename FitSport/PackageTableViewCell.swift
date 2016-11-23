@@ -12,6 +12,9 @@ class PackageTableViewCell: UITableViewCell {
 
     @IBOutlet weak var rateView: FloatRatingView!
     @IBOutlet weak var packageSportsImage: UIImageView!
+    @IBOutlet weak var sessionTypeLbl: UILabel!
+    @IBOutlet weak var sessionPriceLbl: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         

@@ -18,23 +18,47 @@ class PackageViewController: UIViewController,FloatRatingViewDelegate,UIGestureR
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var rateView: FloatRatingView!
     @IBOutlet weak var shareBtn: UIButton!
+    @IBOutlet weak var trainerName: UILabel!
+    @IBOutlet weak var trainerInterests: UILabel!
+    var userDict:NSDictionary!
     var pageMenu : CAPSPageMenu?
     
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        getTrainerProfileDetails()
-      
+       // getTrainerProfileDetails()
+        print(userDict)
+        print(userDict.allKeys)
+        
+        self.barViewAlignmentsAndDataIntegration()
+        self.setUpSideMenu()
+        self.tabViews()
+        self.setUpRatingView()
+        self.askMeViewGestures()
     }
     
-    func barViewAlignments(){
+    func barViewAlignmentsAndDataIntegration(){
         
         // User Image Customization
         self.userImageView.layer.cornerRadius = 50.0
         self.userImageView.layer.borderWidth = 2
         self.userImageView.layer.borderColor = CXAppConfig.sharedInstance.getAppTheamColor().cgColor
         self.userImageView.clipsToBounds = true
+        let url = NSURL(string: userDict["Image"] as! String)
+        
+        if (url != nil){
+            
+            let url = NSURL(string: userDict["Image"] as! String)
+            self.userImageView.setImageWith(url as URL!, usingActivityIndicatorStyle: .gray)
+            
+        }
+        
+        trainerName.text = userDict["FullName"] as? String
+        
+        let intrests : String = (userDict["Interests"] as? String)!
+        let intrestStr = intrests.components(separatedBy: ("(")).first
+        trainerInterests.text = intrestStr
         
         //following Btn Customization
         self.packageFollowingBtn.layer.cornerRadius = 5
@@ -125,12 +149,14 @@ class PackageViewController: UIViewController,FloatRatingViewDelegate,UIGestureR
         controller1.title = "Profile"
         controllerArray.append(controller1)
         
-        let controller2 : UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TrainerCertificationViewController")
+        let controller2 : TrainerCertificationViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TrainerCertificationViewController") as! TrainerCertificationViewController
+        controller2.galleryDict = userDict as NSDictionary
         controller2.title = "Certification"
         controllerArray.append(controller2)
         
-        let controller3 : UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TrainerPackagesViewController")
+        let controller3 : TrainerPackagesViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TrainerPackagesViewController") as! TrainerPackagesViewController
         controller3.title = "Packages"
+        controller3.galleryDict = userDict as NSDictionary
         controllerArray.append(controller3)
         
         let parameters: [CAPSPageMenuOption] = [
@@ -145,7 +171,7 @@ class PackageViewController: UIViewController,FloatRatingViewDelegate,UIGestureR
         
         self.view.addSubview(pageMenu!.view)
     }
-    
+    /*
     //http://storeongo.com:8081/Services/getMasters?type=MacIdInfo&mallId=20221
     func getTrainerProfileDetails(){
         
@@ -156,16 +182,12 @@ class PackageViewController: UIViewController,FloatRatingViewDelegate,UIGestureR
             
             if status == 1{
                 
-                self.barViewAlignments()
-                self.setUpSideMenu()
-                self.tabViews()
-                self.setUpRatingView()
-                self.askMeViewGestures()
+     
             
             }
             
         }
         
     }
-
+*/
 }

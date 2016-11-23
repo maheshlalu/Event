@@ -100,11 +100,16 @@ class TrainerViewController: UIViewController ,UICollectionViewDataSource,UIColl
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+         let dict = trainerArray[indexPath.item]
+        print(dict)
+        
         let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let productDetails = storyBoard.instantiateViewController(withIdentifier: "PackageViewController") as! PackageViewController
+        productDetails.userDict = dict as NSDictionary!
         let navController = UINavigationController(rootViewController: productDetails) // Creating a navigation controller with VC1 at the root of the navigation stack.
         self.parentView.present(navController, animated:true, completion: nil)
         
+
         //        let dict = trainerArray[indexPath.item]
         //        print(dict)
         //        let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)

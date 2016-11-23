@@ -284,7 +284,7 @@ open class CXDataService: NSObject {
     
     func showAlertView(status:Int) {
         KRProgressHUD.dismiss()
-        let alert = UIAlertController(title:"Network Error!!!", message:"Please bear with use.Thank You!!!", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title:"Network Error!!!", message:"Please bear with us.Thank You!!!", preferredStyle: UIAlertControllerStyle.alert)
         let okAction = UIAlertAction(title: "Okay", style: UIAlertActionStyle.default) {
             UIAlertAction in
             

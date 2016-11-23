@@ -106,7 +106,7 @@ class UserDataViewController: UIViewController,UITextFieldDelegate,UITextViewDel
             let message = responseDict.value(forKey: "message") as! String
             if status == 1{
                 // If Status is 1 then the user email id is already regesterd with email.Can't able to send OTP. Which means give another email.
-                self.showAlertView(message: message, status: 0)
+                 self.showAlertView(message: message, status: 200)
                 return
             }else{
                 //Sending the OTP to given mobile number (status is -1 or 0). Eligible to send OTP.
@@ -277,8 +277,9 @@ class UserDataViewController: UIViewController,UITextFieldDelegate,UITextViewDel
                 let selectSport = storyBoard.instantiateViewController(withIdentifier: "OTPViewController") as! OTPViewController
                 selectSport.consumerEmailID = self.userEmail
                 self.navigationController?.pushViewController(selectSport, animated: true)
-            }else{
-                
+            }else if status == 200{
+                let appDel = UIApplication.shared.delegate as! AppDelegate
+                appDel.setUpSidePanl()
             }
         }
         alert.addAction(okAction)

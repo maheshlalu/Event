@@ -36,6 +36,8 @@
 		11791D4D1DDECCDF0015C1E0 /* TrainerProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11791D4C1DDECCDF0015C1E0 /* TrainerProfileViewController.swift */; };
 		11791D4F1DDECD700015C1E0 /* TrainerCertificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11791D4E1DDECD700015C1E0 /* TrainerCertificationViewController.swift */; };
 		1187045A1DE5971200C9B070 /* OrderedDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118704591DE5971200C9B070 /* OrderedDetailsViewController.swift */; };
+		1187045D1DE5ABE300C9B070 /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1187045B1DE5ABE300C9B070 /* PhotosCollectionViewCell.swift */; };
+		1187045E1DE5ABE300C9B070 /* PhotosCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1187045C1DE5ABE300C9B070 /* PhotosCollectionViewCell.xib */; };
 		118906B71DD3047500041EE2 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 118906B41DD3047500041EE2 /* FBSDKCoreKit.framework */; };
 		118906B81DD3047500041EE2 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 118906B51DD3047500041EE2 /* FBSDKLoginKit.framework */; };
 		118906B91DD3047500041EE2 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 118906B61DD3047500041EE2 /* FBSDKShareKit.framework */; };
@@ -138,6 +140,8 @@
 		11791D4C1DDECCDF0015C1E0 /* TrainerProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainerProfileViewController.swift; sourceTree = "<group>"; };
 		11791D4E1DDECD700015C1E0 /* TrainerCertificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainerCertificationViewController.swift; sourceTree = "<group>"; };
 		118704591DE5971200C9B070 /* OrderedDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderedDetailsViewController.swift; sourceTree = "<group>"; };
+		1187045B1DE5ABE300C9B070 /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
+		1187045C1DE5ABE300C9B070 /* PhotosCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotosCollectionViewCell.xib; sourceTree = "<group>"; };
 		118906B41DD3047500041EE2 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		118906B51DD3047500041EE2 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		118906B61DD3047500041EE2 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
@@ -261,6 +265,8 @@
 			children = (
 				116FBAAB1DDDD74D003C942A /* PackageViewController.swift */,
 				11791D4C1DDECCDF0015C1E0 /* TrainerProfileViewController.swift */,
+				1187045B1DE5ABE300C9B070 /* PhotosCollectionViewCell.swift */,
+				1187045C1DE5ABE300C9B070 /* PhotosCollectionViewCell.xib */,
 				11791D4E1DDECD700015C1E0 /* TrainerCertificationViewController.swift */,
 				2BC29A4C1DE309B400404D2D /* TrainerPackagesViewController.swift */,
 			);
@@ -657,6 +663,7 @@
 				11AB7A061DCB6850005E846B /* CXProjectConfiguration.plist in Resources */,
 				116E01401DD983E100BCF121 /* FitSport_OTP_Calls.rtf in Resources */,
 				2B1A5A381DE44FA400622250 /* EventTypeTableViewCell.xib in Resources */,
+				1187045E1DE5ABE300C9B070 /* PhotosCollectionViewCell.xib in Resources */,
 				11AB79A51DCB600C005E846B /* Assets.xcassets in Resources */,
 				11AB79F51DCB638B005E846B /* PagerMain.storyboard in Resources */,
 				1116EA6B1DCD9C1900ACF469 /* Main.storyboard in Resources */,
@@ -859,6 +866,7 @@
 				113705A91DDF15840025BF9E /* FloatRatingView.swift in Sources */,
 				2BC29A4D1DE309B400404D2D /* TrainerPackagesViewController.swift in Sources */,
 				114F2B4A1DCCB9A200D62948 /* EventCell.swift in Sources */,
+				1187045D1DE5ABE300C9B070 /* PhotosCollectionViewCell.swift in Sources */,
 				11AB79A31DCB600C005E846B /* FitSport.xcdatamodeld in Sources */,
 				11AB79E51DCB61F4005E846B /* AHTagsLabel.swift in Sources */,
 				18EE80981DD35C6B000B20D8 /* JoinedEventsCollectionViewCell.swift in Sources */,

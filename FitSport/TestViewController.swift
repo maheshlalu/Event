@@ -66,9 +66,10 @@ class TestViewController: UIViewController {
      controllerArray.append(nav1)
      
      let parameters: [CAPSPageMenuOption] = [
-     .selectionIndicatorColor(CXAppConfig.sharedInstance.getAppTheamColor()),
+     .selectionIndicatorColor(UIColor.white),
      .selectedMenuItemLabelColor(UIColor.white),
      .menuItemFont(UIFont(name: "Roboto-Bold", size: 15.0)!),
+     .scrollMenuBackgroundColor(CXAppConfig.sharedInstance.getAppTheamColor())
      ]
      
      pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRect(x: 0, y: UIApplication.shared.statusBarFrame.height+(self.navigationController?.navigationBar.frame.size.height)!, width: self.view.frame.width, height: self.view.frame.height), pageMenuOptions: parameters)

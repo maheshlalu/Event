@@ -55,8 +55,10 @@ class EventsDetailViewController: UIViewController,UITableViewDataSource,UITable
         
         let strEventType : String = (eventDetailsDict.value(forKey: "EventType/Ticket type") as! String?)!
         let strCost : String = (eventDetailsDict.value(forKey: "Cost") as! String?)!
+        let trimmedString = strCost.replacingOccurrences(of: " ", with: "")
+        print(trimmedString)
         eventsArray = strEventType.components(separatedBy: ",")
-        costArray = strCost.components(separatedBy: ",")
+        costArray = trimmedString.components(separatedBy: ",")
         
 
         // Do any additional setup after loading the view.
@@ -97,8 +99,17 @@ class EventsDetailViewController: UIViewController,UITableViewDataSource,UITable
         let keyValue = KeyArray[indexPath.section] as! String
         if keyValue == "Event Type/Ticket Type" {
             let cell = tableView.dequeueReusableCell(withIdentifier: "EventTypeNewTableViewCell", for: indexPath)as? EventTypeNewTableViewCell
+            cell?.selectionStyle = .none
             cell?.eventTypeLabel.text = eventsArray[indexPath.row]
-            cell?.ticketPriceLbl.text = costArray[indexPath.row]
+            cell?.ticketPriceLbl.text = "(Price per Ticket is: ₹\(costArray[indexPath.row]))"
+            cell?.ticketPriceLbl.textColor = UIColor.lightGray
+            
+            cell?.bookBtn.layer.cornerRadius = 10;
+            cell?.bookBtn.layer.backgroundColor = CXAppConfig.sharedInstance.getAppTheamColor().cgColor
+            cell?.bookBtn.layer.borderColor = UIColor.brown.cgColor
+            cell?.bookBtn.tag = indexPath.row+1
+            cell?.bookBtn.setTitleColor(UIColor.white, for: .normal)
+            cell?.bookBtn.addTarget(self, action: #selector(bookAction(_:)), for: .touchUpInside)
             return cell!
         }
         else {
@@ -106,9 +117,7 @@ class EventsDetailViewController: UIViewController,UITableViewDataSource,UITable
             cell?.eventTitleLabel.text = keyValue
             cell?.eventTitleLabel.textColor = UIColor.init(red: 247/255, green: 129/255, blue: 52/255, alpha: 10)
             cell?.eventDescriptionLabel.text = cateGoryData.value(forKey: keyValue)as? String
-            cell?.layer.cornerRadius = 10
-            cell?.layer.borderWidth = 1
-            cell?.clipsToBounds = true
+            
             cell?.layer.borderColor = UIColor.clear.cgColor
             return cell!
         }
@@ -164,21 +173,71 @@ class EventsDetailViewController: UIViewController,UITableViewDataSource,UITable
         return nil
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    /*func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        ActionSheetMultipleStringPicker.show(withTitle: "Select Tickets", rows: [
+            [1, 2, 3,4,5],
+            ], initialSelection: [1], doneBlock: {
+                picker, values, indexes in
+                
+                
+                
+                let ticketType = self.eventsArray[indexPath.row]
+                let ticketCost = self.costArray[indexPath.row]
+                let totalTickets = values?.last
+                
+                print(indexes)
+                print(totalTickets)
+                
+                let a:Int? = totalTickets as! Int?
+                let b:Int? = Int(ticketCost)
+                
+                print(b! * a!)
+                
+                //print(totalTickets * ticketCost)
+                
+                let orderDetials : OrderedDetailsViewController = (UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OrderedDetailsViewController") as? OrderedDetailsViewController)!
+                orderDetials.eventDetailsDic = self.eventDetailsDict
+                let bookingDetilasDic : NSMutableDictionary = NSMutableDictionary()
+                bookingDetilasDic.setObject(ticketType, forKey: "TICKET_TYPE" as NSCopying)
+                bookingDetilasDic.setObject(b! * a!, forKey: "TICKET_COST" as NSCopying)
+                bookingDetilasDic.setObject(totalTickets!, forKey: "TOTAL_TICKETS" as NSCopying)
+                orderDetials.ticketTypeDetials = bookingDetilasDic
+                self.navigationController?.pushViewController(orderDetials, animated: true)
+                return
+            }, cancel: { ActionMultipleStringCancelBlock in return }, origin: tableView)
+    }*/
+    
+    
+    func bookAction(_ sender : UIButton)
+    {
         ActionSheetMultipleStringPicker.show(withTitle: "Select Tickets", rows: [
             ["1", "2", "3","4","5"],
             ], initialSelection: [0], doneBlock: {
                 picker, values, indexes in
-                
-                print("values = \(values)")
-                print("indexes = \(indexes)")
-                print("picker = \(picker)")
+       
+                let ticketType = self.eventsArray[sender.tag-1]
+                let ticketCost = self.costArray[sender.tag-1]
+                var totalTickets = values?.last
+       
+                let a:Int? = (totalTickets as! Int?)! + 1
+                let b:Int? = Int(ticketCost)
+                totalTickets = a
+                let totalPrice = b! * a!
+                let orderDetials : OrderedDetailsViewController = (UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OrderedDetailsViewController") as? OrderedDetailsViewController)!
+                orderDetials.totalAmountString = String(b! * a!)
+                orderDetials.totalTicketsString = String(describing: totalTickets!)
+
+                orderDetials.eventDetailsDic = self.eventDetailsDict
+                let bookingDetilasDic : NSMutableDictionary = NSMutableDictionary()
+                bookingDetilasDic.setObject(ticketType, forKey: "TICKET_TYPE" as NSCopying)
+                bookingDetilasDic.setObject(totalPrice, forKey: "TICKET_COST" as NSCopying)
+                bookingDetilasDic.setObject(totalTickets!, forKey: "TOTAL_TICKETS" as NSCopying)
+                orderDetials.ticketTypeDetials = bookingDetilasDic
+                self.navigationController?.pushViewController(orderDetials, animated: true)
                 return
-            }, cancel: { ActionMultipleStringCancelBlock in return }, origin: tableView)
-        //CGRect(x: CXAppConfig.sharedInstance.mainScreenSize().width/2, y:  CXAppConfig.sharedInstance.mainScreenSize().height/2, width: CXAppConfig.sharedInstance.mainScreenSize().width , height: 150)
+            }, cancel: { ActionMultipleStringCancelBlock in return }, origin: eventTableView)
     }
-    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
