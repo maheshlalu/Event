@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import ActionSheetPicker_3_0
 class EventsDetailViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
     var KeyArray = NSArray()
@@ -34,9 +34,10 @@ class EventsDetailViewController: UIViewController,UITableViewDataSource,UITable
         eventTableView.rowHeight = UITableViewAutomaticDimension
         let nib = UINib(nibName: "EventDetailsTableViewCell", bundle: nil)
         self.eventTableView.register(nib, forCellReuseIdentifier: "EventDetailsTableViewCell")
+        self.eventTableView.delegate = self
         
-        let nib1 = UINib(nibName: "EventTypeTableViewCell", bundle: nil)
-        self.eventTableView.register(nib1, forCellReuseIdentifier: "EventTypeTableViewCell")
+        let nib1 = UINib(nibName: "EventTypeNewTableViewCell", bundle: nil)
+        self.eventTableView.register(nib1, forCellReuseIdentifier: "EventTypeNewTableViewCell")
         
         
         eventTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 5, right: 0)
@@ -52,9 +53,8 @@ class EventsDetailViewController: UIViewController,UITableViewDataSource,UITable
         eventImageView.sd_setImage(with: url, placeholderImage: nil)
         eventTitleLabel.text = eventDetailsDict.value(forKey: "Name") as! String?
         
-        let strEventType : String = (eventDetailsDict.value(forKey: "Name") as! String?)!
-        let strCost : String = (eventDetailsDict.value(forKey: "Name") as! String?)!
-        
+        let strEventType : String = (eventDetailsDict.value(forKey: "EventType/Ticket type") as! String?)!
+        let strCost : String = (eventDetailsDict.value(forKey: "Cost") as! String?)!
         eventsArray = strEventType.components(separatedBy: ",")
         costArray = strCost.components(separatedBy: ",")
         
@@ -76,7 +76,9 @@ class EventsDetailViewController: UIViewController,UITableViewDataSource,UITable
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        if section == 2 {
+        let keyValue = KeyArray[section] as! String
+        
+        if keyValue == "Event Type/Ticket Type" {
             return eventsArray.count
         }
         else {
@@ -89,29 +91,21 @@ class EventsDetailViewController: UIViewController,UITableViewDataSource,UITable
     {
         
         
-        eventTableView.allowsSelection = false
-        eventTableView.separatorStyle = .none
-        
+        //eventTableView.allowsSelection = false
+        //eventTableView.separatorStyle = .none
         eventTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 80, right: 0)
         let keyValue = KeyArray[indexPath.section] as! String
-        
-        if keyValue == "" {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "EventTypeTableViewCell", for: indexPath)as? EventTypeTableViewCell
-            
+        if keyValue == "Event Type/Ticket Type" {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "EventTypeNewTableViewCell", for: indexPath)as? EventTypeNewTableViewCell
+            cell?.eventTypeLabel.text = eventsArray[indexPath.row]
+            cell?.ticketPriceLbl.text = costArray[indexPath.row]
             return cell!
         }
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "EventDetailsTableViewCell", for: indexPath)as? EventDetailsTableViewCell
-            
-            
-            cell?.eventTitleLabel.text = keyValue as? String
+            cell?.eventTitleLabel.text = keyValue
             cell?.eventTitleLabel.textColor = UIColor.init(red: 247/255, green: 129/255, blue: 52/255, alpha: 10)
-            cell?.eventDescriptionLabel.text = cateGoryData.value(forKey: (keyValue as? String)!)as? String
-            
-            //        cell?.contentView.layer.cornerRadius = 10
-            //        cell?.contentView.layer.borderWidth = 1
-            //        cell?.clipsToBounds = true
-            
+            cell?.eventDescriptionLabel.text = cateGoryData.value(forKey: keyValue)as? String
             cell?.layer.cornerRadius = 10
             cell?.layer.borderWidth = 1
             cell?.clipsToBounds = true
@@ -122,20 +116,69 @@ class EventsDetailViewController: UIViewController,UITableViewDataSource,UITable
         
     }
     
+    
+    
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
     {
+        let keyValue = KeyArray[section] as! String
         
-        return 5
+        if keyValue == "Event Type/Ticket Type" {
+            return 5
+        }
+        else {
+            return 5
+        }
+        
+//        
+//        ActionSheetMultipleStringPicker.showPickerWithTitle("Multiple String Picker", rows: [
+//            ["One", "Two", "A lot"],
+//            ], initialSelection: [2], doneBlock: {
+//                picker, values, indexes in
+//                
+//                print("values = \(values)")
+//                print("indexes = \(indexes)")
+//                print("picker = \(picker)")
+//                return
+//            }, cancelBlock: { ActionMultipleStringCancelBlock in return }, origin: sender)
+        
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
     {
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 5))
-        
+        let keyValue = KeyArray[section] as! String
+        if keyValue == "Event Type/Ticket Type" {
+//            let headerView = UIView(frame: CGRect(x: 0, y: 20, width: tableView.bounds.size.width, height: 30))
+//            let titleLabel : UILabel = UILabel()
+//            titleLabel.frame = CGRect(x: 5, y: 5, width: 200, height: 20)
+//            titleLabel.text = "Event Type/Ticket Type"
+//            headerView.addSubview(titleLabel)
+//            headerView.backgroundColor = UIColor.white
+//            return headerView
+        }
+        else {
+            let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 5))
             headerView.backgroundColor = UIColor.clear
-      
-        return headerView
+            return headerView
+        }
+        return nil
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        ActionSheetMultipleStringPicker.show(withTitle: "Select Tickets", rows: [
+            ["1", "2", "3","4","5"],
+            ], initialSelection: [0], doneBlock: {
+                picker, values, indexes in
+                
+                print("values = \(values)")
+                print("indexes = \(indexes)")
+                print("picker = \(picker)")
+                return
+            }, cancel: { ActionMultipleStringCancelBlock in return }, origin: tableView)
+        //CGRect(x: CXAppConfig.sharedInstance.mainScreenSize().width/2, y:  CXAppConfig.sharedInstance.mainScreenSize().height/2, width: CXAppConfig.sharedInstance.mainScreenSize().width , height: 150)
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

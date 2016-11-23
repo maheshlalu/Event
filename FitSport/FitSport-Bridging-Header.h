@@ -8,4 +8,5 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import "UIImageView+UIActivityIndicatorForSDWebImage.h"
+#import "ActionSheetPicker_3_0/ActionSheetPicker.h"
 

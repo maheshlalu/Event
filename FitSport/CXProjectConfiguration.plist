@@ -12,6 +12,8 @@
 	</array>
 	<key>BaseUrl</key>
 	<string>http://storeongo.com:8081/</string>
+	<key>testBaseUrl</key>
+	<string>http://10.0.0.44:8081/</string>
 	<key>getMaster</key>
 	<string>Services/getMasters?</string>
 	<key>SidePanelList</key>

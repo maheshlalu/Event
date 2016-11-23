@@ -13,6 +13,9 @@ class JoinedEventsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var joinedEventDescriptionLabel: UILabel!
     @IBOutlet weak var eventTaskLbl: UILabel!
     @IBOutlet weak var heartBtn: UIButton!
+    @IBOutlet weak var mapbutton: UIButton!
+    @IBOutlet weak var locationLbl: UILabel!
+    @IBOutlet weak var eventDateLbl: UILabel!
     @IBAction func heartBtnAction(_ sender: UIButton) {
         
         let btn:UIButton = sender
@@ -42,12 +45,12 @@ class JoinedEventsCollectionViewCell: UICollectionViewCell {
         self.joinedEventImageView.layer.borderWidth = 3
         self.joinedEventImageView.clipsToBounds = true
         
-        self.joinedBtn.layer.cornerRadius = 5
+      /*  self.joinedBtn.layer.cornerRadius = 5
         self.joinedBtn.titleLabel?.textColor = CXAppConfig.sharedInstance.getAppTheamColor()
         self.joinedBtn.clipsToBounds = true
         self.joinedBtn.layer.borderColor = CXAppConfig.sharedInstance.getAppTheamColor().cgColor
         self.joinedBtn.layer.borderWidth = 1
-        
+        */
         // Initialization code
     }
 

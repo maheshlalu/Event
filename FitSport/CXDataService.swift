@@ -10,10 +10,12 @@ import UIKit
 import AFNetworking
 import Alamofire
 import KRProgressHUD
+
+
 private var _SingletonSharedInstance:CXDataService! = CXDataService()
 
 open class CXDataService: NSObject {
-
+    let timeOutInterval : Int = 60
     class var sharedInstance : CXDataService {
         return _SingletonSharedInstance
     }
@@ -34,6 +36,14 @@ open class CXDataService: NSObject {
         KRProgressHUD.dismiss()
     }
     
+    func sessionManager() ->AnyObject{
+        let configuration = URLSessionConfiguration.default
+        configuration.timeoutIntervalForRequest = TimeInterval(timeOutInterval)
+        let sessionManager = Alamofire.SessionManager(configuration: configuration)
+        return sessionManager
+    }
+    
+    
     open func getTheAppDataFromServer(_ parameters:[String: AnyObject]? = nil ,completion:@escaping (_ responseDict:NSDictionary) -> Void){
         if Bool(1) {
             print(CXAppConfig.sharedInstance.getBaseUrl() + CXAppConfig.sharedInstance.getMasterUrl())
@@ -42,26 +52,36 @@ open class CXDataService: NSObject {
             KRProgressHUD.show(progressHUDStyle: .black, maskType: .black, activityIndicatorStyle: .white, font: CXAppConfig.sharedInstance.appMediumFont(), message: "", image: nil) {
                 
                 }
-           // Alamofire.request("https://httpbin.org/post", method: .post, parameters: parameters, encoding: JSONEncoding.default)
+            
+            let configuration = URLSessionConfiguration.default
+            configuration.timeoutIntervalForRequest = 60*60
 
+            let sessionManager = Alamofire.SessionManager(configuration: configuration)
+            
+           // Alamofire.request("https://httpbin.org/post", method: .post, parameters: parameters, encoding: JSONEncoding.default)
             // Alamofire.request("https://httpbin.org/post", parameters: parameters, encoding: URLEncoding.httpBody)
+            
             Alamofire.request(CXAppConfig.sharedInstance.getBaseUrl() + CXAppConfig.sharedInstance.getMasterUrl(), method: .post, parameters: parameters, encoding: URLEncoding.`default`)
                 .responseJSON { response in
                     //to get status code
-                    if let status = response.response?.statusCode {
-                        switch(status){
-                        case 201:
-                            print("example success")
-                        default:
-                            print("error with response status: \(status)")
+                    switch (response.result) {
+                    case .success:
+                        //to get JSON return value
+                        if let result = response.result.value {
+                            let JSON = result as! NSDictionary
+                            //completion((response.result.value as? NSDictionary)!)
+                            completion(JSON)
+                            KRProgressHUD.dismiss()
                         }
-                    }
-                    //to get JSON return value
-                    if let result = response.result.value {
-                        let JSON = result as! NSDictionary
-                        //completion((response.result.value as? NSDictionary)!)
-                        completion(JSON)
-                        KRProgressHUD.dismiss()
+                        break
+                    case .failure(let error):
+                        if error._code == NSURLErrorTimedOut || error._code == NSURLErrorCancelled{
+                            //timeout here
+                            KRProgressHUD.dismiss()
+                            self.showAlertView(status: 0)
+                        }
+                        print("\n\nAuth request failed with error:\n \(error)")
+                        break
                     }
             }
             
@@ -78,30 +98,35 @@ open class CXDataService: NSObject {
         KRProgressHUD.show(progressHUDStyle: .black, maskType: .black, activityIndicatorStyle: .white, font: CXAppConfig.sharedInstance.appMediumFont(), message: "", image: nil) {
             
         }
+        
+        let configuration = URLSessionConfiguration.default
+        configuration.timeoutIntervalForRequest = 60*60
+        let sessionManager = Alamofire.SessionManager(configuration: configuration)
+        
         Alamofire.request(urlstring, method: .post, parameters: parameters, encoding: URLEncoding.httpBody)
             .validate()
             .validate(contentType: ["application/json"])
             .responseJSON { response in
                 
-                print(response)
-                //to get status code
-                if let status = response.response?.statusCode {
-                    switch(status){
-                    case 201:
-                        print("example success")
-                    default:
-                        print("error with response status: \(status)")
+                switch (response.result) {
+                case .success:
+                    //to get JSON return value
+                    if let result = response.result.value {
+                        let JSON = result as! NSDictionary
+                        //completion((response.result.value as? NSDictionary)!)
+                        completion(JSON)
+                        KRProgressHUD.dismiss()
                     }
+                    break
+                case .failure(let error):
+                    if error._code == NSURLErrorTimedOut {
+                        //timeout here
+                        self.showAlertView(status: 0)
+                    }
+                    print("\n\nAuth request failed with error:\n \(error)")
+                    break
                 }
-                //to get JSON return value
-                if let result = response.result.value {
-                    let JSON = result as! NSDictionary
-                    completion((response.result.value as? NSDictionary)!)
-                    print(JSON)
-                    KRProgressHUD.dismiss()
 
-                }
-                
         }
         
 //        Alamofire.request(.POST,urlstring, parameters: parameters)
@@ -123,7 +148,7 @@ open class CXDataService: NSObject {
     public func imageUpload(imageData:NSData,completion:@escaping (_ Response:NSDictionary) -> Void){
             
             let mutableRequest : AFHTTPRequestSerializer = AFHTTPRequestSerializer()
-            let request1 : NSMutableURLRequest =    mutableRequest.multipartFormRequest(withMethod: "POST", urlString: CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getphotoUploadUrl(), parameters: ["refFileName": self.generateBoundaryString()], constructingBodyWith: { (formatData:AFMultipartFormData) in
+        let request1 : NSMutableURLRequest =    mutableRequest.multipartFormRequest(withMethod: "POST", urlString: CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getphotoUploadUrl(), parameters: ["refFileName": self.generateBoundaryString(),"mallId":CXAppConfig.sharedInstance.getAppMallID()], constructingBodyWith: { (formatData:AFMultipartFormData) in
                 formatData.appendPart(withFileData: imageData as Data, name: "srcFile", fileName: "uploadedFile.jpg", mimeType: "image/jpeg")
                 }, error: nil)
         
@@ -256,5 +281,22 @@ open class CXDataService: NSObject {
         return jsonDict
     }
     
+    
+    func showAlertView(status:Int) {
+        KRProgressHUD.dismiss()
+        let alert = UIAlertController(title:"Network Error!!!", message:"Please bear with use.Thank You!!!", preferredStyle: UIAlertControllerStyle.alert)
+        let okAction = UIAlertAction(title: "Okay", style: UIAlertActionStyle.default) {
+            UIAlertAction in
+            
+            if status == 1 {
+                
+            }else{
+                
+            }
+        }
+        alert.addAction(okAction)
+        //self.present(alert, animated: true, completion: nil)
+        UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+    }
     
 }

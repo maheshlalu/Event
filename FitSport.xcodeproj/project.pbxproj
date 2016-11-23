@@ -76,6 +76,8 @@
 		18EE80981DD35C6B000B20D8 /* JoinedEventsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EE80971DD35C6B000B20D8 /* JoinedEventsCollectionViewCell.swift */; };
 		18EE809A1DD35C70000B20D8 /* JoinedEventsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EE80991DD35C70000B20D8 /* JoinedEventsCollectionViewCell.xib */; };
 		18F909531DE4681900210544 /* CXPayMentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F909521DE4681900210544 /* CXPayMentController.swift */; };
+		18F909551DE47D0A00210544 /* EventTypeNewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F909541DE47D0A00210544 /* EventTypeNewTableViewCell.swift */; };
+		18F909571DE47D1000210544 /* EventTypeNewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F909561DE47D1000210544 /* EventTypeNewTableViewCell.xib */; };
 		2B1A5A311DE41EC900622250 /* EventDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1A5A2F1DE41EC900622250 /* EventDetailsTableViewCell.swift */; };
 		2B1A5A321DE41EC900622250 /* EventsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1A5A301DE41EC900622250 /* EventsDetailViewController.swift */; };
 		2B1A5A341DE41ED300622250 /* EventDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B1A5A331DE41ED300622250 /* EventDetailsTableViewCell.xib */; };
@@ -185,6 +187,8 @@
 		18EE80971DD35C6B000B20D8 /* JoinedEventsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinedEventsCollectionViewCell.swift; sourceTree = "<group>"; };
 		18EE80991DD35C70000B20D8 /* JoinedEventsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JoinedEventsCollectionViewCell.xib; sourceTree = "<group>"; };
 		18F909521DE4681900210544 /* CXPayMentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CXPayMentController.swift; sourceTree = "<group>"; };
+		18F909541DE47D0A00210544 /* EventTypeNewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTypeNewTableViewCell.swift; sourceTree = "<group>"; };
+		18F909561DE47D1000210544 /* EventTypeNewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventTypeNewTableViewCell.xib; sourceTree = "<group>"; };
 		2B1A5A2F1DE41EC900622250 /* EventDetailsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		2B1A5A301DE41EC900622250 /* EventsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsDetailViewController.swift; sourceTree = "<group>"; };
 		2B1A5A331DE41ED300622250 /* EventDetailsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventDetailsTableViewCell.xib; sourceTree = "<group>"; };
@@ -337,6 +341,7 @@
 		11AB79CB1DCB6103005E846B /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
+				18F909561DE47D1000210544 /* EventTypeNewTableViewCell.xib */,
 				18F909521DE4681900210544 /* CXPayMentController.swift */,
 				116FBAAD1DDDD762003C942A /* PackageTableViewCell.xib */,
 				18EE80991DD35C70000B20D8 /* JoinedEventsCollectionViewCell.xib */,
@@ -370,6 +375,7 @@
 		11AB79CD1DCB616C005E846B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				18F909541DE47D0A00210544 /* EventTypeNewTableViewCell.swift */,
 				116FBAAF1DDDD76D003C942A /* PackageTableViewCell.swift */,
 				18EE80971DD35C6B000B20D8 /* JoinedEventsCollectionViewCell.swift */,
 				115B19AD1DD19AAC00B58E84 /* SelectSportTableViewCell.swift */,
@@ -652,6 +658,7 @@
 				11AB79F51DCB638B005E846B /* PagerMain.storyboard in Resources */,
 				1116EA6B1DCD9C1900ACF469 /* Main.storyboard in Resources */,
 				114F2B4B1DCCB9A200D62948 /* EventCell.xib in Resources */,
+				18F909571DE47D1000210544 /* EventTypeNewTableViewCell.xib in Resources */,
 				116FBAA61DDDC9AF003C942A /* MyEventsViewController.xib in Resources */,
 				2B1A5A341DE41ED300622250 /* EventDetailsTableViewCell.xib in Resources */,
 				11AB7A021DCB647F005E846B /* sadhu.jpg in Resources */,
@@ -853,6 +860,7 @@
 				18EE80981DD35C6B000B20D8 /* JoinedEventsCollectionViewCell.swift in Sources */,
 				11AB79EB1DCB6225005E846B /* SelectTableViewController.swift in Sources */,
 				11AB79DF1DCB61CA005E846B /* SignInPageViewController.swift in Sources */,
+				18F909551DE47D0A00210544 /* EventTypeNewTableViewCell.swift in Sources */,
 				1167B8291DD0864F0025842B /* ActionButtonItem.swift in Sources */,
 				11AB79DA1DCB61B2005E846B /* TestViewController.swift in Sources */,
 				115B19AE1DD19AAC00B58E84 /* SelectSportTableViewCell.swift in Sources */,

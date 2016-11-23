@@ -12,6 +12,8 @@ class EventsViewController: UIViewController,UICollectionViewDataSource,UICollec
     
     var EventsArray = [[String:AnyObject]]()
     @IBOutlet weak var eventCollectionView: UICollectionView!
+    var parentView:TestViewController! = nil
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = false
@@ -47,6 +49,8 @@ class EventsViewController: UIViewController,UICollectionViewDataSource,UICollec
         let dict = EventsArray[indexPath.item]
         cell?.eventTaskLbl.text = dict["Name"] as? String
         cell?.joinedEventDescriptionLabel.text = dict["Description"]as? String
+        cell?.locationLbl.text = dict["City"]as? String //City
+        cell?.eventDateLbl.text =  dict["Event Date"]as? String //Event Date
         if dict["Image_URL"] != nil {
             let url = NSURL(string: dict["Image_URL"] as! String)
             cell?.joinedEventImageView.setImageWith(url as URL!, usingActivityIndicatorStyle: .gray)
@@ -71,12 +75,13 @@ class EventsViewController: UIViewController,UICollectionViewDataSource,UICollec
     eventDetails.eventDetailsDict = dict as NSDictionary!
 //    self.navigationController?.pushViewController(eventDetails, animated: true)
     let nav : UINavigationController = UINavigationController(rootViewController: eventDetails)
-    self.present(nav, animated: true, completion: nil)
-    }
+    self.parentView.present(nav, animated:true, completion: nil)
+
     func searchshou(textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
     }
     
     
+}
 }

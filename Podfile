@@ -13,7 +13,7 @@ pod 'AFNetworking', '~> 3.1'
 pod 'FSCalendar'
 pod 'Alamofire', '~> 4.0'
 pod "KRProgressHUD"
-
+pod 'ActionSheetPicker-3.0'
 
   target 'FitSportTests' do
     inherit! :search_paths

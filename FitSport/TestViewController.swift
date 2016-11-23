@@ -58,7 +58,8 @@ class TestViewController: UIViewController {
      controller1.title = "TRAINERS"
      controllerArray.append(nav)
      
-     let controller2 : UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EventsViewController")
+     let controller2 : EventsViewController = (UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EventsViewController") as? EventsViewController)!
+    controller2.parentView = self
      let nav1 : UINavigationController = UINavigationController(rootViewController: controller2)
      nav1.navigationBar.isHidden = true
      controller2.title = "EVENTS"

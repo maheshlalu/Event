@@ -1,14 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Roboto-Bold.ttf">
-            <string>Roboto-Bold</string>
-        </array>
         <array key="Roboto-Regular.ttf">
             <string>Roboto-Regular</string>
         </array>
@@ -26,41 +23,6 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KhH-Dc-soV"/>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="90J-Is-utT">
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="YqH-kP-Cav">
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SQt-bd-dLh">
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="86" id="Bsj-SF-tFh"/>
-                                            <constraint firstAttribute="height" constant="25" id="huH-n9-ByN"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="15"/>
-                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <state key="normal" title="Join">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="selected" title="Joined"/>
-                                        <connections>
-                                            <action selector="joinedBtn:" destination="ipb-xo-YzU" eventType="touchUpInside" id="pNP-4h-jti"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="feQ-YZ-01A">
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="5KC-d8-ekF"/>
-                                            <constraint firstAttribute="width" constant="25" id="oZB-qV-rR1"/>
-                                        </constraints>
-                                        <state key="normal" title="Join" image="heart-color"/>
-                                        <state key="selected" image="heart-full"/>
-                                        <connections>
-                                            <action selector="heartBtnAction:" destination="ipb-xo-YzU" eventType="touchUpInside" id="JEC-63-wy2"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="121" id="aOF-Su-mPJ"/>
-                                    <constraint firstAttribute="height" constant="25" id="vDO-A5-wkC"/>
-                                </constraints>
-                            </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Playon High School Sports Network" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKH-wE-bPy">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
@@ -70,24 +32,46 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WORKING STREET WORKING STREET WORKING STREET WORKING STREET WORKING STREEET" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vDH-7Y-onu">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="16" id="a6D-ha-rJw"/>
+                                    <constraint firstAttribute="height" constant="43" id="a6D-ha-rJw"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="dtP-3g-maO">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Yn-4Z-gAt">
+                                        <state key="normal" image="map"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hyderabad" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z86-Nw-2QW">
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0zm-gC-yQO">
+                                        <state key="normal" image="calender"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12-23-2016" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIq-O8-nWf">
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="8"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.56030607876712324" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="YqH-kP-Cav" secondAttribute="bottom" constant="8" id="227-xy-SrD"/>
+                            <constraint firstAttribute="trailing" secondItem="dtP-3g-maO" secondAttribute="trailing" constant="50" id="7Yh-nX-QlL"/>
                             <constraint firstItem="gKH-wE-bPy" firstAttribute="top" secondItem="90J-Is-utT" secondAttribute="top" constant="7" id="Dpl-gP-oGc"/>
                             <constraint firstItem="gKH-wE-bPy" firstAttribute="leading" secondItem="90J-Is-utT" secondAttribute="leading" constant="8" id="ObA-dX-LvL"/>
                             <constraint firstItem="vDH-7Y-onu" firstAttribute="leading" secondItem="90J-Is-utT" secondAttribute="leading" constant="8" id="Ocq-TK-tSt"/>
-                            <constraint firstAttribute="trailing" secondItem="YqH-kP-Cav" secondAttribute="trailing" constant="8" id="St6-hF-JIP"/>
+                            <constraint firstItem="dtP-3g-maO" firstAttribute="top" secondItem="vDH-7Y-onu" secondAttribute="bottom" constant="5" id="T1L-KB-UGY"/>
                             <constraint firstAttribute="trailing" secondItem="gKH-wE-bPy" secondAttribute="trailing" constant="8" id="Y09-Bk-J7P"/>
-                            <constraint firstItem="vDH-7Y-onu" firstAttribute="top" secondItem="gKH-wE-bPy" secondAttribute="bottom" constant="3.5" id="qqL-I9-nIW"/>
-                            <constraint firstAttribute="height" constant="83" id="uTu-ti-yjN"/>
+                            <constraint firstItem="vDH-7Y-onu" firstAttribute="top" secondItem="gKH-wE-bPy" secondAttribute="bottom" constant="4.5" id="qqL-I9-nIW"/>
+                            <constraint firstAttribute="bottom" secondItem="dtP-3g-maO" secondAttribute="bottom" constant="5" id="trK-6S-grS"/>
+                            <constraint firstAttribute="height" constant="119" id="uTu-ti-yjN"/>
                             <constraint firstAttribute="trailing" secondItem="vDH-7Y-onu" secondAttribute="trailing" constant="8" id="usL-Wm-Rbi"/>
+                            <constraint firstItem="dtP-3g-maO" firstAttribute="leading" secondItem="90J-Is-utT" secondAttribute="leading" constant="5" id="voU-X6-93o"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -103,17 +87,18 @@
             </constraints>
             <size key="customSize" width="317" height="245"/>
             <connections>
+                <outlet property="eventDateLbl" destination="PIq-O8-nWf" id="1eP-Jv-MZk"/>
                 <outlet property="eventTaskLbl" destination="gKH-wE-bPy" id="zKR-nh-rxd"/>
-                <outlet property="heartBtn" destination="feQ-YZ-01A" id="vu6-S0-j90"/>
-                <outlet property="joinedBtn" destination="SQt-bd-dLh" id="uBd-6e-GXs"/>
                 <outlet property="joinedEventDescriptionLabel" destination="vDH-7Y-onu" id="3T0-wW-EdG"/>
                 <outlet property="joinedEventImageView" destination="KhH-Dc-soV" id="wG9-vG-ih1"/>
+                <outlet property="locationLbl" destination="z86-Nw-2QW" id="NcL-M0-Dzy"/>
+                <outlet property="mapbutton" destination="9Yn-4Z-gAt" id="DL8-zL-y3j"/>
             </connections>
-            <point key="canvasLocation" x="-103" y="-167"/>
+            <point key="canvasLocation" x="-603" y="-626"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="heart-color" width="192" height="192"/>
-        <image name="heart-full" width="192" height="192"/>
+        <image name="calender" width="20" height="20"/>
+        <image name="map" width="20" height="20"/>
     </resources>
 </document>
