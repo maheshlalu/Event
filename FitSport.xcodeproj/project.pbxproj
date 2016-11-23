@@ -35,6 +35,7 @@
 		116FBAB01DDDD76D003C942A /* PackageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116FBAAF1DDDD76D003C942A /* PackageTableViewCell.swift */; };
 		11791D4D1DDECCDF0015C1E0 /* TrainerProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11791D4C1DDECCDF0015C1E0 /* TrainerProfileViewController.swift */; };
 		11791D4F1DDECD700015C1E0 /* TrainerCertificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11791D4E1DDECD700015C1E0 /* TrainerCertificationViewController.swift */; };
+		1187045A1DE5971200C9B070 /* OrderedDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118704591DE5971200C9B070 /* OrderedDetailsViewController.swift */; };
 		118906B71DD3047500041EE2 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 118906B41DD3047500041EE2 /* FBSDKCoreKit.framework */; };
 		118906B81DD3047500041EE2 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 118906B51DD3047500041EE2 /* FBSDKLoginKit.framework */; };
 		118906B91DD3047500041EE2 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 118906B61DD3047500041EE2 /* FBSDKShareKit.framework */; };
@@ -136,6 +137,7 @@
 		116FBAAF1DDDD76D003C942A /* PackageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PackageTableViewCell.swift; sourceTree = "<group>"; };
 		11791D4C1DDECCDF0015C1E0 /* TrainerProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainerProfileViewController.swift; sourceTree = "<group>"; };
 		11791D4E1DDECD700015C1E0 /* TrainerCertificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainerCertificationViewController.swift; sourceTree = "<group>"; };
+		118704591DE5971200C9B070 /* OrderedDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderedDetailsViewController.swift; sourceTree = "<group>"; };
 		118906B41DD3047500041EE2 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		118906B51DD3047500041EE2 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		118906B61DD3047500041EE2 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
@@ -342,7 +344,6 @@
 			isa = PBXGroup;
 			children = (
 				18F909561DE47D1000210544 /* EventTypeNewTableViewCell.xib */,
-				18F909521DE4681900210544 /* CXPayMentController.swift */,
 				116FBAAD1DDDD762003C942A /* PackageTableViewCell.xib */,
 				18EE80991DD35C70000B20D8 /* JoinedEventsCollectionViewCell.xib */,
 				115B19AF1DD19CD300B58E84 /* SelectSportTableViewCell.xib */,
@@ -361,8 +362,10 @@
 				11AB79D41DCB6195005E846B /* PagerView */,
 				11AB79D31DCB6193005E846B /* TabBar */,
 				11AB79D11DCB6190005E846B /* HomeViewController.swift */,
+				18F909521DE4681900210544 /* CXPayMentController.swift */,
 				114F2B421DCCB7BE00D62948 /* EventsViewController.swift */,
 				2B1A5A2F1DE41EC900622250 /* EventDetailsTableViewCell.swift */,
+				118704591DE5971200C9B070 /* OrderedDetailsViewController.swift */,
 				2B1A5A301DE41EC900622250 /* EventsDetailViewController.swift */,
 				1139803F1DCDB89700BCF36C /* UserDataViewController.swift */,
 				113980411DCDCB3400BCF36C /* CreateEventViewController.swift */,
@@ -725,7 +728,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		C53807C2EFF6EC665EE04F5F /* [CP] Copy Pods Resources */ = {
@@ -800,7 +803,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FD260DE7D2CA4462DFFECD53 /* [CP] Check Pods Manifest.lock */ = {
@@ -815,7 +818,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -831,6 +834,7 @@
 				18F909531DE4681900210544 /* CXPayMentController.swift in Sources */,
 				11AB79F11DCB62A2005E846B /* SWRevealViewController.m in Sources */,
 				11AB79E91DCB61F4005E846B /* TagGroups.swift in Sources */,
+				1187045A1DE5971200C9B070 /* OrderedDetailsViewController.swift in Sources */,
 				114F2B391DCC6A8300D62948 /* CXDataServiceManager.m in Sources */,
 				11791D4D1DDECCDF0015C1E0 /* TrainerProfileViewController.swift in Sources */,
 				116FBAAC1DDDD74D003C942A /* PackageViewController.swift in Sources */,

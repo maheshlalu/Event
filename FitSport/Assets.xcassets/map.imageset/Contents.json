@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Star-100.png",
+      "filename" : "Marker-50.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Star-101.png",
+      "filename" : "Marker-51.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Star-102.png",
+      "filename" : "Marker-52.png",
       "scale" : "3x"
     }
   ],

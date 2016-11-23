@@ -24,13 +24,8 @@ class PackageViewController: UIViewController,FloatRatingViewDelegate,UIGestureR
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
-        rateView.rating = 3
-        barViewAlignments()
-        setUpSideMenu()
-        tabViews()
-        setUpRatingView()
-        askMeViewGestures()
+        getTrainerProfileDetails()
+      
     }
     
     func barViewAlignments(){
@@ -149,6 +144,28 @@ class PackageViewController: UIViewController,FloatRatingViewDelegate,UIGestureR
         pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRect(x: 0, y: 253 , width: self.view.frame.width, height: self.view.frame.height - 309), pageMenuOptions: parameters)
         
         self.view.addSubview(pageMenu!.view)
+    }
+    
+    //http://storeongo.com:8081/Services/getMasters?type=MacIdInfo&mallId=20221
+    func getTrainerProfileDetails(){
+        
+        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getMasterUrl(), parameters: ["type":"MacIdInfo" as AnyObject,"mallId":CXAppConfig.sharedInstance.getAppMallID() as AnyObject]) { (responseDict) in
+            print(responseDict)
+            
+            let status: Int = Int(responseDict.value(forKey: "status") as! String)!
+            
+            if status == 1{
+                
+                self.barViewAlignments()
+                self.setUpSideMenu()
+                self.tabViews()
+                self.setUpRatingView()
+                self.askMeViewGestures()
+            
+            }
+            
+        }
+        
     }
 
 }
