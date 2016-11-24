@@ -59,6 +59,10 @@
 	<string>MobileAPIs/verifyOTP?</string>
 	<key>updateUserDetails</key>
 	<string>MobileAPIs/updateMultipleProperties?</string>
+	<key>paymentTestBaseURL</key>
+	<string>http://54.179.48.83:9000/OngoStoresPG/fitSportPG?</string>
+	<key>paymentProductionUrl</key>
+	<string>http://54.179.48.83/OngoStoresPG/fitSportPG?</string>
 	<key>AppBgColr</key>
 	<array>
 		<string></string>

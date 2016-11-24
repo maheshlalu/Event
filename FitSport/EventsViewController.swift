@@ -9,11 +9,12 @@
 import UIKit
 
 class EventsViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate {
-    
-    var EventsArray = [[String:AnyObject]]()
-    @IBOutlet weak var eventCollectionView: UICollectionView!
     var parentView:TestViewController! = nil
 
+    var EventsArray = [[String:AnyObject]]()
+    @IBOutlet weak var eventCollectionView: UICollectionView!
+
+    @IBOutlet weak var eventSearch: UISearchBar!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = false

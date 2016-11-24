@@ -35,6 +35,8 @@ class SelectTableViewController: UIViewController,UITableViewDataSource,UITableV
         self.navigationItem.setHidesBackButton(true, animated:true);
         let navigation:UINavigationItem = navigationItem
         navigation.title  = "Select Sport"
+        
+        self.tableview.contentInset = UIEdgeInsetsMake(40, 0, 0, 0)
     }
     
     
@@ -158,9 +160,11 @@ class SelectTableViewController: UIViewController,UITableViewDataSource,UITableV
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        
         let v = view as! UITableViewHeaderFooterView
-        v.textLabel?.textColor = UIColor.black
-        v.textLabel?.font = CXAppConfig.sharedInstance.appLargeFont()
+        v.textLabel?.textColor = CXAppConfig.sharedInstance.getAppTheamColor()
+        v.textLabel?.font = UIFont(name: "Roboto-Bold", size: 20)
+        v.textLabel?.textAlignment = .center
         
     }
     

@@ -24,13 +24,14 @@ class TrainerProfileViewController: UIViewController,UITableViewDataSource,UITab
         let nib = UINib(nibName: "ProfileTableViewCell", bundle: nil)
         self.tableview.register(nib, forCellReuseIdentifier: "ProfileTableViewCell")
         
-        if ((galleryDict?.value(forKey: "Description")as! String) != "") && ((galleryDict?.value(forKey: "address")as! String) != ""){
-                self.noContentLbl.isHidden = false
-                self.tableview.isHidden = true
+        let disc = galleryDict?.value(forKey: "Description")as! String
+        let addrs = galleryDict?.value(forKey: "address")as! String
+        
+        if (disc != "") && (addrs != ""){
+            
+                self.noContentLbl.isHidden = true
+                self.tableview.isHidden = false
         }
-
-        //        self.automaticallyAdjustsScrollViewInsets = false
-        //        self.tableview.contentInset = UIEdgeInsetsMake(40, 0, 0, 0)
         
     }
     

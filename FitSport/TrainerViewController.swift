@@ -33,7 +33,23 @@ class TrainerViewController: UIViewController ,UICollectionViewDataSource,UIColl
 
     func geTheTrainersFromServer(){
         CXDataService.sharedInstance.getTheAppDataFromServer(["type":"macIdinfo" as AnyObject,"mallId":CXAppConfig.sharedInstance.getAppMallID() as AnyObject]) { (dict) in
-            self.trainerArray = dict["jobs"] as! [[String:AnyObject]]
+           let arr = dict["jobs"] as! [[String:AnyObject]]
+            
+            
+            for gallaeryData in arr {
+                
+                let picDic : NSDictionary =  gallaeryData as NSDictionary
+                
+                print(picDic.allKeys)
+                print( picDic.value(forKey: "UserType"))
+                
+                if picDic.value(forKey: "UserType")! as! String == "Trainer"{
+                    
+                self.trainerArray.append(picDic as! [String : AnyObject])
+                    
+                }
+            }
+            print(self.trainerArray.description)
             self.EventCollectionView.reloadData()
         }
         

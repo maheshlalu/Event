@@ -115,9 +115,20 @@ class CXAppConfig {
     //Get Payment URL
     
     func getPaymentGateWayUrl() -> String{
-        return config!.value(forKey: "payMentGateWay") as! String
+       // return config!.value(forKey: "payMentGateWay") as! String //oldPaymentURL
+       return config!.value(forKey: "paymentTestBaseURL") as! String// TestUrlfor payment
+       // return config!.value(forKey: "paymentProductionUrl") as! String// productionurl for payment
+
+
+    }
+    //paymentTestBaseURL
+    func getPaymentTestBaseUrl() -> String{
+        return config!.value(forKey: "paymentTestBaseURL") as! String
     }
     
+    func getPaymentProductionUrl() -> String{
+        return config!.value(forKey: "paymentProductionUrl") as! String
+    }
     
     
     func getAppTheamColor() -> UIColor {

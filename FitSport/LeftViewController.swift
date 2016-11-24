@@ -106,9 +106,9 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
             revealController.pushFrontViewController(navCntl, animated: true)
             
         }else if itemName == "TRAINERS"{
-            let productDetails = storyBoard.instantiateViewController(withIdentifier: "PackageViewController") as! PackageViewController
-            let navCntl = UINavigationController(rootViewController: productDetails)
-            revealController.pushFrontViewController(navCntl, animated: true)
+//            let productDetails = storyBoard.instantiateViewController(withIdentifier: "PackageViewController") as! PackageViewController
+//            let navCntl = UINavigationController(rootViewController: productDetails)
+//            revealController.pushFrontViewController(navCntl, animated: true)
             
         }else if itemName == "INVITE/SHARE"{
 //            let howToUse = storyBoard.instantiateViewControllerWithIdentifier("HOW_TO_USE") as! HowToUseViewController

@@ -172,6 +172,7 @@ class UserDataViewController: UIViewController,UITextFieldDelegate,UITextViewDel
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
+        aboutYourSelf.placeholder = nil
         return false
     }
     
@@ -180,7 +181,7 @@ class UserDataViewController: UIViewController,UITextFieldDelegate,UITextViewDel
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        aboutYourSelf.placeholder = "About Youself"
+        
     }
     
     // TextField Delegate Methods
@@ -225,7 +226,10 @@ class UserDataViewController: UIViewController,UITextFieldDelegate,UITextViewDel
         }
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        aboutYourSelf.placeholder = nil
         self.view.resignFirstResponder()
+        
     }
     
     // MARK: - UIImagePickerControllerDelegate Methods

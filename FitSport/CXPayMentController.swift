@@ -24,7 +24,7 @@ class CXPayMentController: UIViewController {
         let requestObj = NSURLRequest(url: paymentUrl as URL)
         self.payMentWebView.loadRequest(requestObj as URLRequest)
         self.navigationItem.setHidesBackButton(true, animated:true);
-        self.title = "payment Gateway "
+        self.title = "Payment Gateway "
         self.activity = UIActivityIndicatorView()
         self.activity.tintColor = CXAppConfig.sharedInstance.getAppTheamColor()
         // Do any additional setup after loading the view.

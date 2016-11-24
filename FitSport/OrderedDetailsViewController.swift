@@ -89,7 +89,7 @@ class OrderedDetailsViewController: UIViewController {
         self.totalTickets.text = self.totalTicketsString
         self.totalAmount.text = "₹" + (self.totalAmountString!)
         self.subtotalLbl.text = "₹" + (self.totalAmountString!)
-        self.payButton.setTitle( "Pay₹" + (self.totalAmountString!), for: .normal)
+        self.payButton.setTitle( "Pay ₹" + (self.totalAmountString!), for: .normal)
  
         
         /*
@@ -174,7 +174,7 @@ class OrderedDetailsViewController: UIViewController {
        
 //        let dict  = CXDataService.sharedInstance.convertStringToDictionary(userProfileData.json!)
         
-            CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getPaymentGateWayUrl(), parameters: ["name":"mahesh" as AnyObject,"email":userProfileData.emailId as AnyObject,"amount":self.totalAmountString as AnyObject,"description":"FitSport Payment" as AnyObject,"phone":userDict.value(forKey: "mobileNo") as AnyObject,"macId":userProfileData.macId! as AnyObject,"mallId":CXAppConfig.sharedInstance.getAppMallID() as AnyObject]) { (responseDict) in
+            CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getPaymentGateWayUrl(), parameters: ["name":userProfileData.firstName! as AnyObject,"email":userProfileData.emailId! as AnyObject,"amount":self.totalAmountString! as AnyObject,"description":"FitSport Payment" as AnyObject,"phone":userDict.value(forKey: "mobileNo")! as AnyObject,"macId":userProfileData.macId! as AnyObject,"mallId":CXAppConfig.sharedInstance.getAppMallID() as AnyObject]) { (responseDict) in
                 
                 let payMentCntl : CXPayMentController = CXPayMentController()
                 payMentCntl.paymentUrl =  NSURL(string: responseDict.value(forKey: "payment_url")! as! String)
