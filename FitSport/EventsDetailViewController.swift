@@ -211,6 +211,15 @@ class EventsDetailViewController: UIViewController,UITableViewDataSource,UITable
     
     func bookAction(_ sender : UIButton)
     {
+        
+        let userId = CXAppConfig.sharedInstance.getUserID()
+        print(userId)
+        if userId == "" {
+            
+            self.showAlertView(status: 1)
+            
+        }else{
+            
         ActionSheetMultipleStringPicker.show(withTitle: "Select Tickets", rows: [
             ["1", "2", "3","4","5"],
             ], initialSelection: [0], doneBlock: {
@@ -237,6 +246,23 @@ class EventsDetailViewController: UIViewController,UITableViewDataSource,UITable
                 self.navigationController?.pushViewController(orderDetials, animated: true)
                 return
             }, cancel: { ActionMultipleStringCancelBlock in return }, origin: eventTableView)
+    }
+    }
+    
+    func showAlertView(status:Int) {
+        let alert = UIAlertController(title:"Please Login!!!", message:"Login to make payment", preferredStyle: UIAlertControllerStyle.alert)
+        let okAction = UIAlertAction(title: "Okay", style: UIAlertActionStyle.default) {
+            UIAlertAction in
+            
+            if status == 1 {
+                let appDel = UIApplication.shared.delegate as! AppDelegate
+                appDel.applicationNavigationFlow()
+            }else{
+                
+            }
+        }
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {

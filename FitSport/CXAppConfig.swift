@@ -43,8 +43,8 @@ class CXAppConfig {
      */
     func getBaseUrl() -> String {
         //testBaseUrl
-         return config!.value(forKey: "BaseUrl") as! String //Production
-        // return config!.value(forKey: "testBaseUrl") as! String //Testing
+        // return config!.value(forKey: "BaseUrl") as! String //Production
+         return config!.value(forKey: "testBaseUrl") as! String //Testing
     }
     //getMaster
     func getMasterUrl() -> String {
@@ -78,7 +78,10 @@ class CXAppConfig {
     }
     //getMallID
     func getAppMallID() -> String {
-        return config!.value(forKey: "MALL_ID") as! String
+        //return config!.value(forKey: "MALL_ID") as! String //Production
+        return config!.value(forKey: "testMallID") as! String //Testing
+
+        //testMallID
     }
 
     func productName() -> String{

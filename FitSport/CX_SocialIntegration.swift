@@ -122,6 +122,7 @@ class CX_SocialIntegration: NSObject {
             enProduct?.firstName = userData.value(forKey:"firstName") as? String
             enProduct?.lastName = userData.value(forKey:"lastName") as? String
             enProduct?.userPic =  userData.object(forKey: "Image") as? String
+            enProduct?.phoneNumber =  userData.object(forKey: "mobileNo") as? String
             enProduct?.macId = enProduct?.userId
             enProduct?.json = CXAppConfig.sharedInstance.convertDictionayToString(dictionary: userData) as String
             enProduct?.macIdJobId = ""

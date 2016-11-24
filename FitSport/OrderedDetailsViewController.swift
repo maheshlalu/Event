@@ -98,39 +98,22 @@ class OrderedDetailsViewController: UIViewController {
         
     }
     @IBAction func paymentAction(_ sender: AnyObject) {
-        let userId = CXAppConfig.sharedInstance.getUserID()
-        print(userId)
-        if userId == "" {
-
-            self.showAlertView(status: 1)
-            
-        }else{
+  
             let userProfileData:UserProfile = CXAppConfig.sharedInstance.getTheUserDetails()
-
-            CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getPaymentGateWayUrl(), parameters: ["name":"mahesh" as AnyObject,"email":"" as AnyObject,"amount":self.totalAmountString as AnyObject,"description":"FitSport Payment" as AnyObject,"phone":"" as AnyObject,"macId":userProfileData.macId as AnyObject,"mallId":CXAppConfig.sharedInstance.getAppMallID() as AnyObject]) { (responseDict) in
+       
+        let dict  = CXDataService.sharedInstance.convertStringToDictionary(userProfileData.json!)
+        
+        
+            CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getPaymentGateWayUrl(), parameters: ["name":"mahesh" as AnyObject,"email":"" as AnyObject,"amount":self.totalAmountString as AnyObject,"description":"FitSport Payment" as AnyObject,"phone":"" as AnyObject,"macId":userProfileData.macId! as AnyObject,"mallId":CXAppConfig.sharedInstance.getAppMallID() as AnyObject]) { (responseDict) in
                 
                 let payMentCntl : CXPayMentController = CXPayMentController()
                 payMentCntl.paymentUrl =  NSURL(string: responseDict.value(forKey: "payment_url")! as! String)
                 print(payMentCntl.paymentUrl)
                 self.navigationController?.pushViewController(payMentCntl, animated: true)
             }
-        }
+        
 
 }
     
-    func showAlertView(status:Int) {
-        let alert = UIAlertController(title:"Please Login!!!", message:"Login to make payment", preferredStyle: UIAlertControllerStyle.alert)
-        let okAction = UIAlertAction(title: "Okay", style: UIAlertActionStyle.default) {
-            UIAlertAction in
-            
-            if status == 1 {
-                let appDel = UIApplication.shared.delegate as! AppDelegate
-                appDel.applicationNavigationFlow()
-            }else{
-                
-            }
-        }
-        alert.addAction(okAction)
-        self.present(alert, animated: true, completion: nil)
-    }
+    
 }
