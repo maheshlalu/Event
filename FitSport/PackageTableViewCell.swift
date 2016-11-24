@@ -14,6 +14,8 @@ class PackageTableViewCell: UITableViewCell {
     @IBOutlet weak var packageSportsImage: UIImageView!
     @IBOutlet weak var sessionTypeLbl: UILabel!
     @IBOutlet weak var sessionPriceLbl: UILabel!
+    @IBOutlet weak var sessionDurationLbl: UILabel!
+    @IBOutlet weak var sessionPlaceLbl: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

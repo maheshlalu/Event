@@ -15,6 +15,7 @@ pod 'Alamofire', '~> 4.0'
 pod "KRProgressHUD"
 pod 'ActionSheetPicker-3.0'
 pod 'SKPhotoBrowser', :git => 'https://github.com/suzuki-0000/SKPhotoBrowser.git', :branch => 'swift3'
+pod 'SCLAlertView'
 
   target 'FitSportTests' do
     inherit! :search_paths

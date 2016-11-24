@@ -178,15 +178,18 @@ class SelectTableViewController: UIViewController,UITableViewDataSource,UITableV
     
     func updatingUserDict(dataString:String) {
         
+        let userDict = CXAppConfig.sharedInstance.getUserUpdateDict()
+        
         let jsonDic : NSMutableDictionary = NSMutableDictionary(dictionary: CXAppConfig.sharedInstance.getUserUpdateDict())
         jsonDic.setObject(dataString, forKey: "Interests" as NSCopying)
+        jsonDic.setObject(userDict.value(forKey: "Image")!, forKey: "Image" as NSCopying)
+        jsonDic.setObject(userDict.value(forKey: "mobileNo")!, forKey: "mobileNo" as NSCopying)
+
         CXAppConfig.sharedInstance.setUserUpdateDict(dictionary: jsonDic)
         print(CXAppConfig.sharedInstance.getUserUpdateDict())
         
         self.activeTheUser(parameterDic: CXAppConfig.sharedInstance.getUserUpdateDict(), jobId: CXAppConfig.sharedInstance.getMacJobID())
-        
-        
-        
+   
     }
     
     

@@ -21,7 +21,7 @@ class SignInViewController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInU
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var containerView: UIView!
     var googleResponseDict: NSDictionary! = nil
-    @IBOutlet weak var fbBtn: FBSDKLoginButton!
+    @IBOutlet weak var fbBtn:FBSDKLoginButton!
     @IBOutlet weak var googleBtn:GIDSignInButton!
     var window: UIWindow?
     
@@ -34,12 +34,16 @@ class SignInViewController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInU
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        skipBtn.layer.cornerRadius = 3
         
         pageControl.addTarget(self, action: #selector(SignInViewController.didChangePageControlValue), for: .valueChanged)
         self.navigationController?.isNavigationBarHidden = true
         
         fbBtn.delegate = self
         fbBtn.readPermissions = ["public_profile", "email", "user_friends","user_about_me"];
+        fbBtn.tooltipBehavior = .disable
+        
+        
         
         GIDSignIn.sharedInstance().uiDelegate = self
         

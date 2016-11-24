@@ -56,9 +56,13 @@ class PackageViewController: UIViewController,FloatRatingViewDelegate,UIGestureR
         
         trainerName.text = userDict["FullName"] as? String
         
-        let intrests : String = (userDict["Interests"] as? String)!
-        let intrestStr = intrests.components(separatedBy: ("(")).first
-        trainerInterests.text = intrestStr
+        if (userDict.value(forKey: "Interests") != nil){
+            
+            let intrests : String = (userDict["Interests"] as? String)!
+            let intrestStr = intrests.components(separatedBy: ("(")).first
+            trainerInterests.text = intrestStr
+        }
+ 
         
         //following Btn Customization
         self.packageFollowingBtn.layer.cornerRadius = 5
@@ -145,8 +149,9 @@ class PackageViewController: UIViewController,FloatRatingViewDelegate,UIGestureR
         
         var controllerArray : [UIViewController] = []
         
-        let controller1:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TrainerProfileViewController")
+        let controller1:TrainerProfileViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TrainerProfileViewController") as! TrainerProfileViewController
         controller1.title = "Profile"
+        controller1.galleryDict = userDict as NSDictionary
         controllerArray.append(controller1)
         
         let controller2 : TrainerCertificationViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TrainerCertificationViewController") as! TrainerCertificationViewController
@@ -160,10 +165,11 @@ class PackageViewController: UIViewController,FloatRatingViewDelegate,UIGestureR
         controllerArray.append(controller3)
         
         let parameters: [CAPSPageMenuOption] = [
-            .selectionIndicatorColor(CXAppConfig.sharedInstance.getAppTheamColor()),
+            .selectionIndicatorColor(UIColor.white),
             .selectedMenuItemLabelColor(UIColor.white),
             .menuItemFont(UIFont(name: "Roboto-Bold", size: 15.0)!),
-            .menuHeight(40)
+            .menuHeight(40),
+            .scrollMenuBackgroundColor(CXAppConfig.sharedInstance.getAppTheamColor())
             ]
         
         

@@ -118,10 +118,12 @@
             <connections>
                 <outlet property="packageSportsImage" destination="PMC-J6-yiy" id="g6L-AE-JzP"/>
                 <outlet property="rateView" destination="JPQ-2p-xbA" id="Y7H-gr-yPC"/>
+                <outlet property="sessionDurationLbl" destination="UMJ-II-ZBF" id="E6v-PF-MQm"/>
+                <outlet property="sessionPlaceLbl" destination="ox3-mG-P5a" id="3AZ-Sh-Hz7"/>
                 <outlet property="sessionPriceLbl" destination="1Ld-YX-mwd" id="v9U-pf-hyZ"/>
                 <outlet property="sessionTypeLbl" destination="BTH-Fa-Rkm" id="jjz-1t-YPV"/>
             </connections>
-            <point key="canvasLocation" x="-307" y="7"/>
+            <point key="canvasLocation" x="-121" y="-254"/>
         </tableViewCell>
     </objects>
     <resources>

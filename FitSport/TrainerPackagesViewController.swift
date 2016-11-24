@@ -12,15 +12,18 @@ struct StoreLocations {
     
     var sessionType: String
     var price: String
+    var duration: String
     
 }
 
 class TrainerPackagesViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,FloatRatingViewDelegate {
     
+    @IBOutlet weak var noContentLbl: UILabel!
     @IBOutlet weak var packageTableView: UITableView!
     var galleryDict:NSDictionary?
     var merchantDict:NSMutableDictionary! = nil
     var storeLocationArray = [StoreLocations]()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,12 +33,19 @@ class TrainerPackagesViewController: UIViewController,UITableViewDataSource,UITa
         self.packageTableView.register(nib, forCellReuseIdentifier: "PackageTableViewCell")
         
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return 3
         
+        if ((galleryDict?.value(forKey: "SessionType")) as! String != ""){
+             return storeLocationArray.count
+        }else{
+            self.noContentLbl.isHidden = false
+            self.packageTableView.isHidden = true
+            return 0
+        }
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         
@@ -50,6 +60,7 @@ class TrainerPackagesViewController: UIViewController,UITableViewDataSource,UITa
         
         cell?.sessionPriceLbl.text = "₹" + (storeLocation.price)
         cell?.sessionTypeLbl.text = storeLocation.sessionType
+        cell?.sessionDurationLbl.text = "Duration: "+(storeLocation.duration)
         
         return cell!
         
@@ -63,7 +74,7 @@ class TrainerPackagesViewController: UIViewController,UITableViewDataSource,UITa
         return CGSize(width: self.view.frame.size.width/1-9,height: 90)
         
     }
-
+    
     //FloatRatingViewDelegates
     func floatRatingView(_ ratingView: FloatRatingView, didUpdate rating: Float){
         
@@ -81,28 +92,23 @@ class TrainerPackagesViewController: UIViewController,UITableViewDataSource,UITa
         self.merchantDict = NSMutableDictionary()
         self.merchantDict!.setObject((galleryDict?.value(forKey: "Price"))!, forKey: "Price" as NSCopying)
         self.merchantDict!.setObject((galleryDict?.value(forKey: "SessionType"))!, forKey: "SessionType" as NSCopying)
+        self.merchantDict!.setObject((galleryDict?.value(forKey: "Duration"))!, forKey: "Duration" as NSCopying)
         self.packageTableView.reloadData()
-        //jobTypeName
         
-        if ((galleryDict?.value(forKey: "SessionType") as? [String]) != nil) {
-            //Array
-            let priceArray : NSArray = (galleryDict?.value(forKey: "Price"))! as! NSArray
-            let sessionArray : NSArray = (galleryDict?.value(forKey: "SessionType"))! as! NSArray
+        let priceStr = (galleryDict?.value(forKey: "Price"))! as! NSString
+        let sessionStr = (galleryDict?.value(forKey: "SessionType"))! as! NSString
+        let durationStr = (galleryDict?.value(forKey: "Duration"))! as! NSString
+        
             
-            for i in 0 ..< priceArray.count {
-                let locationStruct : StoreLocations = StoreLocations(sessionType: sessionArray[i] as! String, price: priceArray[i] as! String )
-                storeLocationArray.append(locationStruct)
-                print(storeLocationArray)
-            }
+        let priceArr = priceStr.components(separatedBy: ",")
+        let sessionArr = sessionStr.components(separatedBy: ",")
+        let durationArr = durationStr.components(separatedBy: ",")
 
-        }else{
-            //String
-            
-            let locationStruct : StoreLocations = StoreLocations(sessionType: galleryDict?.value(forKey: "SessionType") as! String, price: (galleryDict?.value(forKey: "Price"))! as! String)
+        for i in 0 ..< priceArr.count {
+            let locationStruct : StoreLocations = StoreLocations( sessionType: sessionArr[i] , price: priceArr[i], duration: durationArr[i])
             storeLocationArray.append(locationStruct)
-            
+            print(storeLocationArray)
         }
-
     }
-
 }
+

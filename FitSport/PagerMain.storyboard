@@ -98,7 +98,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="containerView" destination="U86-eW-DBU" id="4QV-HF-nea"/>
-                        <outlet property="fbBtn" destination="V3K-5o-bvv" id="0GT-bm-joQ"/>
+                        <outlet property="fbBtn" destination="V3K-5o-bvv" id="gIf-Jp-VoF"/>
                         <outlet property="googleBtn" destination="CDD-Eb-NGG" id="fQP-mI-UR5"/>
                         <outlet property="pageControl" destination="Xvt-1d-6RY" id="FVe-8F-FO2"/>
                         <outlet property="skipBtn" destination="Ud4-LI-xdG" id="p5r-Ur-o0w"/>

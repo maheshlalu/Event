@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,SWRevealViewControllerDele
         navigationBarAppearace.barTintColor = CXAppConfig.sharedInstance.getAppTheamColor()
         
         let myAttributeTxtColor = [NSForegroundColorAttributeName: UIColor.white]
-        let myAttribute = [ NSFontAttributeName: UIFont(name: "Roboto-Regular", size: 18.0)!]
+        let myAttribute = [ NSFontAttributeName: UIFont(name: "Roboto-Regular", size: 20.0)!]
         navigationBarAppearace.titleTextAttributes = myAttribute
         navigationBarAppearace.titleTextAttributes = myAttributeTxtColor
 

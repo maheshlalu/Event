@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SCLAlertView
 
 class OrderedDetailsViewController: UIViewController {
 
@@ -38,6 +39,7 @@ class OrderedDetailsViewController: UIViewController {
         headerView.layer.cornerRadius = 4
         setUpSideMenu()
         self.populteTheBookingDetails()
+        getUserDetails()
     }
 
     func imageViewCutomization(){
@@ -46,6 +48,16 @@ class OrderedDetailsViewController: UIViewController {
         orderImgView.layer.borderColor = UIColor.white.cgColor
         orderImgView!.layer.masksToBounds = true
         orderImgView!.clipsToBounds = true
+        
+    }
+    
+    func getUserDetails()
+    {
+        let userDict = CXAppConfig.sharedInstance.getUserUpdateDict()
+        let userProfileData:UserProfile = CXAppConfig.sharedInstance.getTheUserDetails()
+        print(userDict.value(forKey: "mobileNo"))
+        userEmailLbl.text = userProfileData.emailId
+        userMobileLbl.text = userDict.value(forKey: "mobileNo") as! String?
         
     }
     
@@ -95,16 +107,74 @@ class OrderedDetailsViewController: UIViewController {
     }
     @IBAction func editDetailsBtnAction(_ sender: AnyObject) {
         
+        setUpAlertView()
         
     }
+    
+    func setUpAlertView()
+    {
+        // Example of using the view to add two text fields to the alert
+        // Create the subview
+        let color : CGColor = CXAppConfig.sharedInstance.getAppTheamColor().cgColor
+        let appearance = SCLAlertView.SCLAppearance(
+            kTitleFont: UIFont(name: "Roboto-Regular", size: 20)!,
+            kTextFont: UIFont(name: "Roboto-Regular", size: 14)!,
+            kButtonFont: UIFont(name: "Roboto-Bold", size: 14)!,
+            showCloseButton: false
+            
+        )
+        
+        // Initialize SCLAlertView using custom Appearance
+        
+        let alert = SCLAlertView(appearance: appearance)
+        
+        // Creat the subview
+        let subview = UIView(frame: CGRect(x:0,y:0,width:216,height:70))
+        let x = (subview.frame.width - 180) / 2
+        
+        // Add textfield 1
+        let textfield1 = UITextField(frame: CGRect(x:x,y:10,width:180,height:25))
+        textfield1.layer.borderColor = UIColor.green.cgColor
+        textfield1.layer.borderWidth = 1
+        textfield1.layer.cornerRadius = 5
+        textfield1.placeholder = "Email ID"
+        textfield1.textAlignment = NSTextAlignment.center
+        subview.addSubview(textfield1)
+        
+        // Add textfield 2
+        let textfield2 = UITextField(frame: CGRect(x:x,y:textfield1.frame.maxY + 10,width:180,height:25))
+        textfield2.layer.borderColor = CXAppConfig.sharedInstance.getAppTheamColor().cgColor
+        textfield2.layer.borderWidth = 1
+        textfield2.layer.cornerRadius = 5
+        textfield1.layer.borderColor = CXAppConfig.sharedInstance.getAppTheamColor().cgColor
+        textfield2.placeholder = "Mobile No"
+        textfield2.textAlignment = NSTextAlignment.center
+        subview.addSubview(textfield2)
+        
+        // Add the subview to the alert's UI property
+        alert.customSubview = subview
+        alert.addButton("Update", target:self, selector:#selector(updateButtonTapped(sender:)))
+       
+        
+        
+        alert.showInfo("fitsport", subTitle: "", duration: 0)
+    }
+    
+    func updateButtonTapped(sender:UIButton)
+    {
+       print("Update tapped")
+    }
+    
+    
     @IBAction func paymentAction(_ sender: AnyObject) {
   
-            let userProfileData:UserProfile = CXAppConfig.sharedInstance.getTheUserDetails()
+        let userDict = CXAppConfig.sharedInstance.getUserUpdateDict()
+        let userProfileData:UserProfile = CXAppConfig.sharedInstance.getTheUserDetails()
        
-        let dict  = CXDataService.sharedInstance.convertStringToDictionary(userProfileData.json!)
+       
+//        let dict  = CXDataService.sharedInstance.convertStringToDictionary(userProfileData.json!)
         
-        
-            CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getPaymentGateWayUrl(), parameters: ["name":"mahesh" as AnyObject,"email":"" as AnyObject,"amount":self.totalAmountString as AnyObject,"description":"FitSport Payment" as AnyObject,"phone":"" as AnyObject,"macId":userProfileData.macId! as AnyObject,"mallId":CXAppConfig.sharedInstance.getAppMallID() as AnyObject]) { (responseDict) in
+            CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getPaymentGateWayUrl(), parameters: ["name":"mahesh" as AnyObject,"email":userProfileData.emailId as AnyObject,"amount":self.totalAmountString as AnyObject,"description":"FitSport Payment" as AnyObject,"phone":userDict.value(forKey: "mobileNo") as AnyObject,"macId":userProfileData.macId! as AnyObject,"mallId":CXAppConfig.sharedInstance.getAppMallID() as AnyObject]) { (responseDict) in
                 
                 let payMentCntl : CXPayMentController = CXPayMentController()
                 payMentCntl.paymentUrl =  NSURL(string: responseDict.value(forKey: "payment_url")! as! String)

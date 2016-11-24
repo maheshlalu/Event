@@ -12,6 +12,7 @@ import SDWebImage
 
 class TrainerCertificationViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
     
+    @IBOutlet weak var noContentLbl: UICollectionView!
     @IBOutlet weak var photosCollectionView: UICollectionView!
     var images = [SKPhoto]()
     var gallaryItems:NSMutableArray = []
@@ -27,6 +28,7 @@ class TrainerCertificationViewController: UIViewController,UICollectionViewDeleg
         self.photosCollectionView.contentSize = CGSize(width: 780, height: 900)
         self.photosCollectionView.contentInset = UIEdgeInsetsMake(0, 0, 80, 0)
         
+        self.photosCollectionView.backgroundColor = UIColor.white
         let arr = galleryDict?.value(forKey: "Attachments") as! NSArray
         for gallaeryData in arr {
             
@@ -35,12 +37,20 @@ class TrainerCertificationViewController: UIViewController,UICollectionViewDeleg
             gallaryItems.add(pic)
   
         }
+        if gallaryItems.count == 0{
+            
+            self.noContentLbl.isHidden = false
+            self.photosCollectionView.isHidden = true
+        }
         print(gallaryItems.description)
     }
     
-     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.gallaryItems.count
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+            return self.gallaryItems.count
+
     }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotosCollectionViewCell", for: indexPath as IndexPath)as! PhotosCollectionViewCell
