@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,SWRevealViewControllerDele
         
         let navigationBarAppearace = UINavigationBar.appearance()
         navigationBarAppearace.tintColor = UIColor.white
+        navigationBarAppearace.isTranslucent = false
         navigationBarAppearace.barTintColor = CXAppConfig.sharedInstance.getAppTheamColor()
         
         let myAttributeTxtColor = [NSForegroundColorAttributeName: UIColor.white]

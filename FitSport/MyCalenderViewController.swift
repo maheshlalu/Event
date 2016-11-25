@@ -18,7 +18,7 @@ class MyCalenderViewController: UIViewController {
         myCalenderView.firstWeekday = 2;
         myCalenderView.tintColor = CXAppConfig.sharedInstance.getAppTheamColor()
         myCalenderView.delegate = self
-        setupFab()
+        //setupFab()
         // Do any additional setup after loading the view.
     }
 

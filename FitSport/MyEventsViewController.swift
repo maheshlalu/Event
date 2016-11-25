@@ -18,9 +18,9 @@ class MyEventsViewController: UIViewController {
         setUpSideMenu()
         tabViews()
         
-        let refreshButton = UIBarButtonItem(barButtonSystemItem:.add, target: self, action: #selector(MyEventsViewController.buttonMethod))
-        refreshButton.tintColor = UIColor.white
-        navigationItem.rightBarButtonItem = refreshButton
+//        let refreshButton = UIBarButtonItem(barButtonSystemItem:.add, target: self, action: #selector(MyEventsViewController.buttonMethod))
+//        refreshButton.tintColor = UIColor.white
+//        navigationItem.rightBarButtonItem = refreshButton
         
         
     }
@@ -66,8 +66,8 @@ class MyEventsViewController: UIViewController {
             
             ]
         
-        pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRect(x: 0, y: UIApplication.shared.statusBarFrame.height+(self.navigationController?.navigationBar.frame.size.height)!, width: self.view.frame.width, height: self.view.frame.height), pageMenuOptions: parameters)
-        
+        //pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRect(x: 0, y: UIApplication.shared.statusBarFrame.height+(self.navigationController?.navigationBar.frame.size.height)!, width: self.view.frame.width, height: self.view.frame.height), pageMenuOptions: parameters)
+            pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height), pageMenuOptions: parameters)
         self.view.addSubview(pageMenu!.view)
         
         

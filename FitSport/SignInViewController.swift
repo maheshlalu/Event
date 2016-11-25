@@ -15,13 +15,12 @@ import Google
 import GoogleSignIn
 import GGLCore
 
-class SignInViewController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDelegate{
+class SignInViewController: UIViewController,GIDSignInUIDelegate{
     
     @IBOutlet weak var skipBtn: UIButton!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var containerView: UIView!
     var googleResponseDict: NSDictionary! = nil
-    @IBOutlet weak var fbBtn:FBSDKLoginButton!
     @IBOutlet weak var googleBtn:GIDSignInButton!
     var window: UIWindow?
     
@@ -39,10 +38,9 @@ class SignInViewController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInU
         pageControl.addTarget(self, action: #selector(SignInViewController.didChangePageControlValue), for: .valueChanged)
         self.navigationController?.isNavigationBarHidden = true
         
-        fbBtn.delegate = self
-        fbBtn.readPermissions = ["public_profile", "email", "user_friends","user_about_me"];
-        fbBtn.tooltipBehavior = .disable
-        
+//        fbBtn.delegate = self
+//        fbBtn.readPermissions = ["public_profile", "email", "user_friends","user_about_me"];
+//        fbBtn.tooltipBehavior = .disable
         
         
         GIDSignIn.sharedInstance().uiDelegate = self
@@ -74,11 +72,48 @@ class SignInViewController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInU
         tutorialPageViewController?.scrollToViewController(index: pageControl.currentPage)
     }
     
-    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-        let loginManager: FBSDKLoginManager = FBSDKLoginManager()
-        loginManager.logOut()
+    // FB Login Button Action
+    
+    @IBAction func loginButtonAction(_ sender: AnyObject) {
+        
+        let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
+        fbLoginManager.logIn(withReadPermissions: ["public_profile", "email", "user_friends","user_about_me"], from: self) { (result, error) in
+                  if error == nil {
+             print("Logged in through facebook" )
+              self.getFBUserData()
+             }
+             else {
+             print("Facebook Login Error----\n",error)
+             }
+        }
     }
     
+    func getFBUserData(){
+        
+        if((FBSDKAccessToken.current()) != nil){
+            
+            FBSDKGraphRequest.init(graphPath: "me", parameters: ["fields":"first_name,email,last_name,gender,picture.type(large),id"]).start { (connection, result, error) -> Void in
+                let fbResultDict:NSDictionary = result as! NSDictionary
+                print(fbResultDict)
+                CX_SocialIntegration.sharedInstance.applicationRegisterWithFaceBook(userDataDic: fbResultDict, completion: { (isRegistred) in
+                    //IsRegistred is true no need send the otp otherwise send the otp
+                    //self.screenNavigationAfterSignIng(boolValue: isRegistred)
+                    
+                    let storyBoard = UIStoryboard(name: "PagerMain", bundle: Bundle.main)
+                    let trainer = storyBoard.instantiateViewController(withIdentifier: "UserDataViewController") as! UserDataViewController
+                    self.navigationController?.pushViewController(trainer, animated: true)
+                    
+                })
+            }
+        }
+    }
+    
+//    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+//        let loginManager: FBSDKLoginManager = FBSDKLoginManager()
+//        loginManager.logOut()
+//    }
+    
+    /*
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         //print("Response \(result)")
         
@@ -108,6 +143,7 @@ class SignInViewController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInU
             }
         }
     }
+    */
     
     func screenNavigationAfterSignIng(boolValue : Bool){
         if boolValue {

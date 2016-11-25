@@ -180,7 +180,14 @@ class OrderedDetailsViewController: UIViewController {
                 payMentCntl.paymentUrl =  NSURL(string: responseDict.value(forKey: "payment_url")! as! String)
                 print(payMentCntl.paymentUrl)
                 self.navigationController?.pushViewController(payMentCntl, animated: true)
+                payMentCntl.completion = {_ in responseDict
+                    print(responseDict)
+                    self.navigationController?.popToRootViewController(animated: true)
+                }
+                
             }
+        
+        
         
 
 }

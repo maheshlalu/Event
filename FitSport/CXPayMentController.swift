@@ -18,9 +18,11 @@ class CXPayMentController: UIViewController {
     var completion: CompletionBlock = { reason in print(reason) }
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         CXDataService.sharedInstance.showLoader(message: "Processing...")
         self.designWebView()
+        payMentWebView.delegate = self
         let requestObj = NSURLRequest(url: paymentUrl as URL)
         self.payMentWebView.loadRequest(requestObj as URLRequest)
         self.navigationItem.setHidesBackButton(true, animated:true);
@@ -70,7 +72,7 @@ extension CXPayMentController : UIWebViewDelegate {
         activity.startAnimating()
     }
     func webViewDidFinishLoad(_ webView: UIWebView){
-        //print(self.webRequestArry.lastObject)
+        print(self.webRequestArry.lastObject)
         CXDataService.sharedInstance.hideLoader()
         let lastRequest : String = String(describing: self.webRequestArry.lastObject!)
         print(lastRequest)

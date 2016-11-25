@@ -42,12 +42,7 @@ class EventsDetailViewController: UIViewController,UITableViewDataSource,UITable
         
         eventTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 5, right: 0)
         
-        self.navigationController?.navigationBar.isTranslucent = false
-        self.navigationItem.title = "fitsport"
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Roboto-Bold", size: 20)!]
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
-        let back = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(backTapped))
-        navigationItem.leftBarButtonItems = [back]
+
         
         let url : URL = URL(string: eventDetailsDict.value(forKey: "Image_URL") as! String)!
         eventImageView.sd_setImage(with: url, placeholderImage: nil)
@@ -60,8 +55,23 @@ class EventsDetailViewController: UIViewController,UITableViewDataSource,UITable
         eventsArray = strEventType.components(separatedBy: ",")
         costArray = trimmedString.components(separatedBy: ",")
         
-
+        setUpSideMenu()
         // Do any additional setup after loading the view.
+    }
+    
+    func setUpSideMenu(){
+        
+        let menuItem = UIBarButtonItem(image: UIImage(named: "back"), style: .plain, target: self, action: #selector(PackageViewController.backBtnAction))
+        self.navigationItem.leftBarButtonItem = menuItem
+        let navigation:UINavigationItem = navigationItem
+        let image = UIImage(named: "logo_white")
+        
+        self.navigationController?.navigationBar.isTranslucent = false
+        let back = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(backTapped))
+        navigationItem.leftBarButtonItems = [back]
+        
+        navigation.titleView = UIImageView(image: image)
+        
     }
     
     func backTapped() {

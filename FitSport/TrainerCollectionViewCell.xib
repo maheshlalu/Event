@@ -51,7 +51,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQP-aE-ERh">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <string key="text">I have several dance certificates from professional schools in the world.London Contemprory Dance School.Master from laban Centre and BA from PUC....</string>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="7"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="9"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -117,6 +117,7 @@
             </constraints>
             <size key="customSize" width="252" height="61"/>
             <connections>
+                <outlet property="bottomView" destination="Dxd-Pv-hbN" id="18P-ms-T6z"/>
                 <outlet property="distanceLabel" destination="6mI-Xd-Suk" id="Ugf-3b-6LI"/>
                 <outlet property="sportsCategoryLabel" destination="LqA-3R-mYj" id="Wgo-48-mWU"/>
                 <outlet property="trainerBtn" destination="gbe-LH-n9X" id="ne8-8f-4TV"/>
@@ -124,7 +125,7 @@
                 <outlet property="trainerImage" destination="tTZ-MX-fEk" id="1Hb-bW-D75"/>
                 <outlet property="trainerNameLabel" destination="DSU-ot-jXq" id="M1k-aM-2Zy"/>
             </connections>
-            <point key="canvasLocation" x="21" y="31"/>
+            <point key="canvasLocation" x="-149" y="-10"/>
         </collectionViewCell>
     </objects>
     <resources>

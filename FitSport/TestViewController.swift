@@ -17,27 +17,20 @@ class TestViewController: UIViewController {
         super.viewDidLoad()
         setUpSideMenu()
         tabViews()
-       
-        navigationController?.isNavigationBarHidden = false
         
         let notificationName = Notification.Name("TapOnTab")
         NotificationCenter.default.addObserver(self, selector: #selector(TestViewController.methodOfReceivedNotification), name: notificationName, object: nil)
    
-        let refreshButton = UIBarButtonItem(barButtonSystemItem:.add, target: self, action: #selector(TestViewController.buttonMethod))
-        refreshButton.tintColor = UIColor.white
-        navigationItem.rightBarButtonItem = refreshButton
-
-
+//        let refreshButton = UIBarButtonItem(barButtonSystemItem:.add, target: self, action: #selector(TestViewController.buttonMethod))
+//        refreshButton.tintColor = UIColor.white
+//        navigationItem.rightBarButtonItem = refreshButton
     }
     
      override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
          //self.view.frame = CGRect(x: 0, y: UIApplication.shared.statusBarFrame.height+(self.navigationController?.navigationBar.frame.size.height)!, width: self.view.frame.width, height: self.view.frame.height)
     }
-    
-    
-    
-    
+
     func buttonMethod() {
 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -72,9 +65,9 @@ class TestViewController: UIViewController {
      .scrollMenuBackgroundColor(CXAppConfig.sharedInstance.getAppTheamColor())
      ]
      
-     pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRect(x: 0, y: UIApplication.shared.statusBarFrame.height+(self.navigationController?.navigationBar.frame.size.height)!, width: self.view.frame.width, height: self.view.frame.height), pageMenuOptions: parameters)
+    // pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRect(x: 0, y: UIApplication.shared.statusBarFrame.height+(self.navigationController?.navigationBar.frame.size.height)!, width: self.view.frame.width, height: self.view.frame.height), pageMenuOptions: parameters)
      
-        //  pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height), pageMenuOptions: parameters)
+          pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height), pageMenuOptions: parameters)
      self.view.addSubview(pageMenu!.view)
         
      }

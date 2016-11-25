@@ -10,22 +10,25 @@ import UIKit
 
 class TrainerCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var sportsCategoryLabel: UILabel!
     @IBOutlet weak var trainerDescriptionLabel: UILabel!
     @IBOutlet weak var trainerNameLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var trainerBtn: UIButton!
     @IBOutlet weak var trainerImage: UIImageView!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        
-     //self.mainImageView.bounds.size.width / 2.0
+
         self.trainerImage.layer.cornerRadius = 40
         self.trainerImage.layer.borderWidth = 1
         self.trainerImage.clipsToBounds = true
         
-        // Initialization code
+        self.bottomView.backgroundColor = CXAppConfig.sharedInstance.getAppTheamColor()
+        
+    
     }
 
 }

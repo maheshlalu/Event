@@ -173,7 +173,9 @@ class PackageViewController: UIViewController,FloatRatingViewDelegate,UIGestureR
             ]
         
         
-        pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRect(x: 0, y: 253 , width: self.view.frame.width, height: self.view.frame.height - 309), pageMenuOptions: parameters)
+        //pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRect(x: 0, y: 253 , width: self.view.frame.width, height: self.view.frame.height - 309), pageMenuOptions: parameters)
+        
+            pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRect(x: 0, y: 194, width: self.view.frame.width, height: self.view.frame.height), pageMenuOptions: parameters)
         
         self.view.addSubview(pageMenu!.view)
     }
