@@ -522,7 +522,7 @@
                   moduleName = "FitSport"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/cx_one/Event/FitSport/TrainerProfileViewController.swift"
-                  timestampString = "501771880.479011"
+                  timestampString = "501774772.797503"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "16"
@@ -537,7 +537,7 @@
                   moduleName = "FitSport"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/cx_one/Event/FitSport/TrainerProfileViewController.swift"
-                  timestampString = "501771880.480639"
+                  timestampString = "501774772.799607"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "16"
@@ -552,7 +552,7 @@
                   moduleName = "FitSport"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/cx_one/Event/FitSport/TrainerProfileViewController.swift"
-                  timestampString = "501771880.482204"
+                  timestampString = "501774772.800951"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "16"
@@ -567,7 +567,7 @@
                   moduleName = "FitSport"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/cx_one/Event/FitSport/TrainerProfileViewController.swift"
-                  timestampString = "501771880.484257"
+                  timestampString = "501774772.802198"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "16"
@@ -664,7 +664,7 @@
                   moduleName = "FitSport"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/cx_one/Event/FitSport/SignInViewController.swift"
-                  timestampString = "501771880.501681"
+                  timestampString = "501774772.816916"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "95"
@@ -679,7 +679,7 @@
                   moduleName = "FitSport"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/cx_one/Event/FitSport/SignInViewController.swift"
-                  timestampString = "501771880.502914"
+                  timestampString = "501774772.818208"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "96"
@@ -712,7 +712,7 @@
                   moduleName = "FitSport"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/cx_one/Event/FitSport/SignInViewController.swift"
-                  timestampString = "501771880.505629"
+                  timestampString = "501774772.820745"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "95"
@@ -727,7 +727,7 @@
                   moduleName = "FitSport"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/cx_one/Event/FitSport/SignInViewController.swift"
-                  timestampString = "501771880.506885"
+                  timestampString = "501774772.822325"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "96"
@@ -798,6 +798,38 @@
             startingLineNumber = "185"
             endingLineNumber = "185"
             landmarkName = "paymentAction(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FitSport/AppDelegate.swift"
+            timestampString = "501773662.065198"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "applicationNavigationFlow()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FitSport/EventsViewController.swift"
+            timestampString = "501774556.675823"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -50,7 +50,7 @@ class EventsViewController: UIViewController,UICollectionViewDataSource,UICollec
         let dict = EventsArray[indexPath.item]
         cell?.eventTaskLbl.text = dict["Name"] as? String
         cell?.joinedEventDescriptionLabel.text = dict["Description"]as? String
-        cell?.locationLbl.text = dict["City"]as? String //City
+        cell?.locationLbl.text = dict["Venue"]as? String //City
         cell?.eventDateLbl.text =  dict["Event Date"]as? String //Event Date
         if dict["Image_URL"] != nil {
             let url = NSURL(string: dict["Image_URL"] as! String)
