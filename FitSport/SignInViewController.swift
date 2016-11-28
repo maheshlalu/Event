@@ -162,9 +162,9 @@ class SignInViewController: UIViewController,GIDSignInUIDelegate{
     
     @IBAction func googleBtnAction(_ sender: AnyObject) {
         GIDSignIn.sharedInstance().signOut()
-        GIDSignIn.sharedInstance().clientID = "938208920269-26ggphq4anmmp1o148ilutlcieea73ev.apps.googleusercontent.com"
+        GIDSignIn.sharedInstance().clientID = "910235619017-len85sj7um29bm957da9vofebc8ee8gf.apps.googleusercontent.com"
         GIDSignIn.sharedInstance().signIn()
-        
+        //910235619017-len85sj7um29bm957da9vofebc8ee8gf.apps.googleusercontent.com
     }
 
     func sign(inWillDispatch signIn: GIDSignIn!, error: Error!) {
