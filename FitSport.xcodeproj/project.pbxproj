@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1116EA6B1DCD9C1900ACF469 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1116EA6A1DCD9C1900ACF469 /* Main.storyboard */; };
+		1123DDC21DEC0DC100C855F0 /* BookingHistoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1123DDC01DEC0DC100C855F0 /* BookingHistoryCollectionViewCell.swift */; };
+		1123DDC31DEC0DC100C855F0 /* BookingHistoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1123DDC11DEC0DC100C855F0 /* BookingHistoryCollectionViewCell.xib */; };
 		1134985A1DE6D5AD00EBA419 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113498581DE6D5AD00EBA419 /* ProfileTableViewCell.swift */; };
 		1134985B1DE6D5AD00EBA419 /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 113498591DE6D5AD00EBA419 /* ProfileTableViewCell.xib */; };
 		1136C97B1DD09F0800AA5B41 /* TrainerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1136C97A1DD09F0800AA5B41 /* TrainerCollectionViewCell.swift */; };
@@ -37,6 +39,7 @@
 		116FBAB01DDDD76D003C942A /* PackageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116FBAAF1DDDD76D003C942A /* PackageTableViewCell.swift */; };
 		11791D4D1DDECCDF0015C1E0 /* TrainerProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11791D4C1DDECCDF0015C1E0 /* TrainerProfileViewController.swift */; };
 		11791D4F1DDECD700015C1E0 /* TrainerCertificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11791D4E1DDECD700015C1E0 /* TrainerCertificationViewController.swift */; };
+		118521AC1DEBFDC00069DB6C /* BookingHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118521AB1DEBFDC00069DB6C /* BookingHistoryViewController.swift */; };
 		1187045A1DE5971200C9B070 /* OrderedDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118704591DE5971200C9B070 /* OrderedDetailsViewController.swift */; };
 		1187045D1DE5ABE300C9B070 /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1187045B1DE5ABE300C9B070 /* PhotosCollectionViewCell.swift */; };
 		1187045E1DE5ABE300C9B070 /* PhotosCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1187045C1DE5ABE300C9B070 /* PhotosCollectionViewCell.xib */; };
@@ -113,6 +116,8 @@
 
 /* Begin PBXFileReference section */
 		1116EA6A1DCD9C1900ACF469 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		1123DDC01DEC0DC100C855F0 /* BookingHistoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingHistoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		1123DDC11DEC0DC100C855F0 /* BookingHistoryCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookingHistoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		113498581DE6D5AD00EBA419 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		113498591DE6D5AD00EBA419 /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
 		1136C97A1DD09F0800AA5B41 /* TrainerCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainerCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -143,6 +148,7 @@
 		116FBAAF1DDDD76D003C942A /* PackageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PackageTableViewCell.swift; sourceTree = "<group>"; };
 		11791D4C1DDECCDF0015C1E0 /* TrainerProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainerProfileViewController.swift; sourceTree = "<group>"; };
 		11791D4E1DDECD700015C1E0 /* TrainerCertificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainerCertificationViewController.swift; sourceTree = "<group>"; };
+		118521AB1DEBFDC00069DB6C /* BookingHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingHistoryViewController.swift; sourceTree = "<group>"; };
 		118704591DE5971200C9B070 /* OrderedDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderedDetailsViewController.swift; sourceTree = "<group>"; };
 		1187045B1DE5ABE300C9B070 /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
 		1187045C1DE5ABE300C9B070 /* PhotosCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotosCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -361,6 +367,7 @@
 				1136C97C1DD09F1D00AA5B41 /* TrainerCollectionViewCell.xib */,
 				114F2B491DCCB9A200D62948 /* EventCell.xib */,
 				2B1A5A331DE41ED300622250 /* EventDetailsTableViewCell.xib */,
+				1123DDC11DEC0DC100C855F0 /* BookingHistoryCollectionViewCell.xib */,
 			);
 			name = Xibs;
 			sourceTree = "<group>";
@@ -375,11 +382,11 @@
 				11AB79D11DCB6190005E846B /* HomeViewController.swift */,
 				18F909521DE4681900210544 /* CXPayMentController.swift */,
 				114F2B421DCCB7BE00D62948 /* EventsViewController.swift */,
-				2B1A5A2F1DE41EC900622250 /* EventDetailsTableViewCell.swift */,
 				118704591DE5971200C9B070 /* OrderedDetailsViewController.swift */,
 				2B1A5A301DE41EC900622250 /* EventsDetailViewController.swift */,
 				1139803F1DCDB89700BCF36C /* UserDataViewController.swift */,
 				113980411DCDCB3400BCF36C /* CreateEventViewController.swift */,
+				118521AB1DEBFDC00069DB6C /* BookingHistoryViewController.swift */,
 				1167B8151DD077B20025842B /* OTPViewController.swift */,
 				1136C97E1DD09F3A00AA5B41 /* TrainerViewController.swift */,
 			);
@@ -393,8 +400,10 @@
 				18F909541DE47D0A00210544 /* EventTypeNewTableViewCell.swift */,
 				116FBAAF1DDDD76D003C942A /* PackageTableViewCell.swift */,
 				18EE80971DD35C6B000B20D8 /* JoinedEventsCollectionViewCell.swift */,
+				1123DDC01DEC0DC100C855F0 /* BookingHistoryCollectionViewCell.swift */,
 				115B19AD1DD19AAC00B58E84 /* SelectSportTableViewCell.swift */,
 				1136C97A1DD09F0800AA5B41 /* TrainerCollectionViewCell.swift */,
+				2B1A5A2F1DE41EC900622250 /* EventDetailsTableViewCell.swift */,
 				114F2B481DCCB9A200D62948 /* EventCell.swift */,
 			);
 			name = View;
@@ -656,6 +665,7 @@
 				114F2B3F1DCC97E100D62948 /* MyProfile.storyboard in Resources */,
 				11AB7A121DCB704A005E846B /* Roboto-Italic.ttf in Resources */,
 				11AB7A131DCB704A005E846B /* Roboto-Light.ttf in Resources */,
+				1123DDC31DEC0DC100C855F0 /* BookingHistoryCollectionViewCell.xib in Resources */,
 				11AB7A141DCB704A005E846B /* Roboto-Medium.ttf in Resources */,
 				116FBAAE1DDDD762003C942A /* PackageTableViewCell.xib in Resources */,
 				11AB7A151DCB704A005E846B /* Roboto-Regular.ttf in Resources */,
@@ -847,7 +857,9 @@
 				11AB79E61DCB61F4005E846B /* AHTagTableViewCell.swift in Sources */,
 				18F909531DE4681900210544 /* CXPayMentController.swift in Sources */,
 				11AB79F11DCB62A2005E846B /* SWRevealViewController.m in Sources */,
+				118521AC1DEBFDC00069DB6C /* BookingHistoryViewController.swift in Sources */,
 				11AB79E91DCB61F4005E846B /* TagGroups.swift in Sources */,
+				1123DDC21DEC0DC100C855F0 /* BookingHistoryCollectionViewCell.swift in Sources */,
 				1187045A1DE5971200C9B070 /* OrderedDetailsViewController.swift in Sources */,
 				114F2B391DCC6A8300D62948 /* CXDataServiceManager.m in Sources */,
 				11791D4D1DDECCDF0015C1E0 /* TrainerProfileViewController.swift in Sources */,
