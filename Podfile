@@ -16,7 +16,8 @@ pod "KRProgressHUD"
 pod 'ActionSheetPicker-3.0'
 pod 'SKPhotoBrowser', :git => 'https://github.com/suzuki-0000/SKPhotoBrowser.git', :branch => 'swift3'
 pod 'SCLAlertView'
-
+pod 'Firebase/Core'
+pod 'Firebase/Crash'
   target 'FitSportTests' do
     inherit! :search_paths
     # Pods for testing

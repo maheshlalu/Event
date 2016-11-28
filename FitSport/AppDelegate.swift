@@ -13,6 +13,8 @@ import Google
 import GoogleSignIn
 import GGLCore
 import MagicalRecord
+import Firebase
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,SWRevealViewControllerDelegate,GIDSignInDelegate {
     var window: UIWindow?
@@ -39,11 +41,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate,SWRevealViewControllerDele
         GIDSignIn.sharedInstance().delegate = self
         self.setUpMagicalDB()
         applicationNavigationFlow()
-        
+        self.fireBaseSetup()
        print(getDocumentsDirectory())
         
         //LoadingView
         return true
+    }
+    
+    func fireBaseSetup(){
+        FIRApp.configure()
     }
     
     func applicationNavigationFlow(){
