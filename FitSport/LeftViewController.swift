@@ -101,14 +101,16 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
             
         }else if itemName == "EVENTS"{
             
-            let homeView = MyEventsViewController(nibName: "MyEventsViewController", bundle: nil)
+            let homeView = TestViewController(nibName: "TestViewController", bundle: nil)
+            homeView.fromSidePanelEvent = true
             let navCntl = UINavigationController(rootViewController: homeView)
             revealController.pushFrontViewController(navCntl, animated: true)
             
         }else if itemName == "TRAINERS"{
-//            let productDetails = storyBoard.instantiateViewController(withIdentifier: "PackageViewController") as! PackageViewController
-//            let navCntl = UINavigationController(rootViewController: productDetails)
-//            revealController.pushFrontViewController(navCntl, animated: true)
+            
+            let homeView = TestViewController(nibName: "TestViewController", bundle: nil)
+            let navCntl = UINavigationController(rootViewController: homeView)
+            revealController.pushFrontViewController(navCntl, animated: true)
             
         }else if itemName == "BOOKING HISTORY"{
             let howToUse = storyBoard.instantiateViewController(withIdentifier: "BookingHistoryViewController") as! BookingHistoryViewController

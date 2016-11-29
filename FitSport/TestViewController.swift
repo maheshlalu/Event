@@ -8,19 +8,16 @@
 
 import UIKit
 
-class TestViewController: UIViewController {
+class TestViewController: UIViewController,CAPSPageMenuDelegate {
     
     var pageMenu : CAPSPageMenu?
-    
+    var fromSidePanelEvent:Bool = false
      override func viewDidLoad() {
         
         super.viewDidLoad()
         setUpSideMenu()
         tabViews()
-        
-        let notificationName = Notification.Name("TapOnTab")
-        NotificationCenter.default.addObserver(self, selector: #selector(TestViewController.methodOfReceivedNotification), name: notificationName, object: nil)
-   
+       // pageMenu?.delegate = self
 //        let refreshButton = UIBarButtonItem(barButtonSystemItem:.add, target: self, action: #selector(TestViewController.buttonMethod))
 //        refreshButton.tintColor = UIColor.white
 //        navigationItem.rightBarButtonItem = refreshButton
@@ -47,7 +44,7 @@ class TestViewController: UIViewController {
         controller1.parentView = self
      let nav : UINavigationController = UINavigationController(rootViewController: controller1)
      nav.navigationBar.isHidden = true
-     
+    
      controller1.title = "TRAINERS"
      controllerArray.append(nav)
      
@@ -68,6 +65,11 @@ class TestViewController: UIViewController {
     // pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRect(x: 0, y: UIApplication.shared.statusBarFrame.height+(self.navigationController?.navigationBar.frame.size.height)!, width: self.view.frame.width, height: self.view.frame.height), pageMenuOptions: parameters)
      
           pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height), pageMenuOptions: parameters)
+        
+        if fromSidePanelEvent == true{
+            pageMenu?.moveToPage(1)
+        }
+        
      self.view.addSubview(pageMenu!.view)
         
      }
@@ -85,8 +87,4 @@ class TestViewController: UIViewController {
         //self.sideMenuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), forControlEvents: .TouchUpOutside)
     }
     
-    
-    func methodOfReceivedNotification(notification:NSNotification){
-        
-    }
 }
