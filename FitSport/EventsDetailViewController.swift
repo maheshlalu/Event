@@ -10,14 +10,14 @@ import UIKit
 import ActionSheetPicker_3_0
 class EventsDetailViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
-    var KeyArray = NSArray()
+    var KeyArray = NSMutableArray()
     var cateGoryData = NSDictionary()
     var eventDetailsDict:NSDictionary!
     var eventsArray : [String] = NSArray() as! [String]
     var costArray : [String] = NSArray() as! [String]
     
     //var nameArray = ["name","address","age"]
-
+    
     @IBOutlet weak var eventTableView: UITableView!
     @IBOutlet weak var eventView: UIView!
     @IBOutlet weak var eventImageView: UIImageView!
@@ -42,19 +42,22 @@ class EventsDetailViewController: UIViewController,UITableViewDataSource,UITable
         
         eventTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 5, right: 0)
         
-
+        
         
         let url : URL = URL(string: eventDetailsDict.value(forKey: "Image_URL") as! String)!
         eventImageView.sd_setImage(with: url, placeholderImage: nil)
         eventTitleLabel.text = eventDetailsDict.value(forKey: "Name") as! String?
         
         let strEventType : String = (eventDetailsDict.value(forKey: "EventType/Ticket type") as! String?)!
+        if strEventType == "" {
+            
+        }else{
         let strCost : String = (eventDetailsDict.value(forKey: "Cost") as! String?)!
         let trimmedString = strCost.replacingOccurrences(of: " ", with: "")
         print(trimmedString)
         eventsArray = strEventType.components(separatedBy: ",")
         costArray = trimmedString.components(separatedBy: ",")
-        
+        }
         setUpSideMenu()
         // Do any additional setup after loading the view.
     }
@@ -78,8 +81,8 @@ class EventsDetailViewController: UIViewController,UITableViewDataSource,UITable
         self.dismiss(animated: true, completion: nil)
     }
     
-     func numberOfSections(in tableView: UITableView) -> Int
-     {
+    func numberOfSections(in tableView: UITableView) -> Int
+    {
         
         return KeyArray.count
     }
@@ -94,9 +97,9 @@ class EventsDetailViewController: UIViewController,UITableViewDataSource,UITable
             return eventsArray.count
         }
         else {
-           return 1
+            return 1
         }
-   
+        
         
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -131,7 +134,7 @@ class EventsDetailViewController: UIViewController,UITableViewDataSource,UITable
             cell?.layer.borderColor = UIColor.clear.cgColor
             return cell!
         }
-    
+        
         
     }
     
@@ -149,17 +152,17 @@ class EventsDetailViewController: UIViewController,UITableViewDataSource,UITable
             return 5
         }
         
-//        
-//        ActionSheetMultipleStringPicker.showPickerWithTitle("Multiple String Picker", rows: [
-//            ["One", "Two", "A lot"],
-//            ], initialSelection: [2], doneBlock: {
-//                picker, values, indexes in
-//                
-//                print("values = \(values)")
-//                print("indexes = \(indexes)")
-//                print("picker = \(picker)")
-//                return
-//            }, cancelBlock: { ActionMultipleStringCancelBlock in return }, origin: sender)
+        //
+        //        ActionSheetMultipleStringPicker.showPickerWithTitle("Multiple String Picker", rows: [
+        //            ["One", "Two", "A lot"],
+        //            ], initialSelection: [2], doneBlock: {
+        //                picker, values, indexes in
+        //
+        //                print("values = \(values)")
+        //                print("indexes = \(indexes)")
+        //                print("picker = \(picker)")
+        //                return
+        //            }, cancelBlock: { ActionMultipleStringCancelBlock in return }, origin: sender)
         
     }
     
@@ -167,13 +170,13 @@ class EventsDetailViewController: UIViewController,UITableViewDataSource,UITable
     {
         let keyValue = KeyArray[section] as! String
         if keyValue == "Event Type/Ticket Type" {
-//            let headerView = UIView(frame: CGRect(x: 0, y: 20, width: tableView.bounds.size.width, height: 30))
-//            let titleLabel : UILabel = UILabel()
-//            titleLabel.frame = CGRect(x: 5, y: 5, width: 200, height: 20)
-//            titleLabel.text = "Event Type/Ticket Type"
-//            headerView.addSubview(titleLabel)
-//            headerView.backgroundColor = UIColor.white
-//            return headerView
+            //            let headerView = UIView(frame: CGRect(x: 0, y: 20, width: tableView.bounds.size.width, height: 30))
+            //            let titleLabel : UILabel = UILabel()
+            //            titleLabel.frame = CGRect(x: 5, y: 5, width: 200, height: 20)
+            //            titleLabel.text = "Event Type/Ticket Type"
+            //            headerView.addSubview(titleLabel)
+            //            headerView.backgroundColor = UIColor.white
+            //            return headerView
         }
         else {
             let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 5))
@@ -184,39 +187,36 @@ class EventsDetailViewController: UIViewController,UITableViewDataSource,UITable
     }
     
     /*func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        ActionSheetMultipleStringPicker.show(withTitle: "Select Tickets", rows: [
-            [1, 2, 3,4,5],
-            ], initialSelection: [1], doneBlock: {
-                picker, values, indexes in
-                
-                
-                
-                let ticketType = self.eventsArray[indexPath.row]
-                let ticketCost = self.costArray[indexPath.row]
-                let totalTickets = values?.last
-                
-                print(indexes)
-                print(totalTickets)
-                
-                let a:Int? = totalTickets as! Int?
-                let b:Int? = Int(ticketCost)
-                
-                print(b! * a!)
-                
-                //print(totalTickets * ticketCost)
-                
-                let orderDetials : OrderedDetailsViewController = (UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OrderedDetailsViewController") as? OrderedDetailsViewController)!
-                orderDetials.eventDetailsDic = self.eventDetailsDict
-                let bookingDetilasDic : NSMutableDictionary = NSMutableDictionary()
-                bookingDetilasDic.setObject(ticketType, forKey: "TICKET_TYPE" as NSCopying)
-                bookingDetilasDic.setObject(b! * a!, forKey: "TICKET_COST" as NSCopying)
-                bookingDetilasDic.setObject(totalTickets!, forKey: "TOTAL_TICKETS" as NSCopying)
-                orderDetials.ticketTypeDetials = bookingDetilasDic
-                self.navigationController?.pushViewController(orderDetials, animated: true)
-                return
-            }, cancel: { ActionMultipleStringCancelBlock in return }, origin: tableView)
-    }*/
+     
+     ActionSheetMultipleStringPicker.show(withTitle: "Select Tickets", rows: [
+     [1, 2, 3,4,5],
+     ], initialSelection: [1], doneBlock: {
+     picker, values, indexes in
+     
+     
+     
+     let ticketType = self.eventsArray[indexPath.row]
+     let ticketCost = self.costArray[indexPath.row]
+     let totalTickets = values?.last
+     
+     print(indexes)
+     print(totalTickets)
+     
+     let a:Int? = totalTickets as! Int?
+     let b:Int? = Int(ticketCost)
+     print(b! * a!)
+     //print(totalTickets * ticketCost)
+     let orderDetials : OrderedDetailsViewController = (UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OrderedDetailsViewController") as? OrderedDetailsViewController)!
+     orderDetials.eventDetailsDic = self.eventDetailsDict
+     let bookingDetilasDic : NSMutableDictionary = NSMutableDictionary()
+     bookingDetilasDic.setObject(ticketType, forKey: "TICKET_TYPE" as NSCopying)
+     bookingDetilasDic.setObject(b! * a!, forKey: "TICKET_COST" as NSCopying)
+     bookingDetilasDic.setObject(totalTickets!, forKey: "TOTAL_TICKETS" as NSCopying)
+     orderDetials.ticketTypeDetials = bookingDetilasDic
+     self.navigationController?.pushViewController(orderDetials, animated: true)
+     return
+     }, cancel: { ActionMultipleStringCancelBlock in return }, origin: tableView)
+     }*/
     
     
     func bookAction(_ sender : UIButton)
@@ -230,33 +230,34 @@ class EventsDetailViewController: UIViewController,UITableViewDataSource,UITable
             
         }else{
             
-        ActionSheetMultipleStringPicker.show(withTitle: "Select Tickets", rows: [
-            ["1", "2", "3","4","5"],
-            ], initialSelection: [0], doneBlock: {
-                picker, values, indexes in
-       
-                let ticketType = self.eventsArray[sender.tag-1]
-                let ticketCost = self.costArray[sender.tag-1]
-                var totalTickets = values?.last
-       
-                let a:Int? = (totalTickets as! Int?)! + 1
-                let b:Int? = Int(ticketCost)
-                totalTickets = a
-                let totalPrice = b! * a!
-                let orderDetials : OrderedDetailsViewController = (UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OrderedDetailsViewController") as? OrderedDetailsViewController)!
-                orderDetials.totalAmountString = String(b! * a!)
-                orderDetials.totalTicketsString = String(describing: totalTickets!)
-
-                orderDetials.eventDetailsDic = self.eventDetailsDict
-                let bookingDetilasDic : NSMutableDictionary = NSMutableDictionary()
-                bookingDetilasDic.setObject(ticketType, forKey: "TICKET_TYPE" as NSCopying)
-                bookingDetilasDic.setObject(totalPrice, forKey: "TICKET_COST" as NSCopying)
-                bookingDetilasDic.setObject(totalTickets!, forKey: "TOTAL_TICKETS" as NSCopying)
-                orderDetials.ticketTypeDetials = bookingDetilasDic
-                self.navigationController?.pushViewController(orderDetials, animated: true)
-                return
-            }, cancel: { ActionMultipleStringCancelBlock in return }, origin: eventTableView)
-    }
+            ActionSheetMultipleStringPicker.show(withTitle: "Select Tickets", rows: [
+                ["1", "2", "3","4","5"],
+                ], initialSelection: [0], doneBlock: {
+                    picker, values, indexes in
+                    
+                    let ticketType = self.eventsArray[sender.tag-1]
+                    let ticketCost = self.costArray[sender.tag-1]
+                    var totalTickets = values?.last
+                    
+                    let a:Int? = (totalTickets as! Int?)! + 1
+                    let b:Int? = Int(ticketCost)
+                    totalTickets = a
+                    let totalPrice = b! * a!
+                    let orderDetials : OrderedDetailsViewController = (UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OrderedDetailsViewController") as? OrderedDetailsViewController)!
+                    orderDetials.totalAmountString = String(b! * a!)
+                    orderDetials.totalTicketsString = String(describing: totalTickets!)
+                    orderDetials.ticketType = ticketType
+                    
+                    orderDetials.eventDetailsDic = self.eventDetailsDict
+                    let bookingDetilasDic : NSMutableDictionary = NSMutableDictionary()
+                    bookingDetilasDic.setObject(ticketType, forKey: "TICKET_TYPE" as NSCopying)
+                    bookingDetilasDic.setObject(totalPrice, forKey: "TICKET_COST" as NSCopying)
+                    bookingDetilasDic.setObject(totalTickets!, forKey: "TOTAL_TICKETS" as NSCopying)
+                    orderDetials.ticketTypeDetials = bookingDetilasDic
+                    self.navigationController?.pushViewController(orderDetials, animated: true)
+                    return
+                }, cancel: { ActionMultipleStringCancelBlock in return }, origin: eventTableView)
+        }
     }
     
     func showAlertView(status:Int) {
@@ -274,12 +275,12 @@ class EventsDetailViewController: UIViewController,UITableViewDataSource,UITable
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     
 }

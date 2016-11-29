@@ -7,9 +7,17 @@
 //
 
 import UIKit
+@objc  protocol paymentDelegate
+{
+    
+   @objc optional func pamentSuccessFully(resultDiuct:NSDictionary)
+}
 
 class CXPayMentController: UIViewController {
-    typealias CompletionBlock = (_ responceDic:NSDictionary) -> Void
+    
+    var paymentDelegate:paymentDelegate?
+    
+    typealias CompletionBlock = (_ paymentSuccesDic:NSDictionary) -> Void
 
     var paymentUrl : NSURL! = nil
     var webRequestArry: NSMutableArray = NSMutableArray()
@@ -83,6 +91,10 @@ extension CXPayMentController : UIWebViewDelegate {
                 let status : String = (responseDict.value(forKey: "status") as? String)!
                 if status == "Completed" {
                     self.completion(responseDict)
+                
+                    if (self.paymentDelegate != nil) {
+                        self.paymentDelegate?.pamentSuccessFully!(resultDiuct: responseDict)
+                    }
                 }else{
                     
                 }
