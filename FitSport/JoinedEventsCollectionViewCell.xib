@@ -38,40 +38,58 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="dtP-3g-maO">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Z9B-zx-83q">
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Yn-4Z-gAt">
-                                        <state key="normal" image="map"/>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hyderabad" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z86-Nw-2QW">
-                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0zm-gC-yQO">
-                                        <state key="normal" image="calender"/>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12-23-2016" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIq-O8-nWf">
-                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dtP-3g-maO">
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Yn-4Z-gAt">
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="ABg-WN-hAW"/>
+                                                    <constraint firstAttribute="width" constant="40" id="NN3-o6-yYi"/>
+                                                </constraints>
+                                                <state key="normal" image="map"/>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hyderabad" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z86-Nw-2QW">
+                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rux-c6-hz3">
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0zm-gC-yQO">
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="40" id="Oq4-nC-adj"/>
+                                                    <constraint firstAttribute="height" constant="22" id="yRi-TC-y0M"/>
+                                                </constraints>
+                                                <state key="normal" image="calender"/>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12-23-2016" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIq-O8-nWf">
+                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="unh-lX-e4T"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.56030607876712324" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="dtP-3g-maO" secondAttribute="trailing" constant="50" id="7Yh-nX-QlL"/>
+                            <constraint firstItem="Z9B-zx-83q" firstAttribute="leading" secondItem="90J-Is-utT" secondAttribute="leading" constant="8" id="2g9-Bo-5C6"/>
                             <constraint firstItem="gKH-wE-bPy" firstAttribute="top" secondItem="90J-Is-utT" secondAttribute="top" constant="7" id="Dpl-gP-oGc"/>
                             <constraint firstItem="gKH-wE-bPy" firstAttribute="leading" secondItem="90J-Is-utT" secondAttribute="leading" constant="8" id="ObA-dX-LvL"/>
                             <constraint firstItem="vDH-7Y-onu" firstAttribute="leading" secondItem="90J-Is-utT" secondAttribute="leading" constant="8" id="Ocq-TK-tSt"/>
-                            <constraint firstItem="dtP-3g-maO" firstAttribute="top" secondItem="vDH-7Y-onu" secondAttribute="bottom" constant="5" id="T1L-KB-UGY"/>
+                            <constraint firstAttribute="trailing" secondItem="Z9B-zx-83q" secondAttribute="trailing" constant="2" id="RuZ-wb-kFy"/>
+                            <constraint firstAttribute="bottom" secondItem="Z9B-zx-83q" secondAttribute="bottom" constant="6" id="SOR-1Z-wvs"/>
                             <constraint firstAttribute="trailing" secondItem="gKH-wE-bPy" secondAttribute="trailing" constant="8" id="Y09-Bk-J7P"/>
                             <constraint firstItem="vDH-7Y-onu" firstAttribute="top" secondItem="gKH-wE-bPy" secondAttribute="bottom" constant="4.5" id="qqL-I9-nIW"/>
-                            <constraint firstAttribute="bottom" secondItem="dtP-3g-maO" secondAttribute="bottom" constant="5" id="trK-6S-grS"/>
                             <constraint firstAttribute="height" constant="119" id="uTu-ti-yjN"/>
                             <constraint firstAttribute="trailing" secondItem="vDH-7Y-onu" secondAttribute="trailing" constant="8" id="usL-Wm-Rbi"/>
-                            <constraint firstItem="dtP-3g-maO" firstAttribute="leading" secondItem="90J-Is-utT" secondAttribute="leading" constant="5" id="voU-X6-93o"/>
                         </constraints>
                     </view>
                 </subviews>

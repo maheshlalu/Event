@@ -205,7 +205,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Z47-EJ-388" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Vrm-oP-VNI">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vrm-oP-VNI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -216,7 +216,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IxP-mh-lMo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4764" y="-2868"/>
+            <point key="canvasLocation" x="-4734" y="-2870"/>
         </scene>
         <!--Select Table View Controller-->
         <scene sceneID="QcO-Mu-eWf">
@@ -391,7 +391,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="aboutYourSelf" destination="Xhx-Cv-AOD" id="Dux-T0-0Md"/>
                         <outlet property="container" destination="Voq-2E-SQj" id="L7s-To-hzI"/>

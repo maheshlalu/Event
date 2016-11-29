@@ -118,6 +118,7 @@ extension EventsViewController : UISearchBarDelegate {
         self.EventsArray = self.defalutEventsArray
         self.eventCollectionView.reloadData()
         self.eventSearch.endEditing(true)
+        self.view.endEditing(true)
     }
     
     func serachTheEvents(searchText:String) {
