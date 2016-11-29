@@ -12,6 +12,8 @@ class EventsViewController: UIViewController,UICollectionViewDataSource,UICollec
     var parentView:TestViewController! = nil
 
     var EventsArray = [[String:AnyObject]]()
+    var defalutEventsArray = [[String:AnyObject]]()
+
     @IBOutlet weak var eventCollectionView: UICollectionView!
 
     @IBOutlet weak var eventSearch: UISearchBar!
@@ -29,6 +31,7 @@ class EventsViewController: UIViewController,UICollectionViewDataSource,UICollec
     func geTheEventsFromServer(){
         CXDataService.sharedInstance.getTheAppDataFromServer(["type":"Events" as AnyObject,"mallId":CXAppConfig.sharedInstance.getAppMallID() as AnyObject]) { (dict) in
             self.EventsArray = dict["jobs"] as! [[String:AnyObject]]
+            self.defalutEventsArray =  self.EventsArray
             self.eventCollectionView.reloadData()
         }
         
@@ -85,4 +88,46 @@ class EventsViewController: UIViewController,UICollectionViewDataSource,UICollec
     
     
 }
+}
+
+extension EventsViewController : UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar){
+        //Search
+        self.serachTheEvents(searchText: searchBar.text!)
+        
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.loadTheDefalutList()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
+//        let whitespaceSet = NSCharacterSet.whitespaces
+        if !(searchBar.text?.isEmpty)! {
+            // string contains non-whitespace characters
+        }else{
+            self.loadTheDefalutList()
+
+        }
+    
+    }
+    
+    func loadTheDefalutList(){
+        
+        self.EventsArray = self.defalutEventsArray
+        self.eventCollectionView.reloadData()
+        self.eventSearch.endEditing(true)
+    }
+    
+    func serachTheEvents(searchText:String) {
+        CXDataService.sharedInstance.showLoader(message: "Searching...")
+        CXDataService.sharedInstance.getTheAppDataFromServer(["type":"Events" as AnyObject,"mallId":CXAppConfig.sharedInstance.getAppMallID() as AnyObject,"keyWord":searchText as AnyObject]) { (dict) in
+            self.EventsArray = dict["jobs"] as! [[String:AnyObject]]
+            self.eventCollectionView.reloadData()
+            CXDataService.sharedInstance.hideLoader()
+        }
+    }
+    
+    
 }

@@ -13,8 +13,11 @@ class TrainerViewController: UIViewController ,UICollectionViewDataSource,UIColl
     var screenWidth:CGFloat! = nil
     @IBOutlet weak var EventCollectionView: UICollectionView!
     var trainerArray = [[String:AnyObject]]()
+    var defalutTrainerArray = [[String:AnyObject]]()
+
     var parentView:TestViewController! = nil
     
+    @IBOutlet weak var searchBar: UISearchBar!
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = false
@@ -42,7 +45,7 @@ class TrainerViewController: UIViewController ,UICollectionViewDataSource,UIColl
                 self.trainerArray.append(picDic as! [String : AnyObject])
                 }
             }
-            print(self.trainerArray.description)
+            self.defalutTrainerArray = self.trainerArray
             self.EventCollectionView.reloadData()
         }
         
@@ -126,6 +129,56 @@ class TrainerViewController: UIViewController ,UICollectionViewDataSource,UIColl
         //        self.navigationController?.pushViewController(selectSport, animated: true)
         
     }
+    
+}
+
+
+extension TrainerViewController : UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar){
+        //Search
+        self.serachTheEvents(searchText: searchBar.text!)
+        
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.loadTheDefalutList()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
+        //        let whitespaceSet = NSCharacterSet.whitespaces
+        if !(searchBar.text?.isEmpty)! {
+            // string contains non-whitespace characters
+        }else{
+            self.loadTheDefalutList()
+            
+        }
+        
+    }
+    
+    func loadTheDefalutList(){
+        
+        self.trainerArray = self.defalutTrainerArray
+        self.EventCollectionView.reloadData()
+        self.searchBar.endEditing(true)
+    }
+    
+    func serachTheEvents(searchText:String) {
+        CXDataService.sharedInstance.showLoader(message: "Searching...")
+        CXDataService.sharedInstance.getTheAppDataFromServer(["type":"macIdinfo" as AnyObject,"mallId":CXAppConfig.sharedInstance.getAppMallID() as AnyObject,"keyWord":searchText as AnyObject]) { (dict) in
+            self.trainerArray = [[String:AnyObject]]()
+            let arr = dict["jobs"] as! [[String:AnyObject]]
+            for gallaeryData in arr {
+                let picDic : NSDictionary =  gallaeryData as NSDictionary
+                print(picDic.allKeys)
+                print( picDic.value(forKey: "UserType"))
+                if picDic.value(forKey: "UserType")! as! String == "Trainer"{
+                    self.trainerArray.append(picDic as! [String : AnyObject])
+                }
+            }
+            self.EventCollectionView.reloadData()        }
+    }
+    
     
 }
 

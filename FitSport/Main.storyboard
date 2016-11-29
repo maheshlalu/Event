@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="FFn-1S-hKG">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="FFn-1S-hKG">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -51,11 +51,14 @@
                                     <outlet property="delegate" destination="0ye-RH-fVT" id="4Te-F0-yCy"/>
                                 </connections>
                             </collectionView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="T15-Ny-nwe">
+                            <searchBar contentMode="redraw" placeholder="Search an events" translatesAutoresizingMaskIntoConstraints="NO" id="T15-Ny-nwe">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="3br-db-21N"/>
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="0ye-RH-fVT" id="3QV-3Y-yqT"/>
+                                </connections>
                             </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -431,8 +434,11 @@
                                     <outlet property="delegate" destination="kCA-Hk-gsS" id="ORh-Qd-jj1"/>
                                 </connections>
                             </collectionView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Krq-TP-hky">
+                            <searchBar contentMode="redraw" placeholder="Search Trainers" translatesAutoresizingMaskIntoConstraints="NO" id="Krq-TP-hky">
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="kCA-Hk-gsS" id="X7e-W0-7vz"/>
+                                </connections>
                             </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -448,6 +454,7 @@
                     </view>
                     <connections>
                         <outlet property="EventCollectionView" destination="VcD-AR-LNJ" id="emI-5E-mnF"/>
+                        <outlet property="searchBar" destination="Krq-TP-hky" id="Nsj-MC-1Ja"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xBa-Yp-CuM" userLabel="First Responder" sceneMemberID="firstResponder"/>

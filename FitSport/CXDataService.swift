@@ -49,9 +49,9 @@ open class CXDataService: NSObject {
             print(CXAppConfig.sharedInstance.getBaseUrl() + CXAppConfig.sharedInstance.getMasterUrl())
             print(parameters)
             
-            KRProgressHUD.show(progressHUDStyle: .black, maskType: .black, activityIndicatorStyle: .white, font: CXAppConfig.sharedInstance.appMediumFont(), message: "", image: nil) {
-                
-                }
+//            KRProgressHUD.show(progressHUDStyle: .black, maskType: .black, activityIndicatorStyle: .white, font: CXAppConfig.sharedInstance.appMediumFont(), message: "", image: nil) {
+//                
+//                }
             
             let configuration = URLSessionConfiguration.default
             configuration.timeoutIntervalForRequest = 60*60
