@@ -130,6 +130,10 @@ class CXAppConfig {
         return config!.value(forKey: "paymentProductionUrl") as! String
     }
     
+    //createBookingHistoryByPId
+    func getcreateBookingHistoryByPIdUrl() -> String{
+        return config!.value(forKey: "createBookingHistoryByPId") as! String
+    }
     
     func getAppTheamColor() -> UIColor {
         
