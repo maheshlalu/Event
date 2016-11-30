@@ -37,6 +37,9 @@
 		116FBAAC1DDDD74D003C942A /* PackageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116FBAAB1DDDD74D003C942A /* PackageViewController.swift */; };
 		116FBAAE1DDDD762003C942A /* PackageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 116FBAAD1DDDD762003C942A /* PackageTableViewCell.xib */; };
 		116FBAB01DDDD76D003C942A /* PackageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116FBAAF1DDDD76D003C942A /* PackageTableViewCell.swift */; };
+		1177C4191DEEAA3600C0315B /* PopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1177C4181DEEAA3600C0315B /* PopupController.swift */; };
+		1177C41C1DEEAA7200C0315B /* DemoPopupViewController2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1177C41A1DEEAA7200C0315B /* DemoPopupViewController2.storyboard */; };
+		1177C41D1DEEAA7200C0315B /* DemoPopupViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1177C41B1DEEAA7200C0315B /* DemoPopupViewController2.swift */; };
 		11791D4D1DDECCDF0015C1E0 /* TrainerProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11791D4C1DDECCDF0015C1E0 /* TrainerProfileViewController.swift */; };
 		11791D4F1DDECD700015C1E0 /* TrainerCertificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11791D4E1DDECD700015C1E0 /* TrainerCertificationViewController.swift */; };
 		118521AC1DEBFDC00069DB6C /* BookingHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118521AB1DEBFDC00069DB6C /* BookingHistoryViewController.swift */; };
@@ -146,6 +149,9 @@
 		116FBAAB1DDDD74D003C942A /* PackageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PackageViewController.swift; sourceTree = "<group>"; };
 		116FBAAD1DDDD762003C942A /* PackageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PackageTableViewCell.xib; sourceTree = "<group>"; };
 		116FBAAF1DDDD76D003C942A /* PackageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PackageTableViewCell.swift; sourceTree = "<group>"; };
+		1177C4181DEEAA3600C0315B /* PopupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupController.swift; sourceTree = "<group>"; };
+		1177C41A1DEEAA7200C0315B /* DemoPopupViewController2.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DemoPopupViewController2.storyboard; sourceTree = "<group>"; };
+		1177C41B1DEEAA7200C0315B /* DemoPopupViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoPopupViewController2.swift; sourceTree = "<group>"; };
 		11791D4C1DDECCDF0015C1E0 /* TrainerProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainerProfileViewController.swift; sourceTree = "<group>"; };
 		11791D4E1DDECD700015C1E0 /* TrainerCertificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainerCertificationViewController.swift; sourceTree = "<group>"; };
 		118521AB1DEBFDC00069DB6C /* BookingHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingHistoryViewController.swift; sourceTree = "<group>"; };
@@ -268,6 +274,16 @@
 				1167B8271DD0864F0025842B /* ActionButtonItem.swift */,
 			);
 			name = Fab;
+			sourceTree = "<group>";
+		};
+		1177C4171DEEA95000C0315B /* PopUp */ = {
+			isa = PBXGroup;
+			children = (
+				1177C41A1DEEAA7200C0315B /* DemoPopupViewController2.storyboard */,
+				1177C41B1DEEAA7200C0315B /* DemoPopupViewController2.swift */,
+				1177C4181DEEAA3600C0315B /* PopupController.swift */,
+			);
+			name = PopUp;
 			sourceTree = "<group>";
 		};
 		11791D4B1DDECCB10015C1E0 /* TrainerProfile */ = {
@@ -469,6 +485,7 @@
 		11AB79F71DCB6407005E846B /* OtherResources */ = {
 			isa = PBXGroup;
 			children = (
+				1177C4171DEEA95000C0315B /* PopUp */,
 				113705A71DDF15650025BF9E /* FloatRatingView */,
 				18AABD771DD44B4F00A173F6 /* UIImageView+UIActivityIndicatorForSDWebImage.h */,
 				18AABD781DD44B4F00A173F6 /* UIImageView+UIActivityIndicatorForSDWebImage.m */,
@@ -664,6 +681,7 @@
 				11AB7A101DCB704A005E846B /* Roboto-Black.ttf in Resources */,
 				11AB7A111DCB704A005E846B /* Roboto-Bold.ttf in Resources */,
 				114F2B3F1DCC97E100D62948 /* MyProfile.storyboard in Resources */,
+				1177C41C1DEEAA7200C0315B /* DemoPopupViewController2.storyboard in Resources */,
 				11AB7A121DCB704A005E846B /* Roboto-Italic.ttf in Resources */,
 				11AB7A131DCB704A005E846B /* Roboto-Light.ttf in Resources */,
 				1123DDC31DEC0DC100C855F0 /* BookingHistoryCollectionViewCell.xib in Resources */,
@@ -896,9 +914,11 @@
 				2B1A5A321DE41EC900622250 /* EventsDetailViewController.swift in Sources */,
 				2B1A5A371DE44FA400622250 /* EventTypeTableViewCell.swift in Sources */,
 				1167B8281DD0864F0025842B /* ActionButton.swift in Sources */,
+				1177C4191DEEAA3600C0315B /* PopupController.swift in Sources */,
 				113705A91DDF15840025BF9E /* FloatRatingView.swift in Sources */,
 				2BC29A4D1DE309B400404D2D /* TrainerPackagesViewController.swift in Sources */,
 				114F2B4A1DCCB9A200D62948 /* EventCell.swift in Sources */,
+				1177C41D1DEEAA7200C0315B /* DemoPopupViewController2.swift in Sources */,
 				1187045D1DE5ABE300C9B070 /* PhotosCollectionViewCell.swift in Sources */,
 				11AB79A31DCB600C005E846B /* FitSport.xcdatamodeld in Sources */,
 				11AB79E51DCB61F4005E846B /* AHTagsLabel.swift in Sources */,

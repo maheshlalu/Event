@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="05Q-G7-9aQ">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Bold.ttf">
+            <string>Roboto-Bold</string>
+        </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Demo Popup View Controller2-->
+        <scene sceneID="ZPl-XE-XZo">
+            <objects>
+                <viewController id="05Q-G7-9aQ" customClass="DemoPopupViewController2" customModule="FitSport" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="n5c-fn-lEd"/>
+                        <viewControllerLayoutGuide type="bottom" id="kWo-hi-e32"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fX4-NP-0jd">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="230"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="idZ-kC-rjc">
+                                <color key="backgroundColor" red="0.97254901959999995" green="0.46666666670000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="cPU-dc-7Wx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="submitAction:" destination="05Q-G7-9aQ" eventType="touchUpInside" id="ADW-8c-9eN"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Edl-cu-65v">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Query Below" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qzO-sQ-3xg">
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.97254901959999995" green="0.46666666670000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="qzO-sQ-3xg" firstAttribute="top" secondItem="Edl-cu-65v" secondAttribute="top" id="Gb2-nA-LXf"/>
+                                    <constraint firstAttribute="trailing" secondItem="qzO-sQ-3xg" secondAttribute="trailing" id="XlK-DA-52F"/>
+                                    <constraint firstAttribute="bottom" secondItem="qzO-sQ-3xg" secondAttribute="bottom" id="e5e-yW-V3x"/>
+                                    <constraint firstItem="qzO-sQ-3xg" firstAttribute="leading" secondItem="Edl-cu-65v" secondAttribute="leading" id="hEC-FI-0Wa"/>
+                                </constraints>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aiH-Cz-WYk">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="268" id="YRh-16-gSJ"/>
+                                    <constraint firstAttribute="height" constant="123" id="caZ-Fx-dae"/>
+                                </constraints>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="19"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="idZ-kC-rjc" secondAttribute="trailing" id="40U-R1-hLZ"/>
+                            <constraint firstItem="aiH-Cz-WYk" firstAttribute="top" secondItem="Edl-cu-65v" secondAttribute="bottom" constant="15" id="HP3-NH-Cy0"/>
+                            <constraint firstItem="idZ-kC-rjc" firstAttribute="leading" secondItem="fX4-NP-0jd" secondAttribute="leading" id="KOx-pF-x9f"/>
+                            <constraint firstItem="Edl-cu-65v" firstAttribute="leading" secondItem="idZ-kC-rjc" secondAttribute="leading" id="eUm-s1-MGk"/>
+                            <constraint firstItem="Edl-cu-65v" firstAttribute="trailing" secondItem="idZ-kC-rjc" secondAttribute="trailing" id="lYB-Pe-ixY"/>
+                            <constraint firstItem="aiH-Cz-WYk" firstAttribute="centerX" secondItem="fX4-NP-0jd" secondAttribute="centerX" id="qJs-hN-rjR"/>
+                            <constraint firstItem="idZ-kC-rjc" firstAttribute="top" secondItem="aiH-Cz-WYk" secondAttribute="bottom" constant="14" id="sYY-D9-1qy"/>
+                            <constraint firstItem="kWo-hi-e32" firstAttribute="top" secondItem="idZ-kC-rjc" secondAttribute="bottom" id="u9f-F8-OTJ"/>
+                            <constraint firstItem="Edl-cu-65v" firstAttribute="top" secondItem="fX4-NP-0jd" secondAttribute="top" id="vNI-OU-vaS"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="300" height="230"/>
+                    <connections>
+                        <outlet property="questionTextView" destination="aiH-Cz-WYk" id="4vG-ae-oQt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="01X-ar-iS3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="476.80000000000001" y="104.34782608695653"/>
+        </scene>
+    </scenes>
+</document>

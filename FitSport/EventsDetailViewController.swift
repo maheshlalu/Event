@@ -25,7 +25,7 @@ class EventsDetailViewController: UIViewController,UITableViewDataSource,UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         cateGoryData = NSDictionary(objects: ["Cricket Tournament",eventDetailsDict.value(forKey: "Event Date"),"",eventDetailsDict.value(forKey: "Description"),eventDetailsDict.value(forKey: "Venue")], forKeys: ["Event" as NSCopying,"Date" as NSCopying,"Event Type/Ticket Type"as NSCopying,"Description" as NSCopying,"Venue" as NSCopying])
         
         KeyArray = ["Event","Date","Event Type/Ticket Type","Description","Venue"]

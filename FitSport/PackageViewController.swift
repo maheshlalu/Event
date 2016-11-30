@@ -99,6 +99,27 @@ class PackageViewController: UIViewController,FloatRatingViewDelegate,UIGestureR
     func handleTap(){
         print("Happy")
         
+        let popup = PopupController
+            .create(self)
+            .customize(
+                [
+                    .animation(.slideUp),
+                    .scrollable(false),
+                    .layout(.top),
+                    .backgroundStyle(.blackFilter(alpha: 0.7))
+                ]
+            )
+            .didShowHandler { popup in
+            }
+            .didCloseHandler { _ in
+        }
+        let container = DemoPopupViewController2.instance()
+        container.closeHandler = { _ in
+            popup.dismiss()
+            print("pop up closed")
+        }
+        popup.show(container)
+        
     }
     
     @IBAction func shareAction(_ sender: AnyObject) {
@@ -175,7 +196,7 @@ class PackageViewController: UIViewController,FloatRatingViewDelegate,UIGestureR
         
         //pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRect(x: 0, y: 253 , width: self.view.frame.width, height: self.view.frame.height - 309), pageMenuOptions: parameters)
         
-            pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRect(x: 0, y: 194, width: self.view.frame.width, height: self.view.frame.height), pageMenuOptions: parameters)
+            pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRect(x: 0, y: 194, width: self.view.frame.width, height: self.view.frame.height - 254), pageMenuOptions: parameters)
         
         self.view.addSubview(pageMenu!.view)
     }

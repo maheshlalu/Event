@@ -55,7 +55,7 @@ class BookingHistoryViewController: UIViewController,UICollectionViewDelegate,UI
         cell?.orderDate.text = dict["createdOn"] as? String
         
         if (dict["Event_Image_URL"] as! String) != "" {
-            let url = NSURL(string: dict["Image"] as! String)
+            let url = NSURL(string: dict["Event_Image_URL"] as! String)
             cell?.orderHistoryImageView.setImageWith(url as URL!, usingActivityIndicatorStyle: .gray)
         }
         
@@ -83,7 +83,7 @@ class BookingHistoryViewController: UIViewController,UICollectionViewDelegate,UI
     //Booking History Api Call
     //type=PaymentOrderDetails&consumerId=46&mallId=4
     func bookingHistoryCall(){
-        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getMasterUrl(), parameters: ["type":"PaymentOrderDetails" as AnyObject,"consumerId":"46" as AnyObject,"mallId":"4" as AnyObject]) { (responseDict) in
+        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getMasterUrl(), parameters: ["type":"PaymentOrderDetails" as AnyObject,"consumerId":CXAppConfig.sharedInstance.getMacJobID() as AnyObject,"mallId":CXAppConfig.sharedInstance.getAppMallID() as AnyObject]) { (responseDict) in
             print(responseDict)
             let arr = responseDict["jobs"] as! [[String:AnyObject]]
             for gallaeryData in arr {

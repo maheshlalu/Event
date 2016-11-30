@@ -569,7 +569,7 @@
                                     <constraint firstItem="rqZ-X2-p7h" firstAttribute="leading" secondItem="B1a-xI-53P" secondAttribute="leading" id="zgL-sq-Zf7"/>
                                 </constraints>
                             </view>
-                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="t6E-kI-lNP">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="t6E-kI-lNP">
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2fy-dD-7e6">
                                         <subviews>

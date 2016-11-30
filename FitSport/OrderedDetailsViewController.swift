@@ -55,11 +55,21 @@ class OrderedDetailsViewController: UIViewController {
     
     func getUserDetails()
     {
-        let userDict = CXAppConfig.sharedInstance.getUserUpdateDict()
-        let userProfileData:UserProfile = CXAppConfig.sharedInstance.getTheUserDetails()
-        print(userDict.value(forKey: "mobileNo"))
-        userEmailLbl.text = userProfileData.emailId
-        userMobileLbl.text = userDict.value(forKey: "mobileNo") as! String?
+//        let userDict = CXAppConfig.sharedInstance.getUserUpdateDict()
+//        let userProfileData:UserProfile = CXAppConfig.sharedInstance.getTheUserDetails()
+//        print(userDict.value(forKey: "mobileNo"))
+        
+        let appdata:NSArray = UserProfile.mr_findAll() as NSArray
+        
+        if appdata.count != 0{
+            let userProfileData:UserProfile = appdata.lastObject as! UserProfile
+            print(userProfileData.emailId)
+            print(userProfileData.phoneNumber)
+        }
+        
+        
+        //userEmailLbl.text = userProfileData.emailId
+        //userMobileLbl.text = userDict.value(forKey: "mobileNo") as! String?
         
     }
     
