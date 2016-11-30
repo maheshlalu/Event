@@ -135,6 +135,23 @@ class CXAppConfig {
         return config!.value(forKey: "createBookingHistoryByPId") as! String
     }
     
+    
+    //Get Psoted questions and Answers
+    
+    //paymentTestBaseURL
+    func getpostAQuestionAndAnswer() -> String{
+        return config!.value(forKey: "postQuestion") as! String
+    }
+    
+    func getgetPostedQuestions() -> String{
+        return config!.value(forKey: "getPostedQuestions") as! String
+    }
+    
+    
+    func getgetPostedAnswers() -> String{
+        return config!.value(forKey: "getPostedAnswers") as! String
+    }
+    
     func getAppTheamColor() -> UIColor {
         
         let appTheamColorArr : NSArray = config!.value(forKey: "AppTheamColor") as! NSArray

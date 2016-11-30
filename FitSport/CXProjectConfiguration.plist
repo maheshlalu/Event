@@ -65,6 +65,12 @@
 	<string>http://54.179.48.83/OngoStoresPG/fitSportPG?</string>
 	<key>createBookingHistoryByPId</key>
 	<string>MobileAPIs/createBookingHistoryByPId?</string>
+	<key>postQuestion</key>
+	<string>MobileAPIs/postAQuestionAndAnswer?</string>
+	<key>getPostedQuestions</key>
+	<string>MobileAPIs/getPostedQuestions?</string>
+	<key>getPostedAnswers</key>
+	<string>MobileAPIs/getPostedAnswers?</string>
 	<key>AppBgColr</key>
 	<array>
 		<string></string>
