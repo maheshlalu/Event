@@ -134,7 +134,7 @@ class CX_SocialIntegration: NSObject {
     }
     
     func saveUserDeatils(userData:NSDictionary,completion:@escaping () -> Void){
-        
+        UserProfile.mr_truncateAll()
         MagicalRecord.save({ (localContext) in
             let enProduct =  NSEntityDescription.insertNewObject(forEntityName: "UserProfile", into: localContext!) as? UserProfile
             print(userData)
@@ -223,6 +223,8 @@ class CX_SocialIntegration: NSObject {
         
     }
     
+   
+    
     //MARK:OTP Functionality
     
     // Varifying Email
@@ -253,5 +255,28 @@ class CX_SocialIntegration: NSObject {
             
         }
     }
+    
+    
+    
+    func activeTheUser(parameterDic:NSDictionary,jobId:String,completion:@escaping () -> Void){
+        var jsonData : NSData = NSData()
+        do {
+            jsonData = try JSONSerialization.data(withJSONObject: parameterDic, options: JSONSerialization.WritingOptions.prettyPrinted) as NSData
+            // here "jsonData" is the dictionary encoded in JSON data
+        } catch let error as NSError {
+            print(error)
+        }
+        let jsonStringFormat = String(data: jsonData as Data, encoding: String.Encoding.utf8)
+        print(jsonStringFormat)
+        
+        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getUpdatedUserDetails(), parameters: ["jobId":jobId as AnyObject,"jsonString":jsonStringFormat! as AnyObject,"ownerId":CXAppConfig.sharedInstance.getAppMallID() as AnyObject]) { (responseDict) in
+            completion()
+        }
+
+        
+    }
+    
+    
+    
     
 }

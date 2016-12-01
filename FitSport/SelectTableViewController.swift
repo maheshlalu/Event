@@ -42,13 +42,8 @@ class SelectTableViewController: UIViewController,UITableViewDataSource,UITableV
     
     @IBAction func nxtBtnAction(_ sender: AnyObject) {
         let  stringRepresentation = dataArray.componentsJoined(by: ",") as String
-        print(stringRepresentation)
-        
         self.updatingUserDict(dataString: stringRepresentation)
-        
-        let appDel = UIApplication.shared.delegate as! AppDelegate
-        appDel.setUpSidePanl()
-        
+  
     }
     func getTheProductCategory(){
         //let URLString = "http://storeongo.com:8081/Services/getMasters?type=P3rdLevelCategories&mallId=20221"
@@ -190,14 +185,30 @@ class SelectTableViewController: UIViewController,UITableViewDataSource,UITableV
         jsonDic.setObject(userDict.value(forKey: "mobileNo")!, forKey: "mobileNo" as NSCopying)
 
         CXAppConfig.sharedInstance.setUserUpdateDict(dictionary: jsonDic)
-        print(CXAppConfig.sharedInstance.getUserUpdateDict())
+       // print(CXAppConfig.sharedInstance.getUserUpdateDict())
+        CX_SocialIntegration.sharedInstance.activeTheUser(parameterDic: CXAppConfig.sharedInstance.getUserUpdateDict(), jobId: CXAppConfig.sharedInstance.getMacJobID()) {
+            let appDel = UIApplication.shared.delegate as! AppDelegate
+            let userProfileData:UserProfile = CXAppConfig.sharedInstance.getTheUserDetails()
+            
+            CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getSignInUrl(), parameters: ["orgId":CXAppConfig.sharedInstance.getAppMallID() as AnyObject,"email":userProfileData.emailId! as AnyObject,"dt":"DEVICES" as AnyObject,"isLoginWithFB":"true" as AnyObject]) { (responseDict) in
+                //"password":""
+                CX_SocialIntegration.sharedInstance.saveUserDeatils(userData: responseDict, completion: { (dic) in
+                    appDel.setUpSidePanl()
+                    
+                })
+                
+            }
+        }
         
-        self.activeTheUser(parameterDic: CXAppConfig.sharedInstance.getUserUpdateDict(), jobId: CXAppConfig.sharedInstance.getMacJobID())
-   
+    }
+    
+    func updateTheUserDetails(){
+        
+        
     }
     
     
-    func activeTheUser(parameterDic:NSDictionary,jobId:String){
+    /*func activeTheUser(parameterDic:NSDictionary,jobId:String){
         var jsonData : NSData = NSData()
         do {
             jsonData = try JSONSerialization.data(withJSONObject: parameterDic, options: JSONSerialization.WritingOptions.prettyPrinted) as NSData
@@ -216,7 +227,7 @@ class SelectTableViewController: UIViewController,UITableViewDataSource,UITableV
         
         
         
-    }
+    }*/
 //        CX_SocialIntegration.sharedInstance.updateTheSaveConsumerProperty(["ownerId":CXAppConfig.sharedInstance.getAppMallID(),"jobId":jobId,"jsonString":jsonStringFormat!]) { (resPonce) in     0
 //            
 //            self.navigationController?.popToRootViewControllerAnimated(true)

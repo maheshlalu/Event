@@ -95,11 +95,8 @@ open func synchDataToServerAndServerToMoblile(_ urlstring:String, parameters:[St
     
     print(urlstring)
     print(parameters)
-    
-    KRProgressHUD.show(progressHUDStyle: .black, maskType: .black, activityIndicatorStyle: .white, font: CXAppConfig.sharedInstance.appMediumFont(), message: "", image: nil) {
-        
-    }
-    
+    self.showLoader(message: "Fetching...")
+
     let configuration = URLSessionConfiguration.default
     configuration.timeoutIntervalForRequest = 60*60
     let sessionManager = Alamofire.SessionManager(configuration: configuration)
