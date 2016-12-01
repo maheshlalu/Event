@@ -339,7 +339,7 @@ func postQuestionsAndAnswers(ownerId:String,toEmail:String ,fromEmail:String ,qu
     
     func getPostedAnswers(ownerId:String,email:String,completion:@escaping (_ responseDict:NSDictionary) -> Void){
         let postedQuestionOrAnswerDic = ["ownerId":ownerId,"email":email]
-        self.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl() + CXAppConfig.sharedInstance.getpostAQuestionAndAnswer(), parameters: postedQuestionOrAnswerDic as [String : AnyObject]?) { (dic) in
+        self.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl() + CXAppConfig.sharedInstance.getgetPostedAnswers(), parameters: postedQuestionOrAnswerDic as [String : AnyObject]?) { (dic) in
             completion(dic)
         }
     }

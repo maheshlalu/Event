@@ -6,6 +6,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Roboto-Italic.ttf">
+            <string>Roboto-Italic</string>
+        </array>
         <array key="Roboto-Regular.ttf">
             <string>Roboto-Regular</string>
         </array>
@@ -20,40 +23,53 @@
                 <rect key="frame" x="0.0" y="0.0" width="323" height="138"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Dont' worry buddy i am going to help u buddy and thi si s;lkadsjh;l dfs;kljas;dk fj;lsdkaj ;ladflakdfd;l;f" textAlignment="right" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9Y-JC-yjh">
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="right" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9Y-JC-yjh">
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Dont' worry buddy i am going to help u buddy and thi si s;lkadsjh;l dfs;kljas;dk fj;lsdkaj ;ladflakdfd;l;f" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZOK-M5-wxL">
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZOK-M5-wxL">
                         <color key="textColor" red="0.98039215690000003" green="0.46666666670000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chitti" translatesAutoresizingMaskIntoConstraints="NO" id="9iT-2x-nh8">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9iT-2x-nh8">
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="heh-aX-ZEt"/>
                             <constraint firstAttribute="width" constant="30" id="w1A-Lj-v1R"/>
                         </constraints>
                     </imageView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sadhu.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ngN-nY-Khu">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ngN-nY-Khu">
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="Wj3-7x-0MZ"/>
                             <constraint firstAttribute="width" constant="30" id="k6F-3M-mQC"/>
                         </constraints>
                     </imageView>
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question Not yet Answered" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qjs-Ot-amP">
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
+                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PF6-tl-YjW">
+                        <fontDescription key="fontDescription" name="Roboto-Italic" family="Roboto" pointSize="13"/>
+                        <state key="normal" title="Click here to answer"/>
+                    </button>
                 </subviews>
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="PF6-tl-YjW" secondAttribute="bottom" constant="8" id="2mj-OI-J29"/>
                 <constraint firstItem="9iT-2x-nh8" firstAttribute="top" secondItem="ZOK-M5-wxL" secondAttribute="top" id="5Qv-eB-dg9"/>
+                <constraint firstAttribute="trailing" secondItem="PF6-tl-YjW" secondAttribute="trailing" constant="8" id="KHY-hX-Dpt"/>
                 <constraint firstAttribute="bottom" secondItem="ngN-nY-Khu" secondAttribute="bottom" constant="8" id="Kna-db-XLE"/>
                 <constraint firstAttribute="trailing" secondItem="ngN-nY-Khu" secondAttribute="trailing" constant="8" id="NtS-iH-ASL"/>
                 <constraint firstItem="ZOK-M5-wxL" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="PlC-Ne-Vae"/>
                 <constraint firstAttribute="bottom" secondItem="X9Y-JC-yjh" secondAttribute="bottom" constant="5" id="RH2-Ve-EWl"/>
-                <constraint firstAttribute="trailing" secondItem="ZOK-M5-wxL" secondAttribute="trailing" constant="8" id="RPh-HD-CQv"/>
+                <constraint firstAttribute="trailing" secondItem="ZOK-M5-wxL" secondAttribute="trailing" constant="5" id="RPh-HD-CQv"/>
+                <constraint firstAttribute="bottom" secondItem="qjs-Ot-amP" secondAttribute="bottom" constant="17.5" id="Z6o-8a-Pe8"/>
                 <constraint firstItem="ngN-nY-Khu" firstAttribute="leading" secondItem="X9Y-JC-yjh" secondAttribute="trailing" constant="2" id="ZvB-wc-CkF"/>
                 <constraint firstItem="9iT-2x-nh8" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="eSQ-Cc-qvG"/>
+                <constraint firstAttribute="trailing" secondItem="qjs-Ot-amP" secondAttribute="trailing" constant="8" id="gSK-Jr-R5C"/>
                 <constraint firstItem="ZOK-M5-wxL" firstAttribute="leading" secondItem="9iT-2x-nh8" secondAttribute="trailing" constant="2" id="nqD-kF-9n2"/>
                 <constraint firstItem="X9Y-JC-yjh" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="sra-hs-upN"/>
             </constraints>
@@ -62,13 +78,11 @@
                 <outlet property="QuestionPic" destination="9iT-2x-nh8" id="VlS-PW-XmA"/>
                 <outlet property="answerPic" destination="ngN-nY-Khu" id="QVN-XM-PgK"/>
                 <outlet property="answerTxtView" destination="X9Y-JC-yjh" id="pTo-KR-J3O"/>
+                <outlet property="clickToAnswerBtn" destination="PF6-tl-YjW" id="oLv-GW-QmG"/>
+                <outlet property="notYetAnswered" destination="qjs-Ot-amP" id="cA8-jd-a9P"/>
                 <outlet property="questionTxtView" destination="ZOK-M5-wxL" id="svv-oA-Dg1"/>
             </connections>
-            <point key="canvasLocation" x="-1196.5" y="-240"/>
+            <point key="canvasLocation" x="-1221.5" y="-189"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="chitti" width="272" height="395"/>
-        <image name="sadhu.jpg" width="1280" height="720"/>
-    </resources>
 </document>

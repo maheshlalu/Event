@@ -34,6 +34,7 @@ class FAQViewController: UIViewController {
         
         let controller2 : RequestedQuestionsViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RequestedQuestionsViewController") as! RequestedQuestionsViewController
         controller2.title = "Requested Questions"
+        controller2.isRequestedQuestions = true
         controllerArray.append(controller2)
         
         

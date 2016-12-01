@@ -13,6 +13,8 @@ class QuestionChatCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var answerPic: UIImageView!
     @IBOutlet weak var questionTxtView: UITextView!
     @IBOutlet weak var answerTxtView: UITextView!
+    @IBOutlet weak var notYetAnswered: UILabel!
+    @IBOutlet weak var clickToAnswerBtn: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

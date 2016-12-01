@@ -10,10 +10,13 @@ import UIKit
 
 class DemoPopupViewController2: UIViewController, PopupContentViewController {
     
+    @IBOutlet weak var topLbl: UILabel!
     var closeHandler: (() -> Void)?
     @IBOutlet weak var questionTextView: UITextView!
     var toEmailStr:String!
     
+    var fromFAQ:Bool = false
+    var faqDict:NSDictionary!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +24,10 @@ class DemoPopupViewController2: UIViewController, PopupContentViewController {
         questionTextView.layer.cornerRadius = 4
         questionTextView.layer.borderWidth = 2
         
+        if fromFAQ{
+        print(faqDict)
+        topLbl.text = "Write Answer Below"
+        }
         
     }
     
@@ -40,17 +47,23 @@ class DemoPopupViewController2: UIViewController, PopupContentViewController {
     }
     
     func sizeForPopup(_ popupController: PopupController, size: CGSize, showingKeyboard: Bool) -> CGSize {
-        return CGSize(width: 300, height: 230)
+        return CGSize(width: 300, height: 190)
     }
     
     @IBAction func submitAction(_ sender: AnyObject) {
-        submitCall()
+        if fromFAQ{
+            faqSubmitCall()
+        }else{
+            submitCall()
+        }
+        
     }
     
     @IBAction func closeBtnAction(_ sender: AnyObject) {
         closeHandler!()
     }
     
+    // Submit call for Ask Question
     func submitCall(){
         
         let myString = questionTextView.text!
@@ -79,15 +92,30 @@ class DemoPopupViewController2: UIViewController, PopupContentViewController {
         }
     }
     
+    //Submit Call for Ask Answer
+    func faqSubmitCall() {
+        print(faqDict)
+        CXDataService.sharedInstance.postQuestionsAndAnswers(ownerId:CXAppConfig.sharedInstance.getAppMallID(), toEmail: faqDict.value(forKey: "toEmail") as! String, fromEmail: faqDict.value(forKey: "fromEmail") as! String, questionOrAnswer: questionTextView.text, questionID: faqDict.value(forKey: "id") as! String, isQuestion:false ) { (response) in
+            print(response)
+            let status: Int = Int(response.value(forKey: "status") as! String)!
+            let message = response.value(forKey: "message") as! String
+            if status == 1{
+                self.showAlertView(message: message, status: 100)
+            }
+        }
+        
+    }
+    
+    
     func showAlertView(message:String, status:Int) {
         let alert = UIAlertController(title:message, message: nil, preferredStyle: UIAlertControllerStyle.alert)
         let okAction = UIAlertAction(title: "Okay", style: UIAlertActionStyle.default) {
             UIAlertAction in
             
             if status == 100 {
-
-            }else if status == 200{
-
+                self.closeHandler!()
+                //let faq = RequestedQuestionsViewController()
+                //faq.faqCollectionView.reloadData()
             }
         }
         alert.addAction(okAction)
