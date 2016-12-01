@@ -35,6 +35,7 @@ class TrainerViewController: UIViewController ,UICollectionViewDataSource,UIColl
     }
 
     func geTheTrainersFromServer(){
+
         CXDataService.sharedInstance.getTheAppDataFromServer(["type":"macIdinfo" as AnyObject,"mallId":CXAppConfig.sharedInstance.getAppMallID() as AnyObject]) { (dict) in
            let arr = dict["jobs"] as! [[String:AnyObject]]
             for gallaeryData in arr {
