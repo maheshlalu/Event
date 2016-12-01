@@ -41,12 +41,11 @@
 		1177C41C1DEEAA7200C0315B /* DemoPopupViewController2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1177C41A1DEEAA7200C0315B /* DemoPopupViewController2.storyboard */; };
 		1177C41D1DEEAA7200C0315B /* DemoPopupViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1177C41B1DEEAA7200C0315B /* DemoPopupViewController2.swift */; };
 		1177C4201DEEEB1000C0315B /* FAQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1177C41F1DEEEB1000C0315B /* FAQViewController.swift */; };
-		1177C4221DEEEB3100C0315B /* YourQuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1177C4211DEEEB3100C0315B /* YourQuestionsViewController.swift */; };
 		1177C4241DEEEB4100C0315B /* RequestedQuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1177C4231DEEEB4100C0315B /* RequestedQuestionsViewController.swift */; };
-		1177C4271DEEF2ED00C0315B /* QuestionChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1177C4251DEEF2ED00C0315B /* QuestionChatTableViewCell.swift */; };
-		1177C4281DEEF2ED00C0315B /* QuestionChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1177C4261DEEF2ED00C0315B /* QuestionChatTableViewCell.xib */; };
 		11791D4D1DDECCDF0015C1E0 /* TrainerProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11791D4C1DDECCDF0015C1E0 /* TrainerProfileViewController.swift */; };
 		11791D4F1DDECD700015C1E0 /* TrainerCertificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11791D4E1DDECD700015C1E0 /* TrainerCertificationViewController.swift */; };
+		118488B01DEFF8D00006AC8B /* QuestionChatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118488AE1DEFF8D00006AC8B /* QuestionChatCollectionViewCell.swift */; };
+		118488B11DEFF8D00006AC8B /* QuestionChatCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 118488AF1DEFF8D00006AC8B /* QuestionChatCollectionViewCell.xib */; };
 		118521AC1DEBFDC00069DB6C /* BookingHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118521AB1DEBFDC00069DB6C /* BookingHistoryViewController.swift */; };
 		1187045A1DE5971200C9B070 /* OrderedDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118704591DE5971200C9B070 /* OrderedDetailsViewController.swift */; };
 		1187045D1DE5ABE300C9B070 /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1187045B1DE5ABE300C9B070 /* PhotosCollectionViewCell.swift */; };
@@ -158,12 +157,11 @@
 		1177C41A1DEEAA7200C0315B /* DemoPopupViewController2.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DemoPopupViewController2.storyboard; sourceTree = "<group>"; };
 		1177C41B1DEEAA7200C0315B /* DemoPopupViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoPopupViewController2.swift; sourceTree = "<group>"; };
 		1177C41F1DEEEB1000C0315B /* FAQViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAQViewController.swift; sourceTree = "<group>"; };
-		1177C4211DEEEB3100C0315B /* YourQuestionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YourQuestionsViewController.swift; sourceTree = "<group>"; };
 		1177C4231DEEEB4100C0315B /* RequestedQuestionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestedQuestionsViewController.swift; sourceTree = "<group>"; };
-		1177C4251DEEF2ED00C0315B /* QuestionChatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionChatTableViewCell.swift; sourceTree = "<group>"; };
-		1177C4261DEEF2ED00C0315B /* QuestionChatTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionChatTableViewCell.xib; sourceTree = "<group>"; };
 		11791D4C1DDECCDF0015C1E0 /* TrainerProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainerProfileViewController.swift; sourceTree = "<group>"; };
 		11791D4E1DDECD700015C1E0 /* TrainerCertificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainerCertificationViewController.swift; sourceTree = "<group>"; };
+		118488AE1DEFF8D00006AC8B /* QuestionChatCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionChatCollectionViewCell.swift; sourceTree = "<group>"; };
+		118488AF1DEFF8D00006AC8B /* QuestionChatCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionChatCollectionViewCell.xib; sourceTree = "<group>"; };
 		118521AB1DEBFDC00069DB6C /* BookingHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingHistoryViewController.swift; sourceTree = "<group>"; };
 		118704591DE5971200C9B070 /* OrderedDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderedDetailsViewController.swift; sourceTree = "<group>"; };
 		1187045B1DE5ABE300C9B070 /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -301,9 +299,8 @@
 			children = (
 				1177C41F1DEEEB1000C0315B /* FAQViewController.swift */,
 				1177C4231DEEEB4100C0315B /* RequestedQuestionsViewController.swift */,
-				1177C4251DEEF2ED00C0315B /* QuestionChatTableViewCell.swift */,
-				1177C4261DEEF2ED00C0315B /* QuestionChatTableViewCell.xib */,
-				1177C4211DEEEB3100C0315B /* YourQuestionsViewController.swift */,
+				118488AE1DEFF8D00006AC8B /* QuestionChatCollectionViewCell.swift */,
+				118488AF1DEFF8D00006AC8B /* QuestionChatCollectionViewCell.xib */,
 			);
 			name = FAQView;
 			sourceTree = "<group>";
@@ -701,7 +698,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				115B19B01DD19CD300B58E84 /* SelectSportTableViewCell.xib in Resources */,
-				1177C4281DEEF2ED00C0315B /* QuestionChatTableViewCell.xib in Resources */,
 				11AB7A101DCB704A005E846B /* Roboto-Black.ttf in Resources */,
 				11AB7A111DCB704A005E846B /* Roboto-Bold.ttf in Resources */,
 				114F2B3F1DCC97E100D62948 /* MyProfile.storyboard in Resources */,
@@ -718,6 +714,7 @@
 				11AB7A171DCB704A005E846B /* RobotoCondensed-Light.ttf in Resources */,
 				11AB79A81DCB600C005E846B /* LaunchScreen.storyboard in Resources */,
 				11AB79E71DCB61F4005E846B /* AHTagTableViewCell.xib in Resources */,
+				118488B11DEFF8D00006AC8B /* QuestionChatCollectionViewCell.xib in Resources */,
 				11AB79DB1DCB61B2005E846B /* TestViewController.xib in Resources */,
 				11AB7A061DCB6850005E846B /* CXProjectConfiguration.plist in Resources */,
 				116E01401DD983E100BCF121 /* FitSport_OTP_Calls.rtf in Resources */,
@@ -937,7 +934,6 @@
 				18AABD791DD44B4F00A173F6 /* UIImageView+UIActivityIndicatorForSDWebImage.m in Sources */,
 				11AB7A041DCB682A005E846B /* CXAppConfig.swift in Sources */,
 				2B1A5A321DE41EC900622250 /* EventsDetailViewController.swift in Sources */,
-				1177C4221DEEEB3100C0315B /* YourQuestionsViewController.swift in Sources */,
 				2B1A5A371DE44FA400622250 /* EventTypeTableViewCell.swift in Sources */,
 				1167B8281DD0864F0025842B /* ActionButton.swift in Sources */,
 				1177C4191DEEAA3600C0315B /* PopupController.swift in Sources */,
@@ -946,12 +942,12 @@
 				114F2B4A1DCCB9A200D62948 /* EventCell.swift in Sources */,
 				1177C41D1DEEAA7200C0315B /* DemoPopupViewController2.swift in Sources */,
 				1177C4241DEEEB4100C0315B /* RequestedQuestionsViewController.swift in Sources */,
+				118488B01DEFF8D00006AC8B /* QuestionChatCollectionViewCell.swift in Sources */,
 				1187045D1DE5ABE300C9B070 /* PhotosCollectionViewCell.swift in Sources */,
 				11AB79A31DCB600C005E846B /* FitSport.xcdatamodeld in Sources */,
 				11AB79E51DCB61F4005E846B /* AHTagsLabel.swift in Sources */,
 				18EE80981DD35C6B000B20D8 /* JoinedEventsCollectionViewCell.swift in Sources */,
 				11AB79EB1DCB6225005E846B /* SelectTableViewController.swift in Sources */,
-				1177C4271DEEF2ED00C0315B /* QuestionChatTableViewCell.swift in Sources */,
 				11AB79DF1DCB61CA005E846B /* SignInPageViewController.swift in Sources */,
 				18F909551DE47D0A00210544 /* EventTypeNewTableViewCell.swift in Sources */,
 				1167B8291DD0864F0025842B /* ActionButtonItem.swift in Sources */,

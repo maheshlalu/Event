@@ -8,35 +8,43 @@
 
 import UIKit
 
-class RequestedQuestionsViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
-    @IBOutlet weak var FAQTableView: UITableView!
+class RequestedQuestionsViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     
+    @IBOutlet weak var faqCollectionView: UICollectionView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let nib = UINib(nibName: "QuestionChatTableViewCell", bundle: nil)
-        FAQTableView.register(nib, forCellReuseIdentifier: "QuestionChatTableViewCell")
-        
-        self.FAQTableView.estimatedRowHeight = 138
-        self.FAQTableView.rowHeight = UITableViewAutomaticDimension
-     
+        let nib = UINib(nibName: "QuestionChatCollectionViewCell", bundle: nil)
+        self.faqCollectionView.register(nib, forCellWithReuseIdentifier: "QuestionChatCollectionViewCell")
+        self.faqCollectionView.backgroundColor = UIColor.clear
+        self.faqCollectionView.contentSize = CGSize(width: 320, height: 138)
+        // Do any additional setup after loading the view.v
+
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        viewWillAppear(animated)
-    }
+    // CollectionView Delegate Methods
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+    {
         return 5
+        
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
+    {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "QuestionChatCollectionViewCell", for: indexPath)as? QuestionChatCollectionViewCell
+        cell?.questionTxtView.adjustsFontForContentSizeCategory = true
+        cell?.answerTxtView.adjustsFontForContentSizeCategory = true
+        
+        return cell!
+        
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "QuestionChatTableViewCell") as! QuestionChatTableViewCell
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 138
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: self.view.frame.size.width/1-9,height: 138)
+        
     }
     
 }

@@ -28,7 +28,7 @@ class FAQViewController: UIViewController {
         
         var controllerArray : [UIViewController] = []
         
-        let controller1:YourQuestionsViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "YourQuestionsViewController") as! YourQuestionsViewController
+        let controller1:RequestedQuestionsViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RequestedQuestionsViewController") as! RequestedQuestionsViewController
         controller1.title = "Your Questions"
         controllerArray.append(controller1)
         
