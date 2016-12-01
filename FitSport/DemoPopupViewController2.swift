@@ -81,12 +81,16 @@ class DemoPopupViewController2: UIViewController, PopupContentViewController {
                 fromEmail = userProfileData.emailId!
             }
 
-            let finalQueryString = trimmedString.addingPercentEncoding( withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
+            let finalQueryString = trimmedString
             print(finalQueryString)
   
-            CXDataService.sharedInstance.postQuestionsAndAnswers(ownerId: CXAppConfig.sharedInstance.getAppMallID(), toEmail: toEmailStr, fromEmail:fromEmail as String , questionOrAnswer: finalQueryString!, questionID: "", isQuestion: true, completion: { (responseDict) in
+            CXDataService.sharedInstance.postQuestionsAndAnswers(ownerId: CXAppConfig.sharedInstance.getAppMallID(), toEmail: toEmailStr, fromEmail:fromEmail as String , questionOrAnswer: finalQueryString, questionID: "", isQuestion: true, completion: { (responseDict) in
                 print(responseDict)
-                self.closeHandler!()
+                let status: Int = Int(responseDict.value(forKey: "status") as! String)!
+                let message = responseDict.value(forKey: "message") as! String
+                if status == 1{
+                    self.showAlertView(message: message, status: 100)
+                }
   
           })
         }
@@ -94,18 +98,26 @@ class DemoPopupViewController2: UIViewController, PopupContentViewController {
     
     //Submit Call for Ask Answer
     func faqSubmitCall() {
-        print(faqDict)
-        CXDataService.sharedInstance.postQuestionsAndAnswers(ownerId:CXAppConfig.sharedInstance.getAppMallID(), toEmail: faqDict.value(forKey: "toEmail") as! String, fromEmail: faqDict.value(forKey: "fromEmail") as! String, questionOrAnswer: questionTextView.text, questionID: faqDict.value(forKey: "id") as! String, isQuestion:false ) { (response) in
-            print(response)
-            let status: Int = Int(response.value(forKey: "status") as! String)!
-            let message = response.value(forKey: "message") as! String
-            if status == 1{
-                self.showAlertView(message: message, status: 100)
+        // Encode String
+        /*   let finalQueryString = trimmedString.addingPercentEncoding( withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
+         print(finalQueryString)*/
+        let myString = questionTextView.text!
+        let trimmedString = myString.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+    
+        if trimmedString.characters.count == 0{
+            showAlertView(message: "Field cann't be empty!!!", status: 0)
+        }else{
+            
+            CXDataService.sharedInstance.postQuestionsAndAnswers(ownerId:CXAppConfig.sharedInstance.getAppMallID(), toEmail: faqDict.value(forKey: "toEmail") as! String, fromEmail: faqDict.value(forKey: "fromEmail") as! String, questionOrAnswer: trimmedString, questionID: faqDict.value(forKey: "id") as! String, isQuestion:false ) { (response) in
+                print(response)
+                let status: Int = Int(response.value(forKey: "status") as! String)!
+                let message = response.value(forKey: "message") as! String
+                if status == 1{
+                    self.showAlertView(message: message, status: 100)
+                }
             }
         }
-        
     }
-    
     
     func showAlertView(message:String, status:Int) {
         let alert = UIAlertController(title:message, message: nil, preferredStyle: UIAlertControllerStyle.alert)
@@ -114,8 +126,7 @@ class DemoPopupViewController2: UIViewController, PopupContentViewController {
             
             if status == 100 {
                 self.closeHandler!()
-                //let faq = RequestedQuestionsViewController()
-                //faq.faqCollectionView.reloadData()
+
             }
         }
         alert.addAction(okAction)

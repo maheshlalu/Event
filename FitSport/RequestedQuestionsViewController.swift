@@ -152,7 +152,7 @@ class RequestedQuestionsViewController: UIViewController,UICollectionViewDelegat
     
         container.closeHandler = { _ in
             popup.dismiss()
-            print("pop up closed")
+            self.faqCollectionView.reloadData()
         }
         popup.show(container)
         
@@ -162,14 +162,13 @@ class RequestedQuestionsViewController: UIViewController,UICollectionViewDelegat
     func getPostedQuestions(){
         
         let appdata:NSArray = UserProfile.mr_findAll() as NSArray
-        
+        var userEmail:String = String()
         if appdata.count != 0{
             let userProfileData:UserProfile = appdata.lastObject as! UserProfile
-            print(userProfileData.emailId)
-            print(userProfileData.phoneNumber)
+            userEmail = userProfileData.emailId!
         }
         
-        CXDataService.sharedInstance.getPosterQuestions(ownerId:CXAppConfig.sharedInstance.getAppMallID(), email: "yernagulamahesh@gmail.com") { (responseDict) in
+        CXDataService.sharedInstance.getPosterQuestions(ownerId:CXAppConfig.sharedInstance.getAppMallID(), email:userEmail) { (responseDict) in
             
             let arr = responseDict["questions"] as! [[String:AnyObject]]
             for gallaeryData in arr {
@@ -185,14 +184,13 @@ class RequestedQuestionsViewController: UIViewController,UICollectionViewDelegat
     func getRequestedQuestions(){
         
         let appdata:NSArray = UserProfile.mr_findAll() as NSArray
-        
+        var userEmail:String = String()
         if appdata.count != 0{
             let userProfileData:UserProfile = appdata.lastObject as! UserProfile
-            print(userProfileData.emailId)
-            print(userProfileData.phoneNumber)
+            userEmail = userProfileData.emailId!
         }
         
-        CXDataService.sharedInstance.getPostedAnswers(ownerId: CXAppConfig.sharedInstance.getAppMallID(), email: "yernagulamahesh@gmail.com") { (responseDict) in
+        CXDataService.sharedInstance.getPostedAnswers(ownerId: CXAppConfig.sharedInstance.getAppMallID(), email:userEmail) { (responseDict) in
             
             let arr = responseDict["questions"] as! [[String:AnyObject]]
             for gallaeryData in arr {

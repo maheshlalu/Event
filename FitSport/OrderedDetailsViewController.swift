@@ -31,6 +31,7 @@ class OrderedDetailsViewController: UIViewController {
     var totalTicketsString : String! = nil
     var totalAmountString : String! = nil
     var ticketType : String! = nil
+    var userProfileData:UserProfile!
 
 
     override func viewDidLoad() {
@@ -55,21 +56,18 @@ class OrderedDetailsViewController: UIViewController {
     
     func getUserDetails()
     {
-//        let userDict = CXAppConfig.sharedInstance.getUserUpdateDict()
-//        let userProfileData:UserProfile = CXAppConfig.sharedInstance.getTheUserDetails()
-//        print(userDict.value(forKey: "mobileNo"))
-        
+
         let appdata:NSArray = UserProfile.mr_findAll() as NSArray
-        
         if appdata.count != 0{
-            let userProfileData:UserProfile = appdata.lastObject as! UserProfile
-            print(userProfileData.emailId)
-            print(userProfileData.phoneNumber)
+            userProfileData = appdata.lastObject as! UserProfile
+        }
+        userEmailLbl.text = userProfileData.emailId!
+        if userProfileData.phoneNumber == nil{
+            userMobileLbl.text = "Not Available"
+        }else{
+            userMobileLbl.text = userProfileData.phoneNumber!
         }
         
-        
-        //userEmailLbl.text = userProfileData.emailId
-        //userMobileLbl.text = userDict.value(forKey: "mobileNo") as! String?
         
     }
     
@@ -179,14 +177,14 @@ class OrderedDetailsViewController: UIViewController {
     
     
     @IBAction func paymentAction(_ sender: AnyObject) {
-  
-        let userDict = CXAppConfig.sharedInstance.getUserUpdateDict()
-        let userProfileData:UserProfile = CXAppConfig.sharedInstance.getTheUserDetails()
-       
-       
-//        let dict  = CXDataService.sharedInstance.convertStringToDictionary(userProfileData.json!)
+        var mobileStr:String = String()
+        if userProfileData.phoneNumber == nil{
+            mobileStr = ""
+        }else{
+            mobileStr = userProfileData.phoneNumber!
+        }
         
-            CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getPaymentGateWayUrl(), parameters: ["name":userProfileData.firstName! as AnyObject,"email":userProfileData.emailId! as AnyObject,"amount":self.totalAmountString! as AnyObject,"description":"FitSport Payment" as AnyObject,"phone":userDict.value(forKey: "mobileNo")! as AnyObject,"macId":userProfileData.macId! as AnyObject,"mallId":CXAppConfig.sharedInstance.getAppMallID() as AnyObject]) { (responseDict) in
+            CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getPaymentGateWayUrl(), parameters: ["name":self.userProfileData.firstName! as AnyObject,"email":userProfileData.emailId! as AnyObject,"amount":self.totalAmountString! as AnyObject,"description":"FitSport Payment" as AnyObject,"phone":mobileStr as AnyObject,"macId":userProfileData.macId! as AnyObject,"mallId":CXAppConfig.sharedInstance.getAppMallID() as AnyObject]) { (responseDict) in
                 
                 let payMentCntl : CXPayMentController = CXPayMentController()
                 payMentCntl.paymentUrl =  NSURL(string: responseDict.value(forKey: "payment_url")! as! String)
