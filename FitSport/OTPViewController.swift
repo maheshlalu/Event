@@ -96,11 +96,21 @@ class OTPViewController: UIViewController,UITextFieldDelegate {
     func updatingUserDict(otp:String){
         
         let jsonDic : NSMutableDictionary = NSMutableDictionary(dictionary: CXAppConfig.sharedInstance.getUserUpdateDict())
-        print(jsonDic)
         jsonDic.setObject(otp, forKey: "User_OTP" as NSCopying)
         CXAppConfig.sharedInstance.setUserUpdateDict(dictionary: jsonDic)
-        print(CXAppConfig.sharedInstance.getUserUpdateDict())
+        
+        
+         let userDict = CXAppConfig.sharedInstance.getUserUpdateDict()
+         let jsonUpdateDic : NSMutableDictionary = NSMutableDictionary(dictionary: CXAppConfig.sharedInstance.getUserUpdateDict())
+         jsonUpdateDic.setObject(userDict.value(forKey: "mobileNo")!, forKey: "mobileNo" as NSCopying)
+         CX_SocialIntegration.sharedInstance.activeTheUser(parameterDic: jsonUpdateDic, jobId: CXAppConfig.sharedInstance.getMacJobID()) {
+            
+        }
+  
+        
     }
+    
+    
     
     
     func showAlertView(message:String, status:Int) {
