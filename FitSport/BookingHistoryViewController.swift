@@ -84,13 +84,11 @@ class BookingHistoryViewController: UIViewController,UICollectionViewDelegate,UI
     //type=PaymentOrderDetails&consumerId=46&mallId=4
     func bookingHistoryCall(){
         CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getMasterUrl(), parameters: ["type":"PaymentOrderDetails" as AnyObject,"consumerId":CXAppConfig.sharedInstance.getMacJobID() as AnyObject,"mallId":CXAppConfig.sharedInstance.getAppMallID() as AnyObject]) { (responseDict) in
-            print(responseDict)
             let arr = responseDict["jobs"] as! [[String:AnyObject]]
             for gallaeryData in arr {
                 let picDic : NSDictionary =  gallaeryData as NSDictionary
-                print(picDic.allKeys)
                 print( picDic.value(forKey: "status"))
-                if picDic.value(forKey: "status")! as! String == "Completed"{
+                if (picDic.value(forKey: "status")! as! String == "Completed") && (picDic.value(forKey: "Event_Name")! as! String != ""){
                     self.bookingHistoryArr.append(picDic as! [String : AnyObject])
                 }
             }

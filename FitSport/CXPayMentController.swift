@@ -33,15 +33,47 @@ class CXPayMentController: UIViewController {
         payMentWebView.delegate = self
         let requestObj = NSURLRequest(url: paymentUrl as URL)
         self.payMentWebView.loadRequest(requestObj as URLRequest)
-        self.navigationItem.setHidesBackButton(true, animated:true);
+        //self.navigationItem.setHidesBackButton(true, animated:true);
         self.title = "Payment Gateway "
         self.activity = UIActivityIndicatorView()
         self.activity.tintColor = CXAppConfig.sharedInstance.getAppTheamColor()
         // Do any additional setup after loading the view.
+        
+        
+        
+        let backItem = UIBarButtonItem(image: UIImage(named: "back"), landscapeImagePhone: nil, style:  .plain, target: self, action: #selector(CXPayMentController.goBack))
+        //   backItem.title = "Back"
+        //back-120
+        //navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
+        self.navigationItem.leftBarButtonItem = backItem
     }
 
     
-  
+    func goBack()
+    {
+        self.showAlertView(message: "", status: 0)
+    }
+    
+    func showAlertView(message:String, status:Int) {
+        
+        let refreshAlert = UIAlertController(title: "", message: "Do you want to cancel this transaction and go back?", preferredStyle: .alert)
+        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (action: UIAlertAction!) in
+            print("Handle Ok logic here")
+            //Stay same place
+        }))
+        
+        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action: UIAlertAction!) in
+            print("Handle Cancel Logic here")
+            //Go back
+           // self.goBackcompletion(isGoBack: true)
+            self.navigationController?.popToRootViewController(animated: true)
+            
+        }))
+        
+        self.present(refreshAlert, animated: true, completion: nil)
+        
+    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

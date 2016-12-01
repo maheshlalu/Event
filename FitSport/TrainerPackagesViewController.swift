@@ -75,6 +75,17 @@ class TrainerPackagesViewController: UIViewController,UITableViewDataSource,UITa
         
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let storeLocation : StoreLocations =  (self.storeLocationArray[indexPath.row] as? StoreLocations)!
+
+        /*
+         var sessionType: String
+         var price: String
+         var duration: String
+         */
+    }
+    
     //FloatRatingViewDelegates
     func floatRatingView(_ ratingView: FloatRatingView, didUpdate rating: Float){
         
@@ -112,3 +123,40 @@ class TrainerPackagesViewController: UIViewController,UITableViewDataSource,UITa
     }
 }
 
+
+extension TrainerPackagesViewController : paymentDelegate {
+    
+    func pamentSuccessFully(resultDiuct:NSDictionary){
+        self.sendTheBookingHistoryDetailsToServer(paymentDic: resultDiuct)
+    }
+    
+    func sendTheBookingHistoryDetailsToServer(paymentDic:NSDictionary){
+        print(paymentDic)
+        let userProfileData:UserProfile = CXAppConfig.sharedInstance.getTheUserDetails()
+        
+     /*   let historyDic : NSMutableDictionary = NSMutableDictionary()
+        let address = "\(eventDetailsDic["Venue"]!)" + "," + "\(eventDetailsDic["City"]!)"
+        historyDic.setObject(paymentDic.value(forKey: "id")!, forKey: "paymentId" as NSCopying)
+        historyDic.setObject(userProfileData.emailId!, forKey: "consumerEmail" as NSCopying)
+        historyDic.setObject(eventDetailsDic["Name"]!, forKey: "Event_Name" as NSCopying)
+        historyDic.setObject(self.ticketType!, forKey: "Event_Type" as NSCopying)
+        historyDic.setObject(eventDetailsDic["Image_URL"]!, forKey: "Event_Image_URL" as NSCopying)
+        historyDic.setObject("\(self.totalTicketsString!)", forKey: "No_of_Units" as NSCopying)
+        historyDic.setObject(address, forKey: "Address" as NSCopying)
+        historyDic.setObject(eventDetailsDic["Event Date"]!, forKey: "Event_timings" as NSCopying)
+        historyDic.setObject("\(self.totalAmountString!)", forKey: "amount" as NSCopying)
+        historyDic.setObject(CXAppConfig.sharedInstance.getAppMallID(), forKey: "mallId" as NSCopying)
+        
+        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl() + CXAppConfig.sharedInstance.getcreateBookingHistoryByPIdUrl(), parameters: (historyDic as NSDictionary) as? [String : AnyObject]) { (responseDict) in
+            
+            print(responseDict)
+        }*/
+        /*
+         http://apps.storeongo.com:8081/MobileAPIs/createBookingHistoryByPId?paymentId=6bbf30d7ad694995b635bf459ab9278f&consumerEmail=chaitu.yeddla@gmail.com&Event_Name=Movie1&Event_Type=Entertainments&Event_Image_URL=&No_of_Units=3&Address=HYD&Event_timings=5pm-9pm&amount=670&mallId=4
+         */
+        
+        
+        
+    }
+    
+}

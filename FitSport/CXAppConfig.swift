@@ -143,7 +143,7 @@ class CXAppConfig {
         return config!.value(forKey: "postQuestion") as! String
     }
     
-    func getgetPostedQuestions() -> String{
+    func getPostedQuestions() -> String{
         return config!.value(forKey: "getPostedQuestions") as! String
     }
     

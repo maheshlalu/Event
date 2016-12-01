@@ -55,7 +55,8 @@ open func getTheAppDataFromServer(_ parameters:[String: AnyObject]? = nil ,compl
         
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForRequest = 60*60
-        
+        self.showLoader(message: "Fetching...")
+
         let sessionManager = Alamofire.SessionManager(configuration: configuration)
         
         // Alamofire.request("https://httpbin.org/post", method: .post, parameters: parameters, encoding: JSONEncoding.default)
@@ -180,7 +181,6 @@ open func getTheUpdatesFromServer(_ parameters:[String: AnyObject]? = nil ,compl
      clientId=5FAE0707506C43BAB8B8C9F554586895577B22880B834423A473E797607EFCF6&skipBy=0&fpid=kljadlkcjasd898979
      */
     //print(parameters)
-    
     
     Alamofire.request("https://api.withfloats.com/Discover/v2/floatingPoint/bizFloats?", method: .post, parameters: parameters, encoding: URLEncoding.`default`)
         .responseJSON { response in
@@ -322,12 +322,31 @@ func postQuestionsAndAnswers(ownerId:String,toEmail:String ,fromEmail:String ,qu
         postedQuestionOrAnswerDic = ["ownerId":ownerId,"toEmail":toEmail,"fromEmail":fromEmail,"question":questionOrAnswer]
     }else{
         //Is Answer
-        postedQuestionOrAnswerDic = ["ownerId":ownerId,"toEmail":toEmail,"fromEmail":fromEmail,"question":questionOrAnswer,"qaaId":questionID]
+        postedQuestionOrAnswerDic = ["ownerId":ownerId,"toEmail":toEmail,"fromEmail":fromEmail,"answer":questionOrAnswer,"qaaId":questionID]
     }
     self.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl() + CXAppConfig.sharedInstance.getpostAQuestionAndAnswer(), parameters: postedQuestionOrAnswerDic as [String : AnyObject]?) { (dic) in
         completion(dic)
     }
 }
+    
+  //MARK: GetQuestion And Answers
+    //http://localhost:8081/MobileAPIs/getPostedQuestions?ownerId=530&email=satyasasi.b@gmail.com
+
+    func getPosterQuestions(ownerId:String,email:String,completion:@escaping (_ responseDict:NSDictionary) -> Void){
+       let postedQuestionOrAnswerDic = ["ownerId":ownerId,"email":email]
+        self.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl() + CXAppConfig.sharedInstance.getPostedQuestions(), parameters: postedQuestionOrAnswerDic as [String : AnyObject]?) { (dic) in
+            completion(dic)
+        }
+    }
+    
+    
+    func getPostedAnswers(ownerId:String,email:String,completion:@escaping (_ responseDict:NSDictionary) -> Void){
+        let postedQuestionOrAnswerDic = ["ownerId":ownerId,"email":email]
+        self.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl() + CXAppConfig.sharedInstance.getpostAQuestionAndAnswer(), parameters: postedQuestionOrAnswerDic as [String : AnyObject]?) { (dic) in
+            completion(dic)
+        }
+    }
+    
 
     
     

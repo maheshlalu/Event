@@ -243,6 +243,7 @@ class EventsDetailViewController: UIViewController,UITableViewDataSource,UITable
                     let b:Int? = Int(ticketCost)
                     totalTickets = a
                     let totalPrice = b! * a!
+                    
                     let orderDetials : OrderedDetailsViewController = (UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OrderedDetailsViewController") as? OrderedDetailsViewController)!
                     orderDetials.totalAmountString = String(b! * a!)
                     orderDetials.totalTicketsString = String(describing: totalTickets!)
