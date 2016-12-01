@@ -16,8 +16,8 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
     @IBOutlet weak var imageView: UIImageView!
      var previousSelectedIndex  : NSIndexPath = NSIndexPath()
     @IBOutlet weak var leftTableView: UITableView!
-    var nameArray = ["HOME","INTEREST SPORTS","EVENTS","TRAINERS","BOOKING HISTORY","HELP","SIGN OUT"]
-    var imageArray = ["home","heart","events","trainer","invite","help","logout"]
+    var nameArray = ["HOME","INTEREST SPORTS","EVENTS","TRAINERS","BOOKING HISTORY","FAQ","SIGN OUT"]
+    var imageArray = ["home","heart","events","trainer","history","help","logout"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -117,9 +117,11 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
             let navCntl = UINavigationController(rootViewController: howToUse)
             revealController.pushFrontViewController(navCntl, animated: true)
             
-        }else if itemName == "HELP" {
-            //            let wishlist = storyBoard.instantiateViewControllerWithIdentifier("WISHLIST") as! NowfloatWishlistViewController
-            //            self.navController.pushViewController(wishlist, animated: true)
+        }else if itemName == "FAQ" {
+            
+            let homeView = FAQViewController()
+            let navCntl = UINavigationController(rootViewController: homeView)
+            revealController.pushFrontViewController(navCntl, animated: true)
             
         }else if itemName == "SIGN OUT"{
             

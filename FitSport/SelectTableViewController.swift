@@ -210,6 +210,7 @@ class SelectTableViewController: UIViewController,UITableViewDataSource,UITableV
         
         CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getUpdatedUserDetails(), parameters: ["jobId":jobId as AnyObject,"jsonString":jsonStringFormat! as AnyObject,"ownerId":CXAppConfig.sharedInstance.getAppMallID() as AnyObject]) { (responseDict) in
             print(responseDict)
+        
             
         }
         

@@ -106,7 +106,8 @@ class PackageViewController: UIViewController,FloatRatingViewDelegate,UIGestureR
                     .animation(.slideUp),
                     .scrollable(false),
                     .layout(.top),
-                    .backgroundStyle(.blackFilter(alpha: 0.7))
+                    .backgroundStyle(.blackFilter(alpha: 0.7)),
+                    .dismissWhenTaps(false)
                 ]
             )
             .didShowHandler { popup in
@@ -114,6 +115,7 @@ class PackageViewController: UIViewController,FloatRatingViewDelegate,UIGestureR
             .didCloseHandler { _ in
         }
         let container = DemoPopupViewController2.instance()
+        container.toEmailStr = userDict.value(forKey: "Email") as! String
         container.closeHandler = { _ in
             popup.dismiss()
             print("pop up closed")

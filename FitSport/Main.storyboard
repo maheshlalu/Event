@@ -766,6 +766,61 @@
             </objects>
             <point key="canvasLocation" x="-13224.5" y="-1139.5"/>
         </scene>
+        <!--Requested Questions View Controller-->
+        <scene sceneID="YqA-HU-LMc">
+            <objects>
+                <viewController storyboardIdentifier="RequestedQuestionsViewController" id="6EZ-mT-7m6" customClass="RequestedQuestionsViewController" customModule="FitSport" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vgN-bS-zxb"/>
+                        <viewControllerLayoutGuide type="bottom" id="YUq-Py-2U7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zXH-p5-PEx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="design" translatesAutoresizingMaskIntoConstraints="NO" id="gH9-p6-0DL">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="246" id="bv8-sI-vkr"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FAQ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A79-Sz-XUp">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="59" id="4lF-XW-iar"/>
+                                    <constraint firstAttribute="height" constant="30" id="8R9-oa-Ojo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MkC-HP-HrZ">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="6EZ-mT-7m6" id="8KL-ge-QzN"/>
+                                    <outlet property="delegate" destination="6EZ-mT-7m6" id="puF-Vm-xJX"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.87058823529411766" green="0.90980392156862744" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="gH9-p6-0DL" firstAttribute="top" secondItem="zXH-p5-PEx" secondAttribute="top" constant="-6" id="2VD-NT-WxN"/>
+                            <constraint firstItem="MkC-HP-HrZ" firstAttribute="centerY" secondItem="zXH-p5-PEx" secondAttribute="centerY" constant="19" id="4dT-fS-AbI"/>
+                            <constraint firstItem="MkC-HP-HrZ" firstAttribute="leading" secondItem="zXH-p5-PEx" secondAttribute="leadingMargin" id="Hpp-0G-s3N"/>
+                            <constraint firstItem="MkC-HP-HrZ" firstAttribute="top" secondItem="A79-Sz-XUp" secondAttribute="bottom" constant="8" symbolic="YES" id="KhQ-Dc-MQT"/>
+                            <constraint firstItem="MkC-HP-HrZ" firstAttribute="centerX" secondItem="zXH-p5-PEx" secondAttribute="centerX" id="TDB-OV-hiQ"/>
+                            <constraint firstAttribute="trailing" secondItem="gH9-p6-0DL" secondAttribute="trailing" id="U5H-vV-Lu7"/>
+                            <constraint firstItem="A79-Sz-XUp" firstAttribute="centerX" secondItem="gH9-p6-0DL" secondAttribute="centerX" id="YwL-gf-peZ"/>
+                            <constraint firstItem="gH9-p6-0DL" firstAttribute="top" secondItem="A79-Sz-XUp" secondAttribute="bottom" constant="-56" id="cJs-mN-3m9"/>
+                            <constraint firstItem="gH9-p6-0DL" firstAttribute="leading" secondItem="zXH-p5-PEx" secondAttribute="leading" id="zsH-Dz-K6c"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="FAQTableView" destination="MkC-HP-HrZ" id="qMp-0B-zk2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oro-OM-7W5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-13908.5" y="-407.5"/>
+        </scene>
         <!--Booking History View Controller-->
         <scene sceneID="ADC-6e-4qP">
             <objects>
@@ -1225,6 +1280,73 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XLd-kK-eDw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-12304.5" y="-1211.5"/>
+        </scene>
+        <!--Your Questions View Controller-->
+        <scene sceneID="Oie-Y4-IdG">
+            <objects>
+                <viewController storyboardIdentifier="YourQuestionsViewController" id="j1T-d1-Klu" customClass="YourQuestionsViewController" customModule="FitSport" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2wG-O3-eqw"/>
+                        <viewControllerLayoutGuide type="bottom" id="WFR-xG-Oaz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GNU-rC-PNU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="design" translatesAutoresizingMaskIntoConstraints="NO" id="yCx-TG-Mnw">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="246" id="Pyu-On-7U0"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x5H-ke-0Uk">
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TN7-Un-Hhx">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="j1T-d1-Klu" id="NHa-0v-G5W"/>
+                                            <outlet property="delegate" destination="j1T-d1-Klu" id="v7j-jY-NtX"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="TN7-Un-Hhx" firstAttribute="bottom" secondItem="x5H-ke-0Uk" secondAttribute="bottomMargin" id="0FI-4l-Dwf"/>
+                                    <constraint firstItem="TN7-Un-Hhx" firstAttribute="top" secondItem="x5H-ke-0Uk" secondAttribute="topMargin" id="6jx-Ua-TEQ"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FAQ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nRq-kV-nfI">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Ggn-sU-3O6"/>
+                                    <constraint firstAttribute="width" constant="59" id="nMc-o6-C7d"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.87058823529999996" green="0.90980392160000001" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="x5H-ke-0Uk" firstAttribute="top" secondItem="nRq-kV-nfI" secondAttribute="bottom" constant="4" id="1Ls-hF-BLO"/>
+                            <constraint firstItem="x5H-ke-0Uk" firstAttribute="leading" secondItem="GNU-rC-PNU" secondAttribute="leadingMargin" id="7ch-QH-ZSM"/>
+                            <constraint firstItem="yCx-TG-Mnw" firstAttribute="top" secondItem="GNU-rC-PNU" secondAttribute="top" constant="-6" id="81v-L9-JhW"/>
+                            <constraint firstItem="yCx-TG-Mnw" firstAttribute="top" secondItem="nRq-kV-nfI" secondAttribute="bottom" constant="-56" id="Bd6-QL-CtH"/>
+                            <constraint firstItem="nRq-kV-nfI" firstAttribute="centerX" secondItem="yCx-TG-Mnw" secondAttribute="centerX" id="Bri-2j-mOy"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="TN7-Un-Hhx" secondAttribute="leading" constant="-8" id="G3H-jg-hAJ"/>
+                            <constraint firstAttribute="trailing" secondItem="yCx-TG-Mnw" secondAttribute="trailing" id="KN6-b6-rKR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TN7-Un-Hhx" secondAttribute="trailing" constant="8" id="fRg-CS-WnU"/>
+                            <constraint firstItem="x5H-ke-0Uk" firstAttribute="centerX" secondItem="GNU-rC-PNU" secondAttribute="centerX" id="pJE-Bm-HOo"/>
+                            <constraint firstItem="yCx-TG-Mnw" firstAttribute="leading" secondItem="GNU-rC-PNU" secondAttribute="leading" id="qc4-ur-YLg"/>
+                            <constraint firstItem="x5H-ke-0Uk" firstAttribute="centerY" secondItem="GNU-rC-PNU" secondAttribute="centerY" constant="17" id="xeX-OC-Lr8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="FAQTableView" destination="TN7-Un-Hhx" id="Nvj-6w-5vO"/>
+                        <outlet property="faqView" destination="x5H-ke-0Uk" id="aiT-hU-2qp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HFx-tu-3vo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-13443" y="-408"/>
         </scene>
     </scenes>
     <resources>

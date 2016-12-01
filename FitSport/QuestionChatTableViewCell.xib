@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="138" id="KGk-i7-Jjw" customClass="QuestionChatTableViewCell" customModule="FitSport" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="138"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <frame key="frameInset" width="320" height="137"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Hi there!! don't worry I am going to help you" textAlignment="right" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cKK-3K-WWJ">
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="How to use this app?" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFU-Ru-kOV">
+                        <color key="textColor" red="0.98039215690000003" green="0.46666666670000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chitti" translatesAutoresizingMaskIntoConstraints="NO" id="TrS-o4-W9d">
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="0Gp-1e-NA6"/>
+                            <constraint firstAttribute="width" constant="30" id="S7k-de-Aef"/>
+                        </constraints>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sadhu.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="cpZ-gT-Q1S">
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="EP7-Ia-bma"/>
+                            <constraint firstAttribute="height" constant="30" id="zD3-CL-6wJ"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PHB-7a-U8S">
+                        <frame key="frameInset" minY="137" width="320" height="1"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="cpZ-gT-Q1S" secondAttribute="trailing" constant="11" id="J04-1h-bWq"/>
+                    <constraint firstItem="cKK-3K-WWJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="Jdy-DG-Z3V"/>
+                    <constraint firstItem="cpZ-gT-Q1S" firstAttribute="leading" secondItem="cKK-3K-WWJ" secondAttribute="trailing" constant="5" id="Rz9-iZ-bE1"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="cKK-3K-WWJ" secondAttribute="bottom" id="aTH-jV-sUc"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="fFU-Ru-kOV" secondAttribute="trailing" constant="5" id="bB8-ee-8C9"/>
+                    <constraint firstAttribute="bottom" secondItem="cpZ-gT-Q1S" secondAttribute="bottom" constant="9" id="epl-Qt-jRv"/>
+                    <constraint firstAttribute="topMargin" secondItem="fFU-Ru-kOV" secondAttribute="top" id="jr3-W8-QYn"/>
+                    <constraint firstItem="TrS-o4-W9d" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="omr-Ro-KTp"/>
+                    <constraint firstItem="fFU-Ru-kOV" firstAttribute="leading" secondItem="TrS-o4-W9d" secondAttribute="trailing" constant="8" id="ral-G8-sHg"/>
+                    <constraint firstItem="TrS-o4-W9d" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="yKL-Wu-dAI"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="answerTextView" destination="cKK-3K-WWJ" id="Wff-36-oT6"/>
+                <outlet property="answeredImg" destination="cpZ-gT-Q1S" id="bBi-2D-EYR"/>
+                <outlet property="questionTextView" destination="fFU-Ru-kOV" id="K1B-E7-eQK"/>
+                <outlet property="questioneerImg" destination="TrS-o4-W9d" id="IvV-FU-O8E"/>
+            </connections>
+            <point key="canvasLocation" x="-471" y="51"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="chitti" width="272" height="395"/>
+        <image name="sadhu.jpg" width="1280" height="720"/>
+    </resources>
+</document>
