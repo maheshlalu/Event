@@ -247,6 +247,26 @@ class CXAppConfig {
     }
     
     
+    //MARK: User ID Saving
+    func loggedUser(userID:String){
+        UserDefaults.standard.set(userID, forKey: "USERID_LOGGED")
+    }
+    
+    func getLoggedUserID() ->String{
+        
+        if(UserDefaults.standard.object(forKey: "USERID_LOGGED") == nil)
+        {
+            print("NULL")
+            return ""
+            
+        }else{
+            
+            return UserDefaults.standard.value(forKey: "USERID_LOGGED") as! String
+        }
+        
+    }
+    
+    
     //MARK: User MacJob Id Saving
     func saveMacJobID(macJobId:String){
         UserDefaults.standard.set(macJobId, forKey: "MAC_JOB_ID")

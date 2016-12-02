@@ -170,13 +170,16 @@ class RequestedQuestionsViewController: UIViewController,UICollectionViewDelegat
         
         CXDataService.sharedInstance.getPosterQuestions(ownerId:CXAppConfig.sharedInstance.getAppMallID(), email:userEmail) { (responseDict) in
             
-            let arr = responseDict["questions"] as! [[String:AnyObject]]
-            for gallaeryData in arr {
-                let picDic : NSDictionary =  gallaeryData as NSDictionary
-                let locationStruct : userQuestions = userQuestions(id: CXAppConfig.resultString(input: picDic.value(forKey:"id")! as AnyObject), question: picDic.value(forKey: "question") as! String, answer: picDic.value(forKey: "answer") as! String, fromDict: picDic.value(forKey: "from") as! NSDictionary, toDict: picDic.value(forKey: "to") as! NSDictionary)
-                
-                self.userQuestionsArr.append(locationStruct)
-                self.faqCollectionView.reloadData()
+            let keys : NSArray = responseDict.allKeys as NSArray
+            if keys.contains("questions") {
+                let arr = responseDict["questions"] as! [[String:AnyObject]]
+                for gallaeryData in arr {
+                    let picDic : NSDictionary =  gallaeryData as NSDictionary
+                    let locationStruct : userQuestions = userQuestions(id: CXAppConfig.resultString(input: picDic.value(forKey:"id")! as AnyObject), question: picDic.value(forKey: "question") as! String, answer: picDic.value(forKey: "answer") as! String, fromDict: picDic.value(forKey: "from") as! NSDictionary, toDict: picDic.value(forKey: "to") as! NSDictionary)
+                    
+                    self.userQuestionsArr.append(locationStruct)
+                    self.faqCollectionView.reloadData()
+                }
             }
         }
     }
@@ -191,7 +194,8 @@ class RequestedQuestionsViewController: UIViewController,UICollectionViewDelegat
         }
         
         CXDataService.sharedInstance.getPostedAnswers(ownerId: CXAppConfig.sharedInstance.getAppMallID(), email:userEmail) { (responseDict) in
-            
+            let keys : NSArray = responseDict.allKeys as NSArray
+            if keys.contains("questions") {
             let arr = responseDict["questions"] as! [[String:AnyObject]]
             for gallaeryData in arr {
                 let picDic : NSDictionary =  gallaeryData as NSDictionary
@@ -200,11 +204,8 @@ class RequestedQuestionsViewController: UIViewController,UICollectionViewDelegat
                 self.requestedQuestionsArr.append(locationStruct)
                 self.faqCollectionView.reloadData()
             }
-            
+            }
         }
-        
-        
     }
-    
 }
 

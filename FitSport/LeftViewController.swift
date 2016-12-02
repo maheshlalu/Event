@@ -77,10 +77,10 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
         
         let revealController : SWRevealViewController  = self.revealViewController()
         
-        if indexPath == previousSelectedIndex as IndexPath {
-            revealController.revealToggle(animated: true)
-            return
-        }
+//        if indexPath == previousSelectedIndex as IndexPath {
+//            revealController.revealToggle(animated: true)
+//            return
+//        }
         previousSelectedIndex = indexPath as NSIndexPath
         //self.navController.drawerToggle()
         let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
@@ -153,6 +153,8 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
                 GIDSignIn.sharedInstance().signOut()
                 GIDSignIn.sharedInstance().disconnect()
             
+                 CXAppConfig.sharedInstance.loggedUser(userID:"")
+                
                 appDelVar.applicationNavigationFlow()
                 //self.navigationController?.popViewControllerAnimated(true)
             }

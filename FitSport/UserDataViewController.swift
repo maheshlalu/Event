@@ -18,10 +18,10 @@ class UserDataViewController: UIViewController,UITextFieldDelegate,UITextViewDel
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var aboutYourSelf: UITextField!
+    
     var userEmail:String!
     var userPic:String!
     var editImage:Bool = false
-    
     
     
     override func viewDidLoad() {
@@ -29,7 +29,6 @@ class UserDataViewController: UIViewController,UITextFieldDelegate,UITextViewDel
         super.viewDidLoad()
         
         let appdata:NSArray = UserProfile.mr_findAll() as NSArray
-    
         if appdata.count != 0{
             
             let userProfileData:UserProfile = appdata.lastObject as! UserProfile
@@ -39,12 +38,9 @@ class UserDataViewController: UIViewController,UITextFieldDelegate,UITextViewDel
             userNameLabel.text = "Hi, \(userProfileData.firstName!)"
             userEmail = userProfileData.emailId!
         }
-        
-   
-        
+
         shadowView()
         
-        //Navigation Bar Customization
         self.navigationController?.isNavigationBarHidden = false
         self.navigationItem.setHidesBackButton(true, animated:true);
         let navigation:UINavigationItem = navigationItem
@@ -55,20 +51,14 @@ class UserDataViewController: UIViewController,UITextFieldDelegate,UITextViewDel
         self.descriptionTxtView.delegate = self
         
         
+        
         NotificationCenter.default.addObserver(self, selector:#selector(UserDataViewController.keyboardWillShow(sender:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector:#selector(UserDataViewController.keyboardWillHide(sender:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(UserDataViewController.handleTap(sender:)))
         self.view.addGestureRecognizer(tap)
         
-        
-        //Image Tap Gesture
-        
-        let imgTap:UIGestureRecognizer = UITapGestureRecognizer.init()
-        imgTap.addTarget(self, action: #selector(UserDataViewController.imagePickerAction(sender:)))
-        self.userImageView.addGestureRecognizer(imgTap)
-        
-        
+   
     }
     override func viewWillAppear(_ animated: Bool) {
         self.view.resignFirstResponder()
@@ -82,17 +72,18 @@ class UserDataViewController: UIViewController,UITextFieldDelegate,UITextViewDel
         userImageView!.layer.masksToBounds = true
         userImageView!.clipsToBounds = true
 
-
     }
     
     @IBAction func doneBtnAction(_ sender: AnyObject) {
         
-        if mobileNumberTextField.text?.characters.count == 10 && (mobileNumberTextField != nil){
+        let myString = descriptionTxtView.text!
+        let trimmedString = myString.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        if mobileNumberTextField.text?.characters.count == 10 && (mobileNumberTextField != nil) && trimmedString.isEmpty == false{
             self.savingDetailsToUserDict()
             emailCheckingForOTP()
             
         } else {
-            self.showAlertView(message: "Please Enter Valid Mobile Number", status: 0)
+            self.showAlertView(message: "Fields can't be empty!!!", status: 0)
         }
         
     }
@@ -156,20 +147,47 @@ class UserDataViewController: UIViewController,UITextFieldDelegate,UITextViewDel
     }
     
     @IBAction func editimageAction(_ sender: AnyObject) {
-        imagePickerAction(sender: sender)
+      imagePickerAction()
+
     }
     
-    func imagePickerAction(sender: AnyObject){
+    func imagePickerAction(){
+
+        let optionMenu = UIAlertController(title: nil, message: "Choose Photo Option", preferredStyle: .actionSheet)
         
-        print("choose from photos")
-        let image = UIImagePickerController()
-        image.delegate = self
-        image.sourceType = UIImagePickerControllerSourceType.photoLibrary
-        image.allowsEditing = false
-        self.present(image, animated: true, completion: nil)
+        let deleteAction = UIAlertAction(title: "Choose From Photos", style: .default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            print("choose from photos")
+            let image = UIImagePickerController()
+            image.delegate = self
+            image.sourceType = UIImagePickerControllerSourceType.photoLibrary
+            image.allowsEditing = false
+            self.present(image, animated: true, completion: nil)
+        })
+        let saveAction = UIAlertAction(title: "Capture Image", style: .default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            print("camera shot")
+            let picker = UIImagePickerController()
+            picker.allowsEditing = false
+            picker.sourceType = UIImagePickerControllerSourceType.camera
+            picker.cameraCaptureMode = .photo
+            picker.modalPresentationStyle = .fullScreen
+            self.present(picker,animated: true,completion: nil)
+        })
+        
+        //
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: {
+            (alert: UIAlertAction!) -> Void in
+            print("Cancelled")
+        })
+  
+        optionMenu.addAction(deleteAction)
+        optionMenu.addAction(saveAction)
+        optionMenu.addAction(cancelAction)
+
+        self.present(optionMenu, animated: true, completion: nil)
     }
-    
-    
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         aboutYourSelf.placeholder = nil
@@ -207,7 +225,7 @@ class UserDataViewController: UIViewController,UITextFieldDelegate,UITextViewDel
     func keyboardWillShow(sender: NSNotification) {
         if let keyboardSize = (sender.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if view.frame.origin.y == 0{
-                self.view.frame.origin.y = -(keyboardSize.height-60)
+                self.view.frame.origin.y = -(keyboardSize.height)
             }
             else {
                 
@@ -217,7 +235,7 @@ class UserDataViewController: UIViewController,UITextFieldDelegate,UITextViewDel
     
     func keyboardWillHide(sender: NSNotification) {
         if ((sender.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
-            if view.frame.origin.y != 0 {
+            if view.frame.origin.y != 0{
                 self.view.frame.origin.y = 0
             }
             else {

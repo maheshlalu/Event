@@ -193,6 +193,8 @@ class SelectTableViewController: UIViewController,UITableViewDataSource,UITableV
             CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getSignInUrl(), parameters: ["orgId":CXAppConfig.sharedInstance.getAppMallID() as AnyObject,"email":userProfileData.emailId! as AnyObject,"dt":"DEVICES" as AnyObject,"isLoginWithFB":"true" as AnyObject]) { (responseDict) in
                 //"password":""
                 CX_SocialIntegration.sharedInstance.saveUserDeatils(userData: responseDict, completion: { (dic) in
+                    
+                    CXAppConfig.sharedInstance.loggedUser(userID: CXAppConfig.sharedInstance.getUserID())
                     appDel.setUpSidePanl()
                     
                 })

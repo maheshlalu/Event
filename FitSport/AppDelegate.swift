@@ -53,9 +53,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,SWRevealViewControllerDele
     }
     
     func applicationNavigationFlow(){
-        let userId = CXAppConfig.sharedInstance.getUserID()
+        let userId = CXAppConfig.sharedInstance.getLoggedUserID()
         print(userId)
-        if userId == "" {
+        if userId.isEmpty {
             self.window = UIWindow(frame: UIScreen.main.bounds)
             let mainStoryboard: UIStoryboard = UIStoryboard(name: "PagerMain", bundle: nil)
             let exampleViewController: SignInViewController = mainStoryboard.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
@@ -64,6 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,SWRevealViewControllerDele
             self.window?.makeKeyAndVisible()
             
         }else{
+            
             self.setUpSidePanl()
             
         }

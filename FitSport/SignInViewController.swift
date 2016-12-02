@@ -98,11 +98,6 @@ class SignInViewController: UIViewController,GIDSignInUIDelegate{
                 CX_SocialIntegration.sharedInstance.applicationRegisterWithFaceBook(userDataDic: fbResultDict, completion: { (isRegistred) in
                     //IsRegistred is true no need send the otp otherwise send the otp
                     self.screenNavigationAfterSignIng(boolValue: isRegistred)
-                    
-                    let storyBoard = UIStoryboard(name: "PagerMain", bundle: Bundle.main)
-                    let trainer = storyBoard.instantiateViewController(withIdentifier: "UserDataViewController") as! UserDataViewController
-                    self.navigationController?.pushViewController(trainer, animated: true)
-                    
                 })
             }
         }
@@ -146,13 +141,14 @@ class SignInViewController: UIViewController,GIDSignInUIDelegate{
     */
     
     func screenNavigationAfterSignIng(boolValue : Bool){
-        if boolValue {
+        if !boolValue {
             let storyBoard = UIStoryboard(name: "PagerMain", bundle: Bundle.main)
             let trainer = storyBoard.instantiateViewController(withIdentifier: "UserDataViewController") as! UserDataViewController
             self.navigationController?.pushViewController(trainer, animated: true)
 
         }else{
             //Navigate To Home Screen
+            CXAppConfig.sharedInstance.loggedUser(userID: CXAppConfig.sharedInstance.getUserID())
             let appDel = UIApplication.shared.delegate as! AppDelegate
             appDel.setUpSidePanl()
         }

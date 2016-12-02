@@ -52,6 +52,8 @@ class CX_SocialIntegration: NSObject {
                 CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getSignInUrl(), parameters: ["orgId":CXAppConfig.sharedInstance.getAppMallID() as AnyObject,"email":email as AnyObject,"dt":"DEVICES" as AnyObject,"isLoginWithFB":"true" as AnyObject]) { (responseDict) in
                     //"password":""
                     self.saveUserDeatils(userData: responseDict, completion: { (dic) in
+                      CXAppConfig.sharedInstance.loggedUser(userID: CXAppConfig.resultString(input: responseDict.value(forKey:"UserId")! as AnyObject))
+
                         completion(false)
                     })
                     
@@ -212,6 +214,7 @@ class CX_SocialIntegration: NSObject {
                         //"password":""
                         self.saveUserDeatils(userData: responseDict, completion: { (dic) in
                             completion(false)
+                            CXAppConfig.sharedInstance.loggedUser(userID: CXAppConfig.resultString(input: responseDict.value(forKey:"UserId")! as AnyObject))
                         })
                         
                     }
