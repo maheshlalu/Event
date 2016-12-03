@@ -788,7 +788,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="iMJ-Qm-NLq">
-                                        <rect key="frame" x="10" y="10" width="323" height="138"/>
+                                        <rect key="frame" x="26" y="10" width="323" height="138"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="323" height="138"/>
@@ -804,10 +804,10 @@
                         </subviews>
                         <color key="backgroundColor" red="0.87058823529411766" green="0.90980392156862744" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="1Qq-Ae-pSr" firstAttribute="top" secondItem="vgN-bS-zxb" secondAttribute="bottom" id="CaK-Nd-hv1"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="1Qq-Ae-pSr" secondAttribute="leading" id="Jkt-VD-Hlh"/>
-                            <constraint firstItem="YUq-Py-2U7" firstAttribute="top" secondItem="1Qq-Ae-pSr" secondAttribute="bottom" constant="20" id="dN0-tm-fqK"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="1Qq-Ae-pSr" secondAttribute="trailing" id="h0s-T9-TEb"/>
+                            <constraint firstItem="YUq-Py-2U7" firstAttribute="top" secondItem="1Qq-Ae-pSr" secondAttribute="bottom" id="ExC-Dd-177"/>
+                            <constraint firstItem="1Qq-Ae-pSr" firstAttribute="top" secondItem="zXH-p5-PEx" secondAttribute="top" id="bcj-rr-6sq"/>
+                            <constraint firstAttribute="trailing" secondItem="1Qq-Ae-pSr" secondAttribute="trailing" id="cdq-fd-CZe"/>
+                            <constraint firstItem="1Qq-Ae-pSr" firstAttribute="leading" secondItem="zXH-p5-PEx" secondAttribute="leading" id="jCG-f3-VoQ"/>
                         </constraints>
                     </view>
                     <connections>
@@ -816,7 +816,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oro-OM-7W5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-13908.5" y="-407.5"/>
+            <point key="canvasLocation" x="-14002.5" y="-514.5"/>
         </scene>
         <!--Booking History View Controller-->
         <scene sceneID="ADC-6e-4qP">

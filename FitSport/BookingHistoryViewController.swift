@@ -13,6 +13,7 @@ class BookingHistoryViewController: UIViewController,UICollectionViewDelegate,UI
     @IBOutlet weak var bookingHistoryCollectionView: UICollectionView!
     var bookingHistoryDict:NSDictionary!
     var bookingHistoryArr = [[String:AnyObject]]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -69,7 +70,8 @@ class BookingHistoryViewController: UIViewController,UICollectionViewDelegate,UI
         cell?.orderDate.text = dict["createdOn"] as? String
 
         cell?.orderNameLbl.text = dict["Event_Name"] as? String
-        cell?.orderDateLbl.text = dict["createdAt"] as? String
+        let dateStr = dict["createdAt"] as? String
+        cell?.orderDateLbl.text = CXAppConfig.sharedInstance.dateAndTimeConvertion(dateStr: dateStr!)
         cell?.orderPlaceLbl.text = dict["Address"] as? String
         cell?.ticketsCountLbl.text = dict["No_of_Units"] as? String
         
@@ -90,7 +92,7 @@ class BookingHistoryViewController: UIViewController,UICollectionViewDelegate,UI
     //Booking History Api Call
     //type=PaymentOrderDetails&consumerId=46&mallId=4
     func bookingHistoryCall(){
-        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getMasterUrl(), parameters: ["type":"PaymentOrderDetails" as AnyObject,"consumerId":CXAppConfig.sharedInstance.getMacJobID() as AnyObject,"mallId":CXAppConfig.sharedInstance.getAppMallID() as AnyObject]) { (responseDict) in
+        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getMasterUrl(), parameters: ["type":"PaymentOrderDetails" as AnyObject,"consumerId":CXAppConfig.sharedInstance.getUserID() as AnyObject,"mallId":CXAppConfig.sharedInstance.getAppMallID() as AnyObject]) { (responseDict) in
             let arr = responseDict["jobs"] as! [[String:AnyObject]]
             for gallaeryData in arr {
                 let picDic : NSDictionary =  gallaeryData as NSDictionary
@@ -104,4 +106,8 @@ class BookingHistoryViewController: UIViewController,UICollectionViewDelegate,UI
     }
     
 }
+
+
+
+
 

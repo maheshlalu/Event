@@ -17,13 +17,11 @@ class UserDataViewController: UIViewController,UITextFieldDelegate,UITextViewDel
     @IBOutlet weak var descriptionTxtView: UITextView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userImageView: UIImageView!
-    @IBOutlet weak var aboutYourSelf: UITextField!
     
     var userEmail:String!
     var userPic:String!
     var editImage:Bool = false
-    
-    
+
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -42,7 +40,7 @@ class UserDataViewController: UIViewController,UITextFieldDelegate,UITextViewDel
         shadowView()
         
         self.navigationController?.isNavigationBarHidden = false
-        self.navigationItem.setHidesBackButton(true, animated:true);
+        self.navigationItem.hidesBackButton = true
         let navigation:UINavigationItem = navigationItem
         let image = UIImage(named: "logo_white")
         navigation.titleView = UIImageView(image: image)
@@ -50,6 +48,13 @@ class UserDataViewController: UIViewController,UITextFieldDelegate,UITextViewDel
         self.mobileNumberTextField.delegate = self
         self.descriptionTxtView.delegate = self
         
+        self.descriptionTxtView.layer.cornerRadius = 3
+        self.descriptionTxtView.layer.borderWidth = 1
+        self.descriptionTxtView.layer.borderColor = UIColor.lightGray.cgColor
+        
+        self.mobileNumberTextField.layer.cornerRadius = 3
+        self.mobileNumberTextField.layer.borderWidth = 1
+        self.mobileNumberTextField.layer.borderColor = UIColor.lightGray.cgColor
         
         
         NotificationCenter.default.addObserver(self, selector:#selector(UserDataViewController.keyboardWillShow(sender:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
@@ -58,7 +63,6 @@ class UserDataViewController: UIViewController,UITextFieldDelegate,UITextViewDel
         let tap = UITapGestureRecognizer(target: self, action: #selector(UserDataViewController.handleTap(sender:)))
         self.view.addGestureRecognizer(tap)
         
-   
     }
     override func viewWillAppear(_ animated: Bool) {
         self.view.resignFirstResponder()
@@ -87,6 +91,9 @@ class UserDataViewController: UIViewController,UITextFieldDelegate,UITextViewDel
         }
         
     }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     
     // OTP Methods
     func emailCheckingForOTP(){
@@ -97,7 +104,7 @@ class UserDataViewController: UIViewController,UITextFieldDelegate,UITextViewDel
             let message = responseDict.value(forKey: "message") as! String
             if status == 1{
                 // If Status is 1 then the user email id is already regesterd with email.Can't able to send OTP. Which means give another email.
-                 self.showAlertView(message: message, status: 200)
+                self.showAlertView(message: message, status: 200)
                 return
             }else{
                 //Sending the OTP to given mobile number (status is -1 or 0). Eligible to send OTP.
@@ -188,20 +195,7 @@ class UserDataViewController: UIViewController,UITextFieldDelegate,UITextViewDel
         self.present(optionMenu, animated: true, completion: nil)
     }
 
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        aboutYourSelf.placeholder = nil
-        return false
-    }
-    
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        aboutYourSelf.placeholder = nil
-    }
-    
-    func textViewDidEndEditing(_ textView: UITextView) {
-        
-    }
-    
+
     // TextField Delegate Methods
     
     
@@ -218,14 +212,14 @@ class UserDataViewController: UIViewController,UITextFieldDelegate,UITextViewDel
     
     func handleTap(sender: UITapGestureRecognizer? = nil) {
         // handling code
-        aboutYourSelf.placeholder = nil
+
         self.view.endEditing(true)
     }
     
     func keyboardWillShow(sender: NSNotification) {
         if let keyboardSize = (sender.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if view.frame.origin.y == 0{
-                self.view.frame.origin.y = -(keyboardSize.height)
+                self.view.frame.origin.y = -(keyboardSize.height-60)
             }
             else {
                 
@@ -235,7 +229,7 @@ class UserDataViewController: UIViewController,UITextFieldDelegate,UITextViewDel
     
     func keyboardWillHide(sender: NSNotification) {
         if ((sender.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
-            if view.frame.origin.y != 0{
+            if view.frame.origin.y != 0 {
                 self.view.frame.origin.y = 0
             }
             else {
@@ -243,13 +237,7 @@ class UserDataViewController: UIViewController,UITextFieldDelegate,UITextViewDel
             }
         }
     }
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-        aboutYourSelf.placeholder = nil
-        self.view.resignFirstResponder()
-        
-    }
-    
+
     // MARK: - UIImagePickerControllerDelegate Methods
     
     

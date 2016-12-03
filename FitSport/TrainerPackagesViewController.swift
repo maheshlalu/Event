@@ -127,8 +127,35 @@ class TrainerPackagesViewController: UIViewController,UITableViewDataSource,UITa
         }
     }
     
+    func showAlertView() {
+        
+        let alert = UIAlertController(title:"Please Login!!!", message:"Login to continue payment", preferredStyle: UIAlertControllerStyle.alert)
+        let okAction = UIAlertAction(title: "Take Me to Login Page", style: UIAlertActionStyle.default) {
+            UIAlertAction in
+            let appDel = UIApplication.shared.delegate as! AppDelegate
+            appDel.applicationNavigationFlow()
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.destructive) {
+            UIAlertAction in
+        }
+        
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
   func paymentAction(_ sender: UIButton) {
     
+    
+    let userId = CXAppConfig.sharedInstance.getUserID()
+    print(userId)
+    if userId == "" {
+        
+        self.showAlertView()
+        
+    }else{
+
     let appdata:NSArray = UserProfile.mr_findAll() as NSArray
     if appdata.count != 0{
         userProfileData = appdata.lastObject as! UserProfile
@@ -150,6 +177,8 @@ class TrainerPackagesViewController: UIViewController,UITableViewDataSource,UITa
         
     }))
     
+ 
+    
     refreshAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action: UIAlertAction!) in
         
         CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getPaymentGateWayUrl(), parameters: ["name":self.userProfileData.firstName! as AnyObject,"email":self.userProfileData.emailId! as AnyObject,"amount":self.selectedStore.price as AnyObject,"description":"FitSport Payment" as AnyObject,"phone":mobileStr as AnyObject,"macId":self.userProfileData.macId! as AnyObject,"mallId":CXAppConfig.sharedInstance.getAppMallID() as AnyObject]) { (responseDict) in
@@ -161,6 +190,7 @@ class TrainerPackagesViewController: UIViewController,UITableViewDataSource,UITa
             self.parentView.navigationController?.pushViewController(payMentCntl, animated: true)
             payMentCntl.completion = {_ in responseDict
                 print(responseDict)
+              self.showAlertView(message: "You can view your Booking History in side panel", status: 0)
                 self.parentView.navigationController?.popToRootViewController(animated: true)
             }
         }
@@ -169,6 +199,19 @@ class TrainerPackagesViewController: UIViewController,UITableViewDataSource,UITa
     
     self.present(refreshAlert, animated: true, completion: nil)
     
+    }
+     }
+    
+    
+    func showAlertView(message:String,status:Int) {
+        
+        let alert = UIAlertController(title:"Payment Successfully Completed!!!", message:message, preferredStyle: UIAlertControllerStyle.alert)
+        let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) {
+            UIAlertAction in
+            
+        }
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
     }
 }
 

@@ -193,6 +193,7 @@ class OrderedDetailsViewController: UIViewController {
                 payMentCntl.paymentDelegate  = self
                 payMentCntl.completion = {_ in responseDict
                     print(responseDict)
+                    self.showAlertView(message: "You can view your Booking History in side panel", status: 0)
                     self.navigationController?.popToRootViewController(animated: true)
                 }
                 
@@ -227,6 +228,18 @@ class OrderedDetailsViewController: UIViewController {
         
         
         
+    }
+    
+    
+    func showAlertView(message:String,status:Int) {
+        
+        let alert = UIAlertController(title:"Payment Successfully Completed!!!", message:message, preferredStyle: UIAlertControllerStyle.alert)
+        let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) {
+            UIAlertAction in
+            
+        }
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
     }
     
 }

@@ -16,8 +16,8 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
     @IBOutlet weak var imageView: UIImageView!
      var previousSelectedIndex  : NSIndexPath = NSIndexPath()
     @IBOutlet weak var leftTableView: UITableView!
-    var nameArray = ["HOME","INTEREST SPORTS","BOOKING HISTORY","FAQ","SIGN OUT"] //"EVENTS","TRAINERS",
-    var imageArray = ["home","heart","history","help","logout"] //"events","trainer",
+    var nameArray = ["HOME","BOOKING HISTORY","FAQ","SIGN OUT"] //"EVENTS","TRAINERS",
+    var imageArray = ["home","history","help","logout"] //"events","trainer",
 
     override func viewDidLoad() {
         super.viewDidLoad()

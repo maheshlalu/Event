@@ -98,6 +98,7 @@ class SignInViewController: UIViewController,GIDSignInUIDelegate{
                 CX_SocialIntegration.sharedInstance.applicationRegisterWithFaceBook(userDataDic: fbResultDict, completion: { (isRegistred) in
                     //IsRegistred is true no need send the otp otherwise send the otp
                     self.screenNavigationAfterSignIng(boolValue: isRegistred)
+
                 })
             }
         }

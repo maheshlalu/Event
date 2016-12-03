@@ -357,4 +357,23 @@ class CXAppConfig {
         }
         return jsonDict
     }
+    
+    func dateAndTimeConvertion(dateStr:String) -> String{
+
+        var stringFromDate:String = String()
+        let dateString = dateStr
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        
+        if let dateFromString = formatter.date(from: dateString) {
+            formatter.dateFormat = "dd-MM-yyyy 'at' h:mm a"
+            formatter.amSymbol = "AM"
+            formatter.pmSymbol = "PM"
+            stringFromDate = formatter.string(from: dateFromString)
+            print(stringFromDate)
+        }
+        return stringFromDate
+    }
+    
+    
 }
