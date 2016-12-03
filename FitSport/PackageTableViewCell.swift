@@ -10,8 +10,8 @@ import UIKit
 
 class PackageTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var bookBtn: UIButton!
     @IBOutlet weak var rateView: FloatRatingView!
-    @IBOutlet weak var packageSportsImage: UIImageView!
     @IBOutlet weak var sessionTypeLbl: UILabel!
     @IBOutlet weak var sessionPriceLbl: UILabel!
     @IBOutlet weak var sessionDurationLbl: UILabel!
@@ -19,13 +19,8 @@ class PackageTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        self.packageSportsImage.layer.cornerRadius = 32.5
-        self.packageSportsImage.layer.borderWidth = 1
-        self.packageSportsImage.layer.borderColor = CXAppConfig.sharedInstance.getAppTheamColor().cgColor
-        self.packageSportsImage.clipsToBounds = true
-        
-        // Initialization code
+        bookBtn.layer.cornerRadius = 4
+        // Initialization cod0e
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

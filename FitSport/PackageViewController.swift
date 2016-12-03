@@ -170,6 +170,7 @@ class PackageViewController: UIViewController,FloatRatingViewDelegate,UIGestureR
     
     func tabViews(){
         
+
         var controllerArray : [UIViewController] = []
         
         let controller1:TrainerProfileViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TrainerProfileViewController") as! TrainerProfileViewController
@@ -184,8 +185,11 @@ class PackageViewController: UIViewController,FloatRatingViewDelegate,UIGestureR
         
         let controller3 : TrainerPackagesViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TrainerPackagesViewController") as! TrainerPackagesViewController
         controller3.title = "Packages"
+        controller3.parentView = self
         controller3.galleryDict = userDict as NSDictionary
-        controllerArray.append(controller3)
+        let nav : UINavigationController = UINavigationController(rootViewController: controller3)
+        nav.navigationBar.isHidden = true
+        controllerArray.append(nav)
         
         let parameters: [CAPSPageMenuOption] = [
             .selectionIndicatorColor(UIColor.white),
@@ -193,12 +197,12 @@ class PackageViewController: UIViewController,FloatRatingViewDelegate,UIGestureR
             .menuItemFont(UIFont(name: "Roboto-Bold", size: 15.0)!),
             .menuHeight(40),
             .scrollMenuBackgroundColor(CXAppConfig.sharedInstance.getAppTheamColor())
-            ]
+        ]
         
         
         //pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRect(x: 0, y: 253 , width: self.view.frame.width, height: self.view.frame.height - 309), pageMenuOptions: parameters)
         
-            pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRect(x: 0, y: 194, width: self.view.frame.width, height: self.view.frame.height - 254), pageMenuOptions: parameters)
+        pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRect(x: 0, y: 194, width: self.view.frame.width, height: self.view.frame.height - 254), pageMenuOptions: parameters)
         
         self.view.addSubview(pageMenu!.view)
     }

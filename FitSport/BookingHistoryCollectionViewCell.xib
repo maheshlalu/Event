@@ -74,23 +74,6 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="hEF-Ua-2ED">
-                                        <subviews>
-                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Completed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LjT-t2-4nV">
-                                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
-                                                <color key="textColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2LL-sN-jzF">
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="29" id="Z9c-s2-Psc"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="11"/>
-                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="DAs-1Z-adt">
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="345" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9yI-Tj-HL8">
@@ -160,11 +143,11 @@
                 <outlet property="orderHistoryImageView" destination="uDy-OE-eAB" id="Hyd-Un-pc0"/>
                 <outlet property="orderNameLbl" destination="W2f-X1-aDA" id="tbE-5r-g5f"/>
                 <outlet property="orderPlaceLbl" destination="ZFn-Fb-2nb" id="iWp-8n-sMA"/>
-                <outlet property="orderStatusLbl" destination="LjT-t2-4nV" id="85i-Nk-AVt"/>
                 <outlet property="orderTotalAmountLbl" destination="9yI-Tj-HL8" id="nWj-Aq-vtu"/>
                 <outlet property="ticketsCountLbl" destination="jaI-H1-qj1" id="EEB-og-zFx"/>
+                <outlet property="ticketsStakeView" destination="Hi8-45-N7Q" id="HmT-dz-9tz"/>
             </connections>
-            <point key="canvasLocation" x="-524" y="-111.5"/>
+            <point key="canvasLocation" x="-676" y="-47"/>
         </collectionViewCell>
     </objects>
 </document>

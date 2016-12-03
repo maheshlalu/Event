@@ -23,6 +23,9 @@ class TrainerPackagesViewController: UIViewController,UITableViewDataSource,UITa
     var galleryDict:NSDictionary?
     var merchantDict:NSMutableDictionary! = nil
     var storeLocationArray = [StoreLocations]()
+    var userProfileData:UserProfile!
+    var parentView:PackageViewController! = nil
+    var selectedStore:StoreLocations!
 
     
     override func viewDidLoad() {
@@ -62,6 +65,8 @@ class TrainerPackagesViewController: UIViewController,UITableViewDataSource,UITa
         cell?.sessionTypeLbl.text = storeLocation.sessionType
         cell?.sessionDurationLbl.text = "Duration: "+(storeLocation.duration)
         
+        cell?.bookBtn.addTarget(self, action:#selector(paymentAction(_:)), for:.touchUpInside)
+        cell?.bookBtn.tag = indexPath.row+1
         return cell!
         
     }
@@ -121,10 +126,56 @@ class TrainerPackagesViewController: UIViewController,UITableViewDataSource,UITa
             print(storeLocationArray)
         }
     }
+    
+  func paymentAction(_ sender: UIButton) {
+    
+    let appdata:NSArray = UserProfile.mr_findAll() as NSArray
+    if appdata.count != 0{
+        userProfileData = appdata.lastObject as! UserProfile
+    }
+    
+    var mobileStr:String = String()
+    if userProfileData.phoneNumber == nil{
+        mobileStr = ""
+    }else{
+        mobileStr = userProfileData.phoneNumber!
+    }
+    
+    self.selectedStore =  self.storeLocationArray[sender.tag-1] as StoreLocations
+    print(selectedStore)
+    
+    
+    let refreshAlert = UIAlertController(title:"Fitsport", message:"Are you sure want to book \(selectedStore.sessionType)", preferredStyle: .alert)
+    refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (action: UIAlertAction!) in
+        
+    }))
+    
+    refreshAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action: UIAlertAction!) in
+        
+        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getPaymentGateWayUrl(), parameters: ["name":self.userProfileData.firstName! as AnyObject,"email":self.userProfileData.emailId! as AnyObject,"amount":self.selectedStore.price as AnyObject,"description":"FitSport Payment" as AnyObject,"phone":mobileStr as AnyObject,"macId":self.userProfileData.macId! as AnyObject,"mallId":CXAppConfig.sharedInstance.getAppMallID() as AnyObject]) { (responseDict) in
+            
+            let payMentCntl : CXPayMentController = CXPayMentController()
+            payMentCntl.paymentUrl =  NSURL(string: responseDict.value(forKey: "payment_url")! as! String)
+            print(payMentCntl.paymentUrl)
+            payMentCntl.paymentDelegate  = self
+            self.parentView.navigationController?.pushViewController(payMentCntl, animated: true)
+            payMentCntl.completion = {_ in responseDict
+                print(responseDict)
+                self.parentView.navigationController?.popToRootViewController(animated: true)
+            }
+        }
+        
+    }))
+    
+    self.present(refreshAlert, animated: true, completion: nil)
+    
+    }
 }
 
 
 extension TrainerPackagesViewController : paymentDelegate {
+    
+    
     
     func pamentSuccessFully(resultDiuct:NSDictionary){
         self.sendTheBookingHistoryDetailsToServer(paymentDic: resultDiuct)
@@ -132,25 +183,24 @@ extension TrainerPackagesViewController : paymentDelegate {
     
     func sendTheBookingHistoryDetailsToServer(paymentDic:NSDictionary){
         print(paymentDic)
-        let userProfileData:UserProfile = CXAppConfig.sharedInstance.getTheUserDetails()
         
-     /*   let historyDic : NSMutableDictionary = NSMutableDictionary()
-        let address = "\(eventDetailsDic["Venue"]!)" + "," + "\(eventDetailsDic["City"]!)"
+        let userProfileData:UserProfile = CXAppConfig.sharedInstance.getTheUserDetails()
+        print(galleryDict)
+        let historyDic : NSMutableDictionary = NSMutableDictionary()
+        
         historyDic.setObject(paymentDic.value(forKey: "id")!, forKey: "paymentId" as NSCopying)
         historyDic.setObject(userProfileData.emailId!, forKey: "consumerEmail" as NSCopying)
-        historyDic.setObject(eventDetailsDic["Name"]!, forKey: "Event_Name" as NSCopying)
-        historyDic.setObject(self.ticketType!, forKey: "Event_Type" as NSCopying)
-        historyDic.setObject(eventDetailsDic["Image_URL"]!, forKey: "Event_Image_URL" as NSCopying)
-        historyDic.setObject("\(self.totalTicketsString!)", forKey: "No_of_Units" as NSCopying)
-        historyDic.setObject(address, forKey: "Address" as NSCopying)
-        historyDic.setObject(eventDetailsDic["Event Date"]!, forKey: "Event_timings" as NSCopying)
-        historyDic.setObject("\(self.totalAmountString!)", forKey: "amount" as NSCopying)
+        historyDic.setObject(self.selectedStore.sessionType, forKey: "Event_Name" as NSCopying)
+        historyDic.setObject("Session", forKey: "Event_Type" as NSCopying)
+        historyDic.setObject(galleryDict?.value(forKey: "address")!, forKey: "Address" as NSCopying)
+        historyDic.setObject(self.selectedStore.duration, forKey: "Event_timings" as NSCopying)
+        historyDic.setObject(paymentDic.value(forKey: "amount")!, forKey: "amount" as NSCopying)
         historyDic.setObject(CXAppConfig.sharedInstance.getAppMallID(), forKey: "mallId" as NSCopying)
         
         CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl() + CXAppConfig.sharedInstance.getcreateBookingHistoryByPIdUrl(), parameters: (historyDic as NSDictionary) as? [String : AnyObject]) { (responseDict) in
             
             print(responseDict)
-        }*/
+        }
         /*
          http://apps.storeongo.com:8081/MobileAPIs/createBookingHistoryByPId?paymentId=6bbf30d7ad694995b635bf459ab9278f&consumerEmail=chaitu.yeddla@gmail.com&Event_Name=Movie1&Event_Type=Entertainments&Event_Image_URL=&No_of_Units=3&Address=HYD&Event_timings=5pm-9pm&amount=670&mallId=4
          */

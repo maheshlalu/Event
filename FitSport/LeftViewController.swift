@@ -76,13 +76,9 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let revealController : SWRevealViewController  = self.revealViewController()
-        
-//        if indexPath == previousSelectedIndex as IndexPath {
-//            revealController.revealToggle(animated: true)
-//            return
-//        }
         previousSelectedIndex = indexPath as NSIndexPath
-        //self.navController.drawerToggle()
+        let userId = CXAppConfig.sharedInstance.getUserID()
+        print(userId)
         let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let itemName : String =  nameArray[indexPath.row]
         
@@ -113,19 +109,29 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
             revealController.pushFrontViewController(navCntl, animated: true)
             
         }else if itemName == "BOOKING HISTORY"{
-            let howToUse = storyBoard.instantiateViewController(withIdentifier: "BookingHistoryViewController") as! BookingHistoryViewController
-            let navCntl = UINavigationController(rootViewController: howToUse)
-            revealController.pushFrontViewController(navCntl, animated: true)
+
+            if userId == "" {
+                self.showAlertView()
+            }else{
+                let howToUse = storyBoard.instantiateViewController(withIdentifier: "BookingHistoryViewController") as! BookingHistoryViewController
+                let navCntl = UINavigationController(rootViewController: howToUse)
+                revealController.pushFrontViewController(navCntl, animated: true)
+            }
+
             
         }else if itemName == "FAQ" {
-            
-            let homeView = FAQViewController()
-            let navCntl = UINavigationController(rootViewController: homeView)
-            revealController.pushFrontViewController(navCntl, animated: true)
+            if userId == "" {
+                self.showAlertView()
+            }else{
+                let homeView = FAQViewController()
+                let navCntl = UINavigationController(rootViewController: homeView)
+                revealController.pushFrontViewController(navCntl, animated: true)
+            }
+
             
         }else if itemName == "SIGN OUT"{
             
-            showAlertView(message: "Are You Sure??", status: 1)
+            showAlertView(message: "Are you sure???", status: 1)
             
         }else if itemName == "SIGN IN"{
             let appDel = UIApplication.shared.delegate as! AppDelegate
@@ -186,6 +192,24 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
 
         UserProfile.mr_truncateAll()
         
+    }
+    
+    func showAlertView() {
+        
+        let alert = UIAlertController(title:"Please Login!!!", message:"Login", preferredStyle: UIAlertControllerStyle.alert)
+        let okAction = UIAlertAction(title: "Take Me to Login Page", style: UIAlertActionStyle.default) {
+            UIAlertAction in
+            let appDel = UIApplication.shared.delegate as! AppDelegate
+            appDel.applicationNavigationFlow()
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.destructive) {
+            UIAlertAction in
+        }
+        
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true, completion: nil)
     }
 
 }

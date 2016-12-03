@@ -50,29 +50,36 @@ class BookingHistoryViewController: UIViewController,UICollectionViewDelegate,UI
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BookingHistoryCollectionViewCell", for: indexPath)as? BookingHistoryCollectionViewCell
         
-        let dict = bookingHistoryArr[indexPath.item]
+        var dict = bookingHistoryArr[indexPath.item]
         
-        cell?.orderDate.text = dict["createdOn"] as? String
+        print(dict)
         
-        if (dict["Event_Image_URL"] as! String) != "" {
-            let url = NSURL(string: dict["Event_Image_URL"] as! String)
-            cell?.orderHistoryImageView.setImageWith(url as URL!, usingActivityIndicatorStyle: .gray)
+        if dict["Event_Type"] as! String == "Session"{
+            cell?.ticketsStakeView.isHidden = true
+            cell?.orderHistoryImageView.isHidden = true
+            
+        }else{
+            cell?.ticketsStakeView.isHidden = false
+            cell?.orderHistoryImageView.isHidden = false
+            if (dict["Event_Image_URL"] as! String) != "" {
+                let url = NSURL(string: dict["Event_Image_URL"] as! String)
+                cell?.orderHistoryImageView.setImageWith(url as URL!, usingActivityIndicatorStyle: .gray)
+            }
         }
-        
+        cell?.orderDate.text = dict["createdOn"] as? String
+
         cell?.orderNameLbl.text = dict["Event_Name"] as? String
         cell?.orderDateLbl.text = dict["createdAt"] as? String
         cell?.orderPlaceLbl.text = dict["Address"] as? String
         cell?.ticketsCountLbl.text = dict["No_of_Units"] as? String
         
-        cell?.orderStatusLbl.text = dict["status"] as? String!
-        
         let price: Float = Float((dict["amount"] as? String)!)!
         cell?.orderTotalAmountLbl.text = "₹ "+String(format: price == floor(price) ? "%.0f" : "%.1f", price)
         
-
         return cell!
         
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
         

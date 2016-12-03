@@ -21,15 +21,9 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <frame key="frameInset" width="320" height="89"/>
+                <frame key="frameInset" width="320" height="89.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="PMC-J6-yiy">
-                        <constraints>
-                            <constraint firstAttribute="height" constant="65" id="UkX-78-tjl"/>
-                            <constraint firstAttribute="width" constant="65" id="YZy-CV-dl0"/>
-                        </constraints>
-                    </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Hma-ty-27K">
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1-1 Session" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BTH-Fa-Rkm">
@@ -52,32 +46,14 @@
                             </label>
                         </subviews>
                     </stackView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="$65" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ld-YX-mwd">
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="68" id="3Mr-Ph-PFd"/>
-                            <constraint firstAttribute="height" constant="18" id="VVE-QG-dpz"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="13"/>
-                        <color key="textColor" red="0.98039215690000003" green="0.46666666670000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.6mi" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kyR-Nu-o4i">
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="68" id="AQ5-IB-IsX"/>
-                            <constraint firstAttribute="height" constant="16" id="gt6-wn-7z7"/>
-                        </constraints>
                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JPQ-2p-xbA" customClass="FloatRatingView" customModule="FitSport" customModuleProvider="target">
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="52" id="CmC-xV-fxT"/>
-                            <constraint firstAttribute="height" constant="11" id="GsB-74-5Jd"/>
-                        </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="rate"/>
                             <userDefinedRuntimeAttribute type="image" keyPath="fullImage" value="rateFilled"/>
@@ -98,36 +74,55 @@
                             <userDefinedRuntimeAttribute type="boolean" keyPath="floatRatings" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="74e-pM-n6R">
+                        <color key="backgroundColor" red="0.97647058819999999" green="0.46666666670000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="46" id="ao9-Zc-TjR"/>
+                            <constraint firstAttribute="height" constant="73" id="wCp-qW-6Lt"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="13"/>
+                        <state key="normal" title="Book">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="$65" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ld-YX-mwd">
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="13"/>
+                        <color key="textColor" red="0.98039215690000003" green="0.46666666670000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="JPQ-2p-xbA" firstAttribute="top" secondItem="1Ld-YX-mwd" secondAttribute="bottom" constant="2" id="6wl-wL-EHR"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="JPQ-2p-xbA" secondAttribute="trailing" constant="6" id="7kN-6i-WUi"/>
-                    <constraint firstItem="kyR-Nu-o4i" firstAttribute="top" secondItem="JPQ-2p-xbA" secondAttribute="bottom" constant="8" id="8JR-4q-Bhe"/>
-                    <constraint firstItem="Hma-ty-27K" firstAttribute="leading" secondItem="PMC-J6-yiy" secondAttribute="trailing" constant="8" id="8YP-VC-N8f"/>
-                    <constraint firstItem="1Ld-YX-mwd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="9" id="9Jq-dz-RzT"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="kyR-Nu-o4i" secondAttribute="bottom" constant="9" id="Aga-Gr-OQl"/>
-                    <constraint firstItem="kyR-Nu-o4i" firstAttribute="top" secondItem="JPQ-2p-xbA" secondAttribute="bottom" constant="8" id="K63-Yi-wPO"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="Hma-ty-27K" secondAttribute="bottom" constant="9" id="Nv1-8J-xLn"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="kyR-Nu-o4i" secondAttribute="trailing" constant="-2" id="OCN-d0-k4R"/>
-                    <constraint firstItem="PMC-J6-yiy" firstAttribute="centerY" secondItem="Hma-ty-27K" secondAttribute="centerY" id="T32-IQ-Ct4"/>
-                    <constraint firstItem="PMC-J6-yiy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="lBm-M8-yDK"/>
-                    <constraint firstItem="Hma-ty-27K" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="9" id="m5l-j0-v4g"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="1Ld-YX-mwd" secondAttribute="trailing" constant="-2" id="mAf-wD-ifk"/>
+                    <constraint firstItem="JPQ-2p-xbA" firstAttribute="leading" secondItem="Hma-ty-27K" secondAttribute="trailing" constant="38.5" id="4ES-te-ywx"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="74e-pM-n6R" secondAttribute="bottom" id="EBo-bv-Gil"/>
+                    <constraint firstItem="1Ld-YX-mwd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="9" id="Fcf-ov-LF1"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="74e-pM-n6R" secondAttribute="trailing" constant="-2" id="Ht1-Z2-BV0"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Hma-ty-27K" secondAttribute="bottom" id="Nv1-8J-xLn"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="kyR-Nu-o4i" secondAttribute="bottom" constant="9" id="QR8-OQ-6H5"/>
+                    <constraint firstItem="JPQ-2p-xbA" firstAttribute="top" secondItem="1Ld-YX-mwd" secondAttribute="bottom" constant="2" id="V3P-RP-med"/>
+                    <constraint firstItem="JPQ-2p-xbA" firstAttribute="top" secondItem="1Ld-YX-mwd" secondAttribute="bottom" constant="2" id="YzM-hh-2V1"/>
+                    <constraint firstItem="74e-pM-n6R" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="ZsU-7R-0Ao"/>
+                    <constraint firstItem="JPQ-2p-xbA" firstAttribute="top" secondItem="1Ld-YX-mwd" secondAttribute="bottom" constant="2" id="g70-Tr-zej"/>
+                    <constraint firstItem="Hma-ty-27K" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="m5l-j0-v4g"/>
+                    <constraint firstItem="Hma-ty-27K" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="ngf-XJ-h5B"/>
+                    <constraint firstItem="74e-pM-n6R" firstAttribute="leading" secondItem="JPQ-2p-xbA" secondAttribute="trailing" constant="8" id="oaT-TO-m2O"/>
+                    <constraint firstItem="74e-pM-n6R" firstAttribute="leading" secondItem="1Ld-YX-mwd" secondAttribute="trailing" constant="8" id="rAr-h1-qqr"/>
+                    <constraint firstItem="kyR-Nu-o4i" firstAttribute="top" secondItem="JPQ-2p-xbA" secondAttribute="bottom" constant="8" id="uHV-6k-1YO"/>
+                    <constraint firstItem="74e-pM-n6R" firstAttribute="leading" secondItem="kyR-Nu-o4i" secondAttribute="trailing" constant="8" id="xod-kb-QBp"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="packageSportsImage" destination="PMC-J6-yiy" id="g6L-AE-JzP"/>
+                <outlet property="bookBtn" destination="74e-pM-n6R" id="yVv-25-7uu"/>
                 <outlet property="rateView" destination="JPQ-2p-xbA" id="Y7H-gr-yPC"/>
                 <outlet property="sessionDurationLbl" destination="UMJ-II-ZBF" id="E6v-PF-MQm"/>
                 <outlet property="sessionPlaceLbl" destination="ox3-mG-P5a" id="3AZ-Sh-Hz7"/>
                 <outlet property="sessionPriceLbl" destination="1Ld-YX-mwd" id="v9U-pf-hyZ"/>
                 <outlet property="sessionTypeLbl" destination="BTH-Fa-Rkm" id="jjz-1t-YPV"/>
             </connections>
-            <point key="canvasLocation" x="-121" y="-254"/>
+            <point key="canvasLocation" x="-444" y="-708"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="placeholder" width="180" height="180"/>
         <image name="rate" width="40" height="40"/>
         <image name="rateFilled" width="40" height="40"/>
     </resources>

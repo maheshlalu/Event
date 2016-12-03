@@ -226,7 +226,7 @@ class EventsDetailViewController: UIViewController,UITableViewDataSource,UITable
         print(userId)
         if userId == "" {
             
-            self.showAlertView(status: 1)
+            self.showAlertView()
             
         }else{
             
@@ -261,19 +261,21 @@ class EventsDetailViewController: UIViewController,UITableViewDataSource,UITable
         }
     }
     
-    func showAlertView(status:Int) {
-        let alert = UIAlertController(title:"Please Login!!!", message:"Login to make payment", preferredStyle: UIAlertControllerStyle.alert)
-        let okAction = UIAlertAction(title: "Okay", style: UIAlertActionStyle.default) {
+    func showAlertView() {
+        
+        let alert = UIAlertController(title:"Please Login!!!", message:"Login to continue payment", preferredStyle: UIAlertControllerStyle.alert)
+        let okAction = UIAlertAction(title: "Take Me to Login Page", style: UIAlertActionStyle.default) {
             UIAlertAction in
-            
-            if status == 1 {
-                let appDel = UIApplication.shared.delegate as! AppDelegate
-                appDel.applicationNavigationFlow()
-            }else{
-                
-            }
+            let appDel = UIApplication.shared.delegate as! AppDelegate
+            appDel.applicationNavigationFlow()
         }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.destructive) {
+            UIAlertAction in
+        }
+        
         alert.addAction(okAction)
+        alert.addAction(cancelAction)
         self.present(alert, animated: true, completion: nil)
     }
     
