@@ -26,12 +26,13 @@ class RequestedQuestionsViewController: UIViewController,UICollectionViewDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.faqCollectionView.translatesAutoresizingMaskIntoConstraints = false
         
         self.faqCollectionView.reloadData()
         let nib = UINib(nibName: "QuestionChatCollectionViewCell", bundle: nil)
         self.faqCollectionView.register(nib, forCellWithReuseIdentifier: "QuestionChatCollectionViewCell")
         self.faqCollectionView.backgroundColor = UIColor.clear
-        self.faqCollectionView.contentSize = CGSize(width: 320, height: 138)
+        self.faqCollectionView.contentSize = CGSize(width: 320, height: 94)
         // Do any additional setup after loading the view.v
         
         if isRequestedQuestions{
@@ -60,6 +61,8 @@ class RequestedQuestionsViewController: UIViewController,UICollectionViewDelegat
         cell?.questionTxtView.adjustsFontForContentSizeCategory = true
         cell?.answerTxtView.adjustsFontForContentSizeCategory = true
         cell?.layer.cornerRadius = 4
+        
+//        cell?.translatesAutoresizingMaskIntoConstraints = true
         
         if isRequestedQuestions{
             cell?.notYetAnswered.isHidden = true
@@ -121,7 +124,7 @@ class RequestedQuestionsViewController: UIViewController,UICollectionViewDelegat
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: self.view.frame.size.width/1-9,height: 138)
+        return CGSize(width: self.view.frame.size.width/1-9,height: 94)
         
     }
     

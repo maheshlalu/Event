@@ -19,9 +19,16 @@ class QuestionChatCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        
+        self.questionTxtView.translatesAutoresizingMaskIntoConstraints = false
+        self.answerTxtView.translatesAutoresizingMaskIntoConstraints = false
+        self.notYetAnswered.translatesAutoresizingMaskIntoConstraints = false
+        self.clickToAnswerBtn.translatesAutoresizingMaskIntoConstraints = false
+        
         QuestionPic.layer.cornerRadius = 15
         answerPic.layer.cornerRadius = 15
 
     }
 
+    
 }

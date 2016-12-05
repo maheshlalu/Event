@@ -145,7 +145,9 @@ class SignInViewController: UIViewController,GIDSignInUIDelegate{
         if !boolValue {
             let storyBoard = UIStoryboard(name: "PagerMain", bundle: Bundle.main)
             let trainer = storyBoard.instantiateViewController(withIdentifier: "UserDataViewController") as! UserDataViewController
-            self.navigationController?.pushViewController(trainer, animated: true)
+            self.navigationController?.isNavigationBarHidden = false
+            self.present(trainer, animated: true, completion: nil)
+            //self.navigationController?.pushViewController(trainer, animated: true)
 
         }else{
             //Navigate To Home Screen

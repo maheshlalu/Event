@@ -235,7 +235,7 @@ extension TrainerPackagesViewController : paymentDelegate {
         historyDic.setObject(userProfileData.emailId!, forKey: "consumerEmail" as NSCopying)
         historyDic.setObject(self.selectedStore.sessionType, forKey: "Event_Name" as NSCopying)
         historyDic.setObject("Session", forKey: "Event_Type" as NSCopying)
-        historyDic.setObject(galleryDict?.value(forKey: "address")!, forKey: "Address" as NSCopying)
+        historyDic.setObject(galleryDict!.value(forKey: "address")!, forKey: "Address" as NSCopying)
         historyDic.setObject(self.selectedStore.duration, forKey: "Event_timings" as NSCopying)
         historyDic.setObject(paymentDic.value(forKey: "amount")!, forKey: "amount" as NSCopying)
         historyDic.setObject(CXAppConfig.sharedInstance.getAppMallID(), forKey: "mallId" as NSCopying)

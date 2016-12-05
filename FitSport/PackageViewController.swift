@@ -97,6 +97,15 @@ class PackageViewController: UIViewController,FloatRatingViewDelegate,UIGestureR
     
     
     func handleTap(){
+        
+        let userId = CXAppConfig.sharedInstance.getUserID()
+        print(userId)
+        if userId == "" {
+            
+            self.showAlertView()
+            
+        }else{
+        
         print("Happy")
         
         let popup = PopupController
@@ -121,7 +130,7 @@ class PackageViewController: UIViewController,FloatRatingViewDelegate,UIGestureR
             print("pop up closed")
         }
         popup.show(container)
-        
+        }
     }
     
     @IBAction func shareAction(_ sender: AnyObject) {
@@ -133,6 +142,24 @@ class PackageViewController: UIViewController,FloatRatingViewDelegate,UIGestureR
     
     @IBAction func askMeQstBtn(_ sender: AnyObject) {
         self.handleTap()
+    }
+    
+    func showAlertView() {
+        
+        let alert = UIAlertController(title:"Please Login!!!", message:"Login to continue payment", preferredStyle: UIAlertControllerStyle.alert)
+        let okAction = UIAlertAction(title: "Take Me to Login Page", style: UIAlertActionStyle.default) {
+            UIAlertAction in
+            let appDel = UIApplication.shared.delegate as! AppDelegate
+            appDel.applicationNavigationFlow()
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.destructive) {
+            UIAlertAction in
+        }
+        
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true, completion: nil)
     }
     
     

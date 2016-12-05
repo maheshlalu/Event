@@ -17,17 +17,12 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="QuestionChatCollectionViewCell" customModule="FitSport" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="323" height="138"/>
+            <rect key="frame" x="0.0" y="0.0" width="323" height="94"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="323" height="138"/>
+                <rect key="frame" x="0.0" y="0.0" width="323" height="94"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="right" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9Y-JC-yjh">
-                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
-                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                    </textView>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZOK-M5-wxL">
                         <color key="textColor" red="0.98039215690000003" green="0.46666666670000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
@@ -39,6 +34,11 @@
                             <constraint firstAttribute="width" constant="30" id="w1A-Lj-v1R"/>
                         </constraints>
                     </imageView>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="right" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9Y-JC-yjh">
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ngN-nY-Khu">
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="Wj3-7x-0MZ"/>
@@ -73,7 +73,7 @@
                 <constraint firstItem="ZOK-M5-wxL" firstAttribute="leading" secondItem="9iT-2x-nh8" secondAttribute="trailing" constant="2" id="nqD-kF-9n2"/>
                 <constraint firstItem="X9Y-JC-yjh" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="sra-hs-upN"/>
             </constraints>
-            <size key="customSize" width="323" height="133"/>
+            <size key="customSize" width="323" height="89"/>
             <connections>
                 <outlet property="QuestionPic" destination="9iT-2x-nh8" id="VlS-PW-XmA"/>
                 <outlet property="answerPic" destination="ngN-nY-Khu" id="QVN-XM-PgK"/>
@@ -82,7 +82,7 @@
                 <outlet property="notYetAnswered" destination="qjs-Ot-amP" id="cA8-jd-a9P"/>
                 <outlet property="questionTxtView" destination="ZOK-M5-wxL" id="svv-oA-Dg1"/>
             </connections>
-            <point key="canvasLocation" x="-1221.5" y="-189"/>
+            <point key="canvasLocation" x="-1466.5" y="-392"/>
         </collectionViewCell>
     </objects>
 </document>
